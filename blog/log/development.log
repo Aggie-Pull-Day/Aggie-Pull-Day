@@ -866,3 +866,36 @@ Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:16:52 +0200
   
 ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
   
+Started GET "/" for 127.0.0.1 at 2022-01-03 12:45:59 +0200
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/reidneason/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/reidneason/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.1ms | Allocations: 646)
+Completed 200 OK in 22ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 6288)
+
+
+Started GET "/" for 127.0.0.1 at 2022-01-03 12:46:02 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/reidneason/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/reidneason/.rbenv/versions/3.0.0/lib/ruby/gems/3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.8ms | Allocations: 276)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 1205)
+
+
+Started GET "/articles" for 127.0.0.1 at 2022-01-03 12:46:02 +0200
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 151)
+  Rendered layout layouts/application.html.erb (Duration: 186.0ms | Allocations: 62846)
+Completed 200 OK in 189ms (Views: 187.9ms | ActiveRecord: 0.0ms | Allocations: 64242)
+
+
+Started GET "/articles" for 127.0.0.1 at 2022-01-03 12:46:03 +0200
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 4229)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 4553)
+
+
