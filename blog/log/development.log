@@ -679,3 +679,190 @@ Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 01:45:03 +0200
   
 ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
   
+Started GET "/student" for ::1 at 2022-01-03 01:58:35 +0200
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 1.7ms | Allocations: 498)
+  Rendered layout layouts/application.html.erb (Duration: 209.7ms | Allocations: 83272)
+Completed 200 OK in 224ms (Views: 215.7ms | ActiveRecord: 0.0ms | Allocations: 87823)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 01:58:36 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-03 02:03:48 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.9ms | Allocations: 275)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 4203)
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 5477)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:03:48 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-03 02:05:46 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.6ms | Allocations: 292)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 5084)
+Completed 200 OK in 10ms (Views: 9.2ms | Allocations: 6349)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:05:46 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-03 02:07:45 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.8ms | Allocations: 320)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 5111)
+Completed 200 OK in 12ms (Views: 11.5ms | Allocations: 6371)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:07:46 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-03 02:08:04 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 1.3ms | Allocations: 316)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 5122)
+Completed 200 OK in 10ms (Views: 9.4ms | Allocations: 6388)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:08:04 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-03 02:08:26 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 1.3ms | Allocations: 316)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 5114)
+Completed 200 OK in 10ms (Views: 8.9ms | Allocations: 6385)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:08:26 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-03 02:08:31 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.5ms | Allocations: 315)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 5106)
+Completed 200 OK in 9ms (Views: 7.8ms | Allocations: 6366)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:08:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-03 02:11:05 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.7ms | Allocations: 390)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 5181)
+Completed 200 OK in 11ms (Views: 9.5ms | Allocations: 6441)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:11:05 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-03 02:11:32 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.6ms | Allocations: 405)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 5211)
+Completed 200 OK in 9ms (Views: 7.6ms | Allocations: 6477)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:11:32 +0200
+Started GET "/logo/aggie-pull-day-logo" for ::1 at 2022-01-03 02:11:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/logo/aggie-pull-day-logo"):
+  
+Started GET "/student" for ::1 at 2022-01-03 02:12:33 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.6ms | Allocations: 391)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 5188)
+Completed 200 OK in 8ms (Views: 7.4ms | Allocations: 6453)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:12:33 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-03 02:14:45 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.6ms | Allocations: 397)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 5189)
+Completed 200 OK in 8ms (Views: 7.4ms | Allocations: 6454)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:14:45 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-03 02:15:50 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.6ms | Allocations: 403)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 5211)
+Completed 200 OK in 10ms (Views: 9.2ms | Allocations: 6476)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:15:51 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-03 02:15:59 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 4527)
+Completed 200 OK in 5ms (Views: 4.5ms | Allocations: 4850)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:15:59 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-03 02:16:52 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.7ms | Allocations: 401)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 5198)
+Completed 200 OK in 11ms (Views: 9.7ms | Allocations: 6462)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-03 02:16:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
