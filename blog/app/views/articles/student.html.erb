@@ -7,7 +7,7 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <%# <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> %>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -16,56 +16,79 @@
   <body>
     
     <!-- Image and text -->
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">
-    <img src="/logo/logo-1024x768.png" width="30" height="30" class="d-inline-block align-top" alt="">
+<nav class="navbar navbar-dark" style="background-color: #500000">
+  <a class="navbar-brand mr-left" href="#">
+    <img src="Aggie-Pull-Day/logo/logo-1024x768.png" width="30" height="30" class="d-inline-block align-top" alt="">
     Aggie Ticket Pull
   </a>
+  <div class="navbar-nav mr-right">
+    <div>
+        <button id="loginDrop" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Login
+        </button>
+        <div class="dropdown-menu" aria-labelledby="loginDrop">
+          <a class="dropdown-item" href="#">Student Login</a>
+          <a class="dropdown-item" href="#">Admin Login</a>
+        </div>
+      </div>
+  </div>
 </nav>
 
+  <div class="container">
   <%# This will all become a loop once we are querying from the database %>
-  <div id="accordion">
+  <div id="accordion" class="mx-auto">
   <div class="card">
-    <div class="card-header" id="headingOne">
+    <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="background-color: #732F2F">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          TAMU vs. Alabama
+        <button class="btn btn-link">
+          <h4 class="mb-0" style="color: white">TAMU vs. Alabama</h4>
         </button>
       </h5>
     </div>
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-      <div class="float-container">
+        <div class="float-container">
 
-  <div class="float-child">
-  Status: Joined group
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
+          <div class="float-child">
+            <div>
+              <h6 class="mb-0 d-inline">Status:</h6>
+              <h4 class="d-inline"><span class="badge badge-primary">Ready to Pull</span></h4>
+            </div>
+            <div>
+              <h6 class="mb-0 d-inline">Overall Classification:</h6>
+              <b class ="d-inline">U4</b>
+            </div>
+            <div>
+              <h6 class="mb-0 d-inline">Beginning Pull Date:</h6>
+              <b class ="d-inline">Monday, October 8th</b>
+            </div>
+            <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Classification</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark Otto</td>
+              <td>U4</td>
       <td>mark@tamu.edu</td>
     </tr>
     <tr>
       <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
+      <td>Jacob Thornton</td>
+      <td>U4</td>
       <td>jacob@tamu.edu</td>
     </tr>
     <tr>
       <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
+      <td>Larry Bird</td>
+      <td>U4</td>
       <td>larry@tamu.edu</td>
     </tr>
   </tbody>
@@ -73,44 +96,44 @@
   </div>
   
   <div class="float-child">
-    <button type="button" class="btn btn-success">Add to group</button>
-    <button type="button" class="btn btn-warning">Remove from group</button>
-    <button type="button" class="btn btn-danger">Leave group</button>
+      <div>
+        <button type="button" class="btn mt-5 mb-5" style="background-color: #500000; color: #ffffff" disabled>Create Group</button>
+      </div>
+      <div>
+        <button id="btnGroupDrop1" type="button" style="background-color: #5B6236" class="btn btn-secondary dropdown-toggle mt-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Add to Group
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <a class="dropdown-item" href="#">Add Emails</a>
+          <a class="dropdown-item" href="#">Copy Invite Link</a>
+        </div>
+      </div>
+      <div>
+        <button type="button" class="btn mt-3" style="background-color: #744F28; color: #ffffff">Remove from Group</button>
+      </div>
+      <div>
+        <button type="button" class="btn mt-5" style="background-color: #afafaf">Leave Group</button>
+      </div>
   </div>
-  
-</div>
       </div>
     </div>
   </div>
   <div class="card">
-    <div class="card-header" id="headingTwo">
+    <div class="card-header" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background-color: #732F2F">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          TAMU vs. South Carolina
+        <button class="btn btn-link collapsed">
+          <h4 class="mb-0" style="color: white">TAMU vs. South Carolina</h4>
         </button>
       </h5>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        
       </div>
     </div>
   </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          TAMU vs. LSU
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
+
   </div>
-</div>
 
 </body>
 </html>
@@ -126,6 +149,7 @@
     float: left;
     padding: 20px;
 }  
+
 
 button { display: block; }
 
