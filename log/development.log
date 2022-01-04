@@ -1,0 +1,521 @@
+Started GET "/admin" for ::1 at 2022-01-04 12:35:24 +0200
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1344)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 6472)
+Completed 200 OK in 30ms (Views: 21.7ms | ActiveRecord: 0.0ms | Allocations: 11023)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:35:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:35:27 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2957)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 3285)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:35:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/" for ::1 at 2022-01-04 12:35:28 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.0ms | Allocations: 279)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 1262)
+
+
+Started GET "/articles" for ::1 at 2022-01-04 12:35:30 +0200
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 365)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3626)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4989)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:35:30 +0200
+Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 12:35:30 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets"):
+  
+Started GET "/articles" for ::1 at 2022-01-04 12:35:41 +0200
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2990)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 3320)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:35:41 +0200
+Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 12:35:41 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
+  
+Started GET "/" for ::1 at 2022-01-04 12:35:41 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.8ms | Allocations: 625)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 2801)
+
+
+Started GET "/articles" for ::1 at 2022-01-04 12:35:42 +0200
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 2989)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 3314)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:35:42 +0200
+Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 12:35:42 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
+  
+Started GET "/articles" for ::1 at 2022-01-04 12:36:05 +0200
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2989)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 3313)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:36:05 +0200
+Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 12:36:05 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
+  
+Started GET "/" for ::1 at 2022-01-04 12:36:06 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 295)
+
+
+Started GET "/student" for ::1 at 2022-01-04 12:36:07 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.9ms | Allocations: 651)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 3603)
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 4027)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:36:07 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-04 12:36:29 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2956)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 3280)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:36:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/" for ::1 at 2022-01-04 12:36:30 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 294)
+
+
+Started GET "/articles" for ::1 at 2022-01-04 12:36:31 +0200
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 2989)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 3313)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:36:31 +0200
+Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 12:36:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:36:31 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 4.7ms | Allocations: 4543)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 7791)
+Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 9675)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:36:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:36:39 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:48:19 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1055)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 4282)
+Completed 200 OK in 19ms (Views: 16.4ms | Allocations: 5545)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:48:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:48:21 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:48:29 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2956)
+Completed 200 OK in 4ms (Views: 2.9ms | Allocations: 3279)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:48:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:49:30 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1054)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 4281)
+Completed 200 OK in 7ms (Views: 6.1ms | Allocations: 5545)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:49:30 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:49:42 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1054)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 4281)
+Completed 200 OK in 7ms (Views: 6.0ms | Allocations: 5545)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:49:42 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:50:01 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1079)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 4306)
+Completed 200 OK in 7ms (Views: 6.0ms | Allocations: 5571)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:50:01 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:50:18 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1057)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 4284)
+Completed 200 OK in 7ms (Views: 5.9ms | Allocations: 5544)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:50:18 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:50:44 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1077)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 4304)
+Completed 200 OK in 7ms (Views: 6.4ms | Allocations: 5569)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:50:44 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:50:51 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1059)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 4286)
+Completed 200 OK in 6ms (Views: 5.3ms | Allocations: 5550)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:50:51 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:52:35 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1054)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 4281)
+Completed 200 OK in 8ms (Views: 6.7ms | Allocations: 5547)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:52:35 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:52:42 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1058)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 4285)
+Completed 200 OK in 8ms (Views: 6.6ms | Allocations: 5545)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:52:42 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:53:16 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1063)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 4290)
+Completed 200 OK in 6ms (Views: 5.5ms | Allocations: 5555)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:53:16 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:54:04 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1078)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 4305)
+Completed 200 OK in 9ms (Views: 7.7ms | Allocations: 5571)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:54:04 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/" for ::1 at 2022-01-04 12:54:09 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.2ms | Allocations: 274)
+Completed 200 OK in 11ms (Views: 9.5ms | Allocations: 1171)
+
+
+Started GET "/student" for ::1 at 2022-01-04 12:54:09 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.8ms | Allocations: 646)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3598)
+Completed 200 OK in 6ms (Views: 4.4ms | Allocations: 4022)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:54:09 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/articles" for ::1 at 2022-01-04 12:54:29 +0200
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 351)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 3336)
+Completed 200 OK in 5ms (Views: 3.8ms | Allocations: 3783)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:54:29 +0200
+Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 12:54:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
+  
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:54:40 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:54:40 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-04 12:58:20 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 2956)
+Completed 200 OK in 5ms (Views: 4.2ms | Allocations: 3277)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:58:20 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-04 12:58:21 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2956)
+Completed 200 OK in 4ms (Views: 3.2ms | Allocations: 3277)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:58:21 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/" for ::1 at 2022-01-04 12:58:21 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 7)
+Completed 200 OK in 1ms (Views: 0.8ms | Allocations: 292)
+
+
+Started GET "/admin" for ::1 at 2022-01-04 12:58:22 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2956)
+Completed 200 OK in 3ms (Views: 2.3ms | Allocations: 3277)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:58:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 12:58:23 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2956)
+Completed 200 OK in 3ms (Views: 2.2ms | Allocations: 3277)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:58:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/admin" for ::1 at 2022-01-04 13:05:08 +0200
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1344)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 6374)
+Completed 200 OK in 30ms (Views: 23.9ms | ActiveRecord: 0.0ms | Allocations: 10925)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 13:05:08 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/" for ::1 at 2022-01-04 13:05:14 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.2ms | Allocations: 280)
+Completed 200 OK in 20ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 1265)
+
+
+Started GET "/student" for ::1 at 2022-01-04 13:05:14 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 3.2ms | Allocations: 655)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 3882)
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.0ms | Allocations: 5151)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 13:05:14 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/student" for ::1 at 2022-01-04 13:05:18 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2957)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 3284)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 13:05:18 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/" for ::1 at 2022-01-04 13:05:19 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.1ms | Allocations: 274)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 1174)
+
+
+Started GET "/articles" for ::1 at 2022-01-04 13:05:22 +0200
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 361)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 3347)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms | Allocations: 3806)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 13:05:22 +0200
+Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 13:05:22 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
+  
