@@ -1,28 +1,58 @@
-<!DOCTYPE html lang="en-us">
+<!DOCTYPE html lang="en">
 <html>
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <%# Required meta tags %>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <%# Bootstrap %>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Aggie Ticket Pull</title>
-  </head>
-  <body>
-    <div class="jumbotron">
-      <h1>Hello, Rails!</h1>
-      <p>WE DID IT BOYS</p>
-    </div>
-    <div class="container">
-    </div>
-  </body>
-</div>
-</body>
+        <%# JavaScript %>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+        <title>Aggie Ticket Pull | Home</title>
+    </head>
+    <body>
+        <%# Navbar at top of page %>
+        <nav class="navbar navbar-expand navbar-dark" style="background-color: rgb(80, 0, 0);">
+            <%# Logo and home page route %>
+            <a class="navbar-brand" href="#">
+                <img src="./Aggie-Pull-Day/logo/logo-1024x768.png" height="50" alt="Aggie Ticket Pull logo showing a maroon ticket stub">
+                Aggie Pull Day
+            </a>
+            <%# Login dropdown button %>
+            <div class="navbar-nav nav-item dropdown ml-auto">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: rgb(112, 112, 112);">
+                    Login
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Student</a>
+                    <a class="dropdown-item" href="#">Admin</a>
+                </div>
+            </div>
+        </nav>
+
+        <%# Kyle field image section (div class="ml-auto") %>
+        <div class="ml-auto">
+            <img src="./Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" class="img-fluid" style="opacity: 0.2;" alt="">
+        </div>
+
+        <%# Ticket Pull Times %>
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Featured
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Grad Students & Seniors | 8am - 5pm | Monday</li>
+                <li class="list-group-item">Juniors | 8am - 5pm | Tuesday</li>
+                <li class="list-group-item">Sohpomores | 8am - 5pm | Wednesday</li>
+                <li class="list-group-item">Freshmen | 8am - 5pm | Thursday</li>
+                <li class="list-group-item">All classes (if available)* | 8am - 5pm | Friday</li>
+                <li class="list-group-item">Walk-up (if available)** | 8am - 5pm | Friday</li>
+            </ul>
+        </div>
+    </body>
 </html>
-
