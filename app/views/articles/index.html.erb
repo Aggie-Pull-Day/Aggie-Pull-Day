@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <%# Bootstrap %>
+        <%# Bootstrap v4.0 %>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
         <%# JavaScript %>
@@ -13,46 +13,119 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+        <style>
+            .float-container {
+                padding: 20px;
+            }
+            
+            .float-child {
+                width: 50%;
+                float: left;
+                padding: 20px;
+            }
+        </style>
+
         <title>Aggie Ticket Pull | Home</title>
     </head>
     <body>
-        <%# Navbar at top of page %>
-        <nav class="navbar navbar-expand navbar-dark" style="background-color: rgb(80, 0, 0);">
-            <%# Logo and home page route %>
-            <a class="navbar-brand" href="#">
-                <img src="./Aggie-Pull-Day/logo/logo-1024x768.png" height="50" alt="Aggie Ticket Pull logo showing a maroon ticket stub">
-                Aggie Pull Day
-            </a>
-            <%# Login dropdown button %>
-            <div class="navbar-nav nav-item dropdown ml-auto">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: rgb(112, 112, 112);">
-                    Login
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Student</a>
-                    <a class="dropdown-item" href="#">Admin</a>
+        <%# Main Navigation %>
+        <header>
+            <%# Navbar %>
+            <nav class="navbar navbar-expand navbar-dark" style="background-color: rgb(80, 0, 0);">
+                <%# Navbar Brand %>
+                <a class="navbar-brand" href="#">
+                    <img src="./logo/logo-1024x768.png" height="50" alt="Aggie Ticket Pull logo showing a maroon ticket stub">
+                    Aggie Pull Day
+                </a>
+                <%# Navbar Login %>
+                <div class="navbar-nav nav-item dropdown ml-auto">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: rgb(112, 112, 112);">
+                        Login
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Student</a>
+                        <a class="dropdown-item" href="#">Admin</a>
+                    </div>
+                </div>
+            </nav>
+            <%# Navbar %>
+        </header>
+        <%# Main Navigation %>
+
+        <%# Main Layout %>
+        <main>
+            <%# Background Image %>
+            <div class="has-bg-img" style="background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(/kyle-field-westside-view.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh;">
+                <div class="float-container">
+                    <%# Ticket Pull Times %>
+                    <div class="float-child">  
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-header">Ticket Pull Times</div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Grad Students & Seniors | 8am - 5pm | Monday</li>
+                                <li class="list-group-item">Juniors | 8am - 5pm | Tuesday</li>
+                                <li class="list-group-item">Sophomores | 8am - 5pm | Wednesday</li>
+                                <li class="list-group-item">Freshmen | 8am - 5pm | Thursday</li>
+                                <li class="list-group-item">All classes (if available)* | 8am - 5pm | Friday</li>
+                                <li class="list-group-item">Walk-up (if available)** | 8am - 5pm | Friday</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <%# Ticket Pull Times %>
+
+                    <%# Football Games Table %>
+                    <div class="float-child">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th colspan="5" style="text-align: center;">2022 Season</th>
+                                    </tr>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Opponent</th>
+                                        <th scope="col">Location</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%# Game 1 %>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Sam Houston</td>
+                                        <td>Bryan-College Station / Kyle Field</td>
+                                        <td>Sep.3 (Sat)</td>
+                                        <td>TBD</td>
+                                    </tr>
+                                    <%# Game 1 %>
+                                    <%# Game 2 %>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Appalachian State</td>
+                                        <td>Bryan-College Station / Kyle Field</td>
+                                        <td>Sep.10 (Sat)</td>
+                                        <td>TBD</td>
+                                    </tr>
+                                    <%# Game 2 %>
+                                    <%# Game 3 %>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Miami</td>
+                                        <td>Bryan-College Station / Kyle Field</td>
+                                        <td>Sep.17 (Sat)</td>
+                                        <td>TBD</td>
+                                    </tr>
+                                    <%# Game 3 %>
+                                </tbody>
+                            </table>
+                        <div>
+                    </div>
+                    <%# Football Games Table %>
                 </div>
             </div>
-        </nav>
-
-        <%# Kyle field image section (div class="ml-auto") %>
-        <div class="ml-auto">
-            <img src="./Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" class="img-fluid" style="opacity: 0.2;" alt="">
-        </div>
-
-        <%# Ticket Pull Times %>
-        <div class="card" style="width: 18rem;">
-            <div class="card-header">
-                Featured
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Grad Students & Seniors | 8am - 5pm | Monday</li>
-                <li class="list-group-item">Juniors | 8am - 5pm | Tuesday</li>
-                <li class="list-group-item">Sohpomores | 8am - 5pm | Wednesday</li>
-                <li class="list-group-item">Freshmen | 8am - 5pm | Thursday</li>
-                <li class="list-group-item">All classes (if available)* | 8am - 5pm | Friday</li>
-                <li class="list-group-item">Walk-up (if available)** | 8am - 5pm | Friday</li>
-            </ul>
-        </div>
+            <%# Background Image %>
+        </main>
+        <%# Main Layout %>
     </body>
 </html>
