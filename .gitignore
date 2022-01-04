@@ -1,1 +1,4 @@
 /blog/tmp/cache/*
+/blog/public/assets/*
+blog/log/development.log
+blog/tmp/pids/server/pid
