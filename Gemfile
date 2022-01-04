@@ -10,7 +10,7 @@ gem "rails", "~> 6.1.4.4"
 gem "sprockets-rails"
 
 # For PostgreSQL integration
-gem "pg", "~> 0.18.4"
+gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
