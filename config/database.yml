@@ -14,7 +14,7 @@ development:
   adapter: postgresql
   database: aggiepullday_development
   username: aggiepullday
-  password: <%= ENV["AGGIEPULLDAY_DATABASE_PASSWORD"] %>
+  password: GigEm2022
   pool: 5
   timeout: 5000
 
@@ -25,7 +25,7 @@ test:
   adapter: postgresql
   database: aggiepullday_test
   username: aggiepullday
-  password: <%= ENV["AGGIEPULLDAY_DATABASE_PASSWORD"] %>
+  password: GigEm2022
   pool: 5
   timeout: 5000
 

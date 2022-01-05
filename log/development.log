@@ -1,521 +1,478 @@
-Started GET "/admin" for ::1 at 2022-01-04 12:35:24 +0200
-  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1344)
-  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 6472)
-Completed 200 OK in 30ms (Views: 21.7ms | ActiveRecord: 0.0ms | Allocations: 11023)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:35:24 +0200
+Started GET "/admin" for ::1 at 2022-01-05 12:06:42 +0200
   
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+ActiveRecord::ConnectionNotEstablished (connection to server on socket "/tmp/.s.PGSQL.5432" failed: No such file or directory
+	Is the server running locally and accepting connections on that socket?
+):
   
-Started GET "/admin" for ::1 at 2022-01-04 12:35:27 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
-  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2957)
-Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 3285)
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:87:in `rescue in new_client'
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.0) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.0) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.0) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.0) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.0) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.0) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.0) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.0) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.0) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.0) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.0) lib/rails/engine.rb:530:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/admin" for ::1 at 2022-01-05 12:06:43 +0200
+  
+ActiveRecord::ConnectionNotEstablished (connection to server on socket "/tmp/.s.PGSQL.5432" failed: No such file or directory
+	Is the server running locally and accepting connections on that socket?
+):
+  
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:87:in `rescue in new_client'
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.0) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.0) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.0) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.0) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.0) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.0) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.0) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.0) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.0) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.0) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.0) lib/rails/engine.rb:530:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/admin" for ::1 at 2022-01-05 12:30:40 +0200
+  
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: aggiepullday.
 
+Please check your database configuration to ensure the username/password are valid.
+):
+  
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.0) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.0) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.0) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.0) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.0) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.0) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.0) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.0) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.0) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.0) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.0) lib/rails/engine.rb:530:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2022-01-05 12:48:42 +0200
+  
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: aggiepullday.
 
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:35:28 +0200
+Please check your database configuration to ensure the username/password are valid.
+):
   
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.0) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.0) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.0) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.0) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.0) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.0) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.0) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.0) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.0) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.0) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.0) lib/rails/engine.rb:530:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2022-01-05 12:48:47 +0200
   
-Started GET "/" for ::1 at 2022-01-04 12:35:28 +0200
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: aggiepullday.
+
+Please check your database configuration to ensure the username/password are valid.
+):
+  
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.0) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.0) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.0) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.0) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.0) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.0) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.0) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.0) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.0) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.0) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.0) lib/rails/engine.rb:530:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/admin" for ::1 at 2022-01-05 12:48:48 +0200
+  
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: aggiepullday.
+
+Please check your database configuration to ensure the username/password are valid.
+):
+  
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:83:in `rescue in new_client'
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:77:in `new_client'
+activerecord (7.0.0) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `public_send'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:656:in `new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:700:in `checkout_new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:679:in `try_to_checkout_new_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:640:in `acquire_connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:341:in `checkout'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:181:in `connection'
+activerecord (7.0.0) lib/active_record/connection_adapters/abstract/connection_handler.rb:211:in `retrieve_connection'
+activerecord (7.0.0) lib/active_record/connection_handling.rb:313:in `retrieve_connection'
+activerecord (7.0.0) lib/active_record/connection_handling.rb:280:in `connection'
+activerecord (7.0.0) lib/active_record/migration.rb:613:in `connection'
+activerecord (7.0.0) lib/active_record/migration.rb:608:in `build_watcher'
+activerecord (7.0.0) lib/active_record/migration.rb:590:in `block in call'
+activerecord (7.0.0) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.0) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.0) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.0) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.0) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.0) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.0) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.0) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.0) lib/rails/engine.rb:530:in `call'
+puma (5.5.2) lib/puma/configuration.rb:249:in `call'
+puma (5.5.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.5.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.5.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.5.2) lib/puma/server.rb:447:in `process_client'
+puma (5.5.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[35m (154.5ms)[0m  [1m[35mCREATE DATABASE "aggiepullday_development" ENCODING = 'utf8'[0m
+  [1m[35m (58.1ms)[0m  [1m[35mCREATE DATABASE "aggiepullday_test" ENCODING = 'utf8'[0m
+  [1m[35m (19.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3219348097142779560)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGames (20220105092849)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "games" ("id" integer, "opponent" character varying, "date" timestamp, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220105092849"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-01-05 10:57:10.256680"], ["updated_at", "2022-01-05 10:57:10.256680"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3219348097142779560)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-01-05 12:57:57 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Processing by Rails::WelcomeController#index as HTML
-  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.0ms | Allocations: 279)
-Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 1262)
+  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-7.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-7.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.4ms | Allocations: 628)
+Completed 200 OK in 20ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 6193)
 
 
-Started GET "/articles" for ::1 at 2022-01-04 12:35:30 +0200
+Started GET "/" for ::1 at 2022-01-05 12:58:01 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-7.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-7.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 357)
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 1236)
+
+
+Started GET "/admin" for ::1 at 2022-01-05 12:58:02 +0200
+  
+ActionController::RoutingError (uninitialized constant ArticlesController
+Did you mean?  AbstractController):
+  
+Started GET "/articles" for ::1 at 2022-01-05 13:01:32 +0200
+  
+ActionController::RoutingError (uninitialized constant ArticlesController
+Did you mean?  AbstractController):
+  
+Started GET "/articles" for ::1 at 2022-01-05 13:01:33 +0200
+  
+ActionController::RoutingError (uninitialized constant ArticlesController
+Did you mean?  AbstractController):
+  
+Started GET "/articles" for ::1 at 2022-01-05 13:03:01 +0200
+  
+ActionController::RoutingError (uninitialized constant ArticlesController
+Did you mean?  AbstractController):
+  
+Started GET "/articles" for ::1 at 2022-01-05 13:03:24 +0200
+  
+ActionController::RoutingError (uninitialized constant ArticlesController
+Did you mean?  AbstractController):
+  
+Started GET "/articles" for ::1 at 2022-01-05 13:04:54 +0200
 Processing by ArticlesController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering articles/index.html.erb within layouts/application
-  Rendered articles/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 365)
-  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3626)
-Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4989)
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 805)
+  Rendered layout layouts/application.html.erb (Duration: 183.9ms | Allocations: 97677)
+Completed 200 OK in 187ms (Views: 186.0ms | ActiveRecord: 0.0ms | Allocations: 98732)
 
 
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:35:30 +0200
-Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 12:35:30 +0200
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-05 13:04:54 +0200
   
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
   
+Started GET "/kyle-field-westside-view.jpg" for ::1 at 2022-01-05 13:04:54 +0200
   
-ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
+ActionController::RoutingError (No route matches [GET] "/kyle-field-westside-view.jpg"):
   
-  
-ActionController::RoutingError (No route matches [GET] "/assets"):
-  
-Started GET "/articles" for ::1 at 2022-01-04 12:35:41 +0200
-Processing by ArticlesController#index as HTML
+Started GET "/admin" for ::1 at 2022-01-05 13:05:00 +0200
+Processing by ArticlesController#admin as HTML
   Rendering layout layouts/application.html.erb
-  Rendering articles/index.html.erb within layouts/application
-  Rendered articles/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
-  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2990)
-Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 3320)
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1112)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3428)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms | Allocations: 3748)
 
 
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:35:41 +0200
-Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 12:35:41 +0200
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-05 13:05:00 +0200
   
 ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
   
+Started GET "/admin" for ::1 at 2022-01-05 13:05:03 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 0.1ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 2340)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 2659)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-05 13:05:03 +0200
   
-ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
   
-Started GET "/" for ::1 at 2022-01-04 12:35:41 +0200
+Started GET "/" for ::1 at 2022-01-05 13:05:04 +0200
 Processing by Rails::WelcomeController#index as HTML
-  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.8ms | Allocations: 625)
-Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms | Allocations: 2801)
+  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-7.0.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-7.0.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 21)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 292)
 
 
-Started GET "/articles" for ::1 at 2022-01-04 12:35:42 +0200
-Processing by ArticlesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/index.html.erb within layouts/application
-  Rendered articles/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
-  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 2989)
-Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 3314)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:35:42 +0200
-Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 12:35:42 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
-  
-Started GET "/articles" for ::1 at 2022-01-04 12:36:05 +0200
-Processing by ArticlesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/index.html.erb within layouts/application
-  Rendered articles/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
-  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2989)
-Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 3313)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:36:05 +0200
-Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 12:36:05 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
-  
-Started GET "/" for ::1 at 2022-01-04 12:36:06 +0200
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 7)
-Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 295)
-
-
-Started GET "/student" for ::1 at 2022-01-04 12:36:07 +0200
+Started GET "/student" for ::1 at 2022-01-05 13:05:04 +0200
 Processing by ArticlesController#student as HTML
   Rendering layout layouts/application.html.erb
   Rendering articles/student.html.erb within layouts/application
-  Rendered articles/student.html.erb within layouts/application (Duration: 0.9ms | Allocations: 651)
-  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 3603)
-Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 4027)
+  Rendered articles/student.html.erb within layouts/application (Duration: 1.2ms | Allocations: 678)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3012)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms | Allocations: 3332)
 
 
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:36:07 +0200
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-05 13:05:04 +0200
   
 ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/student" for ::1 at 2022-01-04 12:36:29 +0200
-Processing by ArticlesController#student as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/student.html.erb within layouts/application
-  Rendered articles/student.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
-  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 2956)
-Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 3280)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:36:29 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/" for ::1 at 2022-01-04 12:36:30 +0200
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 7)
-Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 294)
-
-
-Started GET "/articles" for ::1 at 2022-01-04 12:36:31 +0200
-Processing by ArticlesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/index.html.erb within layouts/application
-  Rendered articles/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
-  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 2989)
-Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 3313)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:36:31 +0200
-Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 12:36:31 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:36:31 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 4.7ms | Allocations: 4543)
-  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 7791)
-Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 0.0ms | Allocations: 9675)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:36:31 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:36:39 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:48:19 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1055)
-  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 4282)
-Completed 200 OK in 19ms (Views: 16.4ms | Allocations: 5545)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:48:19 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:48:21 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:48:29 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
-  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2956)
-Completed 200 OK in 4ms (Views: 2.9ms | Allocations: 3279)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:48:29 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:49:30 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1054)
-  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 4281)
-Completed 200 OK in 7ms (Views: 6.1ms | Allocations: 5545)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:49:30 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:49:42 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1054)
-  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 4281)
-Completed 200 OK in 7ms (Views: 6.0ms | Allocations: 5545)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:49:42 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:50:01 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1079)
-  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 4306)
-Completed 200 OK in 7ms (Views: 6.0ms | Allocations: 5571)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:50:01 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:50:18 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1057)
-  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 4284)
-Completed 200 OK in 7ms (Views: 5.9ms | Allocations: 5544)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:50:18 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:50:44 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1077)
-  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 4304)
-Completed 200 OK in 7ms (Views: 6.4ms | Allocations: 5569)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:50:44 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:50:51 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1059)
-  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 4286)
-Completed 200 OK in 6ms (Views: 5.3ms | Allocations: 5550)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:50:51 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:52:35 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 0.8ms | Allocations: 1054)
-  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 4281)
-Completed 200 OK in 8ms (Views: 6.7ms | Allocations: 5547)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:52:35 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:52:42 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1058)
-  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 4285)
-Completed 200 OK in 8ms (Views: 6.6ms | Allocations: 5545)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:52:42 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:53:16 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1063)
-  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 4290)
-Completed 200 OK in 6ms (Views: 5.5ms | Allocations: 5555)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:53:16 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:54:04 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1078)
-  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 4305)
-Completed 200 OK in 9ms (Views: 7.7ms | Allocations: 5571)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:54:04 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/" for ::1 at 2022-01-04 12:54:09 +0200
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.2ms | Allocations: 274)
-Completed 200 OK in 11ms (Views: 9.5ms | Allocations: 1171)
-
-
-Started GET "/student" for ::1 at 2022-01-04 12:54:09 +0200
-Processing by ArticlesController#student as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/student.html.erb within layouts/application
-  Rendered articles/student.html.erb within layouts/application (Duration: 0.8ms | Allocations: 646)
-  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3598)
-Completed 200 OK in 6ms (Views: 4.4ms | Allocations: 4022)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:54:09 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/articles" for ::1 at 2022-01-04 12:54:29 +0200
-Processing by ArticlesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/index.html.erb within layouts/application
-  Rendered articles/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 351)
-  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 3336)
-Completed 200 OK in 5ms (Views: 3.8ms | Allocations: 3783)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:54:29 +0200
-Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 12:54:29 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
-  
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:54:40 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:54:40 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/student" for ::1 at 2022-01-04 12:58:20 +0200
-Processing by ArticlesController#student as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/student.html.erb within layouts/application
-  Rendered articles/student.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
-  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 2956)
-Completed 200 OK in 5ms (Views: 4.2ms | Allocations: 3277)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:58:20 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/student" for ::1 at 2022-01-04 12:58:21 +0200
-Processing by ArticlesController#student as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/student.html.erb within layouts/application
-  Rendered articles/student.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
-  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2956)
-Completed 200 OK in 4ms (Views: 3.2ms | Allocations: 3277)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:58:21 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/" for ::1 at 2022-01-04 12:58:21 +0200
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | Allocations: 7)
-Completed 200 OK in 1ms (Views: 0.8ms | Allocations: 292)
-
-
-Started GET "/admin" for ::1 at 2022-01-04 12:58:22 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
-  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2956)
-Completed 200 OK in 3ms (Views: 2.3ms | Allocations: 3277)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:58:23 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 12:58:23 +0200
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
-  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 2956)
-Completed 200 OK in 3ms (Views: 2.2ms | Allocations: 3277)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 12:58:23 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/admin" for ::1 at 2022-01-04 13:05:08 +0200
-  [1m[35m (2.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
-Processing by ArticlesController#admin as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/admin.html.erb within layouts/application
-  Rendered articles/admin.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1344)
-  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 6374)
-Completed 200 OK in 30ms (Views: 23.9ms | ActiveRecord: 0.0ms | Allocations: 10925)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 13:05:08 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/" for ::1 at 2022-01-04 13:05:14 +0200
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.2ms | Allocations: 280)
-Completed 200 OK in 20ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 1265)
-
-
-Started GET "/student" for ::1 at 2022-01-04 13:05:14 +0200
-Processing by ArticlesController#student as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/student.html.erb within layouts/application
-  Rendered articles/student.html.erb within layouts/application (Duration: 3.2ms | Allocations: 655)
-  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 3882)
-Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.0ms | Allocations: 5151)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 13:05:14 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/student" for ::1 at 2022-01-04 13:05:18 +0200
-Processing by ArticlesController#student as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/student.html.erb within layouts/application
-  Rendered articles/student.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
-  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 2957)
-Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 3284)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 13:05:18 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-Started GET "/" for ::1 at 2022-01-04 13:05:19 +0200
-Processing by Rails::WelcomeController#index as HTML
-  Rendering /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /Users/jonwaterman/.rvm/gems/ruby-3.0.0/gems/railties-6.1.4.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.1ms | Allocations: 274)
-Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.0ms | Allocations: 1174)
-
-
-Started GET "/articles" for ::1 at 2022-01-04 13:05:22 +0200
-Processing by ArticlesController#index as HTML
-  Rendering layout layouts/application.html.erb
-  Rendering articles/index.html.erb within layouts/application
-  Rendered articles/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 361)
-  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 3347)
-Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms | Allocations: 3806)
-
-
-Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-04 13:05:22 +0200
-Started GET "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg" for ::1 at 2022-01-04 13:05:22 +0200
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
-  
-  
-ActionController::RoutingError (No route matches [GET] "/Aggie=Pull-Day/logo/kyle-field-westside-view.jpg"):
   
