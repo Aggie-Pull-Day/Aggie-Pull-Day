@@ -1578,3 +1578,702 @@ Processing by GroupsController#show as TURBO_STREAM
 Completed 200 OK in 16ms (Views: 11.7ms | ActiveRecord: 0.9ms | Allocations: 3516)
 
 
+Started GET "/admin" for ::1 at 2022-01-06 20:16:52 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1369)
+  Rendered layout layouts/application.html.erb (Duration: 49.9ms | Allocations: 37121)
+Completed 200 OK in 57ms (Views: 53.1ms | ActiveRecord: 0.0ms | Allocations: 41392)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-06 20:16:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/games" for ::1 at 2022-01-06 20:16:58 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 1.0ms | Allocations: 364)
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 8105)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 10386)
+Completed 200 OK in 18ms (Views: 14.3ms | ActiveRecord: 2.5ms | Allocations: 11941)
+
+
+Started GET "/games/1" for ::1 at 2022-01-06 20:17:41 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered games/show.html.erb within layouts/application (Duration: 8.3ms | Allocations: 732)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 2928)
+Completed 200 OK in 19ms (Views: 10.9ms | ActiveRecord: 0.6ms | Allocations: 7275)
+
+
+Started GET "/games/1/edit" for ::1 at 2022-01-06 20:17:42 +0200
+Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/edit.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 5.8ms | Allocations: 3486)
+  Rendered games/edit.html.erb within layouts/application (Duration: 7.0ms | Allocations: 3837)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 6020)
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.5ms | Allocations: 6899)
+
+
+Started PATCH "/games/1" for ::1 at 2022-01-06 20:17:46 +0200
+Processing by GamesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game"=>{"hometeam"=>"TAMU", "opponent"=>"Sam Houston State", "gamedate"=>"2022-09-03 12:00:00 UTC", "day"=>"Saturday"}, "commit"=>"Update Game", "id"=>"1"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mGame Update (0.4ms)[0m  [1m[33mUPDATE "games" SET "gamedate" = $1, "updated_at" = $2 WHERE "games"."id" = $3[0m  [["gamedate", "2022-09-03 12:00:00"], ["updated_at", "2022-01-06 18:17:46.752276"], ["id", 1]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+Redirected to http://localhost:3000/games/1
+Completed 302 Found in 9ms (ActiveRecord: 2.8ms | Allocations: 3922)
+
+
+Started GET "/games/1" for ::1 at 2022-01-06 20:17:46 +0200
+Processing by GamesController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered games/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 571)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 2753)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.5ms | Allocations: 3612)
+
+
+Started GET "/" for ::1 at 2022-01-06 20:25:13 +0200
+Started GET "/games" for ::1 at 2022-01-06 20:25:13 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 55)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 16.4ms | Allocations: 5427)
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | Allocations: 19634)
+Completed 200 OK in 27ms (Views: 24.8ms | ActiveRecord: 6.4ms | Allocations: 21022)
+
+
+Started GET "/groups" for ::1 at 2022-01-06 20:25:19 +0200
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  Rendered groups/_group.html.erb (Duration: 1.0ms | Allocations: 239)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered groups/_group.html.erb (Duration: 0.0ms | Allocations: 23)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered groups/_group.html.erb (Duration: 0.0ms | Allocations: 23)
+  Rendered groups/_group.html.erb (Duration: 0.0ms | Allocations: 23)
+  Rendered groups/index.html.erb within layouts/application (Duration: 17.8ms | Allocations: 5862)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 8148)
+Completed 200 OK in 24ms (Views: 16.3ms | ActiveRecord: 5.6ms | Allocations: 9439)
+
+
+Started GET "/admin" for ::1 at 2022-01-06 20:25:24 +0200
+Processing by ArticlesController#admin as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 0.1ms | Allocations: 17)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 2477)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 3242)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-06 20:25:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/login" for ::1 at 2022-01-06 20:25:50 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/login"):
+  
+Started GET "/articles" for ::1 at 2022-01-06 20:26:05 +0200
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 800)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 3196)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 3571)
+
+
+Started GET "/logo/logo-1024x768.png" for ::1 at 2022-01-06 20:26:05 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+Started GET "/kyle-field-westside-view.jpg" for ::1 at 2022-01-06 20:26:05 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/kyle-field-westside-view.jpg"):
+  
+Started GET "/games" for ::1 at 2022-01-06 20:26:29 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1617)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 3827)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.4ms | Allocations: 4162)
+
+
+Started GET "/student" for ::1 at 2022-01-06 20:27:00 +0200
+Processing by ArticlesController#student as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/student.html.erb within layouts/application
+  Rendered articles/student.html.erb within layouts/application (Duration: 1.4ms | Allocations: 675)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 3064)
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 3383)
+
+
+Started GET "/Aggie-Pull-Day/logo/logo-1024x768.png" for ::1 at 2022-01-06 20:27:00 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/Aggie-Pull-Day/logo/logo-1024x768.png"):
+  
+Started GET "/" for ::1 at 2022-01-06 20:33:49 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/games" for ::1 at 2022-01-06 20:33:49 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.6ms | Allocations: 373)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 16.0ms | Allocations: 8551)
+  Rendered layout layouts/application.html.erb (Duration: 60.2ms | Allocations: 43893)
+Completed 200 OK in 71ms (Views: 59.0ms | ActiveRecord: 3.5ms | Allocations: 49815)
+
+
+Started GET "/games2" for ::1 at 2022-01-06 20:33:52 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/games2"):
+  
+DEPRECATION WARNING: Non-URL-safe CSRF tokens are deprecated. Use 6.1 defaults or above. (called from block (3 levels) in <class:Railtie> at /home/kareem/.rvm/gems/ruby-3.0.0/gems/actionpack-7.0.0/lib/action_controller/railtie.rb:80)
+Started GET "/" for ::1 at 2022-01-06 20:39:41 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/games" for ::1 at 2022-01-06 20:39:41 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.7ms | Allocations: 373)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 17.2ms | Allocations: 8533)
+  Rendered layout layouts/application.html.erb (Duration: 59.6ms | Allocations: 44780)
+Completed 200 OK in 69ms (Views: 58.1ms | ActiveRecord: 3.7ms | Allocations: 50701)
+
+
+Started GET "/games2" for ::1 at 2022-01-06 20:39:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/games2"):
+  
+Processing by ErrorsController#not_found as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering errors/not_found.html.erb within layouts/application
+  Rendered errors/not_found.html.erb within layouts/application (Duration: 0.3ms | Allocations: 122)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 2979)
+Completed 404 Not Found in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms | Allocations: 3878)
+
+
+Started GET "/games2" for ::1 at 2022-01-06 20:40:05 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/games2"):
+  
+Processing by ErrorsController#not_found as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering errors/not_found.html.erb within layouts/application
+  Rendered errors/not_found.html.erb within layouts/application (Duration: 0.7ms | Allocations: 123)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 3188)
+Completed 404 Not Found in 6ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 4197)
+
+
+Started GET "/games2" for ::1 at 2022-01-06 20:40:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/games2"):
+  
+Processing by ErrorsController#not_found as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering errors/not_found.html.erb within layouts/application
+  Rendered errors/not_found.html.erb within layouts/application (Duration: 0.7ms | Allocations: 123)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 3187)
+Completed 404 Not Found in 5ms (Views: 5.1ms | ActiveRecord: 0.0ms | Allocations: 4192)
+
+
+Started GET "/games2dcfew" for ::1 at 2022-01-06 20:40:33 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/games2dcfew"):
+  
+Processing by ErrorsController#not_found as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering errors/not_found.html.erb within layouts/application
+  Rendered errors/not_found.html.erb within layouts/application (Duration: 0.1ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 2792)
+Completed 404 Not Found in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms | Allocations: 3101)
+
+
+Started GET "/games" for ::1 at 2022-01-06 20:40:37 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 1.2ms | Allocations: 255)
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2194)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 4970)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.5ms | Allocations: 5853)
+
+
+Started GET "/games2" for ::1 at 2022-01-06 20:40:53 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/games2"):
+  
+Processing by ErrorsController#not_found as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering errors/not_found.html.erb within layouts/application
+  Rendered errors/not_found.html.erb within layouts/application (Duration: 0.0ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 2800)
+Completed 404 Not Found in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms | Allocations: 3109)
+
+
+Started GET "/gamesomething" for ::1 at 2022-01-06 20:41:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/gamesomething"):
+  
+Processing by ErrorsController#not_found as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering errors/not_found.html.erb within layouts/application
+  Rendered errors/not_found.html.erb within layouts/application (Duration: 0.0ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 2799)
+Completed 404 Not Found in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 3103)
+
+
+Started GET "/uyfhg" for ::1 at 2022-01-06 20:42:35 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/uyfhg"):
+  
+Processing by ErrorsController#not_found as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering errors/not_found.html.erb within layouts/application
+  Rendered errors/not_found.html.erb within layouts/application (Duration: 0.0ms | Allocations: 15)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2799)
+Completed 404 Not Found in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms | Allocations: 3103)
+
+
+Started GET "/games" for ::1 at 2022-01-06 20:42:59 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1642)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 4342)
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.4ms | Allocations: 4679)
+
+
+Started GET "/groups" for ::1 at 2022-01-06 20:43:03 +0200
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.8ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:6
+  Rendered groups/_group.html.erb (Duration: 0.8ms | Allocations: 238)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered groups/_group.html.erb (Duration: 0.5ms | Allocations: 23)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 23)
+  Rendered groups/index.html.erb within layouts/application (Duration: 19.9ms | Allocations: 5850)
+  Rendered layout layouts/application.html.erb (Duration: 25.3ms | Allocations: 8592)
+Completed 200 OK in 29ms (Views: 21.1ms | ActiveRecord: 5.7ms | Allocations: 9886)
+
+
+Started GET "/games" for ::1 at 2022-01-06 20:43:06 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.3ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 7.0ms | Allocations: 1621)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 4321)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.6ms | Allocations: 4655)
+
+
+Started GET "/games/2" for ::1 at 2022-01-06 20:43:08 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered games/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1185)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3755)
+Completed 200 OK in 14ms (Views: 7.9ms | ActiveRecord: 0.9ms | Allocations: 6572)
+
+
+Started GET "/" for ::1 at 2022-01-06 20:43:15 +0200
+Started GET "/games" for ::1 at 2022-01-06 20:43:15 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1641)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 4341)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.5ms | Allocations: 4677)
+
+
+Started GET "/games/2" for ::1 at 2022-01-06 20:43:17 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.3ms | Allocations: 35)
+  Rendered games/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1030)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3600)
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 0.5ms | Allocations: 4408)
+
+
+Started GET "/games/2/edit" for ::1 at 2022-01-06 20:43:19 +0200
+Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/edit.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 5.7ms | Allocations: 4293)
+  Rendered games/edit.html.erb within layouts/application (Duration: 7.2ms | Allocations: 4647)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 7217)
+Completed 200 OK in 17ms (Views: 13.6ms | ActiveRecord: 0.5ms | Allocations: 8079)
+
+
+Started PATCH "/games/2" for ::1 at 2022-01-06 20:43:22 +0200
+Processing by GamesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game"=>{"hometeam"=>"TAMU", "opponent"=>"App State", "gamedate"=>"2022-09-10 12:00:00 UTC", "day"=>"Saturday"}, "commit"=>"Update Game", "id"=>"2"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mGame Update (0.8ms)[0m  [1m[33mUPDATE "games" SET "gamedate" = $1, "updated_at" = $2 WHERE "games"."id" = $3[0m  [["gamedate", "2022-09-10 12:00:00"], ["updated_at", "2022-01-06 18:43:22.678275"], ["id", 2]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+Redirected to http://localhost:3000/games/2
+Completed 302 Found in 20ms (ActiveRecord: 3.2ms | Allocations: 4716)
+
+
+Started GET "/games/2" for ::1 at 2022-01-06 20:43:22 +0200
+Processing by GamesController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered games/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1104)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 3674)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.5ms | Allocations: 4532)
+
+
+Started GET "/games" for ::1 at 2022-01-06 20:43:26 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1618)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 4318)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.3ms | Allocations: 4653)
+
+
+Started GET "/games" for ::1 at 2022-01-06 20:43:35 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1622)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 4322)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.5ms | Allocations: 4654)
+
+
+Started GET "/games" for ::1 at 2022-01-06 20:43:35 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1612)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 4312)
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.8ms | Allocations: 4644)
+
+
+Started GET "/games" for ::1 at 2022-01-06 20:43:36 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1628)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 4326)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.4ms | Allocations: 4659)
+
+
+Started GET "/games" for ::1 at 2022-01-06 20:43:36 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 35)
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 1628)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4333)
+Completed 200 OK in 11ms (Views: 10.2ms | ActiveRecord: 0.4ms | Allocations: 4665)
+
+
+Started GET "/games/3" for ::1 at 2022-01-06 20:43:38 +0200
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.3ms | Allocations: 35)
+  Rendered games/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1030)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 3606)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.3ms | Allocations: 4413)
+
+
+Started GET "/games/3/edit" for ::1 at 2022-01-06 20:43:40 +0200
+Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGame Load (0.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/edit.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 2.1ms | Allocations: 1849)
+  Rendered games/edit.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1969)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 4539)
+Completed 200 OK in 9ms (Views: 5.6ms | ActiveRecord: 0.8ms | Allocations: 5346)
+
+
+Started PATCH "/games/3" for ::1 at 2022-01-06 20:43:48 +0200
+Processing by GamesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game"=>{"hometeam"=>"TAMU", "opponent"=>"Miami (FL)", "gamedate"=>"2022-09-18 00:00:00 UTC", "day"=>"Thursday"}, "commit"=>"Update Game", "id"=>"3"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mGame Update (0.5ms)[0m  [1m[33mUPDATE "games" SET "gamedate" = $1, "updated_at" = $2 WHERE "games"."id" = $3[0m  [["gamedate", "2022-09-18 00:00:00"], ["updated_at", "2022-01-06 18:43:48.535338"], ["id", 3]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+Redirected to http://localhost:3000/games/3
+Completed 302 Found in 10ms (ActiveRecord: 2.7ms | Allocations: 3662)
+
+
+Started GET "/games/3" for ::1 at 2022-01-06 20:43:48 +0200
+Processing by GamesController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered games/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1049)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 3619)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.7ms | Allocations: 4429)
+
+
+Started GET "/games/3/edit" for ::1 at 2022-01-06 20:44:19 +0200
+Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/edit.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 2.2ms | Allocations: 1843)
+  Rendered games/edit.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1963)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 4533)
+Completed 200 OK in 10ms (Views: 6.1ms | ActiveRecord: 0.7ms | Allocations: 5341)
+
+
+Started PATCH "/games/3" for ::1 at 2022-01-06 20:44:25 +0200
+Processing by GamesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "game"=>{"hometeam"=>"TAMU", "opponent"=>"Miami (FL)", "gamedate"=>"2022-09-18 10:00:00 UTC", "day"=>"Thursday"}, "commit"=>"Update Game", "id"=>"3"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mGame Update (0.5ms)[0m  [1m[33mUPDATE "games" SET "gamedate" = $1, "updated_at" = $2 WHERE "games"."id" = $3[0m  [["gamedate", "2022-09-18 10:00:00"], ["updated_at", "2022-01-06 18:44:25.031032"], ["id", 3]]
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/games_controller.rb:40:in `block in update'
+Redirected to http://localhost:3000/games/3
+Completed 302 Found in 12ms (ActiveRecord: 2.8ms | Allocations: 3636)
+
+
+Started GET "/games/3" for ::1 at 2022-01-06 20:44:25 +0200
+Processing by GamesController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:63:in `set_game'
+  Rendering layout layouts/application.html.erb
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered games/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1049)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 3619)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.4ms | Allocations: 4429)
+
+
+Started GET "/games" for ::1 at 2022-01-06 20:45:00 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.6ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered games/_game.html.erb (Duration: 0.3ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1626)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 4326)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.6ms | Allocations: 4661)
+
+
+Started GET "/games" for ::1 at 2022-01-06 20:45:01 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1626)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 4327)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.5ms | Allocations: 4659)
+
+
+Started GET "/games" for ::1 at 2022-01-06 20:45:02 +0200
+Processing by GamesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:6
+  Rendered games/_game.html.erb (Duration: 0.3ms | Allocations: 35)
+  Rendered games/_game.html.erb (Duration: 0.4ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 34)
+  Rendered games/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1632)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 4332)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.5ms | Allocations: 4664)
+
+
