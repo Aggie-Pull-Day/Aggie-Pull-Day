@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Taken from the cucumber-rails project.
 
 module NavigationHelpers
@@ -10,22 +11,20 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-    when /the home\s?page/
-      '/'
-    when /the winning page/
+    when /home\s?page/
+      '/articles'
+    when /student log[\s-]?in page/
       '/win'
-    when /the losing page/
+    when /admin log[\s-]?in page/
       '/lose'
-    when /the show page/
-      '/show'
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
       #
       #   when /^(.*)'s profile page$/i
       #     user_profile_path(User.find_by_login($1))
     else
-      raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
-              "Now, go and add a mapping in #{__FILE__}"
+      raise "Can't find mapping from \"#{page_name}\" to a path.\n" \
+            "Now, go and add a mapping in #{__FILE__}"
     end
   end
 end
