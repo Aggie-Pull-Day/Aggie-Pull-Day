@@ -4,9 +4,9 @@
 <%= render @group %>
 
 <div>
-<div>
-  <%= link_to "Edit this Game", edit_group_path(@group), :class => "btn btn-primary" %>
-    <%= link_to "Destroy this Group", @group, :class => "btn btn-danger", method: :delete %>
+<div class="row">
+  <%= link_to "Edit this Game", edit_group_path(@group), :class => "btn btn-primary ml-2 mr-2" %>
+    <%= button_to "Destroy this Group", @group, :class => "btn btn-danger", method: :delete %>
   </div>
 
 <div>
