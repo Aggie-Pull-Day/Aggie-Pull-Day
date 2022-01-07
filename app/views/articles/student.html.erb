@@ -5,31 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <%# <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> %>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
   <body>
-    <nav class="navbar navbar-dark" style="background-color: #500000">
-      <a class="navbar-brand mr-left" href="#">
-        <img src="Aggie-Pull-Day/logo/logo-1024x768.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        Aggie Ticket Pull
-      </a>
-      <div class="navbar-nav mr-right">
-        <div>
-            <button id="loginDrop" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Login
-            </button>
-            <div class="dropdown-menu" aria-labelledby="loginDrop">
-              <a class="dropdown-item" href="#">Student Login</a>
-              <a class="dropdown-item" href="#">Admin Login</a>
-            </div>
-          </div>
-      </div>
-    </nav>
 
     <div class="container mt-2">
       <div class="card mx-auto" style="width: 18rem; background-color: #998542">
@@ -106,7 +83,7 @@
       
               <div class="float-child">
                 <div>
-                  <button type="button" class="btn mt-5 mb-5" style="background-color: #500000; color: #ffffff" disabled>Create Group</button>
+                  <button type="button" class="btn mt-5 mb-5" style="background-color: #500000; color: #ffffff; display: none disabled>Create Group</button>
                 </div>
                 <div>
                   <button id="btnGroupDrop1" type="button" style="background-color: #5B6236" class="btn btn-secondary dropdown-toggle mt-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -189,7 +166,7 @@
                   <button type="button" class="btn mt-5 mb-5" style="background-color: #500000; color: #ffffff">Create Group</button>
                 </div>
                 <div>
-                  <button id="btnGroupDrop1" type="button" style="background-color: #5B6236" class="btn btn-secondary dropdown-toggle mt-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
+                  <button id="btnGroupDrop1" type="button" style="background-color: #5B6236; display: none" class="btn btn-secondary dropdown-toggle mt-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" disabled>
                     Add to Group
                   </button>
                   <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -198,10 +175,10 @@
                   </div>
                 </div>
                 <div>
-                  <button type="button" class="btn mt-3" style="background-color: #744F28; color: #ffffff" disabled>Remove from Group</button>
+                  <button type="button" class="btn mt-3" style="background-color: #744F28; color: #ffffff; display: none" disabled>Remove from Group</button>
                 </div>
                 <div>
-                  <button type="button" class="btn mt-5" style="background-color: #afafaf" disabled>Leave Group</button>
+                  <button type="button" class="btn mt-5" style="background-color: #afafaf; display: none" disabled>Leave Group</button>
                 </div>
               </div>
             </div>

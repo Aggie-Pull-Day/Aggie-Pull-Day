@@ -1,10 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @game %>
+<div class="card container" style="background-color: #500000; color: #ffffff">
+  <%= render @game %>
 
-<div>
-  <%= link_to "Edit this game", edit_game_path(@game) %> |
-  <%= link_to "Back to games", games_path %>
+  <div>
+    <div>
+      <%= link_to "Edit this Game", edit_game_path(@game) , :class => "btn btn-primary"%>
+      <%= link_to "Delete this Game", @game, :class => "btn btn-danger", method: :delete %>
+    </div>
 
-  <%= button_to "Destroy this game", @game, method: :delete %>
+    <div>
+      <%= link_to "Back to Games", games_path, :class => "btn btn-secondary mt-2 mx-auto mb-2" %>
+    </div>
+  </div>
 </div>

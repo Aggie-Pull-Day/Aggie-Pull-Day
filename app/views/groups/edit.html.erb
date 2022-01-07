@@ -1,3 +1,4 @@
+<div class="card container" style="background-color: #500000; color: #ffffff">
 <h1>Editing group</h1>
 
 <%= render "form", group: @group %>
@@ -5,6 +6,5 @@
 <br>
 
 <div>
-  <%= link_to "Show this group", @group %> |
-  <%= link_to "Back to groups", groups_path %>
+    <%= link_to "Cancel", @group, :class => "btn btn-secondary mb-2" %>
 </div>
