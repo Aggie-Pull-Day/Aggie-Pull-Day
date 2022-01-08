@@ -13,10 +13,18 @@ Given /^(?:|I )am on the (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-When /^(?:|I )press "([^\"]*)"(?: within "([^\"]*)")?$/ do |button, selector|
-  with_scope(selector) do
-    click_button(button)
-  end
+When /^(?:|I )press "([^\"]*)"$/ do |button|
+  click_button(button)
+end
+
+When /^I enter the email "(.*)"$/ do |email|
+  email.downcase!
+  fill_in('email', with: email)
+end
+
+When /^I enter the password "(.*)"$/ do |pw|
+  pw.downcase!
+  fill_in('password', with: pw)
 end
 
 Then /^(?:|I )should be on the (.+)$/ do |page_name|
@@ -25,5 +33,13 @@ Then /^(?:|I )should be on the (.+)$/ do |page_name|
     current_path.should == path_to(page_name)
   else
     assert_equal path_to(page_name), current_path
+  end
+end
+
+Then /^(?:|I )should see "([^\"]*)"$/ do |text|
+  if page.respond_to? :should
+    page.should have_content(text)
+  else
+    assert page.has_content?(text)
   end
 end
