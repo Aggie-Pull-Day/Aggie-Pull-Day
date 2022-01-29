@@ -4,6 +4,12 @@ Feature: have a functional admin login page
   So that I can securely use the website
   I want a login page where I can enter my user credentials
 
+Scenario: return to home page
+
+  Given I am on the admin login page
+  When I press "List Eater"
+  Then I should be on the home page
+
 Scenario: successful login
 
   Given I am on the admin login page

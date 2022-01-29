@@ -4,6 +4,11 @@ Feature: have a functional landing page
   So that I can access the rest of the website
   I want a landing page with times for upcoming games and pulls
 
+Scenario: see pull & game info
+  Given I am on the home page
+  Then I should see "Ticket Pull Times"
+  And I should see "2022 Season"
+
 Scenario: functioning student login link
 
   Given I am on the home page
