@@ -5,7 +5,8 @@ Feature: groups page for upcoming games
   I want a webpage that will display info about my groups and allow me to edit it
 
   Background: groups in database
-    Given the following games exist:
+
+    Given the following groups exist:
       | groupname       | member          | pulled  |
       | Kareem's Group  | Kareem Hirani   | false   |
       | Baldwin's Group | Baldwin Bakkal  | false   |

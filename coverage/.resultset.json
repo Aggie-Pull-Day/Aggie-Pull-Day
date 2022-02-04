@@ -1,31 +1,31 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/controllers/application_controller.rb": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/controllers/application_controller.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/helpers/application_helper.rb": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/helpers/games_helper.rb": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/helpers/games_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/helpers/groups_helper.rb": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/helpers/groups_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/controllers/articles_controller.rb": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/controllers/articles_controller.rb": {
         "lines": [
           1,
           1,
@@ -33,7 +33,20 @@
           null
         ]
       },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/controllers/games_controller.rb": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/models/game.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/controllers/games_controller.rb": {
         "lines": [
           1,
           1,
@@ -106,20 +119,13 @@
           null
         ]
       },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/models/game.rb": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/models/group.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
-      },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/controllers/groups_controller.rb": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/controllers/groups_controller.rb": {
         "lines": [
           1,
           1,
@@ -192,13 +198,7 @@
           null
         ]
       },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/models/group.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/channels/application_cable/channel.rb": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
           0,
@@ -208,7 +208,7 @@
         "branches": {
         }
       },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/channels/application_cable/connection.rb": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/channels/application_cable/connection.rb": {
         "lines": [
           0,
           0,
@@ -218,7 +218,7 @@
         "branches": {
         }
       },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/controllers/errors_controller.rb": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/controllers/errors_controller.rb": {
         "lines": [
           0,
           0,
@@ -233,7 +233,7 @@
         "branches": {
         }
       },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/jobs/application_job.rb": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -246,7 +246,7 @@
         "branches": {
         }
       },
-      "/Users/reidneason/Desktop/Aggie-Pull-Day/app/mailers/application_mailer.rb": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
@@ -257,6 +257,6 @@
         }
       }
     },
-    "timestamp": 1643942553
+    "timestamp": 1643944581
   }
 }
