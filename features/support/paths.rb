@@ -13,10 +13,18 @@ module NavigationHelpers
     case page_name
     when /home\s?page/
       '/articles'
+    when /students? page/
+      '/student'
+    when /admin page/
+      '/admin'
     when /student log[\s-]?in page/
-      '/win'
+      '/student-login'
     when /admin log[\s-]?in page/
-      '/lose'
+      '/admin-login'
+    when /games? page/
+      '/games'
+    when /groups? page/
+      '/groups'
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
       #

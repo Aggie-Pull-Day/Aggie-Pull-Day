@@ -1,0 +1,11 @@
+<div class="card container" style="background-color: #500000; color: #ffffff">
+  <h1>Editing Game</h1>
+
+  <%= render "form", game: @game %>
+
+  <br>
+
+  <div>
+    <%= link_to "Cancel", @game, :class => "btn btn-secondary mb-2" %>
+  </div>
+</div>

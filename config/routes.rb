@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
-  
-  get "/articles", to: "articles#index"
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'errors/not_found'
+  get 'errors/internal_server_error'
+  resources :groups
 
-  get "/student", to: "articles#student"
+  get '/articles', to: 'articles#index'
 
-  get "/admin", to: "articles#admin"
+  get '/student', to: 'articles#student'
+
+  get '/admin', to: 'articles#admin'
+
+  get '/groups', to: 'groups#_group'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
+  match '/404', to: 'errors#not_found', via: :all
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :games
+  root to: redirect('/games')
+
 end

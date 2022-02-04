@@ -1,0 +1,11 @@
+class CreateGroups < ActiveRecord::Migration[6.0]
+  def change
+    create_table :groups do |t|
+      t.string :groupname
+      t.string :member
+      t.boolean :pulled
+
+      t.timestamps
+    end
+  end
+end
