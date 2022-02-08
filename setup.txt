@@ -1,0 +1,17 @@
+Use RVM or RBENV
+
+System Requirements
+
+Ruby 3.0.0
+SQLite3 3.31.1
+Node.js v10.19.0
+Yarn 0.32+git
+
+gem install rails
+
+Rails 6.0.4
+
+yarn add bootstrap jquery popper.js
+
+
+1. git clone https://github.com/Aggie-Pull-Day/Aggie-Pull-Day.git
