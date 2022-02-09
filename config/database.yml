@@ -2,24 +2,37 @@
 #   gem install sqlite3
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
+#   gem "sqlite3"
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+  # host: ''
+  adapter: postgresql
+  database: aggiepullday_development
+  username: aggiepullday
+  password: GigEm2022
+  pool: 5
+  timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
+  adapter: postgresql
+  database: aggiepullday_test
+  username: aggiepullday
+  password: GigEm2022
+  pool: 5
+  timeout: 5000
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: aggiepullday_production
+  username: aggiepullday
+  password: <%= ENV["AGGIEPULLDAY_DATABASE_PASSWORD"] %>
+  pool: 5
+  timeout: 5000

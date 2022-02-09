@@ -19,6 +19,7 @@ Feature: have an admin page with pull stats
     And I press "2020"
     Then I should see "2020 Season Football Statistics"
 
+  @wip
   Scenario: change games
 
     Given I am on the admin page
