@@ -13591,3 +13591,670 @@ Processing by ArticlesController#index as HTML
   Rendering articles/index.html.erb within layouts/application
   Rendered articles/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 624)
 Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms | Allocations: 1491)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mGame Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "Sam Houston State"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Sam Houston State"], ["gamedate", "2022-09-03 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:39.671369"], ["updated_at", "2022-02-09 06:37:39.671369"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGame Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "App State"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "App State"], ["gamedate", "2022-09-10 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:39.674803"], ["updated_at", "2022-02-09 06:37:39.674803"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGame Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "Miami (FL)"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.1ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Miami (FL)"], ["gamedate", "2022-09-17 00:00:00"], ["day", "Thursday"], ["created_at", "2022-02-09 06:37:39.677007"], ["updated_at", "2022-02-09 06:37:39.677007"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"day"=>"Saturday", "gamedate"=>"26-Nov-2022", "hometeam"=>"TAMU", "opponent"=>"LSU"}}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "LSU"], ["gamedate", "2022-11-26 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:39.682475"], ["updated_at", "2022-02-09 06:37:39.682475"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/games/4
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1623)
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "LSU"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Destroy (0.3ms)[0m  [1m[31mDELETE FROM "games" WHERE "games"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "LSU"], ["gamedate", "2022-11-26 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:39.695798"], ["updated_at", "2022-02-09 06:37:39.695798"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#update as HTML
+  Parameters: {"game"=>{"opponent"=>"UMass"}, "id"=>"5"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Update (0.2ms)[0m  [1m[33mUPDATE "games" SET "opponent" = $1, "updated_at" = $2 WHERE "games"."id" = $3[0m  [["opponent", "UMass"], ["updated_at", "2022-02-09 06:37:39.698879"], ["id", 5]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/games/5
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms | Allocations: 953)
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Destroy (0.3ms)[0m  [1m[31mDELETE FROM "games" WHERE "games"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "LSU"], ["gamedate", "2022-11-26 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:39.703885"], ["updated_at", "2022-02-09 06:37:39.703885"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#update as HTML
+  Parameters: {"game"=>{"gamedate"=>"19-Nov-2022", "opponent"=>"UMass"}, "id"=>"6"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Update (0.2ms)[0m  [1m[33mUPDATE "games" SET "opponent" = $1, "gamedate" = $2, "updated_at" = $3 WHERE "games"."id" = $4[0m  [["opponent", "UMass"], ["gamedate", "2022-11-19 00:00:00"], ["updated_at", "2022-02-09 06:37:39.706564"], ["id", 6]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/games/6
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms | Allocations: 777)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Destroy (0.5ms)[0m  [1m[31mDELETE FROM "games" WHERE "games"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mGroup Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Kareem Hirani"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.4ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Kareem's Group"], ["member", "Kareem Hirani"], ["pulled", false], ["created_at", "2022-02-09 06:37:39.720448"], ["updated_at", "2022-02-09 06:37:39.720448"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGroup Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Baldwin Bakkal"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Baldwin's Group"], ["member", "Baldwin Bakkal"], ["pulled", false], ["created_at", "2022-02-09 06:37:39.723310"], ["updated_at", "2022-02-09 06:37:39.723310"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Reid Neason"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Reid's Group"], ["member", "Reid Neason"], ["pulled", false], ["created_at", "2022-02-09 06:37:39.725327"], ["updated_at", "2022-02-09 06:37:39.725327"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Jon Waterman"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Jon's Group"], ["member", "Jon Waterman"], ["pulled", false], ["created_at", "2022-02-09 06:37:39.727255"], ["updated_at", "2022-02-09 06:37:39.727255"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GroupsController#create as HTML
+  Parameters: {"group"=>{"groupname"=>"Philip's Group", "member"=>"Philip Ritchey", "pulled"=>"false"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Philip's Group"], ["member", "Philip Ritchey"], ["pulled", false], ["created_at", "2022-02-09 06:37:39.731511"], ["updated_at", "2022-02-09 06:37:39.731511"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/groups/5
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms | Allocations: 705)
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Philip Ritchey"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Destroy (0.3ms)[0m  [1m[31mDELETE FROM "groups" WHERE "groups"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Philip's Group"], ["member", "Philip Ritchey"], ["pulled", false], ["created_at", "2022-02-09 06:37:39.739305"], ["updated_at", "2022-02-09 06:37:39.739305"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GroupsController#update as HTML
+  Parameters: {"group"=>{"groupname"=>"The Professors"}, "id"=>"6"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Update (0.2ms)[0m  [1m[33mUPDATE "groups" SET "groupname" = $1, "updated_at" = $2 WHERE "groups"."id" = $3[0m  [["groupname", "The Professors"], ["updated_at", "2022-02-09 06:37:39.742292"], ["id", 6]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/groups/6
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms | Allocations: 821)
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Destroy (0.1ms)[0m  [1m[31mDELETE FROM "groups" WHERE "groups"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Philip's Group"], ["member", "Philip Ritchey"], ["pulled", false], ["created_at", "2022-02-09 06:37:39.745429"], ["updated_at", "2022-02-09 06:37:39.745429"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GroupsController#update as HTML
+  Parameters: {"group"=>{"groupname"=>"The Professors", "member"=>"Robert Lightfoot"}, "id"=>"7"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Update (0.2ms)[0m  [1m[33mUPDATE "groups" SET "groupname" = $1, "member" = $2, "updated_at" = $3 WHERE "groups"."id" = $4[0m  [["groupname", "The Professors"], ["member", "Robert Lightfoot"], ["updated_at", "2022-02-09 06:37:39.748584"], ["id", 7]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/groups/7
+Completed 302 Found in 2ms (ActiveRecord: 0.6ms | Allocations: 716)
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Destroy (0.2ms)[0m  [1m[31mDELETE FROM "groups" WHERE "groups"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mGame Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "Sam Houston State"], ["LIMIT", 1]]
+  [1m[36mGame Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "App State"], ["LIMIT", 1]]
+  [1m[36mGame Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "Miami (FL)"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."day" = $1[0m  [["day", "Saturday"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."opponent" = $1 AND "games"."day" = $2[0m  [["opponent", "Sam Houston State"], ["day", "Saturday"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Kareem Hirani"], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Baldwin Bakkal"], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Reid Neason"], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Jon Waterman"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."pulled" = $1[0m  [["pulled", false]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."member" = $1 AND "groups"."pulled" = $2[0m  [["member", "Reid Neason"], ["pulled", false]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Sam Houston State"], ["gamedate", "2022-09-03 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:45.876890"], ["updated_at", "2022-02-09 06:37:45.876890"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "App State"], ["gamedate", "2022-09-10 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:45.879693"], ["updated_at", "2022-02-09 06:37:45.879693"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Miami (FL)"], ["gamedate", "2022-09-17 00:00:00"], ["day", "Thursday"], ["created_at", "2022-02-09 06:37:45.881189"], ["updated_at", "2022-02-09 06:37:45.881189"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/games" for 127.0.0.1 at 2022-02-09 00:37:45 -0600
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  Rendered games/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1564)
+Completed 200 OK in 34ms (Views: 29.9ms | ActiveRecord: 0.4ms | Allocations: 8914)
+Started GET "/games/1" for 127.0.0.1 at 2022-02-09 00:37:45 -0600
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.6ms | Allocations: 228)
+  Rendered games/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 918)
+Completed 200 OK in 6ms (Views: 3.5ms | ActiveRecord: 0.4ms | Allocations: 2166)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Sam Houston State"], ["gamedate", "2022-09-03 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:45.954233"], ["updated_at", "2022-02-09 06:37:45.954233"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "App State"], ["gamedate", "2022-09-10 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:45.958033"], ["updated_at", "2022-02-09 06:37:45.958033"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Miami (FL)"], ["gamedate", "2022-09-17 00:00:00"], ["day", "Thursday"], ["created_at", "2022-02-09 06:37:45.960456"], ["updated_at", "2022-02-09 06:37:45.960456"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/games" for 127.0.0.1 at 2022-02-09 00:37:45 -0600
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  Rendered games/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 666)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.3ms | Allocations: 1419)
+Started GET "/games/1" for 127.0.0.1 at 2022-02-09 00:37:45 -0600
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 32)
+  Rendered games/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 328)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1189)
+Started GET "/games/1/edit" for 127.0.0.1 at 2022-02-09 00:37:45 -0600
+Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering games/edit.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 12.3ms | Allocations: 3255)
+  Rendered games/edit.html.erb within layouts/application (Duration: 14.2ms | Allocations: 3606)
+Completed 200 OK in 20ms (Views: 16.6ms | ActiveRecord: 0.3ms | Allocations: 4603)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Sam Houston State"], ["gamedate", "2022-09-03 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:46.013146"], ["updated_at", "2022-02-09 06:37:46.013146"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "App State"], ["gamedate", "2022-09-10 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:46.015109"], ["updated_at", "2022-02-09 06:37:46.015109"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Miami (FL)"], ["gamedate", "2022-09-17 00:00:00"], ["day", "Thursday"], ["created_at", "2022-02-09 06:37:46.016761"], ["updated_at", "2022-02-09 06:37:46.016761"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/games" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  Rendered games/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 666)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 1419)
+Started GET "/games/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 32)
+  Rendered games/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 328)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.2ms | Allocations: 1189)
+Started GET "/games/1/edit" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering games/edit.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 4.0ms | Allocations: 1092)
+  Rendered games/edit.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1180)
+Completed 200 OK in 8ms (Views: 6.6ms | ActiveRecord: 0.2ms | Allocations: 2041)
+Started PATCH "/games/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#update as HTML
+  Parameters: {"game"=>{"hometeam"=>"TAMU", "opponent"=>"LSU", "gamedate"=>"2022-09-03 00:00:00 UTC", "day"=>"Saturday"}, "commit"=>"Update Game", "id"=>"1"}
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Update (0.3ms)[0m  [1m[33mUPDATE "games" SET "opponent" = $1, "updated_at" = $2 WHERE "games"."id" = $3[0m  [["opponent", "LSU"], ["updated_at", "2022-02-09 06:37:46.063185"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/games/1
+Completed 302 Found in 5ms (ActiveRecord: 1.0ms | Allocations: 1127)
+Started GET "/games/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 32)
+  Rendered games/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 467)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 1328)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Sam Houston State"], ["gamedate", "2022-09-03 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:46.080470"], ["updated_at", "2022-02-09 06:37:46.080470"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.6ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "App State"], ["gamedate", "2022-09-10 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:46.083086"], ["updated_at", "2022-02-09 06:37:46.083086"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Miami (FL)"], ["gamedate", "2022-09-17 00:00:00"], ["day", "Thursday"], ["created_at", "2022-02-09 06:37:46.087918"], ["updated_at", "2022-02-09 06:37:46.087918"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/games" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  Rendered games/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 666)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.3ms | Allocations: 1419)
+Started GET "/games/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 32)
+  Rendered games/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 328)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 1189)
+Started GET "/games/1/edit" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering games/edit.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 2.3ms | Allocations: 1092)
+  Rendered games/edit.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1180)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.2ms | Allocations: 2041)
+Started PATCH "/games/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#update as HTML
+  Parameters: {"game"=>{"hometeam"=>"TAMU", "opponent"=>"Alabama", "gamedate"=>"2022-09-03 00:00:00 UTC", "day"=>"Saturday"}, "commit"=>"Update Game", "id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Update (0.3ms)[0m  [1m[33mUPDATE "games" SET "opponent" = $1, "updated_at" = $2 WHERE "games"."id" = $3[0m  [["opponent", "Alabama"], ["updated_at", "2022-02-09 06:37:46.129370"], ["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/games/1
+Completed 302 Found in 5ms (ActiveRecord: 0.9ms | Allocations: 880)
+Started GET "/games/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.5ms | Allocations: 32)
+  Rendered games/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 434)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.3ms | Allocations: 1295)
+Started GET "/games" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  Rendered games/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 741)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms | Allocations: 1494)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Sam Houston State"], ["gamedate", "2022-09-03 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:46.162427"], ["updated_at", "2022-02-09 06:37:46.162427"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "App State"], ["gamedate", "2022-09-10 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:46.164782"], ["updated_at", "2022-02-09 06:37:46.164782"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Miami (FL)"], ["gamedate", "2022-09-17 00:00:00"], ["day", "Thursday"], ["created_at", "2022-02-09 06:37:46.166995"], ["updated_at", "2022-02-09 06:37:46.166995"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/games" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  Rendered games/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 666)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms | Allocations: 1419)
+Started GET "/games/new" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#new as HTML
+  Rendering games/new.html.erb within layouts/application
+  Rendered games/_form.html.erb (Duration: 3.2ms | Allocations: 1046)
+  Rendered games/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1250)
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 2143)
+Started POST "/games" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"hometeam"=>"TAMU", "opponent"=>"Ole Miss", "gamedate"=>"2022-09-24 00:00:00 UTC", "day"=>"Saturday"}, "commit"=>"Create Game"}
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Ole Miss"], ["gamedate", "2022-09-24 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:46.212275"], ["updated_at", "2022-02-09 06:37:46.212275"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/games/22
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms | Allocations: 799)
+Started GET "/games/22" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.1ms | Allocations: 32)
+  Rendered games/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 432)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.1ms | Allocations: 1293)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Sam Houston State"], ["gamedate", "2022-09-03 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:46.242590"], ["updated_at", "2022-02-09 06:37:46.242590"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "App State"], ["gamedate", "2022-09-10 00:00:00"], ["day", "Saturday"], ["created_at", "2022-02-09 06:37:46.245227"], ["updated_at", "2022-02-09 06:37:46.245227"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Miami (FL)"], ["gamedate", "2022-09-17 00:00:00"], ["day", "Thursday"], ["created_at", "2022-02-09 06:37:46.246882"], ["updated_at", "2022-02-09 06:37:46.246882"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/games" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  Rendered games/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 666)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.4ms | Allocations: 1419)
+Started GET "/games/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering games/show.html.erb within layouts/application
+  Rendered games/_game.html.erb (Duration: 0.2ms | Allocations: 32)
+  Rendered games/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 328)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.2ms | Allocations: 1189)
+Started DELETE "/games/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Destroy (0.2ms)[0m  [1m[31mDELETE FROM "games" WHERE "games"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/games
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms | Allocations: 600)
+Started GET "/games" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  Rendered games/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 690)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.3ms | Allocations: 1443)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.4ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Kareem's Group"], ["member", "Kareem Hirani"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.309889"], ["updated_at", "2022-02-09 06:37:46.309889"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Baldwin's Group"], ["member", "Baldwin Bakkal"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.311786"], ["updated_at", "2022-02-09 06:37:46.311786"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Reid's Group"], ["member", "Reid Neason"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.312989"], ["updated_at", "2022-02-09 06:37:46.312989"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Jon's Group"], ["member", "Jon Waterman"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.314899"], ["updated_at", "2022-02-09 06:37:46.314899"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#index as HTML
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  Rendered groups/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1003)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.3ms | Allocations: 2542)
+Started GET "/groups/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.9ms | Allocations: 182)
+  Rendered groups/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 824)
+Completed 200 OK in 11ms (Views: 6.6ms | ActiveRecord: 0.4ms | Allocations: 1961)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Kareem's Group"], ["member", "Kareem Hirani"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.382782"], ["updated_at", "2022-02-09 06:37:46.382782"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Baldwin's Group"], ["member", "Baldwin Bakkal"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.385165"], ["updated_at", "2022-02-09 06:37:46.385165"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Reid's Group"], ["member", "Reid Neason"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.387016"], ["updated_at", "2022-02-09 06:37:46.387016"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Jon's Group"], ["member", "Jon Waterman"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.390757"], ["updated_at", "2022-02-09 06:37:46.390757"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#index as HTML
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  Rendered groups/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 652)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.2ms | Allocations: 1411)
+Started GET "/groups/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered groups/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 317)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1174)
+Started GET "/groups/1/edit" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/edit.html.erb within layouts/application
+  Rendered groups/_form.html.erb (Duration: 3.1ms | Allocations: 1365)
+  Rendered groups/edit.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1708)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.3ms | Allocations: 2695)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.7ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Kareem's Group"], ["member", "Kareem Hirani"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.434811"], ["updated_at", "2022-02-09 06:37:46.434811"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Baldwin's Group"], ["member", "Baldwin Bakkal"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.438312"], ["updated_at", "2022-02-09 06:37:46.438312"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Reid's Group"], ["member", "Reid Neason"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.439666"], ["updated_at", "2022-02-09 06:37:46.439666"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Jon's Group"], ["member", "Jon Waterman"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.440870"], ["updated_at", "2022-02-09 06:37:46.440870"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#index as HTML
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  Rendered groups/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 652)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.2ms | Allocations: 1405)
+Started GET "/groups/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered groups/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 317)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.6ms | Allocations: 1180)
+Started GET "/groups/1/edit" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/edit.html.erb within layouts/application
+  Rendered groups/_form.html.erb (Duration: 2.7ms | Allocations: 887)
+  Rendered groups/edit.html.erb within layouts/application (Duration: 3.1ms | Allocations: 975)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.2ms | Allocations: 1832)
+Started PATCH "/groups/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#update as HTML
+  Parameters: {"group"=>{"groupname"=>"Kareem's Group", "member"=>"Kareem Hirani", "pulled"=>"true"}, "commit"=>"Update Group", "id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Update (0.2ms)[0m  [1m[33mUPDATE "groups" SET "pulled" = $1, "updated_at" = $2 WHERE "groups"."id" = $3[0m  [["pulled", true], ["updated_at", "2022-02-09 06:37:46.479360"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/groups/1
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms | Allocations: 826)
+Started GET "/groups/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.2ms | Allocations: 21)
+  Rendered groups/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 433)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 1290)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Kareem's Group"], ["member", "Kareem Hirani"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.498784"], ["updated_at", "2022-02-09 06:37:46.498784"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Baldwin's Group"], ["member", "Baldwin Bakkal"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.502003"], ["updated_at", "2022-02-09 06:37:46.502003"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Reid's Group"], ["member", "Reid Neason"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.504846"], ["updated_at", "2022-02-09 06:37:46.504846"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.1ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Jon's Group"], ["member", "Jon Waterman"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.505968"], ["updated_at", "2022-02-09 06:37:46.505968"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#index as HTML
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  Rendered groups/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 652)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms | Allocations: 1405)
+Started GET "/groups/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered groups/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 317)
+Completed 200 OK in 5ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 1174)
+Started GET "/groups/1/edit" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/edit.html.erb within layouts/application
+  Rendered groups/_form.html.erb (Duration: 1.6ms | Allocations: 887)
+  Rendered groups/edit.html.erb within layouts/application (Duration: 1.9ms | Allocations: 975)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 1832)
+Started PATCH "/groups/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#update as HTML
+  Parameters: {"group"=>{"groupname"=>"Team Hirani", "member"=>"Kareem Hirani", "pulled"=>"false"}, "commit"=>"Update Group", "id"=>"1"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Update (0.2ms)[0m  [1m[33mUPDATE "groups" SET "groupname" = $1, "updated_at" = $2 WHERE "groups"."id" = $3[0m  [["groupname", "Team Hirani"], ["updated_at", "2022-02-09 06:37:46.543193"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/groups/1
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms | Allocations: 802)
+Started GET "/groups/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered groups/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 427)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1284)
+Started GET "/groups" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#index as HTML
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  Rendered groups/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 731)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.3ms | Allocations: 1484)
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Kareem's Group"], ["member", "Kareem Hirani"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.572174"], ["updated_at", "2022-02-09 06:37:46.572174"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Baldwin's Group"], ["member", "Baldwin Bakkal"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.574389"], ["updated_at", "2022-02-09 06:37:46.574389"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Reid's Group"], ["member", "Reid Neason"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.576049"], ["updated_at", "2022-02-09 06:37:46.576049"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Jon's Group"], ["member", "Jon Waterman"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.577325"], ["updated_at", "2022-02-09 06:37:46.577325"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#index as HTML
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  Rendered groups/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 652)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.4ms | Allocations: 1405)
+Started GET "/groups/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered groups/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 317)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 1174)
+Started DELETE "/groups/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Destroy (0.3ms)[0m  [1m[31mDELETE FROM "groups" WHERE "groups"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/groups
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms | Allocations: 551)
+Started GET "/groups" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#index as HTML
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  Rendered groups/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 698)
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.7ms | Allocations: 1451)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (1.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Kareem's Group"], ["member", "Kareem Hirani"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.616537"], ["updated_at", "2022-02-09 06:37:46.616537"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Baldwin's Group"], ["member", "Baldwin Bakkal"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.621208"], ["updated_at", "2022-02-09 06:37:46.621208"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Reid's Group"], ["member", "Reid Neason"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.622772"], ["updated_at", "2022-02-09 06:37:46.622772"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Jon's Group"], ["member", "Jon Waterman"], ["pulled", false], ["created_at", "2022-02-09 06:37:46.624941"], ["updated_at", "2022-02-09 06:37:46.624941"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/groups" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#index as HTML
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  Rendered groups/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 652)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.7ms | Allocations: 1405)
+Started GET "/groups/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered groups/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 317)
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms | Allocations: 1174)
+Started GET "/groups/1/edit" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/edit.html.erb within layouts/application
+  Rendered groups/_form.html.erb (Duration: 4.2ms | Allocations: 887)
+  Rendered groups/edit.html.erb within layouts/application (Duration: 4.7ms | Allocations: 975)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.4ms | Allocations: 1832)
+Started PATCH "/groups/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#update as HTML
+  Parameters: {"group"=>{"groupname"=>"Team 2", "member"=>"Kareem Hirani", "pulled"=>"false"}, "commit"=>"Update Group", "id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Update (0.3ms)[0m  [1m[33mUPDATE "groups" SET "groupname" = $1, "updated_at" = $2 WHERE "groups"."id" = $3[0m  [["groupname", "Team 2"], ["updated_at", "2022-02-09 06:37:46.664764"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/groups/1
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms | Allocations: 801)
+Started GET "/groups/1" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.4ms | Allocations: 21)
+  Rendered groups/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 419)
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.2ms | Allocations: 1276)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/articles" for 127.0.0.1 at 2022-02-09 00:37:46 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 628)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms | Allocations: 2118)

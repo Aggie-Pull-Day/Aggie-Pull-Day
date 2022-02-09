@@ -1,6 +1,19 @@
 {
   "Cucumber Features": {
     "coverage": {
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/models/game.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/controllers/application_controller.rb": {
         "lines": [
           1,
@@ -21,27 +34,6 @@
       },
       "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/helpers/groups_helper.rb": {
         "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/controllers/articles_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/models/game.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/models/application_record.rb": {
-        "lines": [
-          1,
           1,
           null
         ]
@@ -200,6 +192,14 @@
           null
         ]
       },
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/controllers/articles_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
@@ -259,6 +259,6 @@
         }
       }
     },
-    "timestamp": 1644388003
+    "timestamp": 1644388666
   }
 }
