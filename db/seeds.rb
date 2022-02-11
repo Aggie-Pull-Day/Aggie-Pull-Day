@@ -27,13 +27,21 @@ more_games = [
 
   more_groups = [
     {:groupname => 'List Eaters', :member => 'Kareem Hirani',
-      :pulled => false},
+      :pulled => false, :email => 'KareemH@tamu.edu'},
       {:groupname => 'List Eaters', :member => 'Baldwin Bakkal',
-        :pulled => false},
+        :pulled => false, :email => 'BaldwinB@tamu.edu'},
         {:groupname => 'List Eaters', :member => 'Reid Neason',
-            :pulled => false},
+            :pulled => false, :email => 'ReidN@tamu.edu'},
             {:groupname => 'List Eaters', :member => 'Jon Waterman',
-                :pulled => false}
+                :pulled => false, :email => 'JonW@tamu.edu'},
+                {:groupname => 'Team 1', :member => 'Cora English',
+                  :pulled => false, :email => 'CoraE@tamu.edu'},
+                  {:groupname => 'Team 1', :member => 'Grace Li',
+                    :pulled => false, :email => 'GraceL@tamu.edu'},
+                    {:groupname => 'Team 1', :member => 'Rebecca McFadden',
+                      :pulled => false, :email => 'RebeccaF@tamu.edu'},
+                      {:groupname => 'Team 1', :member => 'Nikhita Vehmpati',
+                        :pulled => false, :email => 'NikhitaV@tamu.edu'}
   ]
 
 #array of groups

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
+  resources :users
   get 'errors/not_found'
   get 'errors/internal_server_error'
   resources :groups
@@ -17,5 +21,7 @@ Rails.application.routes.draw do
   resources :games
     root :to => redirect('/games')
 
+    resources :users, only: [:new, :create, :index, :show]
+    resources :sessions, only: [:new, :create, :destroy]
     
 end
