@@ -54,3 +54,24 @@ more_games = [
   more_groups.each do |group|
     Group.create!(group)
   end
+
+
+
+more_users = [
+
+  {:email => "KareemH@tamu.edu", :password_digest => "Dummy"},
+  {:email => "BaldwinB@tamu.edu", :password_digest => "Dummy"},
+  {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
+  {:email => "JonW@tamu.edu", :password_digest => "Dummy"},
+  {:email => "CoraE@tamu.edu", :password_digest => "Dummy"},
+  {:email => "GraceL@tamu.edu", :password_digest => "Dummy"},
+  {:email => "RebeccaF@tamu.edu", :password_digest => "Dummy"},
+  {:email => "NikhitaV@tamu.edu", :password_digest => "Dummy"}
+
+]
+
+
+
+more_users.each do |user|
+  User.create!(user)
+end
