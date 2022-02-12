@@ -1,2 +1,10 @@
 <%= content_tag :h1, current_user.welcome %>
+<% res = current_user.getTeam %>
+<ul class="list-group">
+  <% res.each do |item| %>
+    <li class="list-group-item"><strong><%= item.member %></strong></li>
+  <% end %>
+</ul>
+
+
 <%= link_to "Sign out", new_session_path, method:"delete" %>

@@ -7,7 +7,7 @@ class User < ApplicationRecord
     end
 
     def getTeam
-        results = ActiveRecord::Base.connection.execute("select groups.groupname from groups INNER JOIN users ON groups.email = users.email;")
+        results = ActiveRecord::Base.connection.execute("select groups.groupname from groups INNER JOIN users ON groups.email = '#{self.email}';")
         team = results.first["groupname"]
         members = Group.where(groupname: team)
 
