@@ -75,3 +75,12 @@ more_users = [
 more_users.each do |user|
   User.create!(user)
 end
+
+require 'faker'
+
+40.times do  
+  seat = Seat.new
+  seat.seatnumber = Faker::Alphanumeric.alphanumeric(number: 2)
+  seat.assigned = Faker::Boolean.boolean(true_ratio: 0.2)
+  seat.save
+end

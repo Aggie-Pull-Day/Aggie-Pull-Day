@@ -32,5 +32,21 @@ class User < ApplicationRecord
         return members
     end
 
+    def Pull
+        members = getTeam
+
+        ticketsToPull = members.length
+
+        availableSeats = Seat.where(assigned: false)
+
+        iterate = 0
+
+        availableSeats.each do |seat|
+            members[iterate]
+        end
+
+
+    end
+
 
 end
