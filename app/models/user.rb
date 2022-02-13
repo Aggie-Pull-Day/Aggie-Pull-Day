@@ -1,19 +1,28 @@
 class User < ApplicationRecord
     belongs_to :group, optional: true
+    has_one :seat
     has_secure_password
 
     def welcome
         "Hello, #{self.email}!"
     end
 
+    def hasPulled
+
+        res = Group.where(email: self.email)
+        # results = ActiveRecord::Base.connection.execute("select groups.pulled from groups INNER JOIN users ON groups.email = '#{self.email}';")
+        return res.first.pulled
+    end
+
     def getTeam
-        results = ActiveRecord::Base.connection.execute("select groups.groupname from groups INNER JOIN users ON groups.email = '#{self.email}';")
-        puts results
-        if results.num_tuples.zero?
+        res = Group.where(email: self.email)
+        # results = ActiveRecord::Base.connection.execute("select groups.groupname from groups INNER JOIN users ON groups.email = '#{self.email}';")
+        # puts results
+        if res.empty?
             return []
         end
 
-        team = results.first["groupname"]
+        team = res.first["groupname"]
 
         if team.blank?
             return []
@@ -22,4 +31,6 @@ class User < ApplicationRecord
         members = Group.where(groupname: team)
         return members
     end
+
+
 end
