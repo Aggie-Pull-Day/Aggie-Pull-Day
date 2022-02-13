@@ -8,7 +8,7 @@
 <ul class="list-group">
   <% res.each do |item| %>
     <% if pulled%>
-    <li class="list-group-item"><strong><%= item.member %></strong></li>
+    <li class="list-group-item"><strong><%= item.member %> SEAT NUMBER <%= item.seatnumber %> </strong></li>
     <% else %>
     <li class="list-group-item"><strong><%= item.member %> NOT PULLED</strong></li>
     <% end %>

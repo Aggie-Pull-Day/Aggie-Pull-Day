@@ -59,11 +59,11 @@ more_games = [
 
 more_users = [
 
-  {:email => "KareemH@tamu.edu", :password_digest => "Dummy"},
+  {:email => "KareemH@tamu.edu", :password_digest => BCrypt::Password.create("Dummy")},
   {:email => "BaldwinB@tamu.edu", :password_digest => "Dummy"},
   {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
   {:email => "JonW@tamu.edu", :password_digest => "Dummy"},
-  {:email => "CoraE@tamu.edu", :password_digest => "Dummy"},
+  {:email => "CoraE@tamu.edu", :password_digest => BCrypt::Password.create("Dummy")},
   {:email => "GraceL@tamu.edu", :password_digest => "Dummy"},
   {:email => "RebeccaF@tamu.edu", :password_digest => "Dummy"},
   {:email => "NikhitaV@tamu.edu", :password_digest => "Dummy"}

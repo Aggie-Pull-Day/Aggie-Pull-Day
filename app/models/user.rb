@@ -33,7 +33,9 @@ class User < ApplicationRecord
     end
 
     def Pull
-        members = getTeam
+        res = Group.where(email: self.email)
+        team = res.first["groupname"]
+        members = Group.where(groupname: team)
 
         ticketsToPull = members.length
 
@@ -41,12 +43,16 @@ class User < ApplicationRecord
 
         iterate = 0
 
-        availableSeats.each do |seat|
-            members[iterate]
+        members.each do |member|
+
+            member.update_attribute(:seatnumber, availableSeats[iterate].seatnumber)
+            member.update_attribute(:pulled, true)
+            availableSeats[iterate].update_attribute(:assigned, true)
+            availableSeats[iterate].update_attribute(:email, member.email)
+
+            iterate = iterate + 1
         end
 
-
     end
-
 
 end
