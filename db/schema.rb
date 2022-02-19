@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_01_06_180117) do
   create_table "games", force: :cascade do |t|
     t.string "hometeam"
     t.string "opponent"
-    t.datetime "gamedate"
+    t.datetime "gamedate", precision: 6
     t.string "day"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
