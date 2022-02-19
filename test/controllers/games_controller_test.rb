@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class GamesControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create game" do
-    assert_difference("Game.count") do
+    assert_difference('Game.count') do
       post games_url, params: { game: { day: @game.day, gamedate: @game.gamedate, hometeam: @game.hometeam, opponent: @game.opponent } }
     end
 
@@ -39,7 +39,7 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy game" do
-    assert_difference("Game.count", -1) do
+    assert_difference('Game.count', -1) do
       delete game_url(@game)
     end
 

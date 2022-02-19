@@ -10,9 +10,9 @@ class GamesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Games"
   end
 
-  test "should create game" do
+  test "creating a Game" do
     visit games_url
-    click_on "New game"
+    click_on "New Game"
 
     fill_in "Day", with: @game.day
     fill_in "Gamedate", with: @game.gamedate
@@ -24,9 +24,9 @@ class GamesTest < ApplicationSystemTestCase
     click_on "Back"
   end
 
-  test "should update Game" do
-    visit game_url(@game)
-    click_on "Edit this game", match: :first
+  test "updating a Game" do
+    visit games_url
+    click_on "Edit", match: :first
 
     fill_in "Day", with: @game.day
     fill_in "Gamedate", with: @game.gamedate
@@ -38,9 +38,11 @@ class GamesTest < ApplicationSystemTestCase
     click_on "Back"
   end
 
-  test "should destroy Game" do
-    visit game_url(@game)
-    click_on "Destroy this game", match: :first
+  test "destroying a Game" do
+    visit games_url
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
 
     assert_text "Game was successfully destroyed"
   end
