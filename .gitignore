@@ -1,5 +1,4 @@
-tmp/*
+tmp/
 public/assets/*
 log/development.log
 node_modules/*
-tmp/cache/*
