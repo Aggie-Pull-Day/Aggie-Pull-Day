@@ -46,3 +46,9 @@ Feature: have a functional student login page
     And I enter the password "doesntmatter"
     And I press "Submit"
     Then I should see "Please put an email address"
+
+  @wip
+  Scenario: create an account
+
+    Given I am on the student login page
+    When I press "Sign Up"

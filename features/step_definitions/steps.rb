@@ -64,14 +64,7 @@ end
 
 When /^(?:|I )press "([^\"]*)"(?: within "([^\"]*)")?$/ do |button, selector|
   with_scope(selector) do
-    case button
-    when 'View Details'
-      find('#games > div:nth-child(1) > div > div.col-md-3.container > a').click
-    when 'View'
-      find('#groups > div:nth-child(1) > div > div.col-md-3.container > a').click
-    else
-      click_link_or_button(button)
-    end
+    click_link_or_button(button, match: :first)
   end
 end
 
