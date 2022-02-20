@@ -120,6 +120,8 @@ GEM
     diff-lcs (1.5.0)
     docile (1.4.0)
     erubi (1.10.0)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -273,6 +275,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   cucumber-rails
   database_cleaner-active_record
+  faker
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg
