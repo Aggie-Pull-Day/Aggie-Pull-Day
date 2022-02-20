@@ -25,107 +25,199 @@
             }
         </style>
 
-        <title>Aggie Ticket Pull | Home</title>
+        <title>List Eaters | Home</title>
     </head>
     <body>
-        <%# Main Navigation %>
+        <%# Header Navigation  %>
         <header>
             <%# Navbar %>
             <nav class="navbar navbar-expand navbar-dark" style="background-color: rgb(80, 0, 0);">
                 <%# Navbar Brand %>
                 <a class="navbar-brand" href="#">
-                    <img src="./logo/logo-1024x768.png" height="50" alt="Aggie Ticket Pull logo showing a maroon ticket stub">
-                    Aggie Pull Day
+                    <img src="./logo/list-eater-logo.png" height="50" alt="Aggie Ticket Pull logo showing a maroon ticket stub">
+                    List Eaters
                 </a>
                 <%# Navbar Login %>
                 <div class="navbar-nav nav-item dropdown ml-auto">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: rgb(112, 112, 112);">
                         Login
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="#">Student</a>
                         <a class="dropdown-item" href="#">Admin</a>
                     </div>
                 </div>
             </nav>
-            <%# Navbar %>
+            <%# END Navbar %>
         </header>
-        <%# Main Navigation %>
+        <%# END Header Navigation %>
 
         <%# Main Layout %>
         <main>
             <%# Background Image %>
-            <div class="has-bg-img" style="background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(/kyle-field-westside-view.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh;">
-                <div class="float-container">
-                    <%# Ticket Pull Times %>
-                    <div class="float-child">  
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-header">Ticket Pull Times</div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Grad Students & Seniors | 8am - 5pm | Monday</li>
-                                <li class="list-group-item">Juniors | 8am - 5pm | Tuesday</li>
-                                <li class="list-group-item">Sophomores | 8am - 5pm | Wednesday</li>
-                                <li class="list-group-item">Freshmen | 8am - 5pm | Thursday</li>
-                                <li class="list-group-item">All classes (if available)* | 8am - 5pm | Friday</li>
-                                <li class="list-group-item">Walk-up (if available)** | 8am - 5pm | Friday</li>
-                            </ul>
+            <div class="has-bg-img" style="background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(/kyle-field-westside-view.jpg); background-size: cover; background-repeat: no-repeat; height: fit-content;">
+                <%# Container and flexbox layout %>
+                <div class="container">
+                    <%# Container Element #1 %>
+                    <div class="mb-sm-5 row justify-content-center">
+                        <%# Current season football schedule %>
+                        <div class="col">
+                            <div class="card">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th colspan="5" style="text-align: center;">2022 Season</th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Opponent</th>
+                                                <th scope="col">Location</th>
+                                                <th scope="col">Date</th>
+                                                <th scope="col">Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%# Game 1 %>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Sam Houston</td>
+                                                <td>Bryan-College Station / Kyle Field</td>
+                                                <td>Sep.03 (Sat)</td>
+                                                <td>TBD</td>
+                                            </tr>
+                                            <%# END Game 1 %>
+                                            <%# Game 2 %>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Appalachian State</td>
+                                                <td>Bryan-College Station / Kyle Field</td>
+                                                <td>Sep.10 (Sat)</td>
+                                                <td>TBD</td>
+                                            </tr>
+                                            <%# END Game 2 %>
+                                            <%# Game 3 %>
+                                            <tr>
+                                                <th scope="row">3</th>
+                                                <td>Miami</td>
+                                                <td>Bryan-College Station / Kyle Field</td>
+                                                <td>Sep.17 (Sat)</td>
+                                                <td>TBD</td>
+                                            </tr>
+                                            <%# END Game 3 %>
+                                            <%# Game 4 %>
+                                            <tr>
+                                                <th scope="row">4</th>
+                                                <td>Arkansas (<i>Southwest Classic</i>)</td>
+                                                <td>Arlington, Texas / AT&T Stadium</td>
+                                                <td>Sep.24 (Sat)</td>
+                                                <td>TBD</td>
+                                            </tr>
+                                            <%# END Game 4 %>
+                                            <%# Game 5 %>
+                                            <tr>
+                                                <th scope="row">5</th>
+                                                <td>Mississippi State</td>
+                                                <td>Starkville, Miss. / Davis-Wade Stadium</td>
+                                                <td>Oct.01 (Sat)</td>
+                                                <td>TBD</td>
+                                            </tr>
+                                            <%# END Game 5 %>
+                                            <%# Game 6 %>
+                                            <tr>
+                                                <th scope="row">6</th>
+                                                <td>Alabama</td>
+                                                <td>Tuscaloosa, Ala. / Bryant-Denny Stadium</td>
+                                                <td>Oct.08 (Sat)</td>
+                                                <td>TBD</td>
+                                            </tr>
+                                            <%# END Game 6 %>
+                                            <%# Game 7 %>
+                                            <tr>
+                                                <th scope="row">7</th>
+                                                <td>South Carolina</td>
+                                                <td>Columbia, S.C. / Williams-Brice Stadium</td>
+                                                <td>Oct.22 (Sat)</td>
+                                                <td>TBD</td>
+                                            </tr>
+                                            <%# END Game 7 %>
+                                            <%# Game 8 %>
+                                            <tr>
+                                                <th scope="row">8</th>
+                                                <td>Ole Miss</td>
+                                                <td>Bryan-College Station / Kyle Field</td>
+                                                <td>Oct.29 (Sat)</td>
+                                                <td>TBD</td>
+                                            </tr>
+                                            <%# END Game 8 %>
+                                            <%# Game 9 %>
+                                            <tr>
+                                                <th scope="row">9</th>
+                                                <td>Florida</td>
+                                                <td>Bryan-College Station / Kyle Field</td>
+                                                <td>Nov.05 (Sat)</td>
+                                                <td>TBD</td>
+                                            </tr>
+                                            <%# END Game 9 %>
+                                            <%# Game 10 %>
+                                            <tr>
+                                                <th scope="row">10</th>
+                                                <td>Auburn</td>
+                                                <td>Auburn, Ala. / Jordan-Hare Stadium</td>
+                                                <td>Nov.12 (Sat)</td>
+                                                <td>TBD</td>
+                                            </tr>
+                                            <%# END Game 10 %>
+                                            <%# Game 11 %>
+                                            <tr>
+                                                <th scope="row">11</th>
+                                                <td>UMass</td>
+                                                <td>Bryan-College Station / Kyle Field</td>
+                                                <td>Nov.19 (Sat)</td>
+                                                <td>TBD</td>
+                                            </tr>
+                                            <%# END Game 11 %>
+                                            <%# Game 12 %>
+                                            <tr>
+                                                <th scope="row">12</th>
+                                                <td>LSU</td>
+                                                <td>Bryan-College Station / Kyle Field</td>
+                                                <td>Nov.26 (Sat)</td>
+                                                <td>TBD</td>
+                                            </tr>
+                                            <%# END Game 12 %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
+                        <%# END Current season football schedule %>
                     </div>
-                    <%# Ticket Pull Times %>
-
-                    <%# Football Games Table %>
-                    <div class="float-child">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover table-striped">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th colspan="5" style="text-align: center;">2022 Season</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Opponent</th>
-                                        <th scope="col">Location</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Time</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <%# Game 1 %>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Sam Houston</td>
-                                        <td>Bryan-College Station / Kyle Field</td>
-                                        <td>Sep.3 (Sat)</td>
-                                        <td>TBD</td>
-                                    </tr>
-                                    <%# Game 1 %>
-                                    <%# Game 2 %>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Appalachian State</td>
-                                        <td>Bryan-College Station / Kyle Field</td>
-                                        <td>Sep.10 (Sat)</td>
-                                        <td>TBD</td>
-                                    </tr>
-                                    <%# Game 2 %>
-                                    <%# Game 3 %>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Miami</td>
-                                        <td>Bryan-College Station / Kyle Field</td>
-                                        <td>Sep.17 (Sat)</td>
-                                        <td>TBD</td>
-                                    </tr>
-                                    <%# Game 3 %>
-                                </tbody>
-                            </table>
-                        <div>
+                    <%# END Container Element #1 %>
+                    <%# Container Element #2 %>
+                    <div class="row justify-content-center align-content-end">
+                        <%# Ticket Pull Times %>
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">Ticket Pull Times</div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Grad Students & Seniors | 8am - 5pm | Monday</li>
+                                    <li class="list-group-item">Juniors | 8am - 5pm | Tuesday</li>
+                                    <li class="list-group-item">Sophomores | 8am - 5pm | Wednesday</li>
+                                    <li class="list-group-item">Freshmen | 8am - 5pm | Thursday</li>
+                                    <li class="list-group-item">All classes (if available)* | 8am - 5pm | Friday</li>
+                                    <li class="list-group-item">Walk-up (if available)** | 8am - 5pm | Friday</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <%# END Ticket pull times %>
                     </div>
-                    <%# Football Games Table %>
+                    <%# END Container Element #2 %>
                 </div>
+                <%# END Container and flexbox layout %>
             </div>
-            <%# Background Image %>
+            <%# END Background Image %>
         </main>
-        <%# Main Layout %>
+        <%# END Main Layout %>
     </body>
 </html>
