@@ -22,14 +22,24 @@ RSpec.describe Group, type: :model do
       expect(Group.all.length).to eq 4
     end
 
-    it 'loads games based on a single attribute' do
+    it 'loads groups based on a single attribute' do
       not_pulled = Group.where(pulled: 'false')
       expect(not_pulled.length).to eq 4
     end
 
-    it 'loads games based on multiple attributes' do
+    it 'loads groups based on multiple attributes' do
       reid_not_pulled = Group.where(member: 'Reid Neason', pulled: 'false')
       expect(reid_not_pulled.length).to eq 1
+    end
+
+    it 'deletes groups based on a single attribute' do
+      Group.where(groupname: "Jon's Group").destroy_all
+      expect(Group.all.length).to eq 3
+    end
+
+    it 'deletes groups based on multiple attributes' do
+      Group.where(groupname: "Kareem's Group", pulled: false).destroy_all
+      expect(Group.all.length).to eq 2
     end
   end
 end

@@ -29,5 +29,15 @@ RSpec.describe Game, type: :model do
       saturday_shsu_games = Game.where(opponent: 'Sam Houston State', day: 'Saturday')
       expect(saturday_shsu_games.length).to eq 1
     end
+
+    it 'deletes games based on a single attribute' do
+      Game.where(day: 'Thursday').destroy_all
+      expect(Game.all.length).to eq 2
+    end
+
+    it 'deletes games based on multiple attributes' do
+      Game.where(hometeam: 'TAMU', day: 'Saturday').destroy_all
+      expect(Game.all.length).to eq 0
+    end
   end
 end
