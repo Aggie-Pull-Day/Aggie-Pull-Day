@@ -26,6 +26,12 @@
           null
         ]
       },
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/helpers/errors_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
       "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/helpers/games_helper.rb": {
         "lines": [
           1,
@@ -259,6 +265,6 @@
         }
       }
     },
-    "timestamp": 1644389164
+    "timestamp": 1645380655
   }
 }
