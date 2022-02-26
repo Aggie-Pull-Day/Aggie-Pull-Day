@@ -8,6 +8,23 @@
       <sourceFolder url="file://$MODULE_DIR$/features" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache/0f" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache/2d" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache/6f" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache/7a" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache/8e" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache/43" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache/80" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache/c2" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache/dd" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache/f2" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache/f9" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache/fb" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache-iseq" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/bootsnap/compile-cache-yaml" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/cache/assets" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp/sockets" />
     </content>
     <orderEntry type="jdk" jdkName="rbenv: 3.0.0" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
