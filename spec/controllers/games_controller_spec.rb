@@ -15,7 +15,7 @@ RSpec.describe GamesController, type: :controller do
     end
   end
 
-  describe 'model' do
+  describe 'controller' do
     it 'creates a new game' do
       get :create, params: { game: { hometeam: 'TAMU', opponent: 'LSU', gamedate: '26-Nov-2022', day: 'Saturday' } }
       expect(flash[:notice]).to match(/^Game was successfully created.$/)

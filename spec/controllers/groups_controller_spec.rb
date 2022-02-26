@@ -18,7 +18,7 @@ RSpec.describe GroupsController, type: :controller do
     end
   end
 
-  describe 'model' do
+  describe 'controller' do
     it 'creates a new group' do
       get :create, params: { group: { groupname: "Philip's Group", member: 'Philip Ritchey', pulled: 'false' } }
       expect(flash[:notice]).to match(/^Group was successfully created.$/)
