@@ -17,9 +17,16 @@ end
 
 Given /the following groups exist/ do |groups_table|
   groups_table.hashes.each do |group|
+    puts group
     Group.create group
   end
 end
+
+# Given /the following users exist/ do |users_table|
+#   users_table.hashes.each do |user|
+#     User.create user
+#   end
+# end
 
 Given /^(?:|I )am on the (.+)$/ do |page_name|
   visit path_to(page_name)
@@ -60,6 +67,14 @@ end
 
 When /^I enter the pulled status "(.*)"$/ do |pulled|
   fill_in('group[pulled]', with: pulled)
+end
+
+When /^I enter the new email "(.*)"$/ do |email|
+  fill_in('user[email]', with: email)
+end
+
+When /^I enter the new password "(.*)"$/ do |pw|
+  fill_in('user[password]', with: pw)
 end
 
 When /^(?:|I )press "([^\"]*)"(?: within "([^\"]*)")?$/ do |button, selector|

@@ -4,6 +4,15 @@ Feature: have a functional student login page
   So that I can securely use the website
   I want a login page where I can enter my user credentials
 
+#  Background: users in database
+#
+#    Given the following users exist:
+#      | email             | password_digest
+#      | KareemH@tamu.edu  | Dummy
+#      | ReidN@tamu.edu    | Dummy2
+#      | BaldwinB@tamu.edu | Dummy3
+#      | JonW@tamu.edu     | Dummy4
+
   @wip
   Scenario: return to home page
 
@@ -15,16 +24,16 @@ Feature: have a functional student login page
   Scenario: successful login
 
     Given I am on the student login page
-    When I enter the email "reidneason@tamu.edu"
-    And I enter the password "listeater123"
-    And I press "Submit"
-    Then I should be on the student page
+    When I enter the email "KareemH@tamu.edu"
+    And I enter the password "Dummy"
+    And I press "Sign In!"
+    Then I should see "Hello, KareemH@tamu.edu!"
 
   @wip
   Scenario: incorrect password
 
     Given I am on the student login page
-    When I enter the email "reidneason@tamu.edu"
+    When I enter the email "KareemH@tamu.edu"
     And I enter the password "listeater124"
     And I press "Submit"
     Then I should see "Incorrect password"
@@ -52,3 +61,18 @@ Feature: have a functional student login page
 
     Given I am on the student login page
     When I press "Sign Up"
+    And I enter the new email "PhilipR@tamu.edu"
+    And I enter the new password "OldArmy"
+    And I press "Create Account"
+    Then I should see "Hello, PhilipR@tamu.edu!"
+    And I should see "No Team"
+
+  @wip
+  Scenario: sign out
+
+    Given I am on the student login page
+    When I enter the email "KareemH@tamu.edu"
+    And I enter the password "listeater124"
+    And I press "Submit"
+    And I press "Sign out"
+    Then I should be on the student login page

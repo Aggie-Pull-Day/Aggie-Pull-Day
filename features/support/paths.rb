@@ -18,7 +18,7 @@ module NavigationHelpers
     when /admin page/
       '/admin'
     when /student log[\s-]?in page/
-      '/student-login'
+      '/sessions/new'
     when /admin log[\s-]?in page/
       '/admin-login'
     when /games? page/
