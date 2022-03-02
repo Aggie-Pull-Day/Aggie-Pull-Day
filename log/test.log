@@ -14925,3 +14925,221 @@ Processing by ArticlesController#index as HTML
   Rendering articles/index.html.erb within layouts/application
   Rendered articles/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 628)
 Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 2118)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mGame Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "Sam Houston State"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Sam Houston State"], ["gamedate", "2022-09-03 00:00:00"], ["day", "Saturday"], ["created_at", "2022-03-02 21:13:54.384542"], ["updated_at", "2022-03-02 21:13:54.384542"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGame Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "App State"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "App State"], ["gamedate", "2022-09-10 00:00:00"], ["day", "Saturday"], ["created_at", "2022-03-02 21:13:54.387744"], ["updated_at", "2022-03-02 21:13:54.387744"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGame Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "Miami (FL)"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Miami (FL)"], ["gamedate", "2022-09-17 00:00:00"], ["day", "Thursday"], ["created_at", "2022-03-02 21:13:54.389522"], ["updated_at", "2022-03-02 21:13:54.389522"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"day"=>"Saturday", "gamedate"=>"26-Nov-2022", "hometeam"=>"TAMU", "opponent"=>"LSU"}}
+Redirected to http://test.host/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 938)
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.8ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "LSU"], ["gamedate", "2022-11-26 00:00:00"], ["day", "Saturday"], ["created_at", "2022-03-02 21:13:54.442251"], ["updated_at", "2022-03-02 21:13:54.442251"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#update as HTML
+  Parameters: {"game"=>{"opponent"=>"UMass"}, "id"=>"4"}
+Redirected to http://test.host/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 151)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "LSU"], ["gamedate", "2022-11-26 00:00:00"], ["day", "Saturday"], ["created_at", "2022-03-02 21:13:54.448999"], ["updated_at", "2022-03-02 21:13:54.448999"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#update as HTML
+  Parameters: {"game"=>{"gamedate"=>"19-Nov-2022", "opponent"=>"UMass"}, "id"=>"5"}
+Redirected to http://test.host/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 151)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mGroup Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Kareem Hirani"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.5ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Kareem's Group"], ["member", "Kareem Hirani"], ["pulled", false], ["created_at", "2022-03-02 21:13:54.463116"], ["updated_at", "2022-03-02 21:13:54.463116"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGroup Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Baldwin Bakkal"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Baldwin's Group"], ["member", "Baldwin Bakkal"], ["pulled", false], ["created_at", "2022-03-02 21:13:54.467995"], ["updated_at", "2022-03-02 21:13:54.467995"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Reid Neason"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Reid's Group"], ["member", "Reid Neason"], ["pulled", false], ["created_at", "2022-03-02 21:13:54.470523"], ["updated_at", "2022-03-02 21:13:54.470523"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Jon Waterman"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.1ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Jon's Group"], ["member", "Jon Waterman"], ["pulled", false], ["created_at", "2022-03-02 21:13:54.472232"], ["updated_at", "2022-03-02 21:13:54.472232"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GroupsController#create as HTML
+  Parameters: {"group"=>{"groupname"=>"Philip's Group", "member"=>"Philip Ritchey", "pulled"=>"false"}}
+Redirected to http://test.host/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 223)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.5ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Philip's Group"], ["member", "Philip Ritchey"], ["pulled", false], ["created_at", "2022-03-02 21:13:54.477477"], ["updated_at", "2022-03-02 21:13:54.477477"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GroupsController#update as HTML
+  Parameters: {"group"=>{"groupname"=>"The Professors"}, "id"=>"5"}
+Redirected to http://test.host/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 151)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Philip's Group"], ["member", "Philip Ritchey"], ["pulled", false], ["created_at", "2022-03-02 21:13:54.481582"], ["updated_at", "2022-03-02 21:13:54.481582"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GroupsController#update as HTML
+  Parameters: {"group"=>{"groupname"=>"The Professors", "member"=>"Robert Lightfoot"}, "id"=>"6"}
+Redirected to http://test.host/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 151)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mGame Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "Sam Houston State"], ["LIMIT", 1]]
+  [1m[36mGame Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "App State"], ["LIMIT", 1]]
+  [1m[36mGame Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "Miami (FL)"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."day" = $1[0m  [["day", "Saturday"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."opponent" = $1 AND "games"."day" = $2[0m  [["opponent", "Sam Houston State"], ["day", "Saturday"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Kareem Hirani"], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Baldwin Bakkal"], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Reid Neason"], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Jon Waterman"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."pulled" = $1[0m  [["pulled", false]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."member" = $1 AND "groups"."pulled" = $2[0m  [["member", "Reid Neason"], ["pulled", false]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mGame Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "Sam Houston State"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Sam Houston State"], ["gamedate", "2022-09-03 00:00:00"], ["day", "Saturday"], ["created_at", "2022-03-02 21:14:53.509699"], ["updated_at", "2022-03-02 21:14:53.509699"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGame Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "App State"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "App State"], ["gamedate", "2022-09-10 00:00:00"], ["day", "Saturday"], ["created_at", "2022-03-02 21:14:53.514017"], ["updated_at", "2022-03-02 21:14:53.514017"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGame Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "Miami (FL)"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Miami (FL)"], ["gamedate", "2022-09-17 00:00:00"], ["day", "Thursday"], ["created_at", "2022-03-02 21:14:53.516123"], ["updated_at", "2022-03-02 21:14:53.516123"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GamesController#create as HTML
+  Parameters: {"game"=>{"day"=>"Saturday", "gamedate"=>"26-Nov-2022", "hometeam"=>"TAMU", "opponent"=>"LSU"}}
+Redirected to http://test.host/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 938)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "LSU"], ["gamedate", "2022-11-26 00:00:00"], ["day", "Saturday"], ["created_at", "2022-03-02 21:14:53.543574"], ["updated_at", "2022-03-02 21:14:53.543574"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#update as HTML
+  Parameters: {"game"=>{"opponent"=>"UMass"}, "id"=>"4"}
+Redirected to http://test.host/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 151)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGame Create (0.3ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "LSU"], ["gamedate", "2022-11-26 00:00:00"], ["day", "Saturday"], ["created_at", "2022-03-02 21:14:53.550417"], ["updated_at", "2022-03-02 21:14:53.550417"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GamesController#update as HTML
+  Parameters: {"game"=>{"gamedate"=>"19-Nov-2022", "opponent"=>"UMass"}, "id"=>"5"}
+Redirected to http://test.host/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 151)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mGroup Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Kareem Hirani"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.6ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Kareem's Group"], ["member", "Kareem Hirani"], ["pulled", false], ["created_at", "2022-03-02 21:14:53.564357"], ["updated_at", "2022-03-02 21:14:53.564357"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Baldwin Bakkal"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Baldwin's Group"], ["member", "Baldwin Bakkal"], ["pulled", false], ["created_at", "2022-03-02 21:14:53.569650"], ["updated_at", "2022-03-02 21:14:53.569650"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGroup Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Reid Neason"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Reid's Group"], ["member", "Reid Neason"], ["pulled", false], ["created_at", "2022-03-02 21:14:53.572517"], ["updated_at", "2022-03-02 21:14:53.572517"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Jon Waterman"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Jon's Group"], ["member", "Jon Waterman"], ["pulled", false], ["created_at", "2022-03-02 21:14:53.575312"], ["updated_at", "2022-03-02 21:14:53.575312"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+Processing by GroupsController#create as HTML
+  Parameters: {"group"=>{"groupname"=>"Philip's Group", "member"=>"Philip Ritchey", "pulled"=>"false"}}
+Redirected to http://test.host/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 223)
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.5ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Philip's Group"], ["member", "Philip Ritchey"], ["pulled", false], ["created_at", "2022-03-02 21:14:53.584084"], ["updated_at", "2022-03-02 21:14:53.584084"]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GroupsController#update as HTML
+  Parameters: {"group"=>{"groupname"=>"The Professors"}, "id"=>"5"}
+Redirected to http://test.host/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 151)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["groupname", "Philip's Group"], ["member", "Philip Ritchey"], ["pulled", false], ["created_at", "2022-03-02 21:14:53.592449"], ["updated_at", "2022-03-02 21:14:53.592449"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by GroupsController#update as HTML
+  Parameters: {"group"=>{"groupname"=>"The Professors", "member"=>"Robert Lightfoot"}, "id"=>"6"}
+Redirected to http://test.host/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 151)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mGame Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "Sam Houston State"], ["LIMIT", 1]]
+  [1m[36mGame Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "App State"], ["LIMIT", 1]]
+  [1m[36mGame Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "games" WHERE "games"."opponent" = $1 LIMIT $2[0m  [["opponent", "Miami (FL)"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Load (1.7ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  [1m[35m (19.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."day" = $1[0m  [["day", "Saturday"]]
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."opponent" = $1 AND "games"."day" = $2[0m  [["opponent", "Sam Houston State"], ["day", "Saturday"]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mGroup Exists? (7.1ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Kareem Hirani"], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Baldwin Bakkal"], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (7.4ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Reid Neason"], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (16.9ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."member" = $1 LIMIT $2[0m  [["member", "Jon Waterman"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."pulled" = $1[0m  [["pulled", false]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."member" = $1 AND "groups"."pulled" = $2[0m  [["member", "Reid Neason"], ["pulled", false]]
+  [1m[35m (11.3ms)[0m  [1m[31mROLLBACK[0m
