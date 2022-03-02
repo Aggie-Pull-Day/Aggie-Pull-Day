@@ -13598,3 +13598,595 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms | Allocations: 3855)
 
 
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3219348097142779560)[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3219348097142779560)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSeat Load (2.5ms)[0m  [1m[34mSELECT "seats".* FROM "seats" ORDER BY "seats"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mSeat Load (0.5ms)[0m  [1m[34mSELECT "seats".* FROM "seats"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (59.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "aggiepullday_development"[0m
+  [1m[35m (68.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "aggiepullday_test"[0m
+  [1m[35m (312.5ms)[0m  [1m[35mCREATE DATABASE "aggiepullday_development" ENCODING = 'utf8'[0m
+  [1m[35m (105.2ms)[0m  [1m[35mCREATE DATABASE "aggiepullday_test" ENCODING = 'utf8'[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (20.6ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "hometeam" character varying, "opponent" character varying, "gamedate" timestamp(6), "day" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "groups" CASCADE[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "groups" ("id" bigserial primary key, "groupname" character varying, "member" character varying, "pulled" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying, "seatnumber" character varying)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "seats" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "seats" ("id" bigserial primary key, "seatnumber" character varying, "assigned" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220213054853)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220106151749),
+(20220106180117),
+(20220210141820),
+(20220210142128),
+(20220211033247),
+(20220213041708),
+(20220213052415);
+
+[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-03-02 19:39:22.688535"], ["updated_at", "2022-03-02 19:39:22.688535"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "a767bfc1ec31042f4e511dd8ea10f3e33cf06cce"], ["created_at", "2022-03-02 19:39:22.695559"], ["updated_at", "2022-03-02 19:39:22.695559"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "hometeam" character varying, "opponent" character varying, "gamedate" timestamp(6), "day" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "groups" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "groups" ("id" bigserial primary key, "groupname" character varying, "member" character varying, "pulled" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying, "seatnumber" character varying)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "seats" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "seats" ("id" bigserial primary key, "seatnumber" character varying, "assigned" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220213054853)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220106151749),
+(20220106180117),
+(20220210141820),
+(20220210142128),
+(20220211033247),
+(20220213041708),
+(20220213052415);
+
+[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-03-02 19:39:22.767243"], ["updated_at", "2022-03-02 19:39:22.767243"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-03-02 19:39:22.774013"], ["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "a767bfc1ec31042f4e511dd8ea10f3e33cf06cce"], ["created_at", "2022-03-02 19:39:22.780295"], ["updated_at", "2022-03-02 19:39:22.780295"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.6ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Sam Houston State"], ["gamedate", "2022-09-03 00:00:00"], ["day", "Saturday"], ["created_at", "2022-03-02 19:39:22.849473"], ["updated_at", "2022-03-02 19:39:22.849473"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "App State"], ["gamedate", "2022-09-10 00:00:00"], ["day", "Saturday"], ["created_at", "2022-03-02 19:39:22.854238"], ["updated_at", "2022-03-02 19:39:22.854238"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.2ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Miami (FL)"], ["gamedate", "2022-09-17 00:00:00"], ["day", "Thursday"], ["created_at", "2022-03-02 19:39:22.857355"], ["updated_at", "2022-03-02 19:39:22.857355"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.7ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "List Eaters"], ["member", "Kareem Hirani"], ["pulled", false], ["created_at", "2022-03-02 19:39:22.908390"], ["updated_at", "2022-03-02 19:39:22.908390"], ["email", "KareemH@tamu.edu"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "List Eaters"], ["member", "Baldwin Bakkal"], ["pulled", false], ["created_at", "2022-03-02 19:39:22.912692"], ["updated_at", "2022-03-02 19:39:22.912692"], ["email", "BaldwinB@tamu.edu"]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "List Eaters"], ["member", "Reid Neason"], ["pulled", false], ["created_at", "2022-03-02 19:39:22.921430"], ["updated_at", "2022-03-02 19:39:22.921430"], ["email", "ReidN@tamu.edu"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "List Eaters"], ["member", "Jon Waterman"], ["pulled", false], ["created_at", "2022-03-02 19:39:22.925262"], ["updated_at", "2022-03-02 19:39:22.925262"], ["email", "JonW@tamu.edu"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "Team 1"], ["member", "Cora English"], ["pulled", false], ["created_at", "2022-03-02 19:39:22.929237"], ["updated_at", "2022-03-02 19:39:22.929237"], ["email", "CoraE@tamu.edu"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "Team 1"], ["member", "Grace Li"], ["pulled", false], ["created_at", "2022-03-02 19:39:22.932852"], ["updated_at", "2022-03-02 19:39:22.932852"], ["email", "GraceL@tamu.edu"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "Team 1"], ["member", "Rebecca McFadden"], ["pulled", false], ["created_at", "2022-03-02 19:39:22.936305"], ["updated_at", "2022-03-02 19:39:22.936305"], ["email", "RebeccaF@tamu.edu"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "Team 1"], ["member", "Nikhita Vehmpati"], ["pulled", false], ["created_at", "2022-03-02 19:39:22.939552"], ["updated_at", "2022-03-02 19:39:22.939552"], ["email", "NikhitaV@tamu.edu"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "KareemH@tamu.edu"], ["password_digest", "$2a$12$1hRg9KUI/wotqYcOmyVUyufAOyeb9ulwRw2RFMWYSXC7cQ5biaPIu"], ["created_at", "2022-03-02 19:39:23.412949"], ["updated_at", "2022-03-02 19:39:23.412949"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "BaldwinB@tamu.edu"], ["password_digest", "Dummy"], ["created_at", "2022-03-02 19:39:23.418391"], ["updated_at", "2022-03-02 19:39:23.418391"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "ReidN@tamu.edu"], ["password_digest", "Dummy"], ["created_at", "2022-03-02 19:39:23.422150"], ["updated_at", "2022-03-02 19:39:23.422150"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "JonW@tamu.edu"], ["password_digest", "Dummy"], ["created_at", "2022-03-02 19:39:23.425543"], ["updated_at", "2022-03-02 19:39:23.425543"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "CoraE@tamu.edu"], ["password_digest", "$2a$12$8LsGik0J5jOMNgYlS.kbreFJlFpQ6jU1pfQqZETzjCCJnaA8SSajK"], ["created_at", "2022-03-02 19:39:23.429287"], ["updated_at", "2022-03-02 19:39:23.429287"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "GraceL@tamu.edu"], ["password_digest", "Dummy"], ["created_at", "2022-03-02 19:39:23.432637"], ["updated_at", "2022-03-02 19:39:23.432637"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "RebeccaF@tamu.edu"], ["password_digest", "Dummy"], ["created_at", "2022-03-02 19:39:23.436636"], ["updated_at", "2022-03-02 19:39:23.436636"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "NikhitaV@tamu.edu"], ["password_digest", "Dummy"], ["created_at", "2022-03-02 19:39:23.439921"], ["updated_at", "2022-03-02 19:39:23.439921"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.5ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "lg"], ["assigned", true], ["created_at", "2022-03-02 19:39:23.477621"], ["updated_at", "2022-03-02 19:39:23.477621"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.3ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "4y"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.481738"], ["updated_at", "2022-03-02 19:39:23.481738"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "se"], ["assigned", true], ["created_at", "2022-03-02 19:39:23.485814"], ["updated_at", "2022-03-02 19:39:23.485814"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "ad"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.489399"], ["updated_at", "2022-03-02 19:39:23.489399"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "el"], ["assigned", true], ["created_at", "2022-03-02 19:39:23.493414"], ["updated_at", "2022-03-02 19:39:23.493414"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "kg"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.496943"], ["updated_at", "2022-03-02 19:39:23.496943"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "4d"], ["assigned", true], ["created_at", "2022-03-02 19:39:23.500619"], ["updated_at", "2022-03-02 19:39:23.500619"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "ks"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.504245"], ["updated_at", "2022-03-02 19:39:23.504245"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "c0"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.507689"], ["updated_at", "2022-03-02 19:39:23.507689"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.3ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "bg"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.511598"], ["updated_at", "2022-03-02 19:39:23.511598"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.3ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "8f"], ["assigned", true], ["created_at", "2022-03-02 19:39:23.515032"], ["updated_at", "2022-03-02 19:39:23.515032"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "zm"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.518925"], ["updated_at", "2022-03-02 19:39:23.518925"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.3ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "28"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.522431"], ["updated_at", "2022-03-02 19:39:23.522431"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "29"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.526308"], ["updated_at", "2022-03-02 19:39:23.526308"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "kf"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.529644"], ["updated_at", "2022-03-02 19:39:23.529644"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "zn"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.533555"], ["updated_at", "2022-03-02 19:39:23.533555"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "ld"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.536950"], ["updated_at", "2022-03-02 19:39:23.536950"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "bj"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.540639"], ["updated_at", "2022-03-02 19:39:23.540639"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "4h"], ["assigned", true], ["created_at", "2022-03-02 19:39:23.544420"], ["updated_at", "2022-03-02 19:39:23.544420"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.4ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "d4"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.548296"], ["updated_at", "2022-03-02 19:39:23.548296"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "eq"], ["assigned", true], ["created_at", "2022-03-02 19:39:23.551856"], ["updated_at", "2022-03-02 19:39:23.551856"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.3ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "zq"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.555316"], ["updated_at", "2022-03-02 19:39:23.555316"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "5p"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.559397"], ["updated_at", "2022-03-02 19:39:23.559397"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.3ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "0q"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.562658"], ["updated_at", "2022-03-02 19:39:23.562658"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "4j"], ["assigned", true], ["created_at", "2022-03-02 19:39:23.566814"], ["updated_at", "2022-03-02 19:39:23.566814"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "ya"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.570140"], ["updated_at", "2022-03-02 19:39:23.570140"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "mv"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.573897"], ["updated_at", "2022-03-02 19:39:23.573897"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "sr"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.577345"], ["updated_at", "2022-03-02 19:39:23.577345"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "z4"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.580958"], ["updated_at", "2022-03-02 19:39:23.580958"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "li"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.584414"], ["updated_at", "2022-03-02 19:39:23.584414"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "81"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.587756"], ["updated_at", "2022-03-02 19:39:23.587756"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "xw"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.591789"], ["updated_at", "2022-03-02 19:39:23.591789"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.3ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "sg"], ["assigned", true], ["created_at", "2022-03-02 19:39:23.594946"], ["updated_at", "2022-03-02 19:39:23.594946"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "k8"], ["assigned", true], ["created_at", "2022-03-02 19:39:23.598897"], ["updated_at", "2022-03-02 19:39:23.598897"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.2ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "3x"], ["assigned", true], ["created_at", "2022-03-02 19:39:23.602208"], ["updated_at", "2022-03-02 19:39:23.602208"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.3ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "4o"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.605768"], ["updated_at", "2022-03-02 19:39:23.605768"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.4ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "zu"], ["assigned", true], ["created_at", "2022-03-02 19:39:23.610980"], ["updated_at", "2022-03-02 19:39:23.610980"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.5ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "am"], ["assigned", true], ["created_at", "2022-03-02 19:39:23.615606"], ["updated_at", "2022-03-02 19:39:23.615606"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.7ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "fw"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.621748"], ["updated_at", "2022-03-02 19:39:23.621748"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSeat Create (0.3ms)[0m  [1m[32mINSERT INTO "seats" ("seatnumber", "assigned", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["seatnumber", "15"], ["assigned", false], ["created_at", "2022-03-02 19:39:23.626990"], ["updated_at", "2022-03-02 19:39:23.626990"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3219348097142779560)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(3219348097142779560)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mSeat Load (0.7ms)[0m  [1m[34mSELECT "seats".* FROM "seats"[0m
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+Started GET "/games" for 127.0.0.1 at 2022-03-02 13:44:32 -0600
+Started GET "/" for 127.0.0.1 at 2022-03-02 13:44:32 -0600
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GamesController#index as HTML
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms | Allocations: 635)
+
+
+Started GET "/games" for 127.0.0.1 at 2022-03-02 13:44:32 -0600
+Processing by GamesController#index as HTML
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms | Allocations: 239)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2022-03-02 13:44:32 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 13.7ms | Allocations: 2496)
+Completed 200 OK in 230ms (Views: 219.4ms | ActiveRecord: 0.0ms | Allocations: 81763)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2022-03-02 13:44:41 -0600
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"ReidN@tamu.edu", "password"=>"[FILTERED]", "commit"=>"Sign In!"}
+[31mUnpermitted parameters: :authenticity_token, :commit[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ReidN@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 108ms (ActiveRecord: 5.3ms | Allocations: 50139)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:11:in `create'
+Started POST "/sessions" for 127.0.0.1 at 2022-03-02 13:44:44 -0600
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"ReidN@tamu.edu", "password"=>"[FILTERED]", "commit"=>"Sign In!"}
+[31mUnpermitted parameters: :authenticity_token, :commit[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ReidN@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.2ms | Allocations: 1327)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:11:in `create'
+Started GET "/" for 127.0.0.1 at 2022-03-02 13:48:31 -0600
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/games" for 127.0.0.1 at 2022-03-02 13:48:32 -0600
+Processing by GamesController#index as HTML
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 14ms (ActiveRecord: 0.0ms | Allocations: 664)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2022-03-02 13:48:32 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2302)
+Completed 200 OK in 72ms (Views: 69.0ms | ActiveRecord: 0.0ms | Allocations: 31328)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2022-03-02 13:48:37 -0600
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"ReidN@tamu.edu", "password"=>"[FILTERED]", "commit"=>"Sign In!"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ReidN@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 6.8ms | Allocations: 50094)
+
+
+  
+BCrypt::Errors::InvalidHash (invalid hash):
+  
+app/controllers/sessions_controller.rb:11:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2022-03-02 13:51:18 -0600
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/games" for 127.0.0.1 at 2022-03-02 13:51:18 -0600
+Processing by GamesController#index as HTML
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms | Allocations: 660)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2022-03-02 13:51:18 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2310)
+Completed 200 OK in 69ms (Views: 65.1ms | ActiveRecord: 0.0ms | Allocations: 31345)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2022-03-02 13:51:24 -0600
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"KareemH@tamu.edu", "password"=>"[FILTERED]", "commit"=>"Sign In!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "KareemH@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 276ms (ActiveRecord: 5.4ms | Allocations: 49994)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2022-03-02 13:51:24 -0600
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9:in `current_user'
+  [1m[36mGroup Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."email" = $1 LIMIT $2[0m  [["email", "KareemH@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21:in `getTeam'
+  [1m[36mGroup Load (0.5ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."email" = $1 ORDER BY "groups"."id" ASC LIMIT $2[0m  [["email", "KareemH@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:25:in `getTeam'
+  [1m[36mGroup Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."groupname" = $1 LIMIT $2[0m  [["groupname", "List Eaters"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:4
+  [1m[36mCACHE Group Load (0.0ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."email" = $1 ORDER BY "groups"."id" ASC LIMIT $2[0m  [["email", "KareemH@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:14:in `hasPulled'
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."groupname" = $1[0m  [["groupname", "List Eaters"]]
+  ↳ app/views/users/show.html.erb:9
+  Rendered users/show.html.erb within layouts/application (Duration: 116.0ms | Allocations: 79863)
+Completed 200 OK in 123ms (Views: 117.0ms | ActiveRecord: 3.9ms | Allocations: 83343)
+
+
+Started GET "/games" for 127.0.0.1 at 2022-03-02 13:51:31 -0600
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:7
+  Rendered games/index.html.erb within layouts/application (Duration: 59.4ms | Allocations: 64712)
+Completed 200 OK in 66ms (Views: 57.1ms | ActiveRecord: 6.5ms | Allocations: 68406)
+
+
+Started GET "/games" for 127.0.0.1 at 2022-03-02 13:51:32 -0600
+Processing by GamesController#index as HTML
+  Rendering games/index.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/games/index.html.erb:7
+  Rendered games/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 923)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.3ms | Allocations: 3579)
+
+
+Started GET "/admin" for 127.0.0.1 at 2022-03-02 13:51:34 -0600
+Processing by ArticlesController#admin as HTML
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1023)
+Completed 200 OK in 12ms (Views: 6.9ms | ActiveRecord: 0.0ms | Allocations: 4454)
+
+
+Started GET "/admin" for 127.0.0.1 at 2022-03-02 13:51:34 -0600
+Processing by ArticlesController#admin as HTML
+  Rendering articles/admin.html.erb within layouts/application
+  Rendered articles/admin.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.0ms | Allocations: 2632)
+
+
+Started GET "/articles" for 127.0.0.1 at 2022-03-02 13:51:44 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 776)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 3521)
+
+
+Started GET "/logo/logo-1024x768.png" for 127.0.0.1 at 2022-03-02 13:51:44 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+actionpack (6.0.4.6) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4.6) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4.6) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4.6) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+railties (6.0.4.6) lib/rails/engine.rb:527:in `call'
+puma (5.6.2) lib/puma/configuration.rb:252:in `call'
+puma (5.6.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.2) lib/puma/server.rb:441:in `process_client'
+puma (5.6.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Processing by ErrorsController#not_found as PNG
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 1628)
+
+
+Started GET "/kyle-field-westside-view.jpg" for 127.0.0.1 at 2022-03-02 13:51:44 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/kyle-field-westside-view.jpg"):
+  
+actionpack (6.0.4.6) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4.6) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4.6) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4.6) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+railties (6.0.4.6) lib/rails/engine.rb:527:in `call'
+puma (5.6.2) lib/puma/configuration.rb:252:in `call'
+puma (5.6.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.2) lib/puma/server.rb:441:in `process_client'
+puma (5.6.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Processing by ErrorsController#not_found as JPEG
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 1322)
+
+
+Started GET "/articles" for 127.0.0.1 at 2022-03-02 13:51:44 -0600
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 2634)
+
+
+Started GET "/logo/logo-1024x768.png" for 127.0.0.1 at 2022-03-02 13:51:44 -0600
+Started GET "/kyle-field-westside-view.jpg" for 127.0.0.1 at 2022-03-02 13:51:44 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/logo/logo-1024x768.png"):
+  
+actionpack (6.0.4.6) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4.6) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4.6) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4.6) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+railties (6.0.4.6) lib/rails/engine.rb:527:in `call'
+puma (5.6.2) lib/puma/configuration.rb:252:in `call'
+puma (5.6.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.2) lib/puma/server.rb:441:in `process_client'
+puma (5.6.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Processing by ErrorsController#not_found as PNG
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 768)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/kyle-field-westside-view.jpg"):
+  
+actionpack (6.0.4.6) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.4.6) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.4.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.4.6) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.4.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.4.6) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.4.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.4.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.4.6) lib/action_dispatch/middleware/host_authorization.rb:103:in `call'
+railties (6.0.4.6) lib/rails/engine.rb:527:in `call'
+puma (5.6.2) lib/puma/configuration.rb:252:in `call'
+puma (5.6.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.2) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.2) lib/puma/server.rb:441:in `process_client'
+puma (5.6.2) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Processing by ErrorsController#not_found as JPEG
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 765)
+
+
