@@ -10,9 +10,9 @@ class GroupsTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Groups"
   end
 
-  test "should create group" do
+  test "creating a Group" do
     visit groups_url
-    click_on "New group"
+    click_on "New Group"
 
     fill_in "Groupname", with: @group.groupname
     fill_in "Member", with: @group.member
@@ -23,9 +23,9 @@ class GroupsTest < ApplicationSystemTestCase
     click_on "Back"
   end
 
-  test "should update Group" do
-    visit group_url(@group)
-    click_on "Edit this group", match: :first
+  test "updating a Group" do
+    visit groups_url
+    click_on "Edit", match: :first
 
     fill_in "Groupname", with: @group.groupname
     fill_in "Member", with: @group.member
@@ -36,9 +36,11 @@ class GroupsTest < ApplicationSystemTestCase
     click_on "Back"
   end
 
-  test "should destroy Group" do
-    visit group_url(@group)
-    click_on "Destroy this group", match: :first
+  test "destroying a Group" do
+    visit groups_url
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
 
     assert_text "Group was successfully destroyed"
   end
