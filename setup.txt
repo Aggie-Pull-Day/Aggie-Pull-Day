@@ -5,11 +5,11 @@ System Requirements
 Ruby 3.0.0
 SQLite3 3.31.1
 Node.js v10.19.0
-Yarn 0.32+git
+Yarn 1.22.17
 
 gem install rails
 
-Rails 7.0.0
+Rails 6.0.4
 
 yarn add bootstrap jquery popper.js
 

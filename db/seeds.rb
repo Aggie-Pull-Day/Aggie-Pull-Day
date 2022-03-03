@@ -54,3 +54,33 @@ more_games = [
   more_groups.each do |group|
     Group.create!(group)
   end
+
+
+
+more_users = [
+
+  {:email => "KareemH@tamu.edu", :password_digest => BCrypt::Password.create("Dummy")},
+  {:email => "BaldwinB@tamu.edu", :password_digest => "Dummy"},
+  {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
+  {:email => "JonW@tamu.edu", :password_digest => "Dummy"},
+  {:email => "CoraE@tamu.edu", :password_digest => BCrypt::Password.create("Dummy")},
+  {:email => "GraceL@tamu.edu", :password_digest => "Dummy"},
+  {:email => "RebeccaF@tamu.edu", :password_digest => "Dummy"},
+  {:email => "NikhitaV@tamu.edu", :password_digest => "Dummy"}
+
+]
+
+
+
+more_users.each do |user|
+  User.create!(user)
+end
+
+require 'faker'
+
+40.times do  
+  seat = Seat.new
+  seat.seatnumber = Faker::Alphanumeric.alphanumeric(number: 2)
+  seat.assigned = Faker::Boolean.boolean(true_ratio: 0.2)
+  seat.save
+end
