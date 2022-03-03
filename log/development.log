@@ -10061,3 +10061,240 @@ Processing by UsersController#show as TURBO_STREAM
 Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.3ms | Allocations: 4198)
 
 
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (48.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "aggiepullday_development"[0m
+  [1m[35m (50.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "aggiepullday_test"[0m
+  [1m[35m (480.2ms)[0m  [1m[35mCREATE DATABASE "aggiepullday_development" ENCODING = 'utf8'[0m
+  [1m[35m (101.0ms)[0m  [1m[35mCREATE DATABASE "aggiepullday_test" ENCODING = 'utf8'[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "hometeam" character varying, "opponent" character varying, "gamedate" timestamp(6), "day" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "groups" CASCADE[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "groups" ("id" bigserial primary key, "groupname" character varying, "member" character varying, "pulled" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220211033247)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220106151749),
+(20220106180117),
+(20220210141820),
+(20220210142128);
+
+[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-03-03 03:22:53.292824"], ["updated_at", "2022-03-03 03:22:53.292824"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4ec5b79d18a93fc0c3f993a5ead68fdd1d744a25"], ["created_at", "2022-03-03 03:22:53.299963"], ["updated_at", "2022-03-03 03:22:53.299963"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "hometeam" character varying, "opponent" character varying, "gamedate" timestamp(6), "day" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "groups" CASCADE[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "groups" ("id" bigserial primary key, "groupname" character varying, "member" character varying, "pulled" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220211033247)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220106151749),
+(20220106180117),
+(20220210141820),
+(20220210142128);
+
+[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-03-03 03:22:53.359163"], ["updated_at", "2022-03-03 03:22:53.359163"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-03-03 03:22:53.364091"], ["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4ec5b79d18a93fc0c3f993a5ead68fdd1d744a25"], ["created_at", "2022-03-03 03:22:53.371561"], ["updated_at", "2022-03-03 03:22:53.371561"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (40.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "aggiepullday_development"[0m
+  [1m[35m (44.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "aggiepullday_test"[0m
+  [1m[35m (96.5ms)[0m  [1m[35mCREATE DATABASE "aggiepullday_development" ENCODING = 'utf8'[0m
+  [1m[35m (101.6ms)[0m  [1m[35mCREATE DATABASE "aggiepullday_test" ENCODING = 'utf8'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (8.0ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "hometeam" character varying, "opponent" character varying, "gamedate" timestamp(6), "day" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "groups" CASCADE[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "groups" ("id" bigserial primary key, "groupname" character varying, "member" character varying, "pulled" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220211033247)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220106151749),
+(20220106180117),
+(20220210141820),
+(20220210142128);
+
+[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-03-03 03:23:06.848944"], ["updated_at", "2022-03-03 03:23:06.848944"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4ec5b79d18a93fc0c3f993a5ead68fdd1d744a25"], ["created_at", "2022-03-03 03:23:06.857323"], ["updated_at", "2022-03-03 03:23:06.857323"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "games" CASCADE[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "games" ("id" bigserial primary key, "hometeam" character varying, "opponent" character varying, "gamedate" timestamp(6), "day" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "groups" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "groups" ("id" bigserial primary key, "groupname" character varying, "member" character varying, "pulled" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "email" character varying)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220211033247)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220106151749),
+(20220106180117),
+(20220210141820),
+(20220210142128);
+
+[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-03-03 03:23:06.912614"], ["updated_at", "2022-03-03 03:23:06.912614"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-03-03 03:23:06.920786"], ["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "4ec5b79d18a93fc0c3f993a5ead68fdd1d744a25"], ["created_at", "2022-03-03 03:23:06.928604"], ["updated_at", "2022-03-03 03:23:06.928604"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.9ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Sam Houston State"], ["gamedate", "2022-09-03 00:00:00"], ["day", "Saturday"], ["created_at", "2022-03-03 03:23:07.011854"], ["updated_at", "2022-03-03 03:23:07.011854"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.5ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "App State"], ["gamedate", "2022-09-10 00:00:00"], ["day", "Saturday"], ["created_at", "2022-03-03 03:23:07.018144"], ["updated_at", "2022-03-03 03:23:07.018144"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGame Create (0.4ms)[0m  [1m[32mINSERT INTO "games" ("hometeam", "opponent", "gamedate", "day", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hometeam", "TAMU"], ["opponent", "Miami (FL)"], ["gamedate", "2022-09-17 00:00:00"], ["day", "Thursday"], ["created_at", "2022-03-03 03:23:07.023622"], ["updated_at", "2022-03-03 03:23:07.023622"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.5ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "List Eaters"], ["member", "Kareem Hirani"], ["pulled", false], ["created_at", "2022-03-03 03:23:07.073563"], ["updated_at", "2022-03-03 03:23:07.073563"], ["email", "KareemH@tamu.edu"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "List Eaters"], ["member", "Baldwin Bakkal"], ["pulled", false], ["created_at", "2022-03-03 03:23:07.078038"], ["updated_at", "2022-03-03 03:23:07.078038"], ["email", "BaldwinB@tamu.edu"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "List Eaters"], ["member", "Reid Neason"], ["pulled", false], ["created_at", "2022-03-03 03:23:07.081616"], ["updated_at", "2022-03-03 03:23:07.081616"], ["email", "ReidN@tamu.edu"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "List Eaters"], ["member", "Jon Waterman"], ["pulled", false], ["created_at", "2022-03-03 03:23:07.085073"], ["updated_at", "2022-03-03 03:23:07.085073"], ["email", "JonW@tamu.edu"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "Team 1"], ["member", "Cora English"], ["pulled", false], ["created_at", "2022-03-03 03:23:07.088153"], ["updated_at", "2022-03-03 03:23:07.088153"], ["email", "CoraE@tamu.edu"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "Team 1"], ["member", "Grace Li"], ["pulled", false], ["created_at", "2022-03-03 03:23:07.091487"], ["updated_at", "2022-03-03 03:23:07.091487"], ["email", "GraceL@tamu.edu"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "Team 1"], ["member", "Rebecca McFadden"], ["pulled", false], ["created_at", "2022-03-03 03:23:07.094735"], ["updated_at", "2022-03-03 03:23:07.094735"], ["email", "RebeccaF@tamu.edu"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "member", "pulled", "created_at", "updated_at", "email") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["groupname", "Team 1"], ["member", "Nikhita Vehmpati"], ["pulled", false], ["created_at", "2022-03-03 03:23:07.097868"], ["updated_at", "2022-03-03 03:23:07.097868"], ["email", "NikhitaV@tamu.edu"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  [1m[36mGroup Load (0.6ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for 127.0.0.1 at 2022-03-02 21:25:01 -0600
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/games" for 127.0.0.1 at 2022-03-02 21:25:02 -0600
+Processing by GamesController#index as HTML
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms | Allocations: 3072)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2022-03-02 21:25:02 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 22.0ms | Allocations: 5506)
+Completed 200 OK in 125ms (Views: 120.0ms | ActiveRecord: 0.0ms | Allocations: 37474)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2022-03-02 21:25:11 -0600
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"KareemH@tamu.edu", "password"=>"[FILTERED]", "commit"=>"Sign In!"}
+[31mUnpermitted parameters: :authenticity_token, :commit[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "KareemH@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 8ms (ActiveRecord: 2.7ms | Allocations: 3230)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2022-03-02 21:25:11 -0600
+Processing by SessionsController#new as TURBO_STREAM
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1341)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 3912)
+
+
+Started GET "/" for 127.0.0.1 at 2022-03-02 21:27:00 -0600
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/games" for 127.0.0.1 at 2022-03-02 21:27:00 -0600
+Processing by GamesController#index as HTML
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as :require_login rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms | Allocations: 660)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2022-03-02 21:27:00 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2308)
+Completed 200 OK in 68ms (Views: 64.9ms | ActiveRecord: 0.0ms | Allocations: 31453)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2022-03-02 21:27:07 -0600
+Processing by SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "email"=>"KareemH@tamu.edu", "password"=>"[FILTERED]", "commit"=>"Sign In!"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "KareemH@tamu.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10:in `create'
+Redirected to http://localhost:3000/sessions/new
+Completed 302 Found in 8ms (ActiveRecord: 1.6ms | Allocations: 3140)
+
+
+Started GET "/sessions/new" for 127.0.0.1 at 2022-03-02 21:27:07 -0600
+Processing by SessionsController#new as TURBO_STREAM
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1338)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 3910)
+
+
