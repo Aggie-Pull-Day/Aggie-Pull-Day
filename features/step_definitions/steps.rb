@@ -9,31 +9,63 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-Given /the following games exist/ do |games_table|
-  games_table.hashes.each do |game|
-    Game.create game
+Given /^I am signed in$/ do
+  visit '/sessions/new'
+  fill_in('email', with: 'KareemH@tamu.edu')
+  fill_in('password', with: 'Dummy')
+  click_button('Sign In!')
+  visit '/users/1'
+end
+
+Given /^the games table is populated$/ do
+  games = [{ hometeam: 'TAMU', opponent: 'Sam Houston State', gamedate: '3-Sep-2022', day: 'Saturday' },
+           { hometeam: 'TAMU', opponent: 'App State', gamedate: '10-Sep-2022', day: 'Saturday' },
+           { hometeam: 'TAMU', opponent: 'Miami (FL)', gamedate: '17-Sep-2022', day: 'Thursday' }]
+
+  games.each do |game|
+    Game.create!(game)
   end
 end
 
-Given /the following groups exist/ do |groups_table|
-  groups_table.hashes.each do |group|
-    puts group
-    Group.create group
+Given /^the groups table is populated$/ do
+  groups = [
+    { groupname: 'List Eaters', member: 'Kareem Hirani', pulled: false, email: 'KareemH@tamu.edu' },
+    { groupname: 'List Eaters', member: 'Baldwin Bakkal', pulled: false, email: 'BaldwinB@tamu.edu' },
+    { groupname: 'List Eaters', member: 'Reid Neason', pulled: false, email: 'ReidN@tamu.edu' },
+    { groupname: 'List Eaters', member: 'Jon Waterman', pulled: false, email: 'JonW@tamu.edu' },
+    { groupname: 'Team 1', member: 'Cora English', pulled: false, email: 'CoraE@tamu.edu' },
+    { groupname: 'Team 1', member: 'Grace Li', pulled: false, email: 'GraceL@tamu.edu' },
+    { groupname: 'Team 1', member: 'Rebecca McFadden', pulled: false, email: 'RebeccaF@tamu.edu' },
+    { groupname: 'Team 1', member: 'Nikhita Vehmpati', pulled: false, email: 'NikhitaV@tamu.edu' }
+  ]
+
+  groups.each do |group|
+    Group.create!(group)
   end
 end
 
-# Given /the following users exist/ do |users_table|
-#   users_table.hashes.each do |user|
-#     User.create user
-#   end
-# end
+Given /^the users table is populated$/ do
+  users = [
+    { email: 'KareemH@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
+    { email: 'BaldwinB@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
+    { email: 'ReidN@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
+    { email: 'JonW@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
+    { email: 'CoraE@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
+    { email: 'GraceL@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
+    { email: 'RebeccaM@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
+    { email: 'NikhitaV@tamu.edu', password_digest: BCrypt::Password.create('Dummy') }
+  ]
+
+  users.each do |user|
+    User.create!(user)
+  end
+end
 
 Given /^(?:|I )am on the (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
 When /^I enter the email "(.*)"$/ do |email|
-  email.downcase!
   fill_in('email', with: email)
 end
 

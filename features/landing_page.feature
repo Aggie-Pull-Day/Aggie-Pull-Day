@@ -4,6 +4,11 @@ Feature: have a functional landing page
   So that I can access the rest of the website
   I want a landing page with times for upcoming games and pulls
 
+  Background: sign in
+
+    Given the users table is populated
+    And I am signed in
+
   Scenario: see pull & game info
     Given I am on the home page
     Then I should see "Ticket Pull Times"

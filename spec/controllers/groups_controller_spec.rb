@@ -3,6 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe GroupsController, type: :controller do
+  before :each do
+    session[:user_id] = User.first.id
+  end
+
   describe 'controller' do
     it 'creates a new group' do
       get :create, params: { group: { groupname: "Philip's Group", member: 'Philip Ritchey', pulled: 'false' } }

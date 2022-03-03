@@ -25,6 +25,8 @@ module NavigationHelpers
       '/games'
     when /groups? page/
       '/groups'
+    when /pull group page/
+      '/users/1'
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
       #
