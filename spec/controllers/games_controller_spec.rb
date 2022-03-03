@@ -3,18 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe GamesController, type: :controller do
-  before :all do
-    if Game.where(opponent: 'Sam Houston State').empty?
-      Game.create(hometeam: 'TAMU', opponent: 'Sam Houston State', gamedate: '3-Sep-2022', day: 'Saturday')
-    end
-    if Game.where(opponent: 'App State').empty?
-      Game.create(hometeam: 'TAMU', opponent: 'App State', gamedate: '10-Sep-2022', day: 'Saturday')
-    end
-    if Game.where(opponent: 'Miami (FL)').empty?
-      Game.create(hometeam: 'TAMU', opponent: 'Miami (FL)', gamedate: '17-Sep-2022', day: 'Thursday')
-    end
-  end
-
   describe 'controller' do
     it 'creates a new game' do
       get :create, params: { game: { hometeam: 'TAMU', opponent: 'LSU', gamedate: '26-Nov-2022', day: 'Saturday' } }

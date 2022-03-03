@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Seat, type: :model do
   before :all do
+    Seat.destroy_all
     (65..90).each do |i|
       (1..30).each do |j|
         seat_number = i.chr + j.to_s
@@ -13,29 +14,29 @@ RSpec.describe Seat, type: :model do
   end
 
   describe 'model' do
-    xit 'has the correct amount of data' do
+    it 'has the correct amount of data' do
       expect(Seat.all.length).to eq 780
     end
 
-    xit 'loads seats based on a single attribute' do
+    it 'loads seats based on a single attribute' do
       not_pulled = Seat.where(assigned: false)
-      expect(not_pulled).to eq 390
+      expect(not_pulled.length).to eq 390
     end
 
-    xit 'loads seats based on multiple attributes' do
+    it 'loads seats based on multiple attributes' do
       not_pulled = Seat.where(assigned: false)
       not_pulled_row_a = not_pulled.where('seatnumber LIKE :prefix', prefix: 'A%')
       expect(not_pulled_row_a.length).to eq 15
     end
 
-    xit 'successfully deletes data based on a single attribute' do
+    it 'successfully deletes data based on a single attribute' do
       Seat.where('seatnumber LIKE :prefix', prefix: 'A%').destroy_all
       expect(Seat.all.length).to eq 750
     end
 
-    xit 'successfully deletes data based on multiple attributes' do
+    it 'successfully deletes data based on multiple attributes' do
       Seat.where(seatnumber: 'B1', assigned: false).destroy_all
-      expect(Seat.all.length).to eq 749
+      expect(Seat.all.length).to eq 779
     end
   end
 end
