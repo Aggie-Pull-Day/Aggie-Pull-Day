@@ -6,12 +6,9 @@ Feature: groups page for upcoming games
 
   Background: groups in database
 
-    Given the following groups exist:
-      | groupname       | member          | pulled  |
-      | Kareem's Group  | Kareem Hirani   | false   |
-      | Baldwin's Group | Baldwin Bakkal  | false   |
-      | Reid's Group    | Reid Neason     | false   |
-      | Jon's Group     | Jon Waterman    | false   |
+    Given the users table is populated
+    And I am signed in
+    And the groups table is populated
 
   @wip
   Scenario: return to home page

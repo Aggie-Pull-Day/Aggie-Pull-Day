@@ -18,13 +18,15 @@ module NavigationHelpers
     when /admin page/
       '/admin'
     when /student log[\s-]?in page/
-      '/student-login'
+      '/sessions/new'
     when /admin log[\s-]?in page/
       '/admin-login'
     when /games? page/
       '/games'
     when /groups? page/
       '/groups'
+    when /pull group page/
+      '/users/1'
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
       #
