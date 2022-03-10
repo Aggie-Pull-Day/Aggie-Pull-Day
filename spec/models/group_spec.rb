@@ -18,12 +18,12 @@ RSpec.describe Group, type: :model do
     end
 
     it 'deletes groups based on a single attribute' do
-      Group.where(groupname: "Team 1").destroy_all
+      Group.where(groupid: 1).destroy_all
       expect(Group.all.length).to eq 4
     end
 
     it 'deletes groups based on multiple attributes' do
-      Group.where(groupname: "List Eaters", member: "Reid Neason").destroy_all
+      Group.where(groupid: 1, member: "Reid Neason").destroy_all
       expect(Group.all.length).to eq 7
     end
   end
