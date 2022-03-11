@@ -137,3 +137,13 @@ end
 Then /^I should download a file called "(.*)"$/ do |fname|
   page.response_headers['Content-Disposition'].should include "filename=\"#{fname}\""
 end
+
+Then /^(?:|I )should not see "([^\"]*)"(?: within "([^\"]*)")?$/ do |text, selector|
+  with_scope(selector) do
+    if page.respond_to? :should
+      page.should have_no_content(text)
+    else
+      assert !page.has_content?(text)
+    end
+  end
+end
