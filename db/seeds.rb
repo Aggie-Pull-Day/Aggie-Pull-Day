@@ -39,14 +39,16 @@ more_groups.each do |group|
 end
 
 more_users = [
-  { email: 'KareemH@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 1 },
-  { email: 'BaldwinB@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1 },
-  { email: 'ReidN@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1 },
-  { email: 'JonW@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1 },
-  { email: 'CoraE@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 2 },
-  { email: 'GraceL@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2 },
-  { email: 'RebeccaF@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2 },
-  { email: 'NikhitaV@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2 }
+  { email: 'KareemH@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 1,
+    seat_id: nil },
+  { email: 'BaldwinB@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
+  { email: 'ReidN@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
+  { email: 'JonW@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
+  { email: 'CoraE@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 2,
+    seat_id: nil },
+  { email: 'GraceL@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil },
+  { email: 'RebeccaF@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil },
+  { email: 'NikhitaV@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil }
 ]
 
 more_users.each do |user|

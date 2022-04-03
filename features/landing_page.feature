@@ -6,7 +6,8 @@ Feature: have a functional landing page
 
   Background: sign in
 
-    Given the users table is populated
+    Given the groups table is populated
+    And the users table is populated
     And I am signed in
 
   Scenario: see pull & game info

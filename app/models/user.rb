@@ -14,39 +14,31 @@ class User < ApplicationRecord
   end
 
   def getTeam
-    res = Group.where(email: email)
+    res = User.where(group_id: group_id)
     # results = ActiveRecord::Base.connection.execute("select groups.groupname from groups INNER JOIN users ON groups.email = '#{self.email}';")
     # puts results
     if res.empty?
-      return []
+      []
+    else
+      res
     end
-
-    team = res.first['groupname']
-
-    if team.blank?
-      return []
-    end
-
-    members = Group.where(groupname: team)
-    return members
   end
 
   def Pull
-    res = Group.where(id: group_id)
-    team = res.first['groupname']
-    members = Group.where(groupname: team)
+    # res = Group.where(id: group_id)
+    # team = res.first['groupname']
+    # members = Group.where(groupname: team)
+    members = User.where(group_id: group_id)
+    Group.where(id: group_id).first.update_attribute(:pulled, true)
 
     availableSeats = Seat.where(assigned: false)
 
     iterate = 0
 
     members.each do |member|
-
-      member.update_attribute(:seatnumber, availableSeats[iterate].seatnumber)
-      member.update_attribute(:pulled, true)
+      member.update_attribute(:seat_id, availableSeats[iterate].id)
       availableSeats[iterate].update_attribute(:assigned, true)
       # availableSeats[iterate].update_attribute(:email, member.email)
-
       iterate += 1
     end
   end
@@ -60,7 +52,7 @@ class User < ApplicationRecord
     num_juniors = group_members.where(classification: 'U3').length
     num_sophomores = group_members.where(classification: 'U2').length
 
-    this_game = Game.where(id: this_group.game_id).first
+    this_game = Game.where(id: this_group['game_id']).first
     gamedate = this_game['gamedate']
 
     days_before = if num_grads + num_seniors >= group_size / 2.0
@@ -76,4 +68,8 @@ class User < ApplicationRecord
     Time.new(pulldate.year, pulldate.month, pulldate.day, 0, 0, 0)
   end
 
+  def seat
+    res = Seat.where(id: seat_id).first
+    res.seatnumber
+  end
 end

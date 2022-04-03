@@ -22,8 +22,9 @@ Given /^the games table is populated$/ do
            { hometeam: 'TAMU', opponent: 'App State', gamedate: '10-Sep-2022', day: 'Saturday' },
            { hometeam: 'TAMU', opponent: 'Miami (FL)', gamedate: '17-Sep-2022', day: 'Thursday' }]
 
-  games.each do |game|
-    Game.create!(game)
+  games.each_with_index do |game, index|
+    game['id'] = index + 1
+    Game.create!(game) if Game.where(opponent: game['opponent']).empty?
   end
 end
 
@@ -31,25 +32,29 @@ Given /^the groups table is populated$/ do
   groups = [{ groupname: 'List Eaters', pulled: false, game_id: 1 },
             { groupname: 'Team 1', pulled: false, game_id: 1 }]
 
-  groups.each do |group|
-    Group.create!(group)
+  groups.each_with_index do |group, index|
+    group['id'] = index + 1
+    Group.create!(group) if Group.where(groupname: group['groupname']).empty?
   end
 end
 
 Given /^the users table is populated$/ do
   users = [
-    { email: 'KareemH@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 1 },
-    { email: 'BaldwinB@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1 },
-    { email: 'ReidN@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1 },
-    { email: 'JonW@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1 },
-    { email: 'CoraE@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 2 },
-    { email: 'GraceL@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2 },
-    { email: 'RebeccaF@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2 },
-    { email: 'NikhitaV@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2 }
+    { email: 'KareemH@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 1,
+      seat_id: nil },
+    { email: 'BaldwinB@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
+    { email: 'ReidN@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
+    { email: 'JonW@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
+    { email: 'CoraE@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 2,
+      seat_id: nil },
+    { email: 'GraceL@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil },
+    { email: 'RebeccaF@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil },
+    { email: 'NikhitaV@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil }
   ]
 
-  users.each do |user|
-    User.create!(user)
+  users.each_with_index do |user, index|
+    user['id'] = index + 1
+    User.create!(user) if User.where(email: user['email']).empty?
   end
 end
 

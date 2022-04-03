@@ -6,7 +6,8 @@ Feature: groups page for upcoming games
 
   Background: groups in database
 
-    Given the users table is populated
+    Given the groups table is populated
+    And the users table is populated
     And I am signed in
     And the groups table is populated
 
@@ -22,7 +23,6 @@ Feature: groups page for upcoming games
     Given I am on the groups page
     When I press "View"
     Then I should see "Groupname:"
-    And I should see "Member:"
     And I should see "Pulled:"
 
   Scenario: access edit group page
