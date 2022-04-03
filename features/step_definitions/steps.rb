@@ -28,16 +28,8 @@ Given /^the games table is populated$/ do
 end
 
 Given /^the groups table is populated$/ do
-  groups = [
-    { groupname: 'List Eaters', member: 'Kareem Hirani', pulled: false, email: 'KareemH@tamu.edu' },
-    { groupname: 'List Eaters', member: 'Baldwin Bakkal', pulled: false, email: 'BaldwinB@tamu.edu' },
-    { groupname: 'List Eaters', member: 'Reid Neason', pulled: false, email: 'ReidN@tamu.edu' },
-    { groupname: 'List Eaters', member: 'Jon Waterman', pulled: false, email: 'JonW@tamu.edu' },
-    { groupname: 'Team 1', member: 'Cora English', pulled: false, email: 'CoraE@tamu.edu' },
-    { groupname: 'Team 1', member: 'Grace Li', pulled: false, email: 'GraceL@tamu.edu' },
-    { groupname: 'Team 1', member: 'Rebecca McFadden', pulled: false, email: 'RebeccaF@tamu.edu' },
-    { groupname: 'Team 1', member: 'Nikhita Vehmpati', pulled: false, email: 'NikhitaV@tamu.edu' }
-  ]
+  groups = [{ groupname: 'List Eaters', pulled: false, game_id: 1 },
+            { groupname: 'Team 1', pulled: false, game_id: 1 }]
 
   groups.each do |group|
     Group.create!(group)
@@ -46,14 +38,14 @@ end
 
 Given /^the users table is populated$/ do
   users = [
-    { email: 'KareemH@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
-    { email: 'BaldwinB@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
-    { email: 'ReidN@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
-    { email: 'JonW@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
-    { email: 'CoraE@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
-    { email: 'GraceL@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
-    { email: 'RebeccaM@tamu.edu', password_digest: BCrypt::Password.create('Dummy') },
-    { email: 'NikhitaV@tamu.edu', password_digest: BCrypt::Password.create('Dummy') }
+    { email: 'KareemH@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 1 },
+    { email: 'BaldwinB@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1 },
+    { email: 'ReidN@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1 },
+    { email: 'JonW@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1 },
+    { email: 'CoraE@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 2 },
+    { email: 'GraceL@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2 },
+    { email: 'RebeccaF@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2 },
+    { email: 'NikhitaV@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2 }
   ]
 
   users.each do |user|

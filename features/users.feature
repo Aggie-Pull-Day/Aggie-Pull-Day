@@ -28,4 +28,8 @@ Feature: have a landing page showing a group
     When I press "Sign out"
     Then I should be on the student login page
 
+  @wip
   Scenario: pull time
+
+    Given I am signed in
+    Then I should see "4 months"
