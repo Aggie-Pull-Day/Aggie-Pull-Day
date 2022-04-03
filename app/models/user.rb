@@ -65,11 +65,17 @@ class User < ApplicationRecord
                     2
                   end
     pulldate = gamedate - (days_before * 60 * 60 * 24)
-    Time.new(pulldate.year, pulldate.month, pulldate.day, 0, 0, 0)
+    Time.new(pulldate.year, pulldate.month, pulldate.day, 8, 0, 0)
   end
 
   def seat
     res = Seat.where(id: seat_id).first
-    res.seatnumber
+    res['seatnumber']
+  end
+
+  def next_opponent
+    this_group = Group.where(id: group_id).first
+    this_game = Game.where(id: this_group['game_id']).first
+    this_game['opponent']
   end
 end
