@@ -8,32 +8,33 @@ class User < ApplicationRecord
   end
 
   def hasPulled
-    res = Group.where(email: email)
+    res = Group.where(id: group_id)
     # results = ActiveRecord::Base.connection.execute("select groups.pulled from groups INNER JOIN users ON groups.email = '#{self.email}';")
     res.first.pulled
   end
 
   def pullTime
-    this_group = Group.where(id: groupID).first
-    group_members = User.where(groupID: this_group['groupID'])
+    this_group = Group.where(id: group_id).first
+    group_members = User.where(group_id: this_group['group_id'])
     group_size = group_members.length
     num_grads = group_members.where(classification: 'U5').length
     num_seniors = group_members.where(classification: 'U4').length
     num_juniors = group_members.where(classification: 'U3').length
     num_sophomores = group_members.where(classification: 'U2').length
 
-    this_game = Game.where(id: this_group.gameID).first
+    this_game = Game.where(id: this_group.game_id).first
     gamedate = this_game['gamedate']
 
-    pulldate = if num_grads + num_seniors >= group_size / 2.0
-                 gamedate - 432_000
-               elsif num_juniors >= group_size / 2.0
-                 gamedate - 345_600
-               elsif num_sophomores >= group_size / 2.0
-                 gamedate - 259_200
-               else
-                 gamedate - 172_800
-               end
+    days_before = if num_grads + num_seniors >= group_size / 2.0
+                    5
+                  elsif num_juniors >= group_size / 2.0
+                    4
+                  elsif num_sophomores >= group_size / 2.0
+                    3
+                  else
+                    2
+                  end
+    pulldate = gamedate - (days_before * 60 * 60 * 24)
     Time.new(pulldate.year, pulldate.month, pulldate.day, 0, 0, 0)
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_13_054853) do
+ActiveRecord::Schema.define(version: 2022_04_03_192842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,11 @@ ActiveRecord::Schema.define(version: 2022_02_13_054853) do
 
   create_table "groups", force: :cascade do |t|
     t.string "groupname"
-    t.string "member"
     t.boolean "pulled"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "email"
     t.string "seatnumber"
+    t.integer "game_id"
   end
 
   create_table "seats", force: :cascade do |t|
@@ -47,6 +46,8 @@ ActiveRecord::Schema.define(version: 2022_02_13_054853) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "classification"
+    t.integer "group_id"
   end
 
 end
