@@ -1,20 +1,21 @@
 <%= content_tag :h1, current_user.welcome %>
 <% res = current_user.getTeam %>
 
-<%if res.empty?%>
-<div class = "none">No Team</div>
+<% if res.empty? %>
+  <div class="none">No Team</div>
 <% else %>
-<% pulled = current_user.hasPulled%>
-<ul class="list-group">
-  <% res.each do |item| %>
-    <% if pulled%>
-    <li class="list-group-item"><strong><%= item.member %> SEAT NUMBER <%= item.seatnumber %> </strong></li>
-    <% else %>
-    <li class="list-group-item"><strong><%= item.member %> NOT PULLED</strong></li>
+  <% pulled = current_user.hasPulled %>
+  <% pullDate = current_user.pullTime %>
+  <ul class="list-group">
+    <% res.each do |item| %>
+      <% if pulled %>
+        <li class="list-group-item"><strong><%= item.member %> SEAT NUMBER <%= item.seatnumber %> </strong></li>
+      <% else %>
+        <li class="list-group-item"><strong><%= item.member %> NOT PULLED</strong></li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
 <% end %>
 
 
-<%= link_to "Sign out", new_session_path, method:"delete" %>
+<%= link_to "Sign out", new_session_path, method: "delete" %>
