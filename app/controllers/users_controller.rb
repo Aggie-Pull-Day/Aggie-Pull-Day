@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   
     def index
     end
-  
+
+   
     def new
       @user = User.new(:pulled => false)
     end

@@ -18,6 +18,9 @@ class User < ApplicationRecord
     end
 
     def getTeam
+        if self.group_id.nil?
+            return []
+        end
         @Team = User.where(:group_id => self.group_id)
         # results = ActiveRecord::Base.connection.execute("select groups.groupname from groups INNER JOIN users ON groups.email = '#{self.email}';")
         # puts results
