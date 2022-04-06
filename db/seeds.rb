@@ -18,30 +18,19 @@ more_games = [
             :gamedate => '17-Sep-2022', :day => 'Thursday'}
   ]
   
-  more_games.each do |game|
-    Game.create!(game)
-  end
+  # more_games.each do |game|
+  #   Game.create!(game)
+  # end
 
 
 #works for single user
 
   more_groups = [
-    {:groupname => 'List Eaters', :member => 'Kareem Hirani',
-      :pulled => false, :email => 'KareemH@tamu.edu'},
-      {:groupname => 'List Eaters', :member => 'Baldwin Bakkal',
-        :pulled => false, :email => 'BaldwinB@tamu.edu'},
-        {:groupname => 'List Eaters', :member => 'Reid Neason',
-            :pulled => false, :email => 'ReidN@tamu.edu'},
-            {:groupname => 'List Eaters', :member => 'Jon Waterman',
-                :pulled => false, :email => 'JonW@tamu.edu'},
-                {:groupname => 'Team 1', :member => 'Cora English',
-                  :pulled => false, :email => 'CoraE@tamu.edu'},
-                  {:groupname => 'Team 1', :member => 'Grace Li',
-                    :pulled => false, :email => 'GraceL@tamu.edu'},
-                    {:groupname => 'Team 1', :member => 'Rebecca McFadden',
-                      :pulled => false, :email => 'RebeccaF@tamu.edu'},
-                      {:groupname => 'Team 1', :member => 'Nikhita Vehmpati',
-                        :pulled => false, :email => 'NikhitaV@tamu.edu'}
+    {:groupname => 'List Eaters', :owner => 'Kareem Hirani',
+      :pulled => false, :email => 'Kareemh17@tamu.edu'},
+
+    {:groupname => 'Team 1', :owner => 'Cora English',
+      :pulled => false, :email => 'CoraEnglish@tamu.edu'}
   ]
 
 #array of groups
@@ -51,22 +40,24 @@ more_games = [
 
 #   ]
 
-  more_groups.each do |group|
-    Group.create!(group)
-  end
+  # more_groups.each do |group|
+  #   Group.create!(group)
+  # end
 
 
 
 more_users = [
 
-  {:email => "KareemH@tamu.edu", :password_digest => BCrypt::Password.create("Dummy")},
-  {:email => "BaldwinB@tamu.edu", :password_digest => "Dummy"},
-  {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
-  {:email => "JonW@tamu.edu", :password_digest => "Dummy"},
-  {:email => "CoraE@tamu.edu", :password_digest => BCrypt::Password.create("Dummy")},
-  {:email => "GraceL@tamu.edu", :password_digest => "Dummy"},
-  {:email => "RebeccaF@tamu.edu", :password_digest => "Dummy"},
-  {:email => "NikhitaV@tamu.edu", :password_digest => "Dummy"}
+  {:email => "Kareemh17@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 1},
+  {:email => "BBakkal@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 1},  # {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
+  {:email => "JonWaterman@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 1},  # {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
+  
+  
+  {:email => "CoraEnglish@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 2},
+  {:email => "GraceLi@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 2},  # {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
+  {:email => "RebeccaMcfadden@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 2}  # {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
+ 
+  # {:email => "NikhitaV@tamu.edu", :password_digest => "Dummy"}
 
 ]
 
@@ -76,11 +67,11 @@ more_users.each do |user|
   User.create!(user)
 end
 
-require 'faker'
+# require 'faker'
 
-40.times do  
-  seat = Seat.new
-  seat.seatnumber = Faker::Alphanumeric.alphanumeric(number: 2)
-  seat.assigned = Faker::Boolean.boolean(true_ratio: 0.2)
-  seat.save
-end
+# 40.times do  
+#   seat = Seat.new
+#   seat.seatnumber = Faker::Alphanumeric.alphanumeric(number: 2)
+#   seat.assigned = Faker::Boolean.boolean(true_ratio: 0.2)
+#   seat.save
+# end
