@@ -45,32 +45,35 @@ class User < ApplicationRecord
         # res = Group.where(email: self.email)
         # team = res.first["groupname"]
         # members = Group.where(groupname: team)
+        # members = @Team
 
-
-        members = @Team
-
-        ticketsToPull = members.length
+        # ticketsToPull = members.length
         
-        availableSeats = Seat.where(assigned: false)
+        # availableSeats = Seat.where(assigned: false)
 
         iterate = 0
         multi_qrcode = RQRCodeCore::QRCode.new([ #to be emailed
             { data: 'foo', mode: :byte_8bit }])  
             
         qr = RQRCode::QRCode.new("https://frozen-inlet-69932.herokuapp.com/users/display?group=#{self.group_id}")
-
+        
+        @svg_qr = qr.as_svg(
+            offset:0,
+            color: '000',
+            shape_rendering: 'crispEdges',
+            module_size: 6
+        )
         #now email it
+        QrMailer.with(user: self, img: @svg_qr).email_sent.deliver_later
 
-        members.each do |member|
-            puts member.email
+        # members.each do |member|
+        #     puts member.email
             # member.update_attribute(:seatnumber, availableSeats[iterate].seatnumber)
             # member.update_attribute(:pulled, true)
             # availableSeats[iterate].update_attribute(:assigned, true)
             # availableSeats[iterate].update_attribute(:email, member.email)
 
             # iterate = iterate + 1
+    # end
         end
-
-    end
-
 end
