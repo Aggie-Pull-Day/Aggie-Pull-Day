@@ -40,22 +40,22 @@ more_games = [
 
 #   ]
 
-  # more_groups.each do |group|
-  #   Group.create!(group)
-  # end
+more_groups.each do |group|
+   Group.create!(group)
+end
 
 
 
 more_users = [
 
-  {:email => "Kareemh17@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 1},
-  {:email => "BBakkal@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 1},  # {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
-  {:email => "JonWaterman@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 1},  # {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
+  {:email => "Kareemh17@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 1, :uin => 327001014},
+  {:email => "BBakkal@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 1, :uin => 327001015},  # {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
+  {:email => "JonWaterman@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 1, :uin => 327001016},  # {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
   
   
-  {:email => "CoraEnglish@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 2},
-  {:email => "GraceLi@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 2},  # {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
-  {:email => "RebeccaMcfadden@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 2}  # {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
+  {:email => "CoraEnglish@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 2, :uin => 327001017},
+  {:email => "GraceLi@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 2, :uin => 327001018},  # {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
+  {:email => "RebeccaMcfadden@tamu.edu", :password_digest => BCrypt::Password.create("Dummy"),:pulled => false, :group_id => 2, :uin => 327001019}  # {:email => "ReidN@tamu.edu", :password_digest => "Dummy"},
  
   # {:email => "NikhitaV@tamu.edu", :password_digest => "Dummy"}
 
