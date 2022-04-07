@@ -1,10 +1,15 @@
 class UsersController < ApplicationController
-    skip_before_action :require_login, only: [:new, :create]
+    skip_before_action :require_login, only: [:new, :create, :display]
 
     def show
     end
   
     def index
+    end
+
+    def display
+      @users = User.where(nil)
+      @users = @users.filter_by_group(params[:group]) if params[:group] 
     end
 
    

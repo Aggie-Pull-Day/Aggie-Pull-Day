@@ -55,7 +55,11 @@ class User < ApplicationRecord
 
         iterate = 0
         multi_qrcode = RQRCodeCore::QRCode.new([ #to be emailed
-            { data: 'foo', mode: :byte_8bit }])        
+            { data: 'foo', mode: :byte_8bit }])  
+            
+        qr = RQRCode::QRCode.new("https://frozen-inlet-69932.herokuapp.com/users/display?group=#{self.group_id}")
+
+        #now email it
 
         members.each do |member|
             puts member.email
