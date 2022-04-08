@@ -62,9 +62,9 @@ class User < ApplicationRecord
             color: '000',
             shape_rendering: 'crispEdges',
             module_size: 6
-        )
-        #now email it
-        QrMailer.with(user: self, img: @svg_qr).email_sent.deliver_later
+        )        #now email it
+
+        QrMailer.with(user: self, img: @svg_qr).email_sent.deliver_now
 
         # members.each do |member|
         #     puts member.email

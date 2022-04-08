@@ -12,7 +12,7 @@ class QrMailer < ApplicationMailer
     attachments['QR Code'] = @qr
     mail(
     from: "support@pullday.com",
-    to: User.first.email,
+    to: @user.email,
     subject: "Your QR Code"
     )
   end
