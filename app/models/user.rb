@@ -45,6 +45,8 @@ class User < ApplicationRecord
 
   def pullTime
     this_group = Group.where(id: group_id).first
+    group_class = this_group.classification
+
     group_members = User.where(group_id: this_group['group_id'])
     group_size = group_members.length
     num_grads = group_members.where(classification: 'U5').length
@@ -55,11 +57,12 @@ class User < ApplicationRecord
     this_game = Game.where(id: this_group['game_id']).first
     gamedate = this_game['gamedate']
 
-    days_before = if num_grads + num_seniors >= group_size / 2.0
+    days_before = case group_class
+                  when 'U4'
                     5
-                  elsif num_juniors >= group_size / 2.0
+                  when 'U3'
                     4
-                  elsif num_sophomores >= group_size / 2.0
+                  when 'U2'
                     3
                   else
                     2

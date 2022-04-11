@@ -59,7 +59,7 @@ RSpec.describe User, type: :model do
     it 'returns the correct pull time' do
       user = User.where(email: 'ReidN@tamu.edu').first
       pulltime = user.pullTime
-      expect(pulltime).to eq Time.new(2022, 8, 29, 0, 0, 0)
+      expect(pulltime).to eq Time.new(2022, 8, 29, 8, 0, 0)
     end
   end
 end
