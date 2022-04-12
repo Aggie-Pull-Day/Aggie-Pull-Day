@@ -3,28 +3,26 @@
 require 'rails_helper'
 
 RSpec.describe GamesController, type: :controller do
-  before :all do
-    if Game.where(opponent: 'Sam Houston State').empty?
-      Game.create(hometeam: 'TAMU', opponent: 'Sam Houston State', gamedate: '3-Sep-2022', day: 'Saturday')
-    end
-    if Game.where(opponent: 'App State').empty?
-      Game.create(hometeam: 'TAMU', opponent: 'App State', gamedate: '10-Sep-2022', day: 'Saturday')
-    end
-    if Game.where(opponent: 'Miami (FL)').empty?
-      Game.create(hometeam: 'TAMU', opponent: 'Miami (FL)', gamedate: '17-Sep-2022', day: 'Thursday')
-    end
+  before :each do
+    session[:user_id] = User.first.id
   end
 
-  describe 'model' do
+  describe 'controller' do
+    it 'indexes correctly' do
+      get :index
+      assert_response 200
+    end
+
     it 'creates a new game' do
-      get :create, params: { game: { hometeam: 'TAMU', opponent: 'LSU', gamedate: '26-Nov-2022', day: 'Saturday' } }
+      post :create, params: { game: { hometeam: 'TAMU', opponent: 'LSU', gamedate: '26-Nov-2022', day: 'Saturday' } }
+      expect(response).to redirect_to Game.last
       expect(flash[:notice]).to match(/^Game was successfully created.$/)
       Game.find_by(opponent: 'LSU').destroy
     end
 
     it 'updates one attribute of an existing game' do
       game = Game.create(hometeam: 'TAMU', opponent: 'LSU', gamedate: '26-Nov-2022', day: 'Saturday')
-      get :update, params: { id: game.id, game: { opponent: 'UMass' } }
+      put :update, params: { id: game.id, game: { opponent: 'UMass' } }
       expect(response).to redirect_to game_path(game)
       expect(flash[:notice]).to match(/^Game was successfully updated.$/)
       game.destroy
@@ -32,10 +30,16 @@ RSpec.describe GamesController, type: :controller do
 
     it 'updates multiple attributes of an existing game' do
       game = Game.create(hometeam: 'TAMU', opponent: 'LSU', gamedate: '26-Nov-2022', day: 'Saturday')
-      get :update, params: { id: game.id, game: { opponent: 'UMass', gamedate: '19-Nov-2022' } }
+      put :update, params: { id: game.id, game: { opponent: 'UMass', gamedate: '19-Nov-2022' } }
       expect(response).to redirect_to game_path(game)
       expect(flash[:notice]).to match(/^Game was successfully updated.$/)
       game.destroy
+    end
+
+    it 'destroys a game' do
+      game = Game.create(hometeam: 'TAMU', opponent: 'LSU', gamedate: '26-Nov-2022', day: 'Saturday')
+      delete :destroy, params: { id: game.id }
+      expect(flash[:notice]).to match(/^Game was successfully destroyed.$/)
     end
   end
 end
