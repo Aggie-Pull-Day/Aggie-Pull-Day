@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -22,12 +20,17 @@ more_games.each do |game|
   Game.create!(game)
 end
 
-# works for single user
+#works for single user
 
-more_groups = [{ groupname: 'List Eaters', pulled: false, game_id: 1 },
-               { groupname: 'Team 1', pulled: false, game_id: 1 }]
+more_groups = [
+  { groupname: 'List Eaters', owner: 'Kareem Hirani',
+    pulled: false, email: 'Kareemh17@tamu.edu' },
 
-# array of groups
+  { groupname: 'Team 1', owner: 'Cora English',
+    pulled: false, email: 'CoraEnglish@tamu.edu' }
+]
+
+#array of groups
 
 #   more_groups = [
 #     {:groupname => 'List Eaters', :members => ['Kareem Hirani', 'Baldwin Bakkal', 'Reid Neason', 'Jon Waterman']}
@@ -39,27 +42,29 @@ more_groups.each do |group|
 end
 
 more_users = [
-  { email: 'KareemH@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 1,
-    seat_id: nil },
-  { email: 'BaldwinB@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
-  { email: 'ReidN@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
-  { email: 'JonW@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
-  { email: 'CoraE@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 2,
-    seat_id: nil },
-  { email: 'GraceL@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil },
-  { email: 'RebeccaF@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil },
-  { email: 'NikhitaV@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil }
+  { email: 'Kareemh17@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
+    uin: 327001014 },
+  { email: 'BBakkal@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
+    uin: 327001015 },
+  { email: 'JonWaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
+    uin: 327001016 },
+  { email: 'CoraEnglish@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 2,
+    uin: 327001017 },
+  { email: 'GraceLi@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 2,
+    uin: 327001018 },
+  { email: 'RebeccaMcfadden@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 2,
+    uin: 327001019 }
 ]
 
 more_users.each do |user|
   User.create!(user)
 end
 
-require 'faker'
+# require 'faker'
 
-40.times do
-  seat = Seat.new
-  seat.seatnumber = Faker::Alphanumeric.alphanumeric(number: 2)
-  seat.assigned = Faker::Boolean.boolean(true_ratio: 0.2)
-  seat.save
-end
+# 40.times do
+#   seat = Seat.new
+#   seat.seatnumber = Faker::Alphanumeric.alphanumeric(number: 2)
+#   seat.assigned = Faker::Boolean.boolean(true_ratio: 0.2)
+#   seat.save
+# end
