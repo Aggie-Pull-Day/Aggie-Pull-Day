@@ -1,34 +1,30 @@
 class User < ApplicationRecord
 
-  scope :filter_by_group, -> (group) { where group: group }
+  scope :filter_by_group, ->(group) { where group: group }
 
   belongs_to :group, optional: true
   has_one :seat
   has_secure_password
 
   def welcome
-    "Hello, #{self.email}!"
+    "Hello, #{email}!"
   end
 
   def hasPulled
-
     # res = User.where(email: self.email)
     # results = ActiveRecord::Base.connection.execute("select groups.pulled from groups INNER JOIN users ON groups.email = '#{self.email}';")
-    return self.pulled
+    pulled
   end
 
   def getTeam
-    if self.group_id.nil?
-      return []
-    end
-    @Team = User.where(:group_id => self.group_id)
+    return [] if group_id.nil?
+
+    @team = User.where(group_id: group_id)
     # results = ActiveRecord::Base.connection.execute("select groups.groupname from groups INNER JOIN users ON groups.email = '#{self.email}';")
     # puts results
-    if @Team.empty?
-      return []
-    end
+    return [] if @team.empty?
 
-    return @Team
+    return @team
 
     # team = res.first["groupname"]
 
@@ -46,7 +42,7 @@ class User < ApplicationRecord
     # team = res.first["groupname"]
     # members = Group.where(groupname: team)
 
-    members = @Team
+    members = @team
 
     ticketsToPull = members.length
 
@@ -56,7 +52,7 @@ class User < ApplicationRecord
     multi_qrcode = RQRCodeCore::QRCode.new([#to be emailed
                                              { data: 'foo', mode: :byte_8bit }])
 
-    qr = RQRCode::QRCode.new("https://frozen-inlet-69932.herokuapp.com/users/display?group=#{self.group_id}")
+    qr = RQRCode::QRCode.new("https://frozen-inlet-69932.herokuapp.com/users/display?group=#{group_id}")
 
     #now email it
 
@@ -72,4 +68,35 @@ class User < ApplicationRecord
 
   end
 
+  def pullTime
+    this_group = Group.where(id: group_id).first
+    group_class = this_group.classification
+
+    this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
+    gamedate = this_game['gamedate']
+
+    days_before = case group_class
+                  when 'U4'
+                    5
+                  when 'U3'
+                    4
+                  when 'U2'
+                    3
+                  else
+                    2
+                  end
+
+    pulldate = gamedate - (days_before * 60 * 60 * 24)
+    Time.new(pulldate.year, pulldate.month, pulldate.day, 8, 0, 0)
+  end
+
+  def seat
+    res = Seat.where(id: seat_id).first
+    res['seatnumber']
+  end
+
+  def next_opponent
+    this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
+    this_game['opponent']
+  end
 end
