@@ -5,6 +5,11 @@ ruby "3.0.0"
 
 gem 'rubocop'
 
+# Gem for running time-based scheduled tasks
+# NOTE: MOVING FROM DEVELOPMENT ENVIRONMENT TO PRODUCTION, we will need to use HEROKU
+# SCHEDULER instead of Whenever (Heroku does not support CRON - whenever gem's dependency)
+gem 'whenever'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 7.0"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
