@@ -36,6 +36,8 @@ class UsersController < ApplicationController
 
     # PATCH/PUT /users/1 or /users/1.json
     def update
+      @user = User.find(params[:id])
+
       respond_to do |format|
         if @user.update(user_params)
           format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
@@ -59,7 +61,7 @@ class UsersController < ApplicationController
   
     private 
     def user_params
-      params.require(:user).permit(:email, :password)
+      params.require(:user).permit(:email, :group_id, :password_digest, :pulled, :uin, :classification, :created_at, :updated_at, :index_users_on_group_id)
     end
 
     # Use callbacks to share common setup or constraints between actions.
