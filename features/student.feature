@@ -6,8 +6,7 @@ Feature: have a page showing all pull groups
 
   Background: signed in
 
-    Given the groups table is populated
-    And the users table is populated
+    Given the database is populated
     And I am signed in
 
   Scenario: basic student/game info

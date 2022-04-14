@@ -6,8 +6,7 @@ Feature: have a landing page showing a group
 
   Background: database populated
 
-    Given the users table is populated
-    And the groups table is populated
+    Given the database is populated
 
   @wip
   Scenario: return to home page
@@ -19,8 +18,8 @@ Feature: have a landing page showing a group
   Scenario: pull group page
 
     Given I am signed in
-    Then I should see "Hello, KareemH@tamu.edu!"
-    And I should see "Kareem Hirani NOT PULLED"
+    Then I should see "Hello, Kareemh17@tamu.edu!"
+    And I should see "Kareemh17@tamu.edu NOT PULLED"
 
   Scenario: sign out
 
@@ -32,4 +31,4 @@ Feature: have a landing page showing a group
   Scenario: pull time
 
     Given I am signed in
-    Then I should see "4 months"
+    Then I should see "BTHO Sam Houston State!"

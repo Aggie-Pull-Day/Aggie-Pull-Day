@@ -6,8 +6,7 @@ Feature: have a functional student login page
 
   Background: users in database
 
-    Given the groups table is populated
-    And the users table is populated
+    Given the database is populated
 
   @wip
   Scenario: return to home page
@@ -20,15 +19,15 @@ Feature: have a functional student login page
   Scenario: successful login
 
     Given I am on the student login page
-    When I enter the email "KareemH@tamu.edu"
+    When I enter the email "Kareemh17@tamu.edu"
     And I enter the password "Dummy"
     And I press "Sign In!"
-    Then I should see "Hello, KareemH@tamu.edu!"
+    Then I should see "Hello, Kareemh17@tamu.edu!"
 
   Scenario: incorrect password
 
     Given I am on the student login page
-    When I enter the email "KareemH@tamu.edu"
+    When I enter the email "Kareemh17@tamu.edu"
     And I enter the password "listeater124"
     And I press "Sign In!"
     Then I should be on the student login page

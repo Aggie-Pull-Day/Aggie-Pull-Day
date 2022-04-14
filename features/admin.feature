@@ -6,8 +6,7 @@ Feature: have an admin page with pull stats
 
   Background: signed in
 
-    Given the groups table is populated
-    And the users table is populated
+    Given the database is populated
     And I am signed in
 
   @wip
