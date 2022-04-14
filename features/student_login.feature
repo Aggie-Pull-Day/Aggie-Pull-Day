@@ -6,7 +6,8 @@ Feature: have a functional student login page
 
   Background: users in database
 
-    Given the users table is populated
+    Given the groups table is populated
+    And the users table is populated
 
   @wip
   Scenario: return to home page

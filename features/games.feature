@@ -6,7 +6,8 @@ Feature: editing list of games
 
   Background: games in database
 
-    Given the users table is populated
+    Given the groups table is populated
+    And the users table is populated
     And I am signed in
     And the games table is populated
 
