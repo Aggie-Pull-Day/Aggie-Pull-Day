@@ -59,7 +59,8 @@ RSpec.describe User, type: :model do
   describe 'Pull' do
     it "prints members' emails" do
       user = User.where(email: 'reidneason@tamu.edu').first
-      expect { user.Pull }.to output("Kareemh17@tamu.edu\nBBakkal@tamu.edu\nJonWaterman@tamu.edu\nreidneason@tamu.edu")
+      expect {
+        user.Pull }.to output("Kareemh17@tamu.edu\nBBakkal@tamu.edu\nJonWaterman@tamu.edu\nreidneason@tamu.edu\n").to_stdout
     end
 
     xit 'emails the proper members' do

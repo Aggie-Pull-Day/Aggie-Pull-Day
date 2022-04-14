@@ -90,6 +90,11 @@ class User < ApplicationRecord
     Time.new(pulldate.year, pulldate.month, pulldate.day, 8, 0, 0)
   end
 
+  def seat
+    res = Seat.where(id: seat_id).first
+    res['seatnumber']
+  end
+
   def next_opponent
     this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
     this_game['opponent']
