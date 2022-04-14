@@ -9,13 +9,15 @@ RSpec.describe GroupsController, type: :controller do
 
   describe 'controller' do
     it 'creates a new group' do
-      get :create, params: { group: { groupname: "Philip's Group", pulled: 'false', game_id: '1' } }
+      get :create,
+          params: { group: { groupname: "Philip's Group", pulled: false, owner: 'Philip Ritchey', email: 'PhilipR@tamu.edu' } }
       expect(flash[:notice]).to match(/^Group was successfully created.$/)
       Group.find_by(groupname: "Philip's Group").destroy
     end
 
     it 'updates one attribute of an existing group' do
-      group = Group.create(groupname: "Philip's Group", pulled: 'false', game_id: '1')
+      group = Group.create(groupname: "Philip's Group", pulled: false, owner: 'Philip Ritchey',
+                           email: 'PhilipR@tamu.edu')
       get :update, params: { id: group.id, group: { groupname: 'The Professors' } }
       expect(response).to redirect_to group_path(group)
       expect(flash[:notice]).to match(/^Group was successfully updated.$/)
@@ -23,8 +25,8 @@ RSpec.describe GroupsController, type: :controller do
     end
 
     it 'updates multiple attributes of an existing group' do
-      group = Group.create(groupname: "Philip's Group", pulled: 'false', game_id: '1')
-      get :update, params: { id: group.id, group: { groupname: 'The Professors', game_id: '2' } }
+      group = Group.create(groupname: "Philip's Group", pulled: false, owner: 'Philip Ritchey', email: 'PhilipR@tamu.edu')
+      get :update, params: { id: group.id, group: { groupname: 'The Professors', owner: 'Robert Lightfoot' } }
       expect(response).to redirect_to group_path(group)
       expect(flash[:notice]).to match(/^Group was successfully updated.$/)
       group.destroy
