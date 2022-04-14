@@ -42,7 +42,7 @@ class User < ApplicationRecord
     # team = res.first["groupname"]
     # members = Group.where(groupname: team)
 
-    members = @team
+    members = getTeam
 
     ticketsToPull = members.length
 
@@ -88,11 +88,6 @@ class User < ApplicationRecord
 
     pulldate = gamedate - (days_before * 60 * 60 * 24)
     Time.new(pulldate.year, pulldate.month, pulldate.day, 8, 0, 0)
-  end
-
-  def seat
-    res = Seat.where(id: seat_id).first
-    res['seatnumber']
   end
 
   def next_opponent
