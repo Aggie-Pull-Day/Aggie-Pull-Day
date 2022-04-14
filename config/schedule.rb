@@ -24,3 +24,12 @@ set :environment, "development"
 # end
 
 # Learn more: http://github.com/javan/whenever
+
+# Schedule to clear out groups after each football game
+# THIS NEEDS TO BE UNCOMMENTED AFTER SHOWING RITCHEY
+# every :sunday, at '12:00 am' do
+#     rake "db_scheduled_tasks:weekly_clean"
+
+# FOR THE SAKE OF TESTING
+every :thursday, at '2:45 pm' do
+    rake "db_scheduled_tasks:weekly_clean"
