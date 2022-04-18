@@ -33,3 +33,17 @@ Feature: have a landing page showing a group
 
     Given I am signed in
     Then I should see "4 months"
+
+  Scenario: leave group
+
+    Given I am signed in
+    When I press "Leave Group"
+    And I press "Confirm"
+    Then I should see "No Team"
+
+  Scenario: can't leave a group you aren't in
+
+    Given I am signed in
+    When I press "Leave Group"
+    And I press "Confirm"
+    Then I should not see "Leave Group"
