@@ -98,5 +98,17 @@ RSpec.describe User, type: :model do
       expect(User.first.next_opponent).to be_nil
     end
   end
+
+  describe 'is_group_owner' do
+    it 'properly identifies the group owner' do
+      user = User.where(email: 'Kareemh17@tamu.edu').first
+      expect(user.is_group_owner).to eq true
+    end
+
+    it 'properly denies a non-owner' do
+      user = User.where(email: 'reidneason@tamu.edu')
+      expect(user.is_group_owner).to eq false
+    end
+  end
 end
 
