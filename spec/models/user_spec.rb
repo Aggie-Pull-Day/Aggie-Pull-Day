@@ -87,5 +87,16 @@ RSpec.describe User, type: :model do
       expect(pulltime).to eq Time.new(2022, 8, 29, 8, 0, 0)
     end
   end
+
+  describe 'next_opponent' do
+    it 'returns the correct opponent' do
+      expect(User.first.next_opponent).to eq 'Sam Houston State'
+    end
+
+    it 'returns nil when there are no games left' do
+      Game.destroy_all
+      expect(User.first.next_opponent).to be_nil
+    end
+  end
 end
 

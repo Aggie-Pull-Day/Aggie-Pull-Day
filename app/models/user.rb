@@ -96,7 +96,9 @@ class User < ApplicationRecord
   end
 
   def next_opponent
-    this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
-    this_game['opponent']
+    if Game.all.length.positive?
+      this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
+      this_game['opponent']
+    end
   end
 end
