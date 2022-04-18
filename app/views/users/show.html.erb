@@ -85,6 +85,11 @@
       <% end %>
     <% end %>
   </ul>
+  <br>
+  <% if current_user.group_owner? %>
+    <%= button_to 'Remove From Group', :class => "btn btn-danger" %>
+    <br>
+  <% end %>
 
   <%= button_to 'Leave Group', leave_group_user_path, :class => "btn btn-danger" %>
 <% end %>

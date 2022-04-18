@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create, :display]
+  skip_before_action :require_login, only: %i[new create display]
 
-  def show
-  end
+  def show; end
 
-  def index
-  end
+  def index; end
 
   def display
     @users = User.where(nil)
@@ -13,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new(:pulled => false)
+    @user = User.new(pulled: false)
   end
 
   def create
@@ -22,7 +20,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
-      flash[:error] = "Error- please try to create an account again."
+      flash[:error] = 'Error- please try to create an account again.'
       redirect_to new_user_path
     end
   end
@@ -30,6 +28,12 @@ class UsersController < ApplicationController
   def leave_group
     @user = User.find(params[:id])
     @user.update(group_id: nil)
+    redirect_to @user
+  end
+
+  def remove_from_group
+    user = User.find(params[:member_id])
+    user.update(group_id: nil)
     redirect_to @user
   end
 
