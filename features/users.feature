@@ -47,3 +47,17 @@ Feature: have a landing page showing a group
     And I press "Confirm"
     Then I should not see "Leave Group"
 
+  @wip
+  Scenario: remove a group member
+
+    Given I am signed in
+    When I press "Remove From Group"
+    And I press the dropdown menu
+    And I press "JonWaterman@tamu.edu"
+    And I press "Remove"
+    Then I should not see "JonWaterman@tamu.edu"
+
+  Scenario: non-group-owner can't access remove button
+
+    Given I am signed in as reidneason@tamu.edu
+    Then I should not see "Remove From Group"
