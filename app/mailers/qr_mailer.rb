@@ -9,9 +9,9 @@ class QrMailer < ApplicationMailer
     @greeting = "Hi"
     @user = params[:user]
     @qr = params[:img]
-    attachments['QR Code'] = @qr
+    attachments['QR Code'] = @qr.html_safe
     mail(
-    from: "support@pullday.com",
+    from: "aggiepullday@gmail.com",
     to: @user.email,
     subject: "Your QR Code"
     )
