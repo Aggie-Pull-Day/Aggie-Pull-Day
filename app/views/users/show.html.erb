@@ -1,6 +1,8 @@
 <%= content_tag :h1, current_user.welcome %>
 <% res = current_user.getTeam %>
 
+<%= link_to "Edit this user", edit_user_path(current_user) %>
+
 <% if res.empty? %>
   <div class="none">No Team</div>
 <% else %>
@@ -86,6 +88,5 @@
     <% end %>
   </ul>
 <% end %>
-
 
 <%= link_to "Sign out", new_session_path, method: "delete" %>
