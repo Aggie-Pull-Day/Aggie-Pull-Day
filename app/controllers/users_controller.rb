@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   
     private 
     def user_params
-      params.require(:user).permit(:email, :group_id, :password_digest, :pulled, :uin, :classification, :created_at, :updated_at, :index_users_on_group_id)
+      params.require(:user).permit(:email, :group_id)
     end
 
     # Use callbacks to share common setup or constraints between actions.
@@ -69,8 +69,4 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.fetch(:user, {})
-    end
 end
