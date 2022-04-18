@@ -11,50 +11,42 @@ World(WithinHelpers)
 
 Given /^I am signed in$/ do
   visit '/sessions/new'
-  fill_in('email', with: 'KareemH@tamu.edu')
+  fill_in('email', with: 'Kareemh17@tamu.edu')
   fill_in('password', with: 'Dummy')
   click_button('Sign In!')
   visit '/users/1'
 end
 
-Given /^the games table is populated$/ do
+Given /^the database is populated$/ do
   games = [{ hometeam: 'TAMU', opponent: 'Sam Houston State', gamedate: '3-Sep-2022', day: 'Saturday' },
            { hometeam: 'TAMU', opponent: 'App State', gamedate: '10-Sep-2022', day: 'Saturday' },
            { hometeam: 'TAMU', opponent: 'Miami (FL)', gamedate: '17-Sep-2022', day: 'Thursday' }]
-
-  games.each_with_index do |game, index|
-    game['id'] = index + 1
+  games.each do |game|
     Game.create!(game) if Game.where(opponent: game['opponent']).empty?
   end
-end
 
-Given /^the groups table is populated$/ do
-  groups = [{ groupname: 'List Eaters', pulled: false, game_id: 1 },
-            { groupname: 'Team 1', pulled: false, game_id: 1 }]
-
-  groups.each_with_index do |group, index|
-    group['id'] = index + 1
+  groups = [{ groupname: 'List Eaters', owner: 'Kareem Hirani', pulled: false, email: 'Kareemh17@tamu.edu' },
+            { groupname: 'Team 1', owner: 'Cora English', pulled: false, email: 'CoraEnglish@tamu.edu' }]
+  groups.each do |group|
     Group.create!(group) if Group.where(groupname: group['groupname']).empty?
   end
-end
 
-Given /^the users table is populated$/ do
-  users = [
-    { email: 'KareemH@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 1,
-      seat_id: nil },
-    { email: 'BaldwinB@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
-    { email: 'ReidN@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
-    { email: 'JonW@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
-    { email: 'CoraE@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 2,
-      seat_id: nil },
-    { email: 'GraceL@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil },
-    { email: 'RebeccaF@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil },
-    { email: 'NikhitaV@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil }
-  ]
-
-  users.each_with_index do |user, index|
-    user['id'] = index + 1
-    User.create!(user) if User.where(email: user['email']).empty?
+  users = [{ email: 'Kareemh17@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.first.id,
+             uin: 327001001, classification: 'U4' },
+           { email: 'BBakkal@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.first.id,
+             uin: 327001002, classification: 'U4' },
+           { email: 'JonWaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
+             group_id: Group.first.id, uin: 327001003, classification: 'U4' },
+           { email: 'reidneason@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
+             group_id: Group.first.id, uin: 327001004, classification: 'U4' },
+           { email: 'CoraEnglish@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
+             group_id: Group.last.id, uin: 327001005, classification: 'U4' },
+           { email: 'GraceLi@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.last.id,
+             uin: 327001006, classification: 'U4' },
+           { email: 'RebeccaMcfadden@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
+             group_id: Group.last.id, uin: 327001007, classification: 'U4' }]
+  users.each do |user|
+    User.create!(user) if User.where(uin: user['uin']).empty?
   end
 end
 
@@ -133,4 +125,14 @@ end
 
 Then /^I should download a file called "(.*)"$/ do |fname|
   page.response_headers['Content-Disposition'].should include "filename=\"#{fname}\""
+end
+
+Then /^(?:|I )should not see "([^\"]*)"(?: within "([^\"]*)")?$/ do |text, selector|
+  with_scope(selector) do
+    if page.respond_to? :should
+      page.should have_no_content(text)
+    else
+      assert !page.has_content?(text)
+    end
+  end
 end

@@ -8,23 +8,31 @@ RSpec.describe Group, type: :model do
     end
 
     it 'loads groups based on a single attribute' do
-      not_pulled = Group.where(pulled: 'false')
+      not_pulled = Group.where(pulled: false)
       expect(not_pulled.length).to eq 2
     end
 
     it 'loads groups based on multiple attributes' do
-      reid_not_pulled = Group.where(groupname: 'Team 1', pulled: 'false')
-      expect(reid_not_pulled.length).to eq 1
+      team_1_not_pulled = Group.where(groupname: 'Team 1', pulled: false)
+      expect(team_1_not_pulled.length).to eq 1
     end
 
     it 'deletes groups based on a single attribute' do
-      Group.where(groupname: 'Team 1').destroy_all
-      expect(Group.all.length).to eq 1
+      Group.create(groupname: 'The Professors', owner: 'Philip Ritchey', email: 'PhilipR@tamu.edu', pulled: false)
+      expect(Group.all.length).to eq 3
+      Group.where(groupname: 'The Professors').destroy_all
+      expect(Group.all.length).to eq 2
     end
 
     it 'deletes groups based on multiple attributes' do
-      Group.where(groupname: 'List Eaters', game_id: '1').destroy_all
-      expect(Group.all.length).to eq 1
+      Group.create(groupname: 'The Professors', owner: 'Philip Ritchey', email: 'PhilipR@tamu.edu', pulled: false)
+      expect(Group.all.length).to eq 3
+      Group.where(groupname: 'The Professors', owner: 'Philip Ritchey').destroy_all
+      expect(Group.all.length).to eq 2
+    end
+
+    it 'refuses to delete an occupied group' do
+      expect { Group.where(groupname: 'List Eaters').destroy_all }.to raise_error(ActiveRecord::InvalidForeignKey)
     end
   end
 
@@ -37,16 +45,31 @@ RSpec.describe Group, type: :model do
     end
 
     it 'properly cascades to the default case' do
-      group = Group.create(groupname: 'The Professors', pulled: false, game_id: 1)
+      group = Group.create(groupname: 'The Professors', pulled: false, owner: 'Philip Ritchey',
+                           email: 'PhilipR@tamu.edu')
       User.create(email: 'PhilipR@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4',
-                  group_id: group.id, seat_id: nil)
+                  group_id: group.id)
       User.create(email: 'RobertL@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U3',
-                  group_id: group.id, seat_id: nil)
+                  group_id: group.id)
       User.create(email: 'IoannisP@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U2',
-                  group_id: group.id, seat_id: nil)
+                  group_id: group.id)
       User.create(email: 'YannisK@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U1',
-                  group_id: group.id, seat_id: nil)
+                  group_id: group.id)
       expect(group.classification).to eq 'U1'
+    end
+
+    it 'properly cascades to a middle case' do
+      group = Group.create(groupname: 'The Professors', pulled: false, owner: 'Philip Ritchey',
+                           email: 'PhilipR@tamu.edu')
+      User.create(email: 'PhilipR@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4',
+                  group_id: group.id)
+      User.create(email: 'RobertL@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U2',
+                  group_id: group.id)
+      User.create(email: 'IoannisP@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U2',
+                  group_id: group.id)
+      User.create(email: 'YannisK@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U1',
+                  group_id: group.id)
+      expect(group.classification).to eq 'U2'
     end
   end
 end

@@ -6,10 +6,8 @@ Feature: groups page for upcoming games
 
   Background: groups in database
 
-    Given the groups table is populated
-    And the users table is populated
+    Given the database is populated
     And I am signed in
-    And the groups table is populated
 
   @wip
   Scenario: return to home page
@@ -50,13 +48,6 @@ Feature: groups page for upcoming games
     And I press "Update Group"
     And I press "Back to Groups"
     Then I should see "Team Hirani"
-
-  Scenario: deleting a group
-
-    Given I am on the groups page
-    When I press "View"
-    And I press "Destroy this Group"
-    Then I should see "Group was successfully destroyed."
 
   Scenario: updating a group
 

@@ -42,7 +42,7 @@ class User < ApplicationRecord
     # team = res.first["groupname"]
     # members = Group.where(groupname: team)
 
-    members = @team
+    members = getTeam
 
     ticketsToPull = members.length
 
