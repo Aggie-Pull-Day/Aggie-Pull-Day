@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :games
     root :to => redirect('/games')
 
-    resources :users
+    resources :users, only: [:new, :create, :destroy, :edit, :update, :show]
     resources :sessions, only: [:new, :create, :destroy]
     
 end
