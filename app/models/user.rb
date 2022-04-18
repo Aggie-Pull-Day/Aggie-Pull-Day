@@ -101,4 +101,9 @@ class User < ApplicationRecord
       this_game['opponent']
     end
   end
+
+  def group_owner?
+    group = Group.where(id: group_id).first
+    group[:email] == email
+  end
 end
