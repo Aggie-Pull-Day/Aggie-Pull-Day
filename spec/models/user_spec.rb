@@ -114,8 +114,9 @@ RSpec.describe User, type: :model do
   describe 'dropdown_options' do
     it 'returns the proper list' do
       user = User.first
-      expect(user.dropdown_options).to eq [['Kareemh17@tamu.edu', 1], ['BBakkal@tamu.edu', 2],
-                                           ['JonWaterman@tamu.edu', 3], ['reidneason@tamu.edu', 4]]
+      opts = user.dropdown_options
+      expect(opts.length).to eq 3
+      expect(opts).to eq [['BBakkal@tamu.edu', 2], ['JonWaterman@tamu.edu', 3], ['reidneason@tamu.edu', 4]]
     end
   end
 end

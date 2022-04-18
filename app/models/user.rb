@@ -108,7 +108,7 @@ class User < ApplicationRecord
   end
 
   def dropdown_options
-    members = getTeam
+    members = getTeam.where.not(email: email)
     members.collect do |member|
       [member[:email], member[:id]]
     end
