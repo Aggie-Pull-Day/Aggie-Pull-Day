@@ -106,4 +106,11 @@ class User < ApplicationRecord
     group = Group.where(id: group_id).first
     group[:email] == email
   end
+
+  def dropdown_options
+    members = getTeam
+    members.collect do |member|
+      [member[:email], member[:id]]
+    end
+  end
 end
