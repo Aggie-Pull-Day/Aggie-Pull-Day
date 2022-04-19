@@ -1,9 +1,4 @@
-# Creates an output log for you to view previously run cron jobs
-set :output, "log/cron.log"
-
-# Sets the environment to run during development mode (Set to production by default)
-set :environment, "development"
-
+# --------------------------------------------------------------
 # Use this file to easily define all of your cron jobs.
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.
@@ -24,12 +19,21 @@ set :environment, "development"
 # end
 
 # Learn more: http://github.com/javan/whenever
+# --------------------------------------------------------------
+
+# Creates an output log for you to view previously run cron jobs
+set :output, "log/cron.log"
+
+# Sets the environment to run during development mode (Set to production by default)
+set :environment, "development"
 
 # Schedule to clear out groups after each football game
 # THIS NEEDS TO BE UNCOMMENTED AFTER SHOWING RITCHEY
 # every :sunday, at '12:00 am' do
 #     rake "db_scheduled_tasks:weekly_clean"
+# end
 
 # FOR THE SAKE OF TESTING
-every :thursday, at '2:45 pm' do
-    rake "db_scheduled_tasks:weekly_clean"
+every 1.minute do
+    rake "TEST_SCHEDULED_TASKS:write_console"
+end
