@@ -37,8 +37,6 @@ class User < ApplicationRecord
     # return members
   end
 
-  end
-=======
     def Pull
         # res = Group.where(email: self.email)
         # team = res.first["groupname"]
@@ -114,36 +112,4 @@ class User < ApplicationRecord
             this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
             this_game['opponent']
           end
-
-  def pullTime
-    this_group = Group.where(id: group_id).first
-    group_class = this_group.classification
-
-    this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
-    gamedate = this_game['gamedate']
-
-    days_before = case group_class
-                  when 'U4'
-                    5
-                  when 'U3'
-                    4
-                  when 'U2'
-                    3
-                  else
-                    2
-                  end
-
-    pulldate = gamedate - (days_before * 60 * 60 * 24)
-    Time.new(pulldate.year, pulldate.month, pulldate.day, 8, 0, 0)
-  end
-
-  def seat
-    res = Seat.where(id: seat_id).first
-    res['seatnumber']
-  end
-
-  def next_opponent
-    this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
-    this_game['opponent']
-  end
 end
