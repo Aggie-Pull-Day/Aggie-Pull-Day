@@ -27,6 +27,9 @@ set :output, "log/cron.log"
 # Sets the environment to run during development mode (Set to production by default)
 set :environment, "development"
 
+# Set path to files containing tasks to run
+set :path, "/home/solis/Desktop/Aggie-Pull-Day/lib"
+
 # Schedule to clear out groups after each football game
 # THIS NEEDS TO BE UNCOMMENTED AFTER SHOWING RITCHEY
 # every :sunday, at '12:00 am' do
