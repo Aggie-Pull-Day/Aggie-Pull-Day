@@ -8,7 +8,7 @@ gem 'rubocop'
 # Gem for running time-based scheduled tasks
 # NOTE: MOVING FROM DEVELOPMENT ENVIRONMENT TO PRODUCTION, we will need to use HEROKU
 # SCHEDULER instead of Whenever (Heroku does not support CRON - whenever gem's dependency)
-gem 'whenever'
+gem 'whenever', require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 7.0"
