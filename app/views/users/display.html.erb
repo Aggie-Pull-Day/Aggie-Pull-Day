@@ -1,5 +1,3 @@
-<ul class="list-group">
-  <% @users.each do |item| %>
-    <li class="list-group-item"><strong>User Name: <%= item.email %> UIN: <%=item.uin%></li>
-  <% end %>
-</ul>
+<% @users.each do |item| %>
+User Name: <%= item.email %> UIN: <%=item.uin%>
+<% end %>
