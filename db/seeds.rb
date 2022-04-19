@@ -44,11 +44,11 @@ more_groups.each do |group|
 end
 
 more_users = [
-  { email: 'Kareemh17@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
+  { email: 'kareemh17@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
     uin: 327001001, classification: 'U4' },
-  { email: 'BBakkal@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
+  { email: 'bbakkal97@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
     uin: 327001002, classification: 'U4' },
-  { email: 'JonWaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
+  { email: 'jonrwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
     uin: 327001003, classification: 'U4' },
   { email: 'reidneason@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
     uin: 327001004, classification: 'U4' },
