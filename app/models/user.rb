@@ -44,7 +44,7 @@ class User < ApplicationRecord
 
     members = getTeam
 
-    ticketsToPull = members.length
+    # ticketsToPull = members.length
 
     availableSeats = Seat.where(assigned: false)
 
@@ -53,15 +53,16 @@ class User < ApplicationRecord
                                              { data: 'foo', mode: :byte_8bit }])
 
     qr = RQRCode::QRCode.new("https://frozen-inlet-69932.herokuapp.com/users/display?group=#{group_id}")
+    puts qr
 
     #now email it
 
-    members.each do |member|
-      puts member.email
-      # member.update_attribute(:seatnumber, availableSeats[iterate].seatnumber)
-      # member.update_attribute(:pulled, true)
-      # availableSeats[iterate].update_attribute(:assigned, true)
-      # availableSeats[iterate].update_attribute(:email, member.email)
+    # members.each do |member|
+    # #   puts member.email
+    #   member.update_attribute(:seatnumber, availableSeats[iterate].seatnumber)
+    #   member.update_attribute(:pulled, true)
+    #   availableSeats[iterate].update_attribute(:assigned, true)
+    #   availableSeats[iterate].update_attribute(:email, member.email)
 
       # iterate = iterate + 1
     end

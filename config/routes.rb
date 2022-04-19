@@ -22,11 +22,10 @@ Rails.application.routes.draw do
   resources :games
   root to: redirect('/games')
 
-  resources :users, only: %i[new create index show]
+  resources :users, only: [:new, :create, :destroy, :edit, :update, :show]
   resources :users do
     post :leave_group, on: :member
     post :remove_from_group, on: :member
   end
-
-  resources :sessions, only: %i[new create destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 end
