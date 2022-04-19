@@ -37,6 +37,8 @@ class User < ApplicationRecord
     # return members
   end
 
+  end
+=======
     def Pull
         # res = Group.where(email: self.email)
         # team = res.first["groupname"]
@@ -112,7 +114,6 @@ class User < ApplicationRecord
             this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
             this_game['opponent']
           end
-
 
   def pullTime
     this_group = Group.where(id: group_id).first
