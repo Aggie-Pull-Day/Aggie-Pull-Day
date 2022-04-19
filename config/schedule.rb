@@ -35,5 +35,6 @@ set :environment, "development"
 
 # FOR THE SAKE OF TESTING
 every 1.minute do
-    rake "TEST_SCHEDULED_TASKS:write_console"
+    # rake "TEST_SCHEDULED_TASKS:write_console"
+    command "echo 'Printing every 1-minute interval'"
 end
