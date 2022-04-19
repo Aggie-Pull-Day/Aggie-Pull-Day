@@ -28,7 +28,7 @@ set :output, "log/cron.log"
 set :environment, "development"
 
 # Set path to files containing tasks to run
-set :path, "/home/solis/Desktop/Aggie-Pull-Day"
+# set :path, "/home/solis/Desktop/Aggie-Pull-Day"
 
 # Schedule to clear out groups after each football game
 # THIS NEEDS TO BE UNCOMMENTED AFTER SHOWING RITCHEY
