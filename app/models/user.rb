@@ -37,79 +37,92 @@ class User < ApplicationRecord
     # return members
   end
 
-    def Pull
-        # res = Group.where(email: self.email)
-        # team = res.first["groupname"]
-        # members = Group.where(groupname: team)
-        # members = @Team
+  def Pull
+    # res = Group.where(email: self.email)
+    # team = res.first["groupname"]
+    # members = Group.where(groupname: team)
+    # members = @Team
+    # ticketsToPull = members.length
 
-        # ticketsToPull = members.length
-        
-        # availableSeats = Seat.where(assigned: false)
+    # availableSeats = Seat.where(assigned: false)
 
-        iterate = 0
-        multi_qrcode = RQRCodeCore::QRCode.new([ #to be emailed
-            { data: 'foo', mode: :byte_8bit }])  
-            
-        qr = RQRCode::QRCode.new("https://frozen-inlet-69932.herokuapp.com/users/display?group=#{self.group_id}")
-        
-        @svg_qr = qr.as_svg(
-            offset:0,
-            color: '000',
-            shape_rendering: 'crispEdges',
-            module_size: 6
-        )      
+    iterate = 0
+    multi_qrcode = RQRCodeCore::QRCode.new([#to be emailed
+                                             { data: 'foo', mode: :byte_8bit }])
 
-        require 'open-uri'
+    qr = RQRCode::QRCode.new("https://frozen-inlet-69932.herokuapp.com/users/display?group=#{self.group_id}")
 
-        File.open('images/image.svg', 'wb') do |file|
-             file.write @svg_qr
-        end
-        
-        #now email it
+    @svg_qr = qr.as_svg(
+      offset: 0,
+      color: '000',
+      shape_rendering: 'crispEdges',
+      module_size: 6
+    )
 
-        QrMailer.with(user: self, img: @svg_qr).email_sent.deliver_later
+    require 'open-uri'
+    File.open('images/image.svg', 'wb') do |file|
+      file.write @svg_qr
+    end
 
-        # members.each do |member|
-        #     puts member.email
-            # member.update_attribute(:seatnumber, availableSeats[iterate].seatnumber)
-            # member.update_attribute(:pulled, true)
-            # availableSeats[iterate].update_attribute(:assigned, true)
-            # availableSeats[iterate].update_attribute(:email, member.email)
+    #now email it
 
-            # iterate = iterate + 1
+    QrMailer.with(user: self, img: @svg_qr).email_sent.deliver_later
+
+    # members.each do |member|
+    #     puts member.email
+    # member.update_attribute(:seatnumber, availableSeats[iterate].seatnumber)
+    # member.update_attribute(:pulled, true)
+    # availableSeats[iterate].update_attribute(:assigned, true)
+    # availableSeats[iterate].update_attribute(:email, member.email)
+
+    # iterate = iterate + 1
     # end
-        end
+  end
 
-        def pullTime
-            this_group = Group.where(id: group_id).first
-            group_class = this_group.classification
-        
-            this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
-            gamedate = this_game['gamedate']
-        
-            days_before = case group_class
-                          when 'U4'
-                            5
-                          when 'U3'
-                            4
-                          when 'U2'
-                            3
-                          else
-                            2
-                          end
-        
-            pulldate = gamedate - (days_before * 60 * 60 * 24)
-            Time.new(pulldate.year, pulldate.month, pulldate.day, 8, 0, 0)
-          end
-        
-          def seat
-            res = Seat.where(id: seat_id).first
-            res['seatnumber']
-          end
-        
-          def next_opponent
-            this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
-            this_game['opponent']
-          end
+  def pullTime
+    this_group = Group.where(id: group_id).first
+    group_class = this_group.classification
+
+    this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
+    gamedate = this_game['gamedate']
+
+    days_before = case group_class
+                  when 'U4'
+                    5
+                  when 'U3'
+                    4
+                  when 'U2'
+                    3
+                  else
+                    2
+                  end
+
+    pulldate = gamedate - (days_before * 60 * 60 * 24)
+    Time.new(pulldate.year, pulldate.month, pulldate.day, 8, 0, 0)
+  end
+
+  def seat
+    res = Seat.where(id: seat_id).first
+    res['seatnumber']
+  end
+
+  def next_opponent
+    if Game.all.length.positive?
+      this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
+      this_game['opponent']
+    end
+  end
+
+  def group_owner?
+    group = Group.where(id: group_id).first
+    group[:email] == email
+  end
+
+  def dropdown_options
+    members = getTeam.where.not(email: email)
+    members.collect do |member|
+      [member[:email], member[:id]]
+    end
+  end
 end
+

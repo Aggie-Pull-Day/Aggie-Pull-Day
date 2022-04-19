@@ -17,6 +17,13 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
+  describe 'leave_group' do
+    it 'removes the current user from their group' do
+      post :leave_group, params: { id: User.first[:id] }
+      expect(User.first[:group_id]).to be_nil
+    end
+  end
+
   before :all do
     ActionController::Base.allow_forgery_protection = false
   end

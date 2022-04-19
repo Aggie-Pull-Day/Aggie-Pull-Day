@@ -4,6 +4,10 @@ Feature: have a functional admin login page
   So that I can securely use the website
   I want a login page where I can enter my user credentials
 
+  Background: database populated
+
+    Given the database is populated
+
   @wip
   Scenario: return to home page
 
