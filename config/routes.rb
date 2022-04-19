@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :games
-  root to: redirect('/games')
+  root to: redirect('/sessions/new')
 
   resources :users, only: [:new, :create, :destroy, :edit, :update, :show]
   resources :users do

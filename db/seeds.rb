@@ -29,7 +29,10 @@ more_groups = [
     pulled: false, email: 'Kareemh17@tamu.edu' },
 
   { groupname: 'Team 1', owner: 'Cora English',
-    pulled: false, email: 'CoraEnglish@tamu.edu' }
+    pulled: false, email: 'CoraEnglish@tamu.edu' },
+
+  { groupname: 'Freshmen Are Cool', owner: 'Matthew Waterman',
+    pulled: false, email: 'matthewwaterman@tamu.edu' }
 ]
 
 # array of groups
@@ -57,7 +60,11 @@ more_users = [
   { email: 'GraceLi@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 2,
     uin: 327001006, classification: 'U4' },
   { email: 'RebeccaMcfadden@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 2,
-    uin: 327001007, classification: 'U4' }
+    uin: 327001007, classification: 'U4' },
+  { email: 'matthewwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 3,
+    uin: 327001008, classification: 'U1' },
+  { email: 'jaketraylor@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 3,
+    uin: 327001009, classification: 'U1' }
 ]
 
 more_users.each do |user|

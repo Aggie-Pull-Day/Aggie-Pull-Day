@@ -2,7 +2,7 @@
 <% res = current_user.getTeam %>
 
 <% if res.empty? %>
-  <div class="none">No Team</div>
+  <div class="none">No Group</div>
   <%= link_to "Join Group", edit_user_path(current_user), :class => "btn btn-primary" %>
 <% else %>
   <% pull_date = current_user.pullTime %>
