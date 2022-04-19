@@ -9,15 +9,52 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-Given /the following games exist/ do |games_table|
-  games_table.hashes.each do |game|
-    Game.create game
+Given /^I am signed in$/ do
+  visit '/sessions/new'
+  fill_in('email', with: 'KareemH@tamu.edu')
+  fill_in('password', with: 'Dummy')
+  click_button('Sign In!')
+  visit '/users/1'
+end
+
+Given /^the games table is populated$/ do
+  games = [{ hometeam: 'TAMU', opponent: 'Sam Houston State', gamedate: '3-Sep-2022', day: 'Saturday' },
+           { hometeam: 'TAMU', opponent: 'App State', gamedate: '10-Sep-2022', day: 'Saturday' },
+           { hometeam: 'TAMU', opponent: 'Miami (FL)', gamedate: '17-Sep-2022', day: 'Thursday' }]
+
+  games.each_with_index do |game, index|
+    game['id'] = index + 1
+    Game.create!(game) if Game.where(opponent: game['opponent']).empty?
   end
 end
 
-Given /the following groups exist/ do |groups_table|
-  groups_table.hashes.each do |group|
-    Group.create group
+Given /^the groups table is populated$/ do
+  groups = [{ groupname: 'List Eaters', pulled: false, game_id: 1 },
+            { groupname: 'Team 1', pulled: false, game_id: 1 }]
+
+  groups.each_with_index do |group, index|
+    group['id'] = index + 1
+    Group.create!(group) if Group.where(groupname: group['groupname']).empty?
+  end
+end
+
+Given /^the users table is populated$/ do
+  users = [
+    { email: 'KareemH@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 1,
+      seat_id: nil },
+    { email: 'BaldwinB@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
+    { email: 'ReidN@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
+    { email: 'JonW@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 1, seat_id: nil },
+    { email: 'CoraE@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4', group_id: 2,
+      seat_id: nil },
+    { email: 'GraceL@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil },
+    { email: 'RebeccaF@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil },
+    { email: 'NikhitaV@tamu.edu', password_digest: 'Dummy', classification: 'U4', group_id: 2, seat_id: nil }
+  ]
+
+  users.each_with_index do |user, index|
+    user['id'] = index + 1
+    User.create!(user) if User.where(email: user['email']).empty?
   end
 end
 
@@ -26,7 +63,6 @@ Given /^(?:|I )am on the (.+)$/ do |page_name|
 end
 
 When /^I enter the email "(.*)"$/ do |email|
-  email.downcase!
   fill_in('email', with: email)
 end
 
@@ -62,16 +98,17 @@ When /^I enter the pulled status "(.*)"$/ do |pulled|
   fill_in('group[pulled]', with: pulled)
 end
 
+When /^I enter the new email "(.*)"$/ do |email|
+  fill_in('user[email]', with: email)
+end
+
+When /^I enter the new password "(.*)"$/ do |pw|
+  fill_in('user[password]', with: pw)
+end
+
 When /^(?:|I )press "([^\"]*)"(?: within "([^\"]*)")?$/ do |button, selector|
   with_scope(selector) do
-    case button
-    when 'View Details'
-      find('#games > div:nth-child(1) > div > div.col-md-3.container > a').click
-    when 'View'
-      find('#groups > div:nth-child(1) > div > div.col-md-3.container > a').click
-    else
-      click_link_or_button(button)
-    end
+    click_link_or_button(button, match: :first)
   end
 end
 

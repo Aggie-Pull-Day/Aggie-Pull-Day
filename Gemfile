@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.0"
 
+gem 'rubocop'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem "rails", "~> 7.0"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
@@ -20,7 +22,7 @@ gem "stimulus-rails"
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 4.0'
+gem 'webpacker', '~> 6.0.0.rc.6'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -39,7 +41,6 @@ gem "bootsnap", require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"
-gem "faker"
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -63,6 +64,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner-active_record'
+  gem 'faker'
   gem 'selenium-webdriver'
   gem 'simplecov'
   # Easy installation and use of web drivers to run system tests with browsers

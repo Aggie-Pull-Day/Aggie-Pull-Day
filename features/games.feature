@@ -6,11 +6,10 @@ Feature: editing list of games
 
   Background: games in database
 
-    Given the following games exist:
-      | hometeam  | opponent          | gamedate    | day      |
-      | TAMU      | Sam Houston State | 3-Sep-2022  | Saturday |
-      | TAMU      | App State         | 10-Sep-2022 | Saturday |
-      | TAMU      | Miami (FL)        | 17-Sep-2022 | Thursday |
+    Given the groups table is populated
+    And the users table is populated
+    And I am signed in
+    And the games table is populated
 
   @wip
   Scenario: return to home page

@@ -12,6 +12,9 @@ module ListEaters
     config.load_defaults 6.0
     config.exceptions_app = self.routes
 
+    config.assets.initialize_on_precompile = false
+
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -24,6 +27,9 @@ module ListEaters
   class Application < Rails::Application
     config.load_defaults 6.0 # I'm using Rails 6 at the time of this article
     config.exceptions_app = self.routes # Add this line
+
+    config.assets.initialize_on_precompile = false
+
   end
 
 end
