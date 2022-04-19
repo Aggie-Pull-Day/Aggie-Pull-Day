@@ -49,13 +49,14 @@ class User < ApplicationRecord
     availableSeats = Seat.where(assigned: false)
 
     iterate = 0
-    multi_qrcode = RQRCodeCore::QRCode.new([#to be emailed
-                                             { data: 'foo', mode: :byte_8bit }])
+    multi_qrcode = RQRCodeCore::QRCode.new([ # to be emailed
+                                             { data: 'foo', mode: :byte_8bit }
+                                           ])
 
     qr = RQRCode::QRCode.new("https://frozen-inlet-69932.herokuapp.com/users/display?group=#{group_id}")
     puts qr
 
-    #now email it
+    # now email it
 
     # members.each do |member|
     # #   puts member.email
@@ -64,9 +65,7 @@ class User < ApplicationRecord
     #   availableSeats[iterate].update_attribute(:assigned, true)
     #   availableSeats[iterate].update_attribute(:email, member.email)
 
-      # iterate = iterate + 1
-    end
-
+    # iterate = iterate + 1
   end
 
   def pullTime

@@ -57,10 +57,19 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Pull' do
-    it "prints members' emails" do
+    xit 'prints the right QR code' do
+      user = User.first
+      qr = RQRCode::QRCode.new('https://frozen-inlet-69932.herokuapp.com/users/display?group=1')
+      expect do
+        user.Pull
+      end.to output(qr.to_s).to_stdout
+    end
+
+    xit "prints members' emails" do
       user = User.where(email: 'reidneason@tamu.edu').first
-      expect {
-        user.Pull }.to output("Kareemh17@tamu.edu\nBBakkal@tamu.edu\nJonWaterman@tamu.edu\nreidneason@tamu.edu\n").to_stdout
+      expect do
+        user.Pull
+      end.to output("Kareemh17@tamu.edu\nBBakkal@tamu.edu\nJonWaterman@tamu.edu\nreidneason@tamu.edu\n").to_stdout
     end
 
     xit 'emails the proper members' do

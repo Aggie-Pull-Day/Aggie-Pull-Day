@@ -90,6 +90,10 @@ When /^I enter the pulled status "(.*)"$/ do |pulled|
   fill_in('group[pulled]', with: pulled)
 end
 
+When /^I enter the group ID (\d*)$/ do |id|
+  fill_in('user[group_id]', with: id)
+end
+
 When /^I enter the new email "(.*)"$/ do |email|
   fill_in('user[email]', with: email)
 end

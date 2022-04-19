@@ -87,13 +87,16 @@
       <% end %>
     <% end %>
   </ul>
+
   <br>
+
   <% if current_user.group_owner? %>
     <%= button_to 'Remove From Group', :class => "btn btn-danger" %>
-    <br>
+  <% else %>
+    <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger" %>
   <% end %>
 
-  <%= button_to 'Leave Group', leave_group_user_path, :class => "btn btn-danger" %>
+  <br>
 <% end %>
 
 <%= link_to "Sign out", new_session_path, method: "delete" %>

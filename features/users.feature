@@ -35,16 +35,19 @@ Feature: have a landing page showing a group
 
   Scenario: leave group
 
-    Given I am signed in
+    Given I am signed in as reidneason@tamu.edu
     When I press "Leave Group"
-    And I press "Confirm"
     Then I should see "No Team"
 
   Scenario: can't leave a group you aren't in
 
-    Given I am signed in
+    Given I am signed in as reidneason@tamu.edu
     When I press "Leave Group"
-    And I press "Confirm"
+    Then I should not see "Leave Group"
+
+  Scenario: can't leave a group as owner
+
+    Given I am signed in
     Then I should not see "Leave Group"
 
   @wip
@@ -61,3 +64,11 @@ Feature: have a landing page showing a group
 
     Given I am signed in as reidneason@tamu.edu
     Then I should not see "Remove From Group"
+
+  Scenario: change groups
+
+    Given I am signed in as reidneason@tamu.edu
+    When I press "Edit this user"
+    And I enter the group ID 50
+    And I press "Update User"
+    Then I should see "CoraEnglish@tamu.edu"
