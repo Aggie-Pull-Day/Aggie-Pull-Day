@@ -94,6 +94,14 @@ When /^I enter the group ID (\d*)$/ do |id|
   fill_in('user[group_id]', with: id)
 end
 
+When /^I enter the new first name "(.*)"$/ do |fn|
+  fill_in('user[first]', with: fn)
+end
+
+When /^I enter the new last name "(.*)"$/ do |ln|
+  fill_in('user[last]', with: ln)
+end
+
 When /^I enter the new email "(.*)"$/ do |email|
   fill_in('user[email]', with: email)
 end

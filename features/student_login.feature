@@ -53,6 +53,8 @@ Feature: have a functional student login page
 
     Given I am on the student login page
     When I press "Sign Up"
+    And I enter the new first name "Philip"
+    And I enter the new last name "Ritchey"
     And I enter the new email "PhilipR@tamu.edu"
     And I enter the new password "OldArmy"
     And I press "Create Account"
