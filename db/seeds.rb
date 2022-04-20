@@ -29,7 +29,10 @@ more_groups = [
     pulled: false, email: 'Kareemh17@tamu.edu' },
 
   { groupname: 'Team 1', owner: 'Cora English',
-    pulled: false, email: 'CoraEnglish@tamu.edu' }
+    pulled: false, email: 'CoraEnglish@tamu.edu' },
+
+  { groupname: 'Freshmen Are Cool', owner: 'Matthew Waterman',
+    pulled: false, email: 'matthewwaterman@tamu.edu' }
 ]
 
 # array of groups
@@ -44,11 +47,11 @@ more_groups.each do |group|
 end
 
 more_users = [
-  { email: 'Kareemh17@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
+  { email: 'kareemh17@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
     uin: 327001001, classification: 'U4' },
-  { email: 'BBakkal@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
+  { email: 'bbakkal97@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
     uin: 327001002, classification: 'U4' },
-  { email: 'JonWaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
+  { email: 'jonrwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
     uin: 327001003, classification: 'U4' },
   { email: 'reidneason@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
     uin: 327001004, classification: 'U4' },
@@ -57,7 +60,11 @@ more_users = [
   { email: 'GraceLi@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 2,
     uin: 327001006, classification: 'U4' },
   { email: 'RebeccaMcfadden@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 2,
-    uin: 327001007, classification: 'U4' }
+    uin: 327001007, classification: 'U4' },
+  { email: 'matthewwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 3,
+    uin: 327001008, classification: 'U1' },
+  { email: 'jaketraylor@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 3,
+    uin: 327001009, classification: 'U1' }
 ]
 
 more_users.each do |user|

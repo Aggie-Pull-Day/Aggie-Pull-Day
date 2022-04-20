@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'errors/not_found'
   get 'errors/internal_server_error'
   resources :groups
-  
+
   get "/articles", to: "articles#index"
 
   get "/student", to: "articles#student"
@@ -20,9 +20,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :games
-    root :to => redirect('/games')
+  root to: redirect('/sessions/new')
 
-    resources :users, only: [:new, :create, :destroy, :edit, :update, :show]
-    resources :sessions, only: [:new, :create, :destroy]
-    
+  resources :users, only: [:new, :create, :destroy, :edit, :update, :show]
+  resources :users do
+    post :leave_group, on: :member
+    post :remove_from_group, on: :member
+  end
+  resources :sessions, only: [:new, :create, :destroy]
 end

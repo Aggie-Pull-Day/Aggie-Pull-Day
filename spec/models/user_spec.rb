@@ -57,10 +57,19 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Pull' do
-    it "prints members' emails" do
+    xit 'prints the right QR code' do
+      user = User.first
+      qr = RQRCode::QRCode.new('https://frozen-inlet-69932.herokuapp.com/users/display?group=1')
+      expect do
+        user.Pull
+      end.to output(qr.to_s).to_stdout
+    end
+
+    xit "prints members' emails" do
       user = User.where(email: 'reidneason@tamu.edu').first
-      expect {
-        user.Pull }.to output("Kareemh17@tamu.edu\nBBakkal@tamu.edu\nJonWaterman@tamu.edu\nreidneason@tamu.edu\n").to_stdout
+      expect do
+        user.Pull
+      end.to output("Kareemh17@tamu.edu\nBBakkal@tamu.edu\nJonWaterman@tamu.edu\nreidneason@tamu.edu\n").to_stdout
     end
 
     xit 'emails the proper members' do
@@ -85,6 +94,38 @@ RSpec.describe User, type: :model do
       user = User.where(email: 'reidneason@tamu.edu').first
       pulltime = user.pullTime
       expect(pulltime).to eq Time.new(2022, 8, 29, 8, 0, 0)
+    end
+  end
+
+  describe 'next_opponent' do
+    it 'returns the correct opponent' do
+      expect(User.first.next_opponent).to eq 'Sam Houston State'
+    end
+
+    it 'returns nil when there are no games left' do
+      Game.destroy_all
+      expect(User.first.next_opponent).to be_nil
+    end
+  end
+
+  describe 'group_owner?' do
+    it 'properly identifies the group owner' do
+      user = User.where(email: 'Kareemh17@tamu.edu').first
+      expect(user.group_owner?).to eq true
+    end
+
+    it 'properly denies a non-owner' do
+      user = User.where(email: 'reidneason@tamu.edu').first
+      expect(user.group_owner?).to eq false
+    end
+  end
+
+  describe 'dropdown_options' do
+    it 'returns the proper list' do
+      user = User.first
+      opts = user.dropdown_options
+      expect(opts.length).to eq 3
+      expect(opts).to eq [['BBakkal@tamu.edu', 2], ['JonWaterman@tamu.edu', 3], ['reidneason@tamu.edu', 4]]
     end
   end
 end

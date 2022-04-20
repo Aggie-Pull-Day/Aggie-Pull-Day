@@ -60,7 +60,6 @@ class User < ApplicationRecord
     )
 
     require 'open-uri'
-
     File.open('images/image.svg', 'wb') do |file|
       file.write @svg_qr
     end
@@ -108,7 +107,22 @@ class User < ApplicationRecord
   end
 
   def next_opponent
-    this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
-    this_game['opponent']
+    if Game.all.length.positive?
+      this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
+      this_game['opponent']
+    end
+  end
+
+  def group_owner?
+    group = Group.where(id: group_id).first
+    group[:email] == email
+  end
+
+  def dropdown_options
+    members = getTeam.where.not(email: email)
+    members.collect do |member|
+      [member[:email], member[:id]]
+    end
   end
 end
+

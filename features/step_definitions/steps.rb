@@ -9,9 +9,9 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-Given /^I am signed in$/ do
+Given /^I am signed in(?: as ([^"]*))?$/ do |email|
   visit '/sessions/new'
-  fill_in('email', with: 'Kareemh17@tamu.edu')
+  fill_in('email', with: email.nil? ? 'Kareemh17@tamu.edu' : email)
   fill_in('password', with: 'Dummy')
   click_button('Sign In!')
   visit '/users/1'
@@ -88,6 +88,10 @@ end
 
 When /^I enter the pulled status "(.*)"$/ do |pulled|
   fill_in('group[pulled]', with: pulled)
+end
+
+When /^I enter the group ID (\d*)$/ do |id|
+  fill_in('user[group_id]', with: id)
 end
 
 When /^I enter the new email "(.*)"$/ do |email|

@@ -1,10 +1,9 @@
 <%= content_tag :h1, current_user.welcome %>
 <% res = current_user.getTeam %>
 
-<%= link_to "Edit this user", edit_user_path(current_user) %>
-
 <% if res.empty? %>
-  <div class="none">No Team</div>
+  <div class="none">No Group</div>
+  <%= link_to "Join Group", edit_user_path(current_user), :class => "btn btn-primary" %>
 <% else %>
   <% pull_date = current_user.pullTime %>
   <% opponent = current_user.next_opponent %>
@@ -87,6 +86,16 @@
       <% end %>
     <% end %>
   </ul>
+
+  <br>
+
+  <% if current_user.group_owner? %>
+    <%= button_to 'Remove From Group', :class => "btn btn-danger" %>
+  <% else %>
+    <%= link_to "Change Groups", edit_user_path(current_user), :class => "btn btn-secondary" %> <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger" %>
+  <% end %>
+
+  <br>
 <% end %>
 
 <%= link_to "Sign out", new_session_path, method: "delete" %>
