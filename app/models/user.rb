@@ -50,7 +50,7 @@ class User < ApplicationRecord
     multi_qrcode = RQRCodeCore::QRCode.new([#to be emailed
                                              { data: 'foo', mode: :byte_8bit }])
 
-    qr = RQRCode::QRCode.new("https://frozen-inlet-69932.herokuapp.com/users/display?group=#{self.group_id}")
+    qr = RQRCode::QRCode.new("https://frozen-inlet-69932.herokuapp.com/users/display?group=#{group_id}")
 
     @svg_qr = qr.as_svg(
       offset: 0,
@@ -122,6 +122,18 @@ class User < ApplicationRecord
     members = getTeam.where.not(email: email)
     members.collect do |member|
       [member[:email], member[:id]]
+    end
+  end
+
+  def full_name
+    if !first_name.nil? && !last_name.nil?
+      "#{first_name} #{last_name}"
+    elsif !first_name.nil?
+      first_name
+    elsif !last_name.nil?
+      last_name
+    else
+      'Anonymous User'
     end
   end
 end

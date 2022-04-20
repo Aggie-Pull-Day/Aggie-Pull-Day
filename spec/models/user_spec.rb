@@ -64,7 +64,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'returns properly for a user without a group' do
-      user = User.create(email: 'PhilipR@tamu.edu', firstname: 'Philip', lastname: 'Ritchey', password_digest: BCrypt::Password.create('Dummy'),
+      user = User.create(email: 'PhilipR@tamu.edu', first_name: 'Philip', last_name: 'Ritchey', password_digest: BCrypt::Password.create('Dummy'),
                          classification: 'U4', pulled: false)
       expect(user.getTeam.length).to eq 0
     end
@@ -115,6 +115,30 @@ RSpec.describe User, type: :model do
       opts = user.dropdown_options
       expect(opts.length).to eq 3
       expect(opts).to eq [['bbakkal97@tamu.edu', 2], ['jonrwaterman@tamu.edu', 3], ['reidneason@tamu.edu', 4]]
+    end
+  end
+
+  describe 'full_name' do
+    it 'returns a proper full name' do
+      expect(User.first.full_name).to eq 'Kareem Hirani'
+    end
+
+    it 'returns a first name with no last name' do
+      user = User.create(email: 'PhilipR@tamu.edu', first_name: 'Philip', password_digest: BCrypt::Password.create('Dummy'),
+                         classification: 'U4', pulled: false)
+      expect(user.full_name).to eq 'Philip'
+    end
+
+    it 'returns a last name with no first name' do
+      user = User.create(email: 'PhilipR@tamu.edu', last_name: 'Ritchey', password_digest: BCrypt::Password.create('Dummy'),
+                         classification: 'U4', pulled: false)
+      expect(user.full_name).to eq 'Ritchey'
+    end
+
+    it 'returns anonymous user properly' do
+      user = User.create(email: 'PhilipR@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                         classification: 'U4', pulled: false)
+      expect(user.full_name).to eq 'Anonymous User'
     end
   end
 end
