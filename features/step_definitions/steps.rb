@@ -95,11 +95,11 @@ When /^I enter the group ID (\d*)$/ do |id|
 end
 
 When /^I enter the new first name "(.*)"$/ do |fn|
-  fill_in('user[first]', with: fn)
+  fill_in('user[firstname]', with: fn)
 end
 
 When /^I enter the new last name "(.*)"$/ do |ln|
-  fill_in('user[last]', with: ln)
+  fill_in('user[lastname]', with: ln)
 end
 
 When /^I enter the new email "(.*)"$/ do |email|

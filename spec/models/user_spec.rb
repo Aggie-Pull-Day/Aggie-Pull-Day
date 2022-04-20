@@ -46,7 +46,7 @@ RSpec.describe User, type: :model do
   describe 'welcome' do
     it 'returns the proper message' do
       user = User.first
-      expect(user.welcome).to eq 'Hello, kareemh17@tamu.edu!'
+      expect(user.welcome).to eq 'Hello, Kareem!'
     end
   end
 
@@ -64,8 +64,8 @@ RSpec.describe User, type: :model do
     end
 
     it 'returns properly for a user without a group' do
-      user = User.create(email: 'PhilipR@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
-                         classification: 'U4')
+      user = User.create(email: 'PhilipR@tamu.edu', firstname: 'Philip', lastname: 'Ritchey', password_digest: BCrypt::Password.create('Dummy'),
+                         classification: 'U4', pulled: false)
       expect(user.getTeam.length).to eq 0
     end
   end
