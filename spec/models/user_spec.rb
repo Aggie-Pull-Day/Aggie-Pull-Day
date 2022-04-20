@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'model' do
     it 'has the correct amount of data' do
-      expect(User.all.length).to eq 7
+      expect(User.all.length).to eq 9
     end
 
     it 'loads users based on a single attribute' do
@@ -20,12 +20,12 @@ RSpec.describe User, type: :model do
 
     it 'deletes users based on a single attribute' do
       User.where(email: 'reidneason@tamu.edu').destroy_all
-      expect(User.all.length).to eq 6
+      expect(User.all.length).to eq 8
     end
 
     it 'deletes users based on multiple attributes' do
-      User.where(email: 'BBakkal@tamu.edu', group_id: 1).destroy_all
-      expect(User.all.length).to eq 6
+      User.where(email: 'bbakkal97@tamu.edu', group_id: 1).destroy_all
+      expect(User.all.length).to eq 8
     end
   end
 
@@ -110,7 +110,7 @@ RSpec.describe User, type: :model do
 
   describe 'group_owner?' do
     it 'properly identifies the group owner' do
-      user = User.where(email: 'Kareemh17@tamu.edu').first
+      user = User.where(email: 'kareemh17@tamu.edu').first
       expect(user.group_owner?).to eq true
     end
 
@@ -125,7 +125,7 @@ RSpec.describe User, type: :model do
       user = User.first
       opts = user.dropdown_options
       expect(opts.length).to eq 3
-      expect(opts).to eq [['BBakkal@tamu.edu', 2], ['JonWaterman@tamu.edu', 3], ['reidneason@tamu.edu', 4]]
+      expect(opts).to eq [['bbakkal97@tamu.edu', 2], ['jonrwaterman@tamu.edu', 3], ['reidneason@tamu.edu', 4]]
     end
   end
 end
