@@ -80,9 +80,9 @@
   <ul class="list-group">
     <% res.each do |item| %>
       <% if pulled %>
-        <li class="list-group-item"><strong><%= item.email %> SEAT NUMBER <%= item.seat %> </strong></li>
+        <li class="list-group-item"><strong><%= "#{item.first_name} #{item.last_name}: " %> SEAT NUMBER <%= item.seat %> </strong></li>
       <% else %>
-        <li class="list-group-item"><strong><%= item.email %> NOT PULLED</strong></li>
+        <li class="list-group-item"><strong><%= "#{item.first_name} #{item.last_name}: " %> NOT PULLED</strong></li>
       <% end %>
     <% end %>
   </ul>
