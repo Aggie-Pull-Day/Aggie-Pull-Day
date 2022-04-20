@@ -57,4 +57,4 @@ Feature: have a functional student login page
     And I enter the new password "OldArmy"
     And I press "Create Account"
     Then I should see "Hello, PhilipR@tamu.edu!"
-    And I should see "No Team"
+    And I should see "No Group"

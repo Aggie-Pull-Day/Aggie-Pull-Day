@@ -18,6 +18,20 @@ RSpec.describe Game, type: :model do
       expect(saturday_shsu_games.length).to eq 1
     end
 
+    it 'updates one attribute of a game' do
+      Game.first.update(opponent: 'tu')
+      expect(Game.where(opponent: 'tu').length).to eq 1
+      expect(Game.where(opponent: 'Sam Houston State').length).to eq 0
+    end
+
+    it 'updates multiple attributes of a game' do
+      Game.first.update(opponent: 'tu', day: 'Friday')
+      expect(Game.where(opponent: 'tu').length).to eq 1
+      expect(Game.where(day: 'Friday').length).to eq 1
+      expect(Game.where(opponent: 'Sam Houston State').length).to eq 0
+      expect(Game.where(day: 'Saturday').length).to eq 1
+    end
+
     it 'deletes games based on a single attribute' do
       Game.where(day: 'Thursday').destroy_all
       expect(Game.all.length).to eq 2

@@ -4,12 +4,12 @@ require 'rails_helper'
 RSpec.describe Group, type: :model do
   describe 'model' do
     it 'has the correct amount of data' do
-      expect(Group.all.length).to eq 2
+      expect(Group.all.length).to eq 3
     end
 
     it 'loads groups based on a single attribute' do
       not_pulled = Group.where(pulled: false)
-      expect(not_pulled.length).to eq 2
+      expect(not_pulled.length).to eq 3
     end
 
     it 'loads groups based on multiple attributes' do
@@ -17,18 +17,32 @@ RSpec.describe Group, type: :model do
       expect(team_1_not_pulled.length).to eq 1
     end
 
+    it 'updates a single attribute of a group' do
+      Group.first.update(groupname: 'Team 2')
+      expect(Group.where(groupname: 'List Eaters').length).to eq 0
+      expect(Group.where(groupname: 'Team 2').length).to eq 1
+    end
+
+    it 'updates multiple attributes of a group' do
+      Group.first.update(groupname: 'Team 2', owner: 'Jon Waterman')
+      expect(Group.where(groupname: 'List Eaters').length).to eq 0
+      expect(Group.where(groupname: 'Team 2').length).to eq 1
+      expect(Group.where(owner: 'Kareem Hirani').length).to eq 0
+      expect(Group.where(owner: 'Jon Waterman').length).to eq 1
+    end
+
     it 'deletes groups based on a single attribute' do
       Group.create(groupname: 'The Professors', owner: 'Philip Ritchey', email: 'PhilipR@tamu.edu', pulled: false)
-      expect(Group.all.length).to eq 3
+      expect(Group.all.length).to eq 4
       Group.where(groupname: 'The Professors').destroy_all
-      expect(Group.all.length).to eq 2
+      expect(Group.all.length).to eq 3
     end
 
     it 'deletes groups based on multiple attributes' do
       Group.create(groupname: 'The Professors', owner: 'Philip Ritchey', email: 'PhilipR@tamu.edu', pulled: false)
-      expect(Group.all.length).to eq 3
+      expect(Group.all.length).to eq 4
       Group.where(groupname: 'The Professors', owner: 'Philip Ritchey').destroy_all
-      expect(Group.all.length).to eq 2
+      expect(Group.all.length).to eq 3
     end
 
     it 'refuses to delete an occupied group' do

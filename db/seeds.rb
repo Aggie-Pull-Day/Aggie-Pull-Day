@@ -26,7 +26,7 @@ end
 
 more_groups = [
   { groupname: 'List Eaters', owner: 'Kareem Hirani',
-    pulled: false, email: 'Kareemh17@tamu.edu' },
+    pulled: false, email: 'kareemh17@tamu.edu' },
 
   { groupname: 'Team 1', owner: 'Cora English',
     pulled: false, email: 'CoraEnglish@tamu.edu' },

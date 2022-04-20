@@ -86,20 +86,31 @@
           null,
           null,
           null,
-          0,
           null,
-          null,
-          null,
-          0,
-          null,
-          0,
-          0,
           null,
           null,
           null,
           0,
           0,
           null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
           null,
           null,
           null,
@@ -155,6 +166,7 @@
           0,
           0,
           0,
+          null,
           null,
           null,
           null
@@ -199,7 +211,7 @@
           null,
           null,
           1,
-          326,
+          291,
           null,
           null
         ]
@@ -534,6 +546,31 @@
         "branches": {
         }
       },
+      "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/mailers/qr_mailer.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/Users/reidneason/Desktop/GitHub/Aggie-Pull-Day/app/models/seat.rb": {
         "lines": [
           0,
@@ -543,6 +580,6 @@
         }
       }
     },
-    "timestamp": 1650328676
+    "timestamp": 1650485208
   }
 }

@@ -37,7 +37,7 @@ Feature: have a landing page showing a group
 
     Given I am signed in as reidneason@tamu.edu
     When I press "Leave Group"
-    Then I should see "No Team"
+    Then I should see "No Group"
 
   Scenario: can't leave a group you aren't in
 
@@ -68,7 +68,7 @@ Feature: have a landing page showing a group
   Scenario: change groups
 
     Given I am signed in as reidneason@tamu.edu
-    When I press "Edit this user"
+    When I press "Change Groups"
     And I enter the group ID 50
     And I press "Update User"
     Then I should see "CoraEnglish@tamu.edu"
