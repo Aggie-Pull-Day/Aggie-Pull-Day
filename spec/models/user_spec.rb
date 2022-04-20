@@ -18,6 +18,20 @@ RSpec.describe User, type: :model do
       expect(reid_list_eaters.length).to eq 1
     end
 
+    it 'updates one attribute of a user' do
+      User.first.update(classification: 'U3')
+      expect(User.where(classification: 'U4').length).to eq 6
+      expect(User.where(classification: 'U3').length).to eq 1
+    end
+
+    it 'updates multiple attributes of a user' do
+      User.first.update(classification: 'U3', email: 'kareemhirani@listeaters.com')
+      expect(User.where(classification: 'U4').length).to eq 6
+      expect(User.where(classification: 'U3').length).to eq 1
+      expect(User.where(email: 'kareemhirani@listeaters.com').length).to eq 1
+      expect(User.where(email: 'kareemh17@tamu.edu').length).to eq 0
+    end
+
     it 'deletes users based on a single attribute' do
       User.where(email: 'reidneason@tamu.edu').destroy_all
       expect(User.all.length).to eq 8
@@ -31,21 +45,21 @@ RSpec.describe User, type: :model do
 
   describe 'welcome' do
     it 'returns the proper message' do
-      user = User.where(email: 'reidneason@tamu.edu').first
-      expect(user.welcome).to eq 'Hello, reidneason@tamu.edu!'
+      user = User.first
+      expect(user.welcome).to eq 'Hello, kareemh17@tamu.edu!'
     end
   end
 
   describe 'hasPulled' do
     it 'returns the proper status' do
-      user = User.where(email: 'reidneason@tamu.edu').first
+      user = User.first
       expect(user.hasPulled).to eq false
     end
   end
 
   describe 'getTeam' do
     it 'returns all members of a group' do
-      user = User.where(email: 'reidneason@tamu.edu').first
+      user = User.first
       expect(user.getTeam.length).to eq 4
     end
 
@@ -57,41 +71,16 @@ RSpec.describe User, type: :model do
   end
 
   describe 'Pull' do
-    xit 'prints the right QR code' do
-      user = User.first
-      qr = RQRCode::QRCode.new('https://frozen-inlet-69932.herokuapp.com/users/display?group=1')
+    it 'queues an email to be sent' do
       expect do
-        user.Pull
-      end.to output(qr.to_s).to_stdout
-    end
-
-    xit "prints members' emails" do
-      user = User.where(email: 'reidneason@tamu.edu').first
-      expect do
-        user.Pull
-      end.to output("Kareemh17@tamu.edu\nBBakkal@tamu.edu\nJonWaterman@tamu.edu\nreidneason@tamu.edu\n").to_stdout
-    end
-
-    xit 'emails the proper members' do
-      user = User.where(email: 'reidneason@tamu.edu').first
-      user.Pull
-      expect(ActionMailer::Base.deliveries.count).to eq 4
-      expect(ActionMailer::Base.deliveries[0].to).to include('Kareemh17@tamu.edu')
-      expect(ActionMailer::Base.deliveries[1].to).to include('BBakkal@tamu.edu')
-      expect(ActionMailer::Base.deliveries[2].to).to include('JonWaterman@tamu.edu')
-      expect(ActionMailer::Base.deliveries[3].to).to include('reidneason@tamu.edu')
-    end
-
-    xit 'assigns the correct number of seats' do
-      user = User.where(email: 'reidneason@tamu.edu').first
-      user.Pull
-      expect(Seat.where(assigned: false).length).to eq 36
+        User.first.Pull
+      end.to have_enqueued_job.on_queue('mailers').exactly(:once)
     end
   end
 
   describe 'pullTime' do
     it 'returns the correct pull time' do
-      user = User.where(email: 'reidneason@tamu.edu').first
+      user = User.first
       pulltime = user.pullTime
       expect(pulltime).to eq Time.new(2022, 8, 29, 8, 0, 0)
     end
