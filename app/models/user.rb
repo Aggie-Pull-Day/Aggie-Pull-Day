@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_secure_password
 
   def welcome
-    "Hello, #{email}!"
+    "Hello, #{firstname}!"
   end
 
   def hasPulled
