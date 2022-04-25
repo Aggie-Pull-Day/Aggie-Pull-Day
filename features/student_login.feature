@@ -53,10 +53,10 @@ Feature: have a functional student login page
 
     Given I am on the student login page
     When I press "Sign Up"
-    And I enter the new first name "Philip"
-    And I enter the new last name "Ritchey"
-    And I enter the new email "PhilipR@tamu.edu"
-    And I enter the new password "OldArmy"
+    And I enter the user firstname "Philip"
+    And I enter the user lastname "Ritchey"
+    And I enter the user email "PhilipR@tamu.edu"
+    And I enter the user password "OldArmy"
     And I press "Create Account"
     Then I should see "Hello, PhilipR@tamu.edu!"
     And I should see "No Group"

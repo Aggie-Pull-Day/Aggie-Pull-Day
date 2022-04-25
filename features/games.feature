@@ -37,7 +37,7 @@ Feature: editing list of games
     Given I am on the games page
     When I press "View Details"
     And I press "Edit this Game"
-    And I enter the opponent "LSU"
+    And I enter the game opponent "LSU"
     And I press "Update Game"
     Then I should see "Opponent: LSU"
 
@@ -46,7 +46,7 @@ Feature: editing list of games
     Given I am on the games page
     When I press "View Details"
     And I press "Edit this Game"
-    And I enter the opponent "Alabama"
+    And I enter the game opponent "Alabama"
     And I press "Update Game"
     And I press "Back to Games"
     Then I should see "TAMU vs. Alabama"
@@ -55,10 +55,10 @@ Feature: editing list of games
 
     Given I am on the game page
     When I press "New game"
-    And I enter the home team "TAMU"
-    And I enter the opponent "Ole Miss"
-    And I enter the gamedate "2022-09-24 00:00:00 UTC"
-    And I enter the day "Saturday"
+    And I enter the game hometeam "TAMU"
+    And I enter the game opponent "Ole Miss"
+    And I enter the game gamedate "2022-09-24 00:00:00 UTC"
+    And I enter the game day "Saturday"
     And I press "Create Game"
     Then I should see "Hometeam: TAMU"
     And I should see "Opponent: Ole Miss"
