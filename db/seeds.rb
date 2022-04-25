@@ -48,23 +48,25 @@ end
 
 more_users = [
   { email: 'kareemh17@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
-    uin: 327001001, classification: 'U4' },
+    uin: 327001001, classification: 'U4', admin: false },
   { email: 'bbakkal97@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
-    uin: 327001002, classification: 'U4' },
+    uin: 327001002, classification: 'U4', admin: false },
   { email: 'jonrwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
-    uin: 327001003, classification: 'U4' },
+    uin: 327001003, classification: 'U4', admin: false },
   { email: 'reidneason@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
-    uin: 327001004, classification: 'U4' },
+    uin: 327001004, classification: 'U4', admin: false },
   { email: 'CoraEnglish@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 2,
-    uin: 327001005, classification: 'U4' },
+    uin: 327001005, classification: 'U4', admin: false },
   { email: 'GraceLi@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 2,
-    uin: 327001006, classification: 'U4' },
+    uin: 327001006, classification: 'U4', admin: false },
   { email: 'RebeccaMcfadden@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 2,
-    uin: 327001007, classification: 'U4' },
+    uin: 327001007, classification: 'U4', admin: false },
   { email: 'matthewwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 3,
-    uin: 327001008, classification: 'U1' },
+    uin: 327001008, classification: 'U1', admin: false },
   { email: 'jaketraylor@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 3,
-    uin: 327001009, classification: 'U1' }
+    uin: 327001009, classification: 'U1', admin: false },
+  { email: 'drritchey@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: nil,
+    uin: 1, classification: 'U5', admin: true }
 ]
 
 more_users.each do |user|
