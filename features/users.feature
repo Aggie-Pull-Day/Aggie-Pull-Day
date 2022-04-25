@@ -50,15 +50,11 @@ Feature: have a landing page showing a group
     Given I am signed in
     Then I should not see "Leave Group"
 
-  @wip
   Scenario: remove a group member
 
     Given I am signed in
     When I press "Remove From Group"
-    And I press the dropdown menu
-    And I press "JonWaterman@tamu.edu"
-    And I press "Remove"
-    Then I should not see "JonWaterman@tamu.edu"
+    Then I should not see "BBakkal@tamu.edu"
 
   Scenario: non-group-owner can't access remove button
 
@@ -69,6 +65,6 @@ Feature: have a landing page showing a group
 
     Given I am signed in as reidneason@tamu.edu
     When I press "Change Groups"
-    And I enter the group ID 50
+    And I enter the group ID 52
     And I press "Update User"
     Then I should see "CoraEnglish@tamu.edu"
