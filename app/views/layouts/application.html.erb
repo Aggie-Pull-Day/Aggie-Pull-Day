@@ -19,10 +19,8 @@
 <body>
 <nav class="navbar navbar-expand navbar-dark" style="background-color: rgb(80, 0, 0);">
   <%# Navbar Brand %>
-  <a class="navbar-brand" href="/articles">
-    <%# <img src="./logo/logo-1024x768.png" height="50" alt="Aggie Ticket Pull logo showing a maroon ticket stub"> %>
-    List Eater
-  </a>
+  <%= link_to 'List Eaters', articles_path, :class => 'navbar-brand' %>
+  <%# <img src="./logo/logo-1024x768.png" height="50" alt="Aggie Ticket Pull logo showing a maroon ticket stub"> %>
   <%# Navbar Login %>
   <% if current_user.present? %>
     <div class="navbar-nav nav-item dropdown ml-auto">
