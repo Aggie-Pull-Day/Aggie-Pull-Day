@@ -1,12 +1,16 @@
 <div id="<%= dom_id group %>">
   <p>
-    <strong>Groupname:</strong>
+    <strong>Group Name:</strong>
     <%= group.groupname %>
   </p>
 
   <p>
-    <strong>Pulled:</strong>
-    <%= group.pulled %>
+    <strong>Group Owner:</strong>
+    <%= group.owner %>
+  </p>
+
+  <p>
+    <strong>Has<%= group.pulled ? ' ' : ' not ' %>pulled</strong>
   </p>
 
 </div>

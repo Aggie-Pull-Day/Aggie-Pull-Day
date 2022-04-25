@@ -17,13 +17,13 @@
   </div>
 
   <div>
-    <%= form.label :member, style: "display: block" %>
-    <%= form.text_field :member %>
+    <%= form.label :owner, style: "display: block" %>
+    <%= form.text_field :owner %>
   </div>
 
-  <div>
-    <%= form.label :pulled, style: "display: block" %>
-    <%= form.text_field :pulled %>
+  <div class="row">
+    <%= form.label :pulled, class: 'ml-3 mr-1', style: "display: block" %>
+    <%= form.check_box :pulled %>
   </div>
 
   <div>
