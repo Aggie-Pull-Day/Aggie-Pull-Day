@@ -4,7 +4,7 @@
   <h1 class="mt-2 ml-2" style="color: #ffffff">My Groups</h1>
 
   <div id="groups" class="mx-auto">
-    <% @groups.each do |group| %>
+    <% @groups.order(:id).each do |group| %>
       <div class="card container mb-2" style="background-color: #500000;">
         <div class="row">
           <div class="col-md-9 my-auto" style="color: white">

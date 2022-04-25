@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create display]
 
-  def show; end
+  def show
+    @user = User.find(params[:id])
+  end
 
   def index
     @users = User.all

@@ -1,2 +1,20 @@
 <div id="<%= dom_id user %>">
+  <p>
+    <strong>Email:</strong>
+    <%= user.email %>
+  </p>
+
+  <p>
+    <strong>UIN:</strong>
+    <%= user.uin %>
+  </p>
+
+  <p>
+    <strong>Classification:</strong>
+    <%= user.classification %>
+  </p>
+
+  <p>
+    <strong><%= user.admin ? 'Has' : 'Does not have' %> admin privileges</strong>
+  </p>
 </div>
