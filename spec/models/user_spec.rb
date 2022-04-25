@@ -108,14 +108,5 @@ RSpec.describe User, type: :model do
       expect(user.group_owner?).to eq false
     end
   end
-
-  describe 'dropdown_options' do
-    it 'returns the proper list' do
-      user = User.first
-      opts = user.dropdown_options
-      expect(opts.length).to eq 3
-      expect(opts).to eq [['bbakkal97@tamu.edu', 2], ['jonrwaterman@tamu.edu', 3], ['reidneason@tamu.edu', 4]]
-    end
-  end
 end
 

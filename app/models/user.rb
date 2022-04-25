@@ -117,12 +117,5 @@ class User < ApplicationRecord
     group = Group.where(id: group_id).first
     group[:email] == email
   end
-
-  def dropdown_options
-    members = getTeam.where.not(email: email)
-    members.collect do |member|
-      [member[:email], member[:id]]
-    end
-  end
 end
 
