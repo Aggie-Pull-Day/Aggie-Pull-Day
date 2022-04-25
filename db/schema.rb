@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_180243) do
   create_table "games", force: :cascade do |t|
     t.string "hometeam"
     t.string "opponent"
-    t.datetime "gamedate"
+    t.datetime "gamedate", precision: nil
     t.string "day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_180243) do
     t.boolean "pulled"
     t.bigint "group_id"
     t.integer "uin"
+    t.string "classification"
     t.boolean "admin"
     t.index ["group_id"], name: "index_users_on_group_id"
   end
