@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get "/admin", to: "articles#admin"
 
+  get '/dashboard', to: 'articles#dashboard'
+
   get "/groups", to: "groups#_group"
 
   get '/users/display' => 'users#display'
