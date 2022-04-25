@@ -4,7 +4,7 @@
   <h1 class="mt-2 ml-2" style="color: #ffffff">Games</h1>
 
   <div id="games" class="mx-auto">
-    <% @games.each do |game| %>
+    <% @games.order(:gamedate).each do |game| %>
       <div class="card container mb-2" style="background-color: #500000;">
         <div class="row">
           <div class="col-md-9 my-auto" style="color: white">
