@@ -8,14 +8,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 more_games = [
-  { hometeam: 'TAMU', opponent: 'Sam Houston State',
-    gamedate: '3-Sep-2022', day: 'Saturday' },
-
-  { hometeam: 'TAMU', opponent: 'App State',
-    gamedate: '10-Sep-2022', day: 'Saturday' },
-
-  { hometeam: 'TAMU', opponent: 'Miami (FL)',
-    gamedate: '17-Sep-2022', day: 'Thursday' }
+  { opponent: 'Sam Houston State', gamedate: '3-Sep-2022' },
+  { opponent: 'App State', gamedate: '10-Sep-2022' },
+  { opponent: 'Miami (FL)', gamedate: '17-Sep-2022' }
 ]
 
 more_games.each do |game|

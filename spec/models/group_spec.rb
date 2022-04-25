@@ -86,5 +86,15 @@ RSpec.describe Group, type: :model do
       expect(group.classification).to eq 'U2'
     end
   end
+
+  describe 'dropdown_options' do
+    it 'returns the proper list' do
+      group = Group.first
+      opts = group.dropdown_options
+      expect(opts.length).to eq 4
+      expect(opts).to eq [%w[kareemh17@tamu.edu kareemh17@tamu.edu], %w[bbakkal97@tamu.edu bbakkal97@tamu.edu],
+                          %w[jonrwaterman@tamu.edu jonrwaterman@tamu.edu], %w[reidneason@tamu.edu reidneason@tamu.edu]]
+    end
+  end
 end
 

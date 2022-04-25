@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'model' do
     it 'has the correct amount of data' do
-      expect(User.all.length).to eq 9
+      expect(User.all.length).to eq 10
     end
 
     it 'loads users based on a single attribute' do
@@ -34,12 +34,12 @@ RSpec.describe User, type: :model do
 
     it 'deletes users based on a single attribute' do
       User.where(email: 'reidneason@tamu.edu').destroy_all
-      expect(User.all.length).to eq 8
+      expect(User.all.length).to eq 9
     end
 
     it 'deletes users based on multiple attributes' do
       User.where(email: 'bbakkal97@tamu.edu', group_id: 1).destroy_all
-      expect(User.all.length).to eq 8
+      expect(User.all.length).to eq 9
     end
   end
 

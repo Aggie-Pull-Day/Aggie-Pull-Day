@@ -14,14 +14,14 @@ RSpec.describe GamesController, type: :controller do
     end
 
     it 'creates a new game' do
-      post :create, params: { game: { hometeam: 'TAMU', opponent: 'LSU', gamedate: '26-Nov-2022', day: 'Saturday' } }
+      post :create, params: { game: { opponent: 'LSU', gamedate: '26-Nov-2022' } }
       expect(response).to redirect_to Game.last
       expect(flash[:notice]).to match(/^Game was successfully created.$/)
       Game.find_by(opponent: 'LSU').destroy
     end
 
     it 'updates one attribute of an existing game' do
-      game = Game.create(hometeam: 'TAMU', opponent: 'LSU', gamedate: '26-Nov-2022', day: 'Saturday')
+      game = Game.create(opponent: 'LSU', gamedate: '26-Nov-2022')
       put :update, params: { id: game.id, game: { opponent: 'UMass' } }
       expect(response).to redirect_to game_path(game)
       expect(flash[:notice]).to match(/^Game was successfully updated.$/)
@@ -29,7 +29,7 @@ RSpec.describe GamesController, type: :controller do
     end
 
     it 'updates multiple attributes of an existing game' do
-      game = Game.create(hometeam: 'TAMU', opponent: 'LSU', gamedate: '26-Nov-2022', day: 'Saturday')
+      game = Game.create(opponent: 'LSU', gamedate: '26-Nov-2022')
       put :update, params: { id: game.id, game: { opponent: 'UMass', gamedate: '19-Nov-2022' } }
       expect(response).to redirect_to game_path(game)
       expect(flash[:notice]).to match(/^Game was successfully updated.$/)
@@ -37,7 +37,7 @@ RSpec.describe GamesController, type: :controller do
     end
 
     it 'destroys a game' do
-      game = Game.create(hometeam: 'TAMU', opponent: 'LSU', gamedate: '26-Nov-2022', day: 'Saturday')
+      game = Game.create(opponent: 'LSU', gamedate: '26-Nov-2022')
       delete :destroy, params: { id: game.id }
       expect(flash[:notice]).to match(/^Game was successfully destroyed.$/)
     end
