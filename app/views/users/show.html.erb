@@ -80,19 +80,36 @@
   <ul class="list-group">
     <% res.each do |item| %>
       <% if pulled %>
-        <li class="list-group-item"><strong><%= item.email %> SEAT NUMBER <%= item.seat %> </strong></li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-md-9 my-auto">
+              <h6 class="mx-auto mb-0"><strong><%= item.email %> SEAT NUMBER <%= item.seat %></strong></h6>
+            </div>
+            <% if current_user.group_owner? %>
+              <%= button_to 'Remove From Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger pull-right" %>
+            <% end %>
+          </div>
+        </li>
       <% else %>
-        <li class="list-group-item"><strong><%= item.email %> NOT PULLED</strong></li>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-md-9 my-auto">
+              <h6 class="mx-auto mb-0"><strong><%= item.email %> NOT PULLED</strong></h6>
+            </div>
+            <% if current_user.group_owner? && item.id != current_user.id %>
+              <%= button_to 'Remove From Group', remove_from_group_user_path(item.id), :class => "btn btn-danger pull-right" %>
+            <% end %>
+          </div>
+        </li>
       <% end %>
     <% end %>
   </ul>
 
   <br>
 
-  <% if current_user.group_owner? %>
-    <%= button_to 'Remove From Group', :class => "btn btn-danger" %>
-  <% else %>
-    <%= link_to "Change Groups", edit_user_path(current_user), :class => "btn btn-secondary" %> <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger" %>
+  <% unless current_user.group_owner? %>
+    <%= link_to "Change Groups", edit_user_path(current_user), :class => "btn btn-secondary" %>
+    <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger" %>
   <% end %>
 
   <br>
