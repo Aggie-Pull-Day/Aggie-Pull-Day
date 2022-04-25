@@ -1,22 +1,12 @@
 <div id="<%= dom_id game %>">
   <p>
-    <strong>Hometeam:</strong>
-    <%= game.hometeam %>
-  </p>
-
-  <p>
     <strong>Opponent:</strong>
     <%= game.opponent %>
   </p>
 
   <p>
     <strong>Gamedate:</strong>
-    <%= game.gamedate %>
-  </p>
-
-  <p>
-    <strong>Day:</strong>
-    <%= game.day %>
+    <%= game.gamedate.strftime("%B %d, %Y at %l:%M %p") %>
   </p>
 
 </div>
