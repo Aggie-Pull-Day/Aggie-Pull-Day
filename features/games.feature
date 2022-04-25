@@ -9,11 +9,16 @@ Feature: editing list of games
     Given the database is populated
     And I am signed in
 
-  @wip
   Scenario: return to home page
 
     Given I am on the games page
     When I press "List Eater"
+    Then I should be on the home page
+
+  Scenario: sign out
+
+    Given I am on the games page
+    When I press "Sign Out"
     Then I should be on the home page
 
   Scenario: view a game
