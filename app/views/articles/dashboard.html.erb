@@ -1,6 +1,34 @@
 <%= content_tag :h1, current_user.welcome %>
 
 <div class="container mt-2">
+  <table class="table">
+    <tr>
+      <td>
+        <div class="card mx-auto" style="width: 18rem; text-align: center">
+          <div class="container">
+            <h1><%= Game.all.length %></h1>
+            <h4>upcoming games</h4>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="card mx-auto" style="width: 18rem; text-align: center">
+          <div class="container">
+            <h1><%= Group.all.length %></h1>
+            <h4>active groups</h4>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="card mx-auto" style="width: 18rem; text-align: center">
+          <div class="container">
+            <h1><%= User.all.length %></h1>
+            <h4>registered users</h4>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
   <div class="card mx-auto" style="width: 18rem;">
     <%= link_to 'Games', '/games', :class => "btn btn-secondary" %>
   </div>
