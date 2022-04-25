@@ -11,40 +11,41 @@ World(WithinHelpers)
 
 Given /^I am signed in(?: as ([^"]*))?$/ do |email|
   visit '/sessions/new'
-  fill_in('email', with: email.nil? ? 'Kareemh17@tamu.edu' : email)
+  fill_in('email', with: email.nil? ? 'kareemh17@tamu.edu' : email)
   fill_in('password', with: 'Dummy')
   click_button('Sign In!')
-  visit '/users/1'
 end
 
 Given /^the database is populated$/ do
-  games = [{ hometeam: 'TAMU', opponent: 'Sam Houston State', gamedate: '3-Sep-2022', day: 'Saturday' },
-           { hometeam: 'TAMU', opponent: 'App State', gamedate: '10-Sep-2022', day: 'Saturday' },
-           { hometeam: 'TAMU', opponent: 'Miami (FL)', gamedate: '17-Sep-2022', day: 'Thursday' }]
+  games = [{ opponent: 'Sam Houston State', gamedate: '3-Sep-2022' },
+           { opponent: 'App State', gamedate: '10-Sep-2022' },
+           { opponent: 'Miami (FL)', gamedate: '17-Sep-2022' }]
   games.each do |game|
     Game.create!(game) if Game.where(opponent: game['opponent']).empty?
   end
 
-  groups = [{ groupname: 'List Eaters', owner: 'Kareem Hirani', pulled: false, email: 'Kareemh17@tamu.edu' },
+  groups = [{ groupname: 'List Eaters', owner: 'Kareem Hirani', pulled: false, email: 'kareemh17@tamu.edu' },
             { groupname: 'Team 1', owner: 'Cora English', pulled: false, email: 'CoraEnglish@tamu.edu' }]
   groups.each do |group|
     Group.create!(group) if Group.where(groupname: group['groupname']).empty?
   end
 
-  users = [{ email: 'Kareemh17@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.first.id,
-             uin: 327001001, classification: 'U4' },
-           { email: 'BBakkal@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.first.id,
-             uin: 327001002, classification: 'U4' },
-           { email: 'JonWaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
-             group_id: Group.first.id, uin: 327001003, classification: 'U4' },
+  users = [{ email: 'kareemh17@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
+             group_id: Group.first[:id], uin: 327001001, classification: 'U4', admin: false },
+           { email: 'bbakkal97@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
+             group_id: Group.first[:id], uin: 327001002, classification: 'U4', admin: false },
+           { email: 'jonrwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
+             group_id: Group.first[:id], uin: 327001003, classification: 'U4', admin: false },
            { email: 'reidneason@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
-             group_id: Group.first.id, uin: 327001004, classification: 'U4' },
+             group_id: Group.first[:id], uin: 327001004, classification: 'U4', admin: false },
            { email: 'CoraEnglish@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
-             group_id: Group.last.id, uin: 327001005, classification: 'U4' },
-           { email: 'GraceLi@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.last.id,
-             uin: 327001006, classification: 'U4' },
+             group_id: Group.last[:id], uin: 327001005, classification: 'U4', admin: false },
+           { email: 'GraceLi@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
+             group_id: Group.last[:id], uin: 327001006, classification: 'U4', admin: false },
            { email: 'RebeccaMcfadden@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
-             group_id: Group.last.id, uin: 327001007, classification: 'U4' }]
+             group_id: Group.last[:id], uin: 327001007, classification: 'U4', admin: false },
+           { email: 'drritchey@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
+             group_id: nil, uin: 1, classification: 'U5', admin: true }]
   users.each do |user|
     User.create!(user) if User.where(uin: user['uin']).empty?
   end
@@ -87,7 +88,7 @@ When /^I enter the member "(.*)"$/ do |member|
 end
 
 When /^I enter the pulled status "(.*)"$/ do |pulled|
-  fill_in('group[pulled]', with: pulled)
+  fill_in('group_pulled', with: pulled)
 end
 
 When /^I enter the group ID (\d*)$/ do |id|

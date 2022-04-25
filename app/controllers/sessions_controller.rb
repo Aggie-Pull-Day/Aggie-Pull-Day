@@ -6,13 +6,9 @@ class SessionsController < ApplicationController
   def create
     session_params = params.permit(:authenticity_token, :email, :password, :commit)
     @user = User.find_by(email: session_params[:email])
-    if @user && @user.authenticate(session_params[:password])
+    if @user&.authenticate(session_params[:password])
       session[:user_id] = @user.id
-      if @user.admin
-        redirect_to dashboard_path
-      else
-        redirect_to @user
-      end
+      redirect_to @user.admin ? '/dashboard' : @user
     else
       flash[:notice] = 'Login is invalid!'
       redirect_to new_session_path

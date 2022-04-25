@@ -18,8 +18,8 @@ Feature: have a landing page showing a group
   Scenario: pull group page
 
     Given I am signed in
-    Then I should see "Hello, Kareemh17@tamu.edu!"
-    And I should see "Kareemh17@tamu.edu NOT PULLED"
+    Then I should see "Hello, kareemh17@tamu.edu!"
+    And I should see "kareemh17@tamu.edu NOT PULLED"
 
   Scenario: sign out
 
@@ -69,6 +69,6 @@ Feature: have a landing page showing a group
 
     Given I am signed in as reidneason@tamu.edu
     When I press "Change Groups"
-    And I enter the group ID 50
+    And I enter the group ID 58
     And I press "Update User"
     Then I should see "CoraEnglish@tamu.edu"

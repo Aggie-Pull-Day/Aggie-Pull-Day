@@ -25,8 +25,12 @@ module NavigationHelpers
       '/games'
     when /groups? page/
       '/groups'
+    when /users? page/
+      '/users'
     when /pull group page/
-      '/users/1'
+      "/users/#{User.first[:id]}"
+    when /admin dashboard/
+      '/dashboard'
       # Add more mappings here.
       # Here is an example that pulls values out of the Regexp:
       #
