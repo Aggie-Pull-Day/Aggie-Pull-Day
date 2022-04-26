@@ -35,7 +35,7 @@ Feature: groups page for upcoming games
     Given I am on the groups page
     When I press "View"
     And I press "Edit this Group"
-    And I enter the group pulled "true"
+    And I check the box
     And I press "Update Group"
     Then I should see "Has pulled"
 

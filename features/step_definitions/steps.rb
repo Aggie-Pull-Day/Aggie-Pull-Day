@@ -30,22 +30,32 @@ Given /^the database is populated$/ do
     Group.create!(group) if Group.where(groupname: group['groupname']).empty?
   end
 
-  users = [{ email: 'kareemh17@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
-             group_id: Group.first[:id], uin: 327001001, classification: 'U4', admin: false },
-           { email: 'bbakkal97@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
-             group_id: Group.first[:id], uin: 327001002, classification: 'U4', admin: false },
-           { email: 'jonrwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
-             group_id: Group.first[:id], uin: 327001003, classification: 'U4', admin: false },
-           { email: 'reidneason@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
-             group_id: Group.first[:id], uin: 327001004, classification: 'U4', admin: false },
-           { email: 'CoraEnglish@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
-             group_id: Group.last[:id], uin: 327001005, classification: 'U4', admin: false },
-           { email: 'GraceLi@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
-             group_id: Group.last[:id], uin: 327001006, classification: 'U4', admin: false },
-           { email: 'RebeccaMcfadden@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
-             group_id: Group.last[:id], uin: 327001007, classification: 'U4', admin: false },
-           { email: 'drritchey@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), pulled: false,
-             group_id: nil, uin: 1, classification: 'U5', admin: true }]
+  users = [
+    { email: 'kareemh17@tamu.edu', first_name: 'Kareem', last_name: 'Hirani',
+      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.first[:id],
+      uin: 327001001, classification: 'U4', admin: false },
+    { email: 'bbakkal97@tamu.edu', first_name: 'Baldwin', last_name: 'Bakkal',
+      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.first[:id],
+      uin: 327001002, classification: 'U4', admin: false },
+    { email: 'jonrwaterman@tamu.edu', first_name: 'Jon', last_name: 'Waterman',
+      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.first[:id],
+      uin: 327001003, classification: 'U4', admin: false },
+    { email: 'reidneason@tamu.edu', first_name: 'Reid', last_name: 'Neason',
+      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.first[:id],
+      uin: 327001004, classification: 'U4', admin: false },
+    { email: 'CoraEnglish@tamu.edu', first_name: 'Cora', last_name: 'English',
+      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.last[:id],
+      uin: 327001005, classification: 'U4', admin: false },
+    { email: 'GraceLi@tamu.edu', first_name: 'Grace', last_name: 'Li',
+      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.last[:id],
+      uin: 327001006, classification: 'U4', admin: false },
+    { email: 'RebeccaMcfadden@tamu.edu', first_name: 'Rebecca', last_name: 'McFadden',
+      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.last[:id],
+      uin: 327001007, classification: 'U4', admin: false },
+    { email: 'drritchey@tamu.edu', first_name: 'Philip', last_name: 'Ritchey',
+      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: nil,
+      uin: 1, classification: 'U5', admin: true }
+  ]
   users.each do |user|
     User.create!(user) if User.where(uin: user['uin']).empty?
   end
@@ -55,11 +65,15 @@ Given /^(?:|I )am on the (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-When /^I enter the(?: (.*))? (.*) "(.*)"$/ do |form, field, value|
-  element = if form == ''
+When /^I check the box$/ do
+  find(:css, "#group_pulled", visible: false).execute_script('this.checked = true')
+end
+
+When /^I enter the(?: ([\S]*))? (.*) "(.*)"$/ do |form, field, value|
+  element = if form.nil?
               field
             else
-              "#{form}[#{field.gsub(/\s/, '_').lower}]"
+              "#{form}#{}[#{field.gsub(/\s/, '_')}]"
             end
   fill_in(element, with: value)
 end

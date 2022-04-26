@@ -22,7 +22,7 @@ Feature: have a functional student login page
     When I enter the email "kareemh17@tamu.edu"
     And I enter the password "Dummy"
     And I press "Sign In!"
-    Then I should see "Hello, kareemh17@tamu.edu!"
+    Then I should see "Hello, Kareem!"
 
   Scenario: incorrect password
 
@@ -53,10 +53,10 @@ Feature: have a functional student login page
 
     Given I am on the student login page
     When I press "Sign Up"
-    And I enter the user firstname "Philip"
-    And I enter the user lastname "Ritchey"
-    And I enter the user email "PhilipR@tamu.edu"
+    And I enter the user first name "Robert"
+    And I enter the user last name "Lightfoot"
+    And I enter the user email "roblight@tamu.edu"
     And I enter the user password "OldArmy"
     And I press "Create Account"
-    Then I should see "Hello, PhilipR@tamu.edu!"
+    Then I should see "Hello, Robert!"
     And I should see "No Group"

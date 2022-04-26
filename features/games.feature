@@ -53,8 +53,8 @@ Feature: editing list of games
 
     Given I am on the game page
     When I press "New game"
-    And I enter the opponent "Ole Miss"
-    And I enter the gamedate "2022-09-24 00:00:00 UTC"
+    And I enter the game opponent "Ole Miss"
+    And I enter the game gamedate "2022-09-24 00:00:00 UTC"
     And I press "Create Game"
     And I should see "Opponent: Ole Miss"
     And I should see "Start Time: September 24, 2022 at 12:00 AM"
