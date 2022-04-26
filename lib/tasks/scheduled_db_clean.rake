@@ -1,7 +1,7 @@
-namespace :db_scheduled_tasks do
-    desc "Tasks to clean database on a scheduled time"
+namespace :scheduled_db_clean do
+    desc "Clean ticket pull groups weekly on Sunday morning"
     task weekly_clean: :environment do
-        # delete all data entries for groups
+        # Delete all data entries for groups
         Group.delete_all
         puts "Deleted group table entries from database"
 

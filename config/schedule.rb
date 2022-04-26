@@ -33,8 +33,8 @@ set :environment, "development"
 
 # Schedule to clear out groups after each football game
 # THIS NEEDS TO BE UNCOMMENTED AFTER SHOWING RITCHEY
-every :sunday, at '12:00 am' do
-    rake "db_scheduled_tasks:weekly_clean"
+every :sunday, at: '12:00 am' do
+    rake "scheduled_db_clean:weekly_clean"
 end
 
 # FOR THE SAKE OF TESTING
