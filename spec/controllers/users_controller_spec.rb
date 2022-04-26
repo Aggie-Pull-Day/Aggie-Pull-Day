@@ -6,7 +6,9 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'model' do
     it 'creates a new user', pending: true do
-      post :create, params: { user: { email: 'PhilipR@tamu.edu', password_digest: BCrypt::Password.create('OldArmy') } }
+      post :create,
+           params: { user: { email: 'PhilipR@tamu.edu', first_name: 'Philip', last_name: 'Ritchey',
+                             password_digest: BCrypt::Password.create('OldArmy') } }
       expect(response).to redirect_to User.last
     end
 

@@ -55,52 +55,13 @@ Given /^(?:|I )am on the (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-When /^I enter the email "(.*)"$/ do |email|
-  fill_in('email', with: email)
-end
-
-When /^I enter the password "(.*)"$/ do |pw|
-  fill_in('password', with: pw)
-end
-
-When /^I enter the opponent "(.*)"$/ do |opp|
-  fill_in('game[opponent]', with: opp)
-end
-
-When /^I enter the home[\s-]?team "(.*)"$/ do |home|
-  fill_in('game[hometeam]', with: home)
-end
-
-When /^I enter the game[\s]?date "(.*)"$/ do |date|
-  fill_in('game[gamedate]', with: date)
-end
-
-When /^I enter the day "(.*)"$/ do |day|
-  fill_in('game[day]', with: day)
-end
-
-When /^I enter the group[\s]?name "(.*)"$/ do |gn|
-  fill_in('group[groupname]', with: gn)
-end
-
-When /^I enter the member "(.*)"$/ do |member|
-  fill_in('group[member]', with: member)
-end
-
-When /^I enter the pulled status "(.*)"$/ do |pulled|
-  fill_in('group_pulled', with: pulled)
-end
-
-When /^I enter the group ID (\d*)$/ do |id|
-  fill_in('user[group_id]', with: id)
-end
-
-When /^I enter the new email "(.*)"$/ do |email|
-  fill_in('user[email]', with: email)
-end
-
-When /^I enter the new password "(.*)"$/ do |pw|
-  fill_in('user[password]', with: pw)
+When /^I enter the(?: (.*))? (.*) "(.*)"$/ do |form, field, value|
+  element = if form == ''
+              field
+            else
+              "#{form}[#{field.gsub(/\s/, '_').lower}]"
+            end
+  fill_in(element, with: value)
 end
 
 When /^(?:|I )press "([^\"]*)"(?: within "([^\"]*)")?$/ do |button, selector|

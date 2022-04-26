@@ -48,6 +48,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_201549) do
     t.integer "uin"
     t.string "classification"
     t.boolean "admin"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["group_id"], name: "index_users_on_group_id"
   end
 

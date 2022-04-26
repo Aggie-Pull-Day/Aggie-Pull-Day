@@ -35,7 +35,7 @@ Feature: editing list of games
     Given I am on the games page
     When I press "View Details"
     And I press "Edit this Game"
-    And I enter the opponent "LSU"
+    And I enter the game opponent "LSU"
     And I press "Update Game"
     Then I should see "Opponent: LSU"
 
@@ -44,7 +44,7 @@ Feature: editing list of games
     Given I am on the games page
     When I press "View Details"
     And I press "Edit this Game"
-    And I enter the opponent "Alabama"
+    And I enter the game opponent "Alabama"
     And I press "Update Game"
     And I press "Back to Games"
     Then I should see "Alabama"

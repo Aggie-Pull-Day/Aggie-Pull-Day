@@ -35,7 +35,7 @@ Feature: groups page for upcoming games
     Given I am on the groups page
     When I press "View"
     And I press "Edit this Group"
-    And I press "group[pulled]"
+    And I enter the group pulled "true"
     And I press "Update Group"
     Then I should see "Has pulled"
 
@@ -44,7 +44,7 @@ Feature: groups page for upcoming games
     Given I am on the groups page
     When I press "View"
     And I press "Edit this Group"
-    And I enter the groupname "Team Hirani"
+    And I enter the group groupname "Team Hirani"
     And I press "Update Group"
     And I press "Back to Groups"
     Then I should see "Team Hirani"
@@ -54,6 +54,6 @@ Feature: groups page for upcoming games
     Given I am on the groups page
     When I press "View"
     And I press "Edit this Group"
-    And I enter the group name "Team 2"
+    And I enter the group groupname "Team 2"
     And I press "Update Group"
     Then I should see "Group Name: Team 2"
