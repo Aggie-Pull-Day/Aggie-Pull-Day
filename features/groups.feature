@@ -9,11 +9,16 @@ Feature: groups page for upcoming games
     Given the database is populated
     And I am signed in as drritchey@tamu.edu
 
-  @wip
   Scenario: return to home page
 
     Given I am on the groups page
     When I press "List Eaters"
+    Then I should be on the home page
+
+  Scenario: sign out
+
+    Given I am on the groups page
+    When I press "Sign Out"
     Then I should be on the home page
 
   Scenario: view a group

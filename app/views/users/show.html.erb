@@ -98,7 +98,8 @@
     <ul class="list-group">
       <% res.each do |item| %>
         <% if pulled %>
-          <li class="list-group-item"><strong><%= "#{item.first_name} #{item.last_name}: " %> SEAT NUMBER <%= item.seat %> </strong></li>
+          <li class="list-group-item">
+            <strong><%= "#{item.first_name} #{item.last_name}: " %> SEAT NUMBER <%= item.seat %> </strong></li>
         <% else %>
           <li class="list-group-item"><strong><%= "#{item.first_name} #{item.last_name}: " %> NOT PULLED</strong></li>
         <% end %>
@@ -115,6 +116,5 @@
 
     <br>
   <% end %>
-
-  <%= link_to "Sign out", new_session_path, method: "delete" %>
+  <br>
 <% end %>

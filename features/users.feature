@@ -8,11 +8,16 @@ Feature: have a landing page showing a group
 
     Given the database is populated
 
-  @wip
   Scenario: return to home page
 
     Given I am signed in
     When I press "List Eater"
+    Then I should be on the home page
+
+  Scenario: sign out
+
+    Given I am signed in
+    When I press "Sign Out"
     Then I should be on the home page
 
   Scenario: pull group page
@@ -24,8 +29,8 @@ Feature: have a landing page showing a group
   Scenario: sign out
 
     Given I am signed in
-    When I press "Sign out"
-    Then I should be on the student login page
+    When I press "Sign Out"
+    Then I should be on the home page
 
   @wip
   Scenario: pull time
@@ -70,6 +75,6 @@ Feature: have a landing page showing a group
 
     Given I am signed in as reidneason@tamu.edu
     When I press "Change Groups"
-    And I enter the group id "58"
+    And I enter the group id "66"
     And I press "Update User"
     Then I should see "CoraEnglish@tamu.edu"

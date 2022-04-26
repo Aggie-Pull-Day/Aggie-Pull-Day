@@ -19,20 +19,18 @@
 <body>
 <nav class="navbar navbar-expand navbar-dark" style="background-color: rgb(80, 0, 0);">
   <%# Navbar Brand %>
-  <a class="navbar-brand" href="#">
-    <%# <img src="./logo/logo-1024x768.png" height="50" alt="Aggie Ticket Pull logo showing a maroon ticket stub"> %>
-    List Eater
-  </a>
+  <%= link_to 'List Eaters', articles_path, :class => 'navbar-brand' %>
+  <%# <img src="./logo/logo-1024x768.png" height="50" alt="Aggie Ticket Pull logo showing a maroon ticket stub"> %>
   <%# Navbar Login %>
-  <div class="navbar-nav nav-item dropdown ml-auto">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: rgb(112, 112, 112);">
-      Login
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Student</a>
-      <a class="dropdown-item" href="#">Admin</a>
+  <% if current_user.present? %>
+    <div class="navbar-nav nav-item dropdown ml-auto">
+      <%= button_to 'Sign Out', new_session_path, :class => 'btn btn-secondary', method: 'delete' %>
     </div>
-  </div>
+  <% else %>
+    <div class="navbar-nav nav-item dropdown ml-auto">
+      <%= button_to 'Log In', new_session_path, :class => 'btn btn-secondary' %>
+    </div>
+  <% end %>
 </nav>
 <div class="container">
   <br>

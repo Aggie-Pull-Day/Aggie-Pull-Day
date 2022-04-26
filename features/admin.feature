@@ -9,12 +9,18 @@ Feature: have an admin page with pull stats
     Given the database is populated
     And I am signed in
 
-  @wip
   Scenario: return to home page
 
     Given I am on the admin page
     When I press "List Eater"
     Then I should be on the home page
+
+  @wip
+  Scenario: sign out
+
+    Given I am on the admin page
+    When I press "Sign Out"
+    Then I should be on the admin login page
 
   @wip
   Scenario: change season

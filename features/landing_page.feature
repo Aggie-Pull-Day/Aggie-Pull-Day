@@ -7,7 +7,6 @@ Feature: have a functional landing page
   Background: sign in
 
     Given the database is populated
-    And I am signed in
 
   Scenario: see pull & game info
     Given I am on the home page
@@ -18,7 +17,7 @@ Feature: have a functional landing page
   Scenario: functioning student login link
 
     Given I am on the home page
-    When I press "Student Login"
+    When I press "Log In"
     Then I should be on the student login page
 
   @wip
