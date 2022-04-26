@@ -4,11 +4,11 @@
   <h1 class="mt-2 ml-2" style="color: #ffffff">Games</h1>
 
   <div id="games" class="mx-auto">
-    <% @games.each do |game| %>
+    <% @games.order(:gamedate).each do |game| %>
       <div class="card container mb-2" style="background-color: #500000;">
         <div class="row">
           <div class="col-md-9 my-auto" style="color: white">
-            <h4 class="mx-auto mb-0"><%= game.hometeam %> vs. <%= game.opponent %>
+            <h4 class="mx-auto mb-0"><%= game.opponent %>
               – <%= game.gamedate.strftime("%b %e, %Y") %> </h4></div>
           <div class="col-md-3 container"> <%= link_to "View Details", game, :class => "btn btn-secondary mt-1 mb-1" %> </div>
         </div>
@@ -17,3 +17,4 @@
   </div>
 </div>
 <%= link_to "New game", new_game_path, :class => "btn", :style => "background-color: #5B6236; color: #ffffff" %>
+<%= link_to 'Back to Dashboard', '/dashboard', :class => "btn btn-secondary" %>

@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create display]
 
-  def show; end
+  def show
+    @user = User.find(params[:id])
+  end
 
   def index
     @users = User.all
@@ -63,10 +65,16 @@ class UsersController < ApplicationController
     redirect_to @user
   end
 
+  def remove_from_group
+    user = User.find(params[:id])
+    user.update(group_id: nil)
+    redirect_to User.find(session[:user_id])
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :group_id)
+    params.require(:user).permit(:email, :password, :group_id, :first_name, :last_name, :uin, :classification)
   end
 
   # Use callbacks to share common setup or constraints between actions.

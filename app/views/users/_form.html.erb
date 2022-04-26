@@ -12,10 +12,31 @@
   <% end %>
 
   <div>
-    <%= form.label :group_id %><br>
-    <%= form.text_field :group_id %>
-  </div>
+     <%= form.label :group_id %><br>
+     <%= form.text_field :group_id %>
+   </div>
+
   <div>
-    <%= form.submit %>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :uin, 'UIN', style: "display: block" %>
+    <%= form.number_field :uin %>
+  </div>
+
+  <div>
+    <%= form.label :classification, style: "display: block" %>
+    <%= form.select :classification, [%w[U1 U1], %w[U2 U2], %w[U3 U3], %w[U4 U4], %w[U5 U5]] %>
+  </div>
+
+  <div class="row mt-1">
+    <%= form.label :admin, class: 'ml-3 mr-1', style: "display: block" %>
+    <%= form.check_box(:admin, { class: 'ml-1 mt-1' }) %>
+  </div>
+  <br>
+  <div>
+    <%= form.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

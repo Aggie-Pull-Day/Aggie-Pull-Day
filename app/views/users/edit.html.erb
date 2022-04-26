@@ -1,9 +1,11 @@
-<h1>Editing user</h1>
+<div class="card container" style="background-color: #500000; color: #ffffff">
+  <h1>Editing User</h1>
 
-<%= render "form", user: @user %>
+  <%= render "form", user: @user %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this user", @user %>
+  <div>
+    <%= link_to "Cancel", @user, :class => "btn btn-secondary mb-2" %>
+  </div>
 </div>

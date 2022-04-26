@@ -12,21 +12,23 @@
   <% end %>
 
   <div>
-    <%= form.label :groupname, style: "display: block" %>
+    <%= form.label :groupname, 'Group Name', style: "display: block" %>
     <%= form.text_field :groupname %>
   </div>
 
-  <div>
-    <%= form.label :member, style: "display: block" %>
-    <%= form.text_field :member %>
-  </div>
+  <% if @group.persisted? %>
+    <div>
+      <%= form.label :email, 'Group Owner', style: "display: block" %>
+      <%= form.select :owner, @group.dropdown_options %>
+    </div>
 
+    <div class="row mt-1">
+      <%= form.label :pulled, class: 'ml-3 mr-1', style: "display: block" %>
+      <%= form.check_box(:pulled, { class: 'ml-1 mt-1' }) %>
+    </div>
+  <% end %>
+  <br>
   <div>
-    <%= form.label :pulled, style: "display: block" %>
-    <%= form.text_field :pulled %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

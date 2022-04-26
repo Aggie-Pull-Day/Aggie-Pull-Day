@@ -19,4 +19,11 @@ class Group < ApplicationRecord
       'U1'
     end
   end
+
+  def dropdown_options
+    members = User.where(group_id: id)
+    members.collect do |member|
+      [member[:email], member[:email]]
+    end
+  end
 end

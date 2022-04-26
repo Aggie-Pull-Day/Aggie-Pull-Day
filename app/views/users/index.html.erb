@@ -1,14 +1,34 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Users</h1>
-
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
+<div class="card container mt-2 mb-2 border-5" id="season2021" style="background-color: #744F28;">
+  <h1 class="mt-2 ml-2" style="color: #ffffff">Students</h1>
+  <div id="users" class="mx-auto">
+    <% @users.where(admin: false).order(:id).each do |user| %>
+      <div class="card container mb-2" style="background-color: #500000;">
+        <div class="row">
+          <div class="col-md-9 my-auto" style="color: white">
+            <h4 class="mx-auto mb-0"> <%= user.email %> </h4>
+          </div>
+          <div class="col-md-3 container"> <%= link_to "View", user, :class => "btn btn-secondary mt-1 mb-1" %> </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
-<%= link_to "New user", new_user_path %>
+<div class="card container mt-2 mb-2 border-5" id="season2021" style="background-color: #744F28;">
+  <h1 class="mt-2 ml-2" style="color: #ffffff">Admins</h1>
+  <div id="users" class="mx-auto">
+    <% @users.where(admin: true).order(:id).each do |user| %>
+      <div class="card container mb-2" style="background-color: #500000;">
+        <div class="row">
+          <div class="col-md-9 my-auto" style="color: white">
+            <h4 class="mx-auto mb-0"> <%= user.email %> </h4>
+          </div>
+          <div class="col-md-3 container"> <%= link_to "View", user, :class => "btn btn-secondary mt-1 mb-1" %> </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to 'Back to Dashboard', '/dashboard', :class => "btn btn-secondary" %>

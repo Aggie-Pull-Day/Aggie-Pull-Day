@@ -1,18 +1,6 @@
 <!DOCTYPE html lang="en">
 <html>
     <head>
-        <%# Required meta tags %>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <%# Bootstrap v4.0 %>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-        <%# JavaScript %>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
         <style>
             .float-container {
                 padding: 20px;
@@ -24,36 +12,17 @@
                 padding: 20px;
             }
         </style>
-
-        <title>Aggie Ticket Pull | Home</title>
     </head>
     <body>
-        <%# Main Navigation %>
-        <header>
-            <%# Navbar %>
-            <nav class="navbar navbar-expand navbar-dark" style="background-color: rgb(80, 0, 0);">
-                <%# Navbar Brand %>
-                <a class="navbar-brand" href="#">
-                    <img src="./logo/logo-1024x768.png" height="50" alt="Aggie Ticket Pull logo showing a maroon ticket stub">
-                    Aggie Pull Day
-                </a>
-                <%# Navbar Login %>
-                <div class="navbar-nav nav-item dropdown ml-auto">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: rgb(112, 112, 112);">
-                        Login
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Student</a>
-                        <a class="dropdown-item" href="#">Admin</a>
-                    </div>
-                </div>
-            </nav>
-            <%# Navbar %>
-        </header>
-        <%# Main Navigation %>
+
 
         <%# Main Layout %>
         <main>
+        <h1 class='text-center'>List Eaters</h1>
+        <h6 class='text-center'>We eat the lists so you don't have to.</h6>
+        <div class="text-center">
+            <%= button_to 'Log In', new_session_path, :class => 'btn btn-secondary' %>
+        </div>
             <%# Background Image %>
             <div class="has-bg-img" style="background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(/kyle-field-westside-view.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh;">
                 <div class="float-container">

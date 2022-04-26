@@ -12,26 +12,16 @@
   <% end %>
 
   <div>
-    <%= form.label :hometeam, style: "display: block" %>
-    <%= form.text_field :hometeam %>
-  </div>
-
-  <div>
     <%= form.label :opponent, style: "display: block" %>
     <%= form.text_field :opponent %>
   </div>
 
   <div>
-    <%= form.label :gamedate, style: "display: block" %>
+    <%= form.label :gamedate, 'Start Time', style: "display: block" %>
     <%= form.text_field :gamedate %>
   </div>
-
+  <br>
   <div>
-    <%= form.label :day, style: "display: block" %>
-    <%= form.text_field :day %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

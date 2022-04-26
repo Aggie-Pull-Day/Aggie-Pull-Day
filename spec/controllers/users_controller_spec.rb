@@ -6,7 +6,9 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'model' do
     it 'creates a new user', pending: true do
-      post :create, params: { user: { email: 'PhilipR@tamu.edu', password_digest: BCrypt::Password.create('OldArmy') } }
+      post :create,
+           params: { user: { email: 'PhilipR@tamu.edu', first_name: 'Philip', last_name: 'Ritchey',
+                             password_digest: BCrypt::Password.create('OldArmy') } }
       expect(response).to redirect_to User.last
     end
 
@@ -19,8 +21,15 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'leave_group' do
     it 'removes the current user from their group' do
-      post :leave_group, params: { id: User.first[:id] }
+      patch :leave_group, params: { id: User.first[:id] }
       expect(User.first[:group_id]).to be_nil
+    end
+  end
+
+  describe 'remove_from_group' do
+    it 'removes the chosen user from their group' do
+      patch :remove_from_group, params: { id: User.last[:id] }
+      expect(User.last[:group_id]).to be_nil
     end
   end
 

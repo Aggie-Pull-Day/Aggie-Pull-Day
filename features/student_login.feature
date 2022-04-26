@@ -19,15 +19,15 @@ Feature: have a functional student login page
   Scenario: successful login
 
     Given I am on the student login page
-    When I enter the email "Kareemh17@tamu.edu"
+    When I enter the email "kareemh17@tamu.edu"
     And I enter the password "Dummy"
     And I press "Sign In!"
-    Then I should see "Hello, Kareemh17@tamu.edu!"
+    Then I should see "Hello, Kareem!"
 
   Scenario: incorrect password
 
     Given I am on the student login page
-    When I enter the email "Kareemh17@tamu.edu"
+    When I enter the email "kareemh17@tamu.edu"
     And I enter the password "listeater124"
     And I press "Sign In!"
     Then I should be on the student login page
@@ -53,8 +53,10 @@ Feature: have a functional student login page
 
     Given I am on the student login page
     When I press "Sign Up"
-    And I enter the new email "PhilipR@tamu.edu"
-    And I enter the new password "OldArmy"
+    And I enter the user first name "Robert"
+    And I enter the user last name "Lightfoot"
+    And I enter the user email "roblight@tamu.edu"
+    And I enter the user password "OldArmy"
     And I press "Create Account"
-    Then I should see "Hello, PhilipR@tamu.edu!"
+    Then I should see "Hello, Robert!"
     And I should see "No Group"

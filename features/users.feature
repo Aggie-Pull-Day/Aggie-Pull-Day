@@ -8,24 +8,29 @@ Feature: have a landing page showing a group
 
     Given the database is populated
 
-  @wip
   Scenario: return to home page
 
     Given I am signed in
     When I press "List Eater"
     Then I should be on the home page
 
+  Scenario: sign out
+
+    Given I am signed in
+    When I press "Sign Out"
+    Then I should be on the home page
+
   Scenario: pull group page
 
     Given I am signed in
-    Then I should see "Hello, Kareemh17@tamu.edu!"
-    And I should see "Kareemh17@tamu.edu NOT PULLED"
+    Then I should see "Hello, Kareem!"
+    And I should see "Kareem Hirani: NOT PULLED"
 
   Scenario: sign out
 
     Given I am signed in
-    When I press "Sign out"
-    Then I should be on the student login page
+    When I press "Sign Out"
+    Then I should be on the home page
 
   @wip
   Scenario: pull time
@@ -50,25 +55,22 @@ Feature: have a landing page showing a group
     Given I am signed in
     Then I should not see "Leave Group"
 
-  @wip
   Scenario: remove a group member
 
     Given I am signed in
     When I press "Remove From Group"
-    And I press the dropdown menu
-    And I press "JonWaterman@tamu.edu"
-    And I press "Remove"
-    Then I should not see "JonWaterman@tamu.edu"
+    Then I should not see "bbakkal97@tamu.edu"
 
   Scenario: non-group-owner can't access remove button
 
     Given I am signed in as reidneason@tamu.edu
     Then I should not see "Remove From Group"
 
+  @wip
   Scenario: change groups
 
     Given I am signed in as reidneason@tamu.edu
     When I press "Change Groups"
-    And I enter the group ID 50
+    And I enter the group id "66"
     And I press "Update User"
     Then I should see "CoraEnglish@tamu.edu"

@@ -7,44 +7,49 @@ Feature: groups page for upcoming games
   Background: groups in database
 
     Given the database is populated
-    And I am signed in
+    And I am signed in as drritchey@tamu.edu
 
-  @wip
   Scenario: return to home page
 
     Given I am on the groups page
-    When I press "List Eater"
+    When I press "List Eaters"
+    Then I should be on the home page
+
+  Scenario: sign out
+
+    Given I am on the groups page
+    When I press "Sign Out"
     Then I should be on the home page
 
   Scenario: view a group
 
     Given I am on the groups page
     When I press "View"
-    Then I should see "Groupname:"
-    And I should see "Pulled:"
+    Then I should see "Group Name:"
+    And I should see "Has not pulled"
 
   Scenario: access edit group page
 
     Given I am on the groups page
     When I press "View"
-    And I press "Edit this Game"
-    Then I should see "Editing group"
+    And I press "Edit this Group"
+    Then I should see "Editing Group"
 
   Scenario: group change reflected on info page
 
     Given I am on the groups page
     When I press "View"
-    And I press "Edit this Game"
-    And I enter the pulled status "true"
+    And I press "Edit this Group"
+    And I check the box
     And I press "Update Group"
-    Then I should see "Pulled: true"
+    Then I should see "Has pulled"
 
-  Scenario: game change reflected on games page
+  Scenario: group change reflected on groups page
 
     Given I am on the groups page
     When I press "View"
-    And I press "Edit this Game"
-    And I enter the groupname "Team Hirani"
+    And I press "Edit this Group"
+    And I enter the group groupname "Team Hirani"
     And I press "Update Group"
     And I press "Back to Groups"
     Then I should see "Team Hirani"
@@ -53,7 +58,7 @@ Feature: groups page for upcoming games
 
     Given I am on the groups page
     When I press "View"
-    And I press "Edit this Game"
-    And I enter the group name "Team 2"
+    And I press "Edit this Group"
+    And I enter the group groupname "Team 2"
     And I press "Update Group"
-    Then I should see "Groupname: Team 2"
+    Then I should see "Group Name: Team 2"

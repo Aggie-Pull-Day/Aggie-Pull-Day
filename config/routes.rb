@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get "/admin", to: "articles#admin"
 
+  get '/dashboard', to: 'articles#dashboard'
+
   get "/groups", to: "groups#_group"
 
   get '/users/display' => 'users#display'
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :games
-  root to: redirect('/sessions/new')
+  root to: redirect('/articles')
 
   resources :users, only: [:new, :create, :destroy, :edit, :update, :show]
   resources :users do
