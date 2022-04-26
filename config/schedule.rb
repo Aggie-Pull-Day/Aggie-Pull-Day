@@ -31,17 +31,13 @@ set :output, "log/cron.log"
 # Sets the environment to run during development mode (Set to production by default)
 set :environment, "development"
 
-# Set path to files containing tasks to run
-# set :path, "~/Desktop/Aggie-Pull-Day"
-
 # Schedule to clear out groups after each football game
 # THIS NEEDS TO BE UNCOMMENTED AFTER SHOWING RITCHEY
-# every :sunday, at '12:00 am' do
-#     rake "db_scheduled_tasks:weekly_clean"
-# end
+every :sunday, at '12:00 am' do
+    rake "db_scheduled_tasks:weekly_clean"
+end
 
 # FOR THE SAKE OF TESTING
-every 1.minute do
-    rake "TEST_SCHEDULED_TASKS:write_console"
-    # command "echo 'Printing every 1-minute interval'"
-end
+# every 1.minute do
+#     rake "TEST_SCHEDULED_TASKS:write_console"
+# end
