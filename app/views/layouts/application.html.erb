@@ -23,11 +23,20 @@
   <%# <img src="./logo/logo-1024x768.png" height="50" alt="Aggie Ticket Pull logo showing a maroon ticket stub"> %>
   <%# Navbar Login %>
   <% if current_user.present? %>
-    <div class="navbar-nav nav-item dropdown ml-auto">
+    <% if current_user.admin %>
+      <div class="navbar-nav nav-item ml-auto">
+        <%= link_to 'Dashboard', '/dashboard', :class => 'btn btn-secondary' %>
+      </div>
+    <% else %>
+      <div class="navbar-nav nav-item ml-auto">
+        <%= link_to 'My Group', current_user, :class => 'btn btn-secondary' %>
+      </div>
+    <% end %>
+    <div class="navbar-nav nav-item ml-auto">
       <%= button_to 'Sign Out', new_session_path, :class => 'btn btn-secondary', method: 'delete' %>
     </div>
   <% else %>
-    <div class="navbar-nav nav-item dropdown ml-auto">
+    <div class="navbar-nav nav-item ml-auto">
       <%= button_to 'Log In', new_session_path, :class => 'btn btn-secondary' %>
     </div>
   <% end %>
