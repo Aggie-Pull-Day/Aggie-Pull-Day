@@ -21,8 +21,15 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'leave_group' do
     it 'removes the current user from their group' do
-      post :leave_group, params: { id: User.first[:id] }
+      patch :leave_group, params: { id: User.first[:id] }
       expect(User.first[:group_id]).to be_nil
+    end
+  end
+
+  describe 'remove_from_group' do
+    it 'removes the chosen user from their group' do
+      patch :remove_from_group, params: { id: User.last[:id] }
+      expect(User.last[:group_id]).to be_nil
     end
   end
 

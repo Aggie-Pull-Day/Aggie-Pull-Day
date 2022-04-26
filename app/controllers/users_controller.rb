@@ -65,6 +65,12 @@ class UsersController < ApplicationController
     redirect_to @user
   end
 
+  def remove_from_group
+    user = User.find(params[:id])
+    user.update(group_id: nil)
+    redirect_to User.find(session[:user_id])
+  end
+
   private
 
   def user_params

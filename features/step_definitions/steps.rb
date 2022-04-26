@@ -9,7 +9,7 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-Given /^I am signed in(?: as ([^"]*))?$/ do |email|
+Given(/^I am signed in(?: as ([^"]*))?$/) do |email|
   visit '/sessions/new'
   fill_in('email', with: email.nil? ? 'kareemh17@tamu.edu' : email)
   fill_in('password', with: 'Dummy')
@@ -61,7 +61,7 @@ Given /^the database is populated$/ do
   end
 end
 
-Given /^(?:|I )am on the (.+)$/ do |page_name|
+Given(/^(?:|I )am on the (.+)$/) do |page_name|
   visit path_to(page_name)
 end
 
@@ -78,13 +78,13 @@ When /^I enter the(?: ([\S]*))? (.*) "(.*)"$/ do |form, field, value|
   fill_in(element, with: value)
 end
 
-When /^(?:|I )press "([^\"]*)"(?: within "([^\"]*)")?$/ do |button, selector|
+When(/^(?:|I )press "([^"]*)"(?: within "([^"]*)")?$/) do |button, selector|
   with_scope(selector) do
     click_link_or_button(button, match: :first)
   end
 end
 
-Then /^(?:|I )should be on the (.+)$/ do |page_name|
+Then(/^(?:|I )should be on the (.+)$/) do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
     current_path.should == path_to(page_name)
@@ -93,7 +93,7 @@ Then /^(?:|I )should be on the (.+)$/ do |page_name|
   end
 end
 
-Then /^(?:|I )should see "([^\"]*)"(?: within "([^\"]*)")?$/ do |text, selector|
+Then(/^(?:|I )should see "([^"]*)"(?: within "([^"]*)")?$/) do |text, selector|
   with_scope(selector) do
     if page.respond_to? :should
       page.should have_content(text)
@@ -103,11 +103,11 @@ Then /^(?:|I )should see "([^\"]*)"(?: within "([^\"]*)")?$/ do |text, selector|
   end
 end
 
-Then /^I should download a file called "(.*)"$/ do |fname|
-  page.response_headers['Content-Disposition'].should include "filename=\"#{fname}\""
+Then(/^I should download a file called "(.*)"$/) do |fname|
+  page.response_headers['Content-Disposition'].should include "filename=" # {fname}""
 end
 
-Then /^(?:|I )should not see "([^\"]*)"(?: within "([^\"]*)")?$/ do |text, selector|
+Then(/^(?:|I )should not see "([^"]*)"(?: within "([^"]*)")?$/) do |text, selector|
   with_scope(selector) do
     if page.respond_to? :should
       page.should have_no_content(text)
