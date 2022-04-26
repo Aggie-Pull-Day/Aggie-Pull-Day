@@ -21,6 +21,10 @@
 # Learn more: http://github.com/javan/whenever
 # --------------------------------------------------------------
 
+# Attempt to fix the "/bin/bash: bundle: command not found" error
+env :PATH, ENV['PATH']
+# env :GEM_PATH, ENV['/home/solis/Desktop/Aggie-Pull-Day/Gemfile']
+
 # Creates an output log for you to view previously run cron jobs
 set :output, "log/cron.log"
 
@@ -28,7 +32,7 @@ set :output, "log/cron.log"
 set :environment, "development"
 
 # Set path to files containing tasks to run
-# set :path, "/home/solis/Desktop/Aggie-Pull-Day"
+# set :path, "~/Desktop/Aggie-Pull-Day"
 
 # Schedule to clear out groups after each football game
 # THIS NEEDS TO BE UNCOMMENTED AFTER SHOWING RITCHEY
