@@ -9,8 +9,12 @@
 #   Character.create(name: "Luke", movie: movies.first)
 more_games = [
   { opponent: 'Sam Houston State', gamedate: '3-Sep-2022' },
-  { opponent: 'App State', gamedate: '10-Sep-2022' },
-  { opponent: 'Miami (FL)', gamedate: '17-Sep-2022' }
+  { opponent: 'Appalachian State', gamedate: '10-Sep-2022' },
+  { opponent: 'Miami (FL)', gamedate: '17-Sep-2022' },
+  { opponent: 'Ole Miss', gamedate: '29-Oct-2022' },
+  { opponent: 'Florida', gamedate: '5-Nov-2022' },
+  { opponent: 'UMass', gamedate: '19-Nov-2022' },
+  { opponent: 'LSU', gamedate: '26-Nov-2022' }
 ]
 
 more_games.each do |game|
@@ -22,10 +26,8 @@ end
 more_groups = [
   { groupname: 'List Eaters', owner: 'Kareem Hirani',
     pulled: false, email: 'kareemh17@tamu.edu' },
-
   { groupname: 'Team 1', owner: 'Cora English',
     pulled: false, email: 'CoraEnglish@tamu.edu' },
-
   { groupname: 'Freshmen Are Cool', owner: 'Matthew Waterman',
     pulled: false, email: 'matthewwaterman@tamu.edu' }
 ]
