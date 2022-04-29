@@ -74,7 +74,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :group_id, :first_name, :last_name, :uin, :classification)
+    params.require(:user).permit(:group_id)
   end
 
   # Use callbacks to share common setup or constraints between actions.

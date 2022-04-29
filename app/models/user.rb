@@ -4,7 +4,6 @@ class User < ApplicationRecord
 
   belongs_to :group, optional: true
   has_one :seat
-  has_secure_password
   validates_uniqueness_of :uin
 
   def welcome
