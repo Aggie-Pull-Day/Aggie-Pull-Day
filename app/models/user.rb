@@ -6,8 +6,33 @@ class User < ApplicationRecord
   has_one :seat
   validates_uniqueness_of :uin
 
+  def get_uin
+    student = Student.where(uin: self.uin).first
+    student[:uin]
+  end
+
+  def get_email
+    student = Student.find_by(email: email)
+    student[:email]
+  end
+
+  def get_first_name
+    student = Student.find_by(first_name: first_name)
+    student[:first_name]
+  end
+
+  def get_last_name
+    student = Student.find_by(last_name: last_name)
+    student[:last_name]
+  end
+
+  def get_classification
+    student = Student.find_by(classification: classification)
+    student[:classification]
+  end
+
   def welcome
-    "Hello, #{first_name}!"
+    "Hello, #{get_first_name}!"
   end
 
   def hasPulled
