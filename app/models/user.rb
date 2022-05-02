@@ -143,13 +143,6 @@ class User < ApplicationRecord
     group[:email] == get_email
   end
 
-  def dropdown_options
-    members = getTeam.where.not(email: email)
-    members.collect do |member|
-      [member[:email], member[:id]]
-    end
-  end
-
   def full_name
     first_name = get_first_name
     last_name = get_last_name
