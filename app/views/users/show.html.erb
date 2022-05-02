@@ -102,7 +102,7 @@
             <div class="row">
               <div class="col-md-9 my-auto">
                 <h6 class="mx-auto mb-0">
-                  <strong><%= "#{item.first_name} #{item.last_name}: " %> SEAT NUMBER <%= item.seat %></strong></h6>
+                  <strong><%= "#{item.get_first_name} #{item.get_last_name}: " %> SEAT NUMBER <%= item.seat %></strong></h6>
               </div>
               <% if current_user.group_owner? %>
                 <%= button_to 'Remove From Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger pull-right" %>
@@ -113,7 +113,7 @@
           <li class="list-group-item">
             <div class="row">
               <div class="col-md-9 my-auto">
-                <h6 class="mx-auto mb-0"><strong><%= "#{item.first_name} #{item.last_name}: " %> NOT PULLED</strong>
+                <h6 class="mx-auto mb-0"><strong><%= "#{item.get_first_name} #{item.get_last_name}: " %> NOT PULLED</strong>
                 </h6>
               </div>
               <% if current_user.group_owner? && item.id != current_user.id %>

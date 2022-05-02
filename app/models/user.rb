@@ -7,27 +7,27 @@ class User < ApplicationRecord
   validates_uniqueness_of :uin
 
   def get_uin
-    student = Student.where(uin: self.uin).first
+    student = Student.find_by(uin: uin)
     student[:uin]
   end
 
   def get_email
-    student = Student.find_by(email: email)
+    student = Student.find_by(uin: uin)
     student[:email]
   end
 
   def get_first_name
-    student = Student.find_by(first_name: first_name)
+    student = Student.find_by(uin: uin)
     student[:first_name]
   end
 
   def get_last_name
-    student = Student.find_by(last_name: last_name)
+    student = Student.find_by(uin: uin)
     student[:last_name]
   end
 
   def get_classification
-    student = Student.find_by(classification: classification)
+    student = Student.find_by(uin: uin)
     student[:classification]
   end
 
@@ -49,7 +49,7 @@ class User < ApplicationRecord
     # puts results
     return [] if @team.empty?
 
-    return @team
+    @team
 
     # team = res.first["groupname"]
 
@@ -140,7 +140,7 @@ class User < ApplicationRecord
 
   def group_owner?
     group = Group.where(id: group_id).first
-    group[:email] == email
+    group[:email] == get_email
   end
 
   def dropdown_options
