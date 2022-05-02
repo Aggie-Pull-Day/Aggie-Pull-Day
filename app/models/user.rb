@@ -151,6 +151,8 @@ class User < ApplicationRecord
   end
 
   def full_name
+    first_name = get_first_name
+    last_name = get_last_name
     if !first_name.nil? && !last_name.nil?
       "#{first_name} #{last_name}"
     elsif !first_name.nil?
@@ -158,7 +160,7 @@ class User < ApplicationRecord
     elsif !last_name.nil?
       last_name
     else
-      'Anonymous User'
+      "User #{get_uin}"
     end
   end
 end
