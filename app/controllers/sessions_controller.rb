@@ -6,15 +6,11 @@ class SessionsController < ApplicationController
   def create
     session_params = params.permit(:authenticity_token, :email, :password, :commit)
     student = Student.find_by(email: session_params[:email])
-    if student
+    if student&.authenticate(session_params[:password])
       @user = User.find_by(uin: student[:uin])
-      if @user && student.authenticate(session_params[:password])
-        session[:user_id] = @user.id
-        redirect_to @user.admin ? '/dashboard' : @user
-      else
-        flash[:notice] = 'Login is invalid!'
-        redirect_to new_session_path
-      end
+      @user = User.create(uin: student[:uin], pulled: false, group_id: nil, admin: false) if @user.nil?
+      session[:user_id] = @user.id
+      redirect_to @user.admin ? '/dashboard' : @user
     else
       flash[:notice] = 'Login is invalid!'
       redirect_to new_session_path

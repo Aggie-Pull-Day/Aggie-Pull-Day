@@ -42,15 +42,14 @@ more_groups.each do |group|
 end
 
 more_users = [
-  { uin: 327001001, pulled: false, group_id: 1, admin: false },
-  { uin: 327001002, pulled: false, group_id: 1, admin: false },
-  { uin: 327001003, pulled: false, group_id: 1, admin: false },
+  { uin: 327001000, pulled: false, group_id: 2, admin: false },
+  { uin: 327001001, pulled: false, group_id: 2, admin: false },
+  { uin: 327001002, pulled: false, group_id: 2, admin: false },
+  { uin: 327001003, pulled: false, group_id: 2, admin: false },
   { uin: 327001004, pulled: false, group_id: 1, admin: false },
-  { uin: 327001005, pulled: false, group_id: 2, admin: false },
-  { uin: 327001006, pulled: false, group_id: 2, admin: false },
-  { uin: 327001007, pulled: false, group_id: 2, admin: false },
-  { uin: 327001008, pulled: false, group_id: 3, admin: false },
-  { uin: 327001009, pulled: false, group_id: 3, admin: false },
+  { uin: 327001005, pulled: false, group_id: 1, admin: false },
+  { uin: 327001006, pulled: false, group_id: 1, admin: false },
+  { uin: 327001007, pulled: false, group_id: 1, admin: false },
   { uin: 1, pulled: false, group_id: nil, admin: true }
 ]
 
@@ -58,6 +57,8 @@ more_users.each do |user|
   User.create!(user)
 end
 
+Student.create!(uin: 1, email: 'drritchey@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                first_name: 'Philip', last_name: 'Ritchey', classification: 'U5')
 names = [%w[Rebecca McFadden], %w[Nikitha Vempati], %w[Grace Li], %w[Cora English], %w[Kareem Hirani],
          %w[Jon Waterman], %w[Reid Neason], %w[Baldwin Bakkal], %w[Anu Khatri], %w[Keegan Choudhury], %w[Hallie Scasta],
          %w[Derik Wang], %w[Tony Yang], %w[Osric Nagle], %w[Jason Bernal], %w[Jacob Smith], %w[Nicolas Benavides],
