@@ -8,9 +8,23 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 more_games = [
+  { opponent: 'Kent State', gamedate: '4-Sep-2021 7:00 PM' },
+  { opponent: 'New Mexico', gamedate: '18-Sep-2021 11:00 AM' },
+  { opponent: 'Mississippi State', gamedate: '2-Oct-2021 6:00 PM' },
+  { opponent: 'Alabama', gamedate: '9-Oct-2021 7:00 PM' },
+  { opponent: 'South Carolina', gamedate: '23-Oct-2021 6:30 PM' },
+  { opponent: 'Auburn', gamedate: '6-Nov-2021 2:30 PM' },
+  { opponent: 'Prairie View A&M', gamedate: '20-Nov-2021 11:00 AM' },
   { opponent: 'Sam Houston State', gamedate: '3-Sep-2022' },
-  { opponent: 'App State', gamedate: '10-Sep-2022' },
-  { opponent: 'Miami (FL)', gamedate: '17-Sep-2022' }
+  { opponent: 'Appalachian State', gamedate: '10-Sep-2022' },
+  { opponent: 'Miami (FL)', gamedate: '17-Sep-2022' },
+  { opponent: 'Ole Miss', gamedate: '29-Oct-2022' },
+  { opponent: 'Florida', gamedate: '5-Nov-2022' },
+  { opponent: 'UMass', gamedate: '19-Nov-2022' },
+  { opponent: 'LSU', gamedate: '26-Nov-2022' },
+  { opponent: 'New Mexico', gamedate: '2-Sep-2023' },
+  { opponent: 'Louisiana-Monroe', gamedate: '16-Sep-2023' },
+  { opponent: 'Abilene Christian', gamedate: '18-Nov-2023' }
 ]
 
 more_games.each do |game|
@@ -22,10 +36,8 @@ end
 more_groups = [
   { groupname: 'List Eaters', owner: 'Kareem Hirani',
     pulled: false, email: 'kareemh17@tamu.edu' },
-
   { groupname: 'Team 1', owner: 'Cora English',
     pulled: false, email: 'CoraEnglish@tamu.edu' },
-
   { groupname: 'Freshmen Are Cool', owner: 'Matthew Waterman',
     pulled: false, email: 'matthewwaterman@tamu.edu' }
 ]
