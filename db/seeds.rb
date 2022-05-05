@@ -34,8 +34,12 @@ end
 # works for single user
 
 more_groups = [
-  { groupname: 'List Eaters', owner: 'Kareem Hirani', pulled: false, email: 'kareemh17@tamu.edu' },
-  { groupname: 'Team 1', owner: 'Cora English', pulled: false, email: 'CoraEnglish@tamu.edu' }
+  { groupname: 'List Eaters', owner: 'Kareem Hirani',
+    pulled: false, email: 'kareemh17@tamu.edu', code: '111' },
+  { groupname: 'Team 1', owner: 'Cora English',
+    pulled: false, email: 'CoraEnglish@tamu.edu', code: '112' },
+  { groupname: 'Freshmen Are Cool', owner: 'Matthew Waterman',
+    pulled: false, email: 'matthewwaterman@tamu.edu', code: '113' }
 ]
 
 # array of groups

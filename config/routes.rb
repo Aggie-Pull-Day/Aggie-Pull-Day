@@ -28,6 +28,11 @@ Rails.application.routes.draw do
   resources :users do
     post :leave_group, on: :member
     post :remove_from_group, on: :member
+    # get :join_group, on: :member
   end
+
+  get 'users/:id/join_group', to: 'users#join_group', as: :join_group
+  post 'users/:id/join_group', to: 'users#add_to_group', as: :add_to_group
+
   resources :sessions, only: [:new, :create, :destroy]
 end

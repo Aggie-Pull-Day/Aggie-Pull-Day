@@ -71,6 +71,26 @@ class UsersController < ApplicationController
     redirect_to User.find(session[:user_id])
   end
 
+  # def join_group
+  # end
+
+  def add_to_group
+    user = User.find(params[:id]) 
+
+    begin
+      group = Group.find_by!(code: params[:code])
+    rescue ActiveRecord::RecordNotFound
+      flash[:error] = "Error: please enter a valid group code."
+      redirect_to join_group_path(user)
+      return
+    end
+    puts "TESTING"
+
+    user.update(group_id: group.id)
+
+    redirect_to user
+  end
+
   private
 
   def user_params
