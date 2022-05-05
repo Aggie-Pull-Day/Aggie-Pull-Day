@@ -74,3 +74,12 @@ Feature: have a landing page showing a group
     And I enter the group id "66"
     And I press "Update User"
     Then I should see "CoraEnglish@tamu.edu"
+
+  Scenario: create a group
+
+    Given I am signed in as reidneason@tamu.edu
+    When I press "Leave Group"
+    And I press "Create a Group"
+    And I enter the group groupname "Reid's Group"
+    And I press "Create Group"
+    Then I should see "Reid Neason: NOT PULLED"

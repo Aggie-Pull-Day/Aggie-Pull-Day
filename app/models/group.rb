@@ -4,10 +4,10 @@ class Group < ApplicationRecord
   def classification
     members = User.where(group_id: id)
     group_size = members.length
-    num_grads = members.where(classification: 'U5').length
-    num_seniors = members.where(classification: 'U4').length
-    num_juniors = members.where(classification: 'U3').length
-    num_sophomores = members.where(classification: 'U2').length
+    num_grads = members.all.select { |m| m.get_classification == 'U5' }.length
+    num_seniors = members.all.select { |m| m.get_classification == 'U4' }.length
+    num_juniors = members.all.select { |m| m.get_classification == 'U3' }.length
+    num_sophomores = members.all.select { |m| m.get_classification == 'U2' }.length
 
     if num_grads + num_seniors >= group_size / 2.0
       'U4'
@@ -23,7 +23,7 @@ class Group < ApplicationRecord
   def dropdown_options
     members = User.where(group_id: id)
     members.collect do |member|
-      [member[:email], member[:email]]
+      [member.full_name, member.get_email]
     end
   end
 end

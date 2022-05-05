@@ -17,47 +17,61 @@ Given(/^I am signed in(?: as ([^"]*))?$/) do |email|
 end
 
 Given /^the database is populated$/ do
-  games = [{ opponent: 'Sam Houston State', gamedate: '3-Sep-2022' },
-           { opponent: 'App State', gamedate: '10-Sep-2022' },
-           { opponent: 'Miami (FL)', gamedate: '17-Sep-2022' }]
-  games.each do |game|
-    Game.create!(game) if Game.where(opponent: game['opponent']).empty?
-  end
-
-  groups = [{ groupname: 'List Eaters', owner: 'Kareem Hirani', pulled: false, email: 'kareemh17@tamu.edu' },
-            { groupname: 'Team 1', owner: 'Cora English', pulled: false, email: 'CoraEnglish@tamu.edu' }]
-  groups.each do |group|
-    Group.create!(group) if Group.where(groupname: group['groupname']).empty?
-  end
-
-  users = [
-    { email: 'kareemh17@tamu.edu', first_name: 'Kareem', last_name: 'Hirani',
-      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.first[:id],
-      uin: 327001001, classification: 'U4', admin: false },
-    { email: 'bbakkal97@tamu.edu', first_name: 'Baldwin', last_name: 'Bakkal',
-      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.first[:id],
-      uin: 327001002, classification: 'U4', admin: false },
-    { email: 'jonrwaterman@tamu.edu', first_name: 'Jon', last_name: 'Waterman',
-      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.first[:id],
-      uin: 327001003, classification: 'U4', admin: false },
-    { email: 'reidneason@tamu.edu', first_name: 'Reid', last_name: 'Neason',
-      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.first[:id],
-      uin: 327001004, classification: 'U4', admin: false },
-    { email: 'CoraEnglish@tamu.edu', first_name: 'Cora', last_name: 'English',
-      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.last[:id],
-      uin: 327001005, classification: 'U4', admin: false },
-    { email: 'GraceLi@tamu.edu', first_name: 'Grace', last_name: 'Li',
-      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.last[:id],
-      uin: 327001006, classification: 'U4', admin: false },
-    { email: 'RebeccaMcfadden@tamu.edu', first_name: 'Rebecca', last_name: 'McFadden',
-      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: Group.last[:id],
-      uin: 327001007, classification: 'U4', admin: false },
-    { email: 'drritchey@tamu.edu', first_name: 'Philip', last_name: 'Ritchey',
-      password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: nil,
-      uin: 1, classification: 'U5', admin: true }
+  more_games = [
+    { opponent: 'Sam Houston State', gamedate: '3-Sep-2022' },
+    { opponent: 'App State', gamedate: '10-Sep-2022' },
+    { opponent: 'Miami (FL)', gamedate: '17-Sep-2022' }
   ]
-  users.each do |user|
-    User.create!(user) if User.where(uin: user['uin']).empty?
+  more_games.each do |game|
+    Game.create!(game)
+  end
+
+  more_groups = [
+    { groupname: 'List Eaters', owner: 'Kareem Hirani', pulled: false, email: 'kareemh17@tamu.edu' },
+    { groupname: 'Team 1', owner: 'Cora English', pulled: false, email: 'CoraEnglish@tamu.edu' }
+  ]
+  more_groups.each do |group|
+    Group.create!(group)
+  end
+
+  more_users = [
+    { uin: 327001001, pulled: false, group_id: Group.first.id, admin: false },
+    { uin: 327001002, pulled: false, group_id: Group.first.id, admin: false },
+    { uin: 327001003, pulled: false, group_id: Group.first.id, admin: false },
+    { uin: 327001004, pulled: false, group_id: Group.first.id, admin: false },
+    { uin: 327001005, pulled: false, group_id: Group.last.id, admin: false },
+    { uin: 327001006, pulled: false, group_id: Group.last.id, admin: false },
+    { uin: 327001007, pulled: false, group_id: Group.last.id, admin: false },
+    { uin: 1, pulled: false, group_id: nil, admin: true }
+  ]
+  more_users.each do |user|
+    User.create!(user)
+  end
+
+  more_students = [
+    { uin: 327001001, email: 'kareemh17@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+      first_name: 'Kareem', last_name: 'Hirani', classification: 'U4' },
+    { uin: 327001002, email: 'bbakkal97@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+      first_name: 'Baldwin', last_name: 'Bakkal', classification: 'U4' },
+    { uin: 327001003, email: 'jonrwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+      first_name: 'Jon', last_name: 'Waterman', classification: 'U4' },
+    { uin: 327001004, email: 'reidneason@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+      first_name: 'Reid', last_name: 'Neason', classification: 'U4' },
+    { uin: 327001005, email: 'CoraEnglish@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+      first_name: 'Cora', last_name: 'English', classification: 'U4' },
+    { uin: 327001006, email: 'GraceLi@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), first_name: 'Grace',
+      last_name: 'Li', classification: 'U4' },
+    { uin: 327001007, email: 'RebeccaMcfadden@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+      first_name: 'Rebecca', last_name: 'McFadden', classification: 'U4' },
+    { uin: 327001008, email: 'matthewwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+      first_name: 'Matthew', last_name: 'Waterman', classification: 'U1' },
+    { uin: 327001009, email: 'jaketraylor@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+      first_name: 'Jake', last_name: 'Traylor', classification: 'U1' },
+    { uin: 1, email: 'drritchey@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+      first_name: 'Philip', last_name: 'Ritchey', classification: 'U5' }
+  ]
+  more_students.each do |student|
+    Student.create!(student)
   end
 end
 

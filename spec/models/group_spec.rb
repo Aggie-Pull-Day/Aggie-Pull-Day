@@ -4,12 +4,12 @@ require 'rails_helper'
 RSpec.describe Group, type: :model do
   describe 'model' do
     it 'has the correct amount of data' do
-      expect(Group.all.length).to eq 3
+      expect(Group.all.length).to eq 2
     end
 
     it 'loads groups based on a single attribute' do
       not_pulled = Group.where(pulled: false)
-      expect(not_pulled.length).to eq 3
+      expect(not_pulled.length).to eq 2
     end
 
     it 'loads groups based on multiple attributes' do
@@ -33,16 +33,16 @@ RSpec.describe Group, type: :model do
 
     it 'deletes groups based on a single attribute' do
       Group.create(groupname: 'The Professors', owner: 'Philip Ritchey', email: 'PhilipR@tamu.edu', pulled: false)
-      expect(Group.all.length).to eq 4
-      Group.where(groupname: 'The Professors').destroy_all
       expect(Group.all.length).to eq 3
+      Group.where(groupname: 'The Professors').destroy_all
+      expect(Group.all.length).to eq 2
     end
 
     it 'deletes groups based on multiple attributes' do
       Group.create(groupname: 'The Professors', owner: 'Philip Ritchey', email: 'PhilipR@tamu.edu', pulled: false)
-      expect(Group.all.length).to eq 4
-      Group.where(groupname: 'The Professors', owner: 'Philip Ritchey').destroy_all
       expect(Group.all.length).to eq 3
+      Group.where(groupname: 'The Professors', owner: 'Philip Ritchey').destroy_all
+      expect(Group.all.length).to eq 2
     end
 
     it 'refuses to delete an occupied group' do
@@ -61,28 +61,36 @@ RSpec.describe Group, type: :model do
     it 'properly cascades to the default case' do
       group = Group.create(groupname: 'The Professors', pulled: false, owner: 'Philip Ritchey',
                            email: 'PhilipR@tamu.edu')
-      User.create(email: 'PhilipR@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4',
-                  group_id: group.id)
-      User.create(email: 'RobertL@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U3',
-                  group_id: group.id)
-      User.create(email: 'IoannisP@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U2',
-                  group_id: group.id)
-      User.create(email: 'YannisK@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U1',
-                  group_id: group.id)
+      User.create(uin: 2, pulled: false, group_id: group.id, admin: false)
+      User.create(uin: 3, pulled: false, group_id: group.id, admin: false)
+      User.create(uin: 4, pulled: false, group_id: group.id, admin: false)
+      User.create(uin: 5, pulled: false, group_id: group.id, admin: false)
+      Student.create(uin: 2, email: 'PhilipR@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Philip', last_name: 'Ritchey', classification: 'U4')
+      Student.create(uin: 3, email: 'RobertL@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Robert', last_name: 'Lightfoot', classification: 'U3')
+      Student.create(uin: 4, email: 'IoannisP@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Ioannis', last_name: 'Pazianas', classification: 'U2')
+      Student.create(uin: 5, email: 'YannisK@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Yannis', last_name: 'Kiourtsoglou', classification: 'U1')
       expect(group.classification).to eq 'U1'
     end
 
     it 'properly cascades to a middle case' do
       group = Group.create(groupname: 'The Professors', pulled: false, owner: 'Philip Ritchey',
                            email: 'PhilipR@tamu.edu')
-      User.create(email: 'PhilipR@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U4',
-                  group_id: group.id)
-      User.create(email: 'RobertL@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U2',
-                  group_id: group.id)
-      User.create(email: 'IoannisP@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U2',
-                  group_id: group.id)
-      User.create(email: 'YannisK@tamu.edu', password_digest: BCrypt::Password.create('Dummy'), classification: 'U1',
-                  group_id: group.id)
+      User.create(uin: 2, pulled: false, group_id: group.id, admin: false)
+      User.create(uin: 3, pulled: false, group_id: group.id, admin: false)
+      User.create(uin: 4, pulled: false, group_id: group.id, admin: false)
+      User.create(uin: 5, pulled: false, group_id: group.id, admin: false)
+      Student.create(uin: 2, email: 'PhilipR@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Philip', last_name: 'Ritchey', classification: 'U4')
+      Student.create(uin: 3, email: 'RobertL@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Robert', last_name: 'Lightfoot', classification: 'U2')
+      Student.create(uin: 4, email: 'IoannisP@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Ioannis', last_name: 'Pazianas', classification: 'U2')
+      Student.create(uin: 5, email: 'YannisK@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Yannis', last_name: 'Kiourtsoglou', classification: 'U1')
       expect(group.classification).to eq 'U2'
     end
   end
@@ -92,8 +100,8 @@ RSpec.describe Group, type: :model do
       group = Group.first
       opts = group.dropdown_options
       expect(opts.length).to eq 4
-      expect(opts).to eq [%w[kareemh17@tamu.edu kareemh17@tamu.edu], %w[bbakkal97@tamu.edu bbakkal97@tamu.edu],
-                          %w[jonrwaterman@tamu.edu jonrwaterman@tamu.edu], %w[reidneason@tamu.edu reidneason@tamu.edu]]
+      expect(opts).to eq [['Kareem Hirani', 'kareemh17@tamu.edu'], ['Jon Waterman', 'jonrwaterman@tamu.edu'],
+                          ['Reid Neason', 'reidneason@tamu.edu'], ['Baldwin Bakkal', 'bbakkal97@tamu.edu']]
     end
   end
 end

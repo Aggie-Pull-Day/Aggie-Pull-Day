@@ -49,6 +49,7 @@ Feature: have a functional student login page
     And I press "Sign In!"
     Then I should see "Please put an email address"
 
+  @wip
   Scenario: create an account
 
     Given I am on the student login page
