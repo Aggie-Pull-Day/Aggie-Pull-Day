@@ -21,7 +21,7 @@
 
   <% if res.empty? %>
     <div class="none">No Group</div>
-    <%= link_to "Join Group", edit_user_path(current_user), :class => "btn btn-primary" %>
+    <%= link_to "Change Groups", join_group_path(current_user), :class => "btn btn-secondary" %>
   <% else %>
     <% pull_date = current_user.pullTime %>
     <% opponent = current_user.next_opponent %>
@@ -128,7 +128,7 @@
     <% if current_user.group_owner? %>
       <%= button_to 'Remove From Group', :class => "btn btn-danger" %>
     <% else %>
-      <%= link_to "Change Groups", edit_user_path(current_user), :class => "btn btn-secondary" %> <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger" %>
+      <%= link_to "Change Groups", join_group_path(current_user), :class => "btn btn-secondary" %> <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger" %>
     <% end %>
     <br>
   <% end %>
