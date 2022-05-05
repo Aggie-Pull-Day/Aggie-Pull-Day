@@ -30,7 +30,13 @@ class GroupsController < ApplicationController
         if user.admin
           format.html { redirect_to group_url(@group), notice: 'Group was successfully created.' }
         else
-          @group.update(owner: user.full_name, pulled: false, email: user.get_email)
+
+          code = SecureRandom.urlsafe_base64()
+          while Group.find_by(code: code) != nil
+            code = SecureRandom.urlsafe_base64()
+          end
+
+          @group.update(owner: user.full_name, pulled: false, email: user.get_email, code: code)
           user.update(group_id: @group[:id])
           format.html { redirect_to user }
         end
