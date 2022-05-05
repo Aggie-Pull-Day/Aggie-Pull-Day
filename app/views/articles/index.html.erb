@@ -1,19 +1,22 @@
+<% now = DateTime.now %>
+<% end_of_year = Time.new(now.year, 12, 31, 11, 59, 59) %>
+
 <!DOCTYPE html lang="en">
 <html>
-    <head>
-        <style>
-            .float-container {
-                padding: 20px;
-            }
-            
-            .float-child {
-                width: 50%;
-                float: left;
-                padding: 20px;
-            }
-        </style>
-    </head>
-    <body>
+<head>
+  <style>
+      .float-container {
+          padding: 20px;
+      }
+
+      .float-child {
+          width: 50%;
+          float: left;
+          padding: 20px;
+      }
+  </style>
+</head>
+<body>
 
 
         <%# Main Layout %>
@@ -39,59 +42,39 @@
                     </div>
                     <%# Ticket Pull Times %>
 
-                    <%# Football Games Table %>
-                    <div class="float-child">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover table-striped">
-                                <thead class="thead-light">
-                                    <tr>
-                                        <th colspan="5" style="text-align: center;">2022 Season</th>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Opponent</th>
-                                        <th scope="col">Location</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Time</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <%# Game 1 %>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Sam Houston</td>
-                                        <td>Bryan-College Station / Kyle Field</td>
-                                        <td>Sep.3 (Sat)</td>
-                                        <td>TBD</td>
-                                    </tr>
-                                    <%# Game 1 %>
-                                    <%# Game 2 %>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Appalachian State</td>
-                                        <td>Bryan-College Station / Kyle Field</td>
-                                        <td>Sep.10 (Sat)</td>
-                                        <td>TBD</td>
-                                    </tr>
-                                    <%# Game 2 %>
-                                    <%# Game 3 %>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Miami</td>
-                                        <td>Bryan-College Station / Kyle Field</td>
-                                        <td>Sep.17 (Sat)</td>
-                                        <td>TBD</td>
-                                    </tr>
-                                    <%# Game 3 %>
-                                </tbody>
-                            </table>
-                        <div>
-                    </div>
-                    <%# Football Games Table %>
-                </div>
-            </div>
-            <%# Background Image %>
-        </main>
-        <%# Main Layout %>
-    </body>
+      <%# Football Games Table %>
+      <div class="float-child">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped">
+            <thead class="thead-light">
+            <tr>
+              <th colspan="5" style="text-align: center;"><%= now.year %> Season</th>
+            </tr>
+            <tr>
+              <th scope="col">Opponent</th>
+              <th scope="col">Date</th>
+              <th scope="col">Time</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% Game.where(gamedate: now..end_of_year).order(:gamedate).each do |game| %>
+              <tr>
+                <td><%= game.opponent %></td>
+                <td><%= game.gamedate.strftime('%A, %B %e') %></td>
+                <td><%= game.gamedate.hour == 0 ? 'TBD' : game.gamedate.strftime('%l:%M %p') %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+          <div>
+          </div>
+          <%# Football Games Table %>
+        </div>
+      </div>
+      <%# Background Image %>
+    </div>
+  </div>
+</main>
+<%# Main Layout %>
+</body>
 </html>
