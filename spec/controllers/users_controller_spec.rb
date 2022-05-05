@@ -5,15 +5,14 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
 
   describe 'model' do
-    it 'creates a new user', pending: true do
+    it 'creates a new user' do
       post :create,
-           params: { user: { email: 'PhilipR@tamu.edu', first_name: 'Philip', last_name: 'Ritchey',
-                             password_digest: BCrypt::Password.create('OldArmy') } }
+           params: { user: { uin: 2, pulled: false, group_id: nil, admin: false } }
       expect(response).to redirect_to User.last
     end
 
-    it 'catches an invalid user creation' do
-      post :create, params: { user: { email: 'PhilipR@tamu.edu' } }
+    it 'catches an invalid user creation', pending: true do
+      post :create, params: { user: { uin: 2 } }
       expect(flash[:error]).to match(/^Error- please try to create an account again.$/)
       expect(response).to redirect_to '/users/new'
     end

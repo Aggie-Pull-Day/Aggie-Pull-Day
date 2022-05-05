@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
-      flash[:error] = "Error- please try to create an account again."
+      flash[:error] = 'Error- please try to create an account again.'
       redirect_to new_user_path
     end
   end
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
+        format.html { redirect_to user_url(@user), notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to people_url, notice: "User was successfully destroyed." }
+      format.html { redirect_to people_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -94,7 +94,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :group_id, :first_name, :last_name, :uin, :classification)
+    params.require(:user).permit(:uin, :pulled, :group_id, :admin)
   end
 
   # Use callbacks to share common setup or constraints between actions.

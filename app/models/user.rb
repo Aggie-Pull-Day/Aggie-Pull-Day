@@ -4,10 +4,35 @@ class User < ApplicationRecord
 
   belongs_to :group, optional: true
   has_one :seat
-  has_secure_password
+  validates_uniqueness_of :uin
+
+  def get_uin
+    student = Student.find_by(uin: uin)
+    student[:uin]
+  end
+
+  def get_email
+    student = Student.find_by(uin: uin)
+    student[:email]
+  end
+
+  def get_first_name
+    student = Student.find_by(uin: uin)
+    student[:first_name]
+  end
+
+  def get_last_name
+    student = Student.find_by(uin: uin)
+    student[:last_name]
+  end
+
+  def get_classification
+    student = Student.find_by(uin: uin)
+    student[:classification]
+  end
 
   def welcome
-    "Hello, #{first_name}!"
+    "Hello, #{get_first_name}!"
   end
 
   def hasPulled
@@ -24,7 +49,7 @@ class User < ApplicationRecord
     # puts results
     return [] if @team.empty?
 
-    return @team
+    @team
 
     # team = res.first["groupname"]
 
@@ -115,17 +140,12 @@ class User < ApplicationRecord
 
   def group_owner?
     group = Group.where(id: group_id).first
-    group[:email] == email
-  end
-
-  def dropdown_options
-    members = getTeam.where.not(email: email)
-    members.collect do |member|
-      [member[:email], member[:id]]
-    end
+    group[:email] == get_email
   end
 
   def full_name
+    first_name = get_first_name
+    last_name = get_last_name
     if !first_name.nil? && !last_name.nil?
       "#{first_name} #{last_name}"
     elsif !first_name.nil?
@@ -133,7 +153,7 @@ class User < ApplicationRecord
     elsif !last_name.nil?
       last_name
     else
-      'Anonymous User'
+      "User #{get_uin}"
     end
   end
 end

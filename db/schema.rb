@@ -39,18 +39,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_230507) do
     t.string "email"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "students", force: :cascade do |t|
+    t.integer "uin"
     t.string "email"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "classification"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "password_digest"
+  end
+
+  create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "pulled"
     t.bigint "group_id"
-    t.integer "uin"
-    t.string "classification"
-    t.string "first_name"
-    t.string "last_name"
     t.boolean "admin"
+    t.integer "uin"
     t.index ["group_id"], name: "index_users_on_group_id"
   end
 

@@ -54,40 +54,44 @@ more_groups.each do |group|
 end
 
 more_users = [
-  { email: 'kareemh17@tamu.edu', first_name: 'Kareem', last_name: 'Hirani',
-    password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
-    uin: 327001001, classification: 'U4', admin: false },
-  { email: 'bbakkal97@tamu.edu', first_name: 'Baldwin', last_name: 'Bakkal',
-    password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
-    uin: 327001002, classification: 'U4', admin: false },
-  { email: 'jonrwaterman@tamu.edu', first_name: 'Jon', last_name: 'Waterman',
-    password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
-    uin: 327001003, classification: 'U4', admin: false },
-  { email: 'reidneason@tamu.edu', first_name: 'Reid', last_name: 'Neason',
-    password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 1,
-    uin: 327001004, classification: 'U4', admin: false },
-  { email: 'CoraEnglish@tamu.edu', first_name: 'Cora', last_name: 'English',
-    password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 2,
-    uin: 327001005, classification: 'U4', admin: false },
-  { email: 'GraceLi@tamu.edu', first_name: 'Grace', last_name: 'Li',
-    password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 2,
-    uin: 327001006, classification: 'U4', admin: false },
-  { email: 'RebeccaMcfadden@tamu.edu', first_name: 'Rebecca', last_name: 'McFadden',
-    password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 2,
-    uin: 327001007, classification: 'U4', admin: false },
-  { email: 'matthewwaterman@tamu.edu', first_name: 'Matthew', last_name: 'Waterman',
-    password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 3,
-    uin: 327001008, classification: 'U1', admin: false },
-  { email: 'jaketraylor@tamu.edu', first_name: 'Jake', last_name: 'Traylor',
-    password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: 3,
-    uin: 327001009, classification: 'U1', admin: false },
-  { email: 'drritchey@tamu.edu', first_name: 'Philip', last_name: 'Ritchey',
-    password_digest: BCrypt::Password.create('Dummy'), pulled: false, group_id: nil,
-    uin: 1, classification: 'U5', admin: true }
+  { uin: 327000000, pulled: false, group_id: 2, admin: false },
+  { uin: 327000001, pulled: false, group_id: 2, admin: false },
+  { uin: 327000002, pulled: false, group_id: 2, admin: false },
+  { uin: 327000003, pulled: false, group_id: 2, admin: false },
+  { uin: 327000004, pulled: false, group_id: 1, admin: false },
+  { uin: 327000005, pulled: false, group_id: 1, admin: false },
+  { uin: 327000006, pulled: false, group_id: 1, admin: false },
+  { uin: 327000007, pulled: false, group_id: 1, admin: false },
+  { uin: 1, pulled: false, group_id: nil, admin: true }
 ]
 
 more_users.each do |user|
   User.create!(user)
+end
+
+Student.create!(uin: 1, email: 'drritchey@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                first_name: 'Philip', last_name: 'Ritchey', classification: 'U5')
+names = [%w[Rebecca McFadden], %w[Nikitha Vempati], %w[Grace Li], %w[Cora English], %w[Kareem Hirani],
+         %w[Jon Waterman], %w[Reid Neason], %w[Baldwin Bakkal], %w[Anu Khatri], %w[Keegan Choudhury], %w[Hallie Scasta],
+         %w[Derik Wang], %w[Tony Yang], %w[Osric Nagle], %w[Jason Bernal], %w[Jacob Smith], %w[Nicolas Benavides],
+         %w[Manuel Trevino], %w[Cole Newby], %w[Kavi Thiagarajan], %w[Xavier Polisetty], %w[Steve George],
+         %w[Will Norman], %w[Wei-Jie Gao], %w[Carolyn Nguyen], %w[Mari Lopez], %w[Jennifer Yuan], %w[Emma Ziesmer],
+         %w[Ryan Parker], %w[Jireh Ferrer], %w[Sabrina Smith], %w[Hanson Yu]]
+(0..names.length - 1).each do |i|
+  email = case i
+          when 4
+            'kareemh17@tamu.edu'
+          when 5
+            'jonrwaterman@tamu.edu'
+          when 6
+            'reidneason@tamu.edu'
+          when 7
+            'bbakkal97@tamu.edu'
+          else
+            "#{names[i][0]}#{names[i][1]}@tamu.edu"
+          end
+  Student.create!(uin: 327000000 + i, email: email, password_digest: BCrypt::Password.create('Dummy'),
+                  first_name: names[i][0], last_name: names[i][1], classification: 'U4')
 end
 
 # require 'faker'
