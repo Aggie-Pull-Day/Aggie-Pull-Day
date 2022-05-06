@@ -9,7 +9,7 @@ class QrMailer < ApplicationMailer
     @greeting = "Hi"
     @user = params[:user]
     @qr = params[:img]
-    attachments['QR Code'] = @qr.html_safe
+    attachments['ticket_pull_qr_code.png'] = File.read('images/image.png')
     mail(
     from: "aggiepullday@gmail.com",
     to: @user.get_email,
