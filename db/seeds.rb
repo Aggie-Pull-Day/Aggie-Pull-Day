@@ -71,21 +71,21 @@ end
 
 Student.create!(uin: 1, email: 'drritchey@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
                 first_name: 'Philip', last_name: 'Ritchey', classification: 'U5')
-names = [%w[Rebecca McFadden], %w[Nikitha Vempati], %w[Grace Li], %w[Cora English], %w[Kareem Hirani],
-         %w[Jon Waterman], %w[Reid Neason], %w[Baldwin Bakkal], %w[Anu Khatri], %w[Keegan Choudhury], %w[Hallie Scasta],
+names = [%w[Kareem Hirani], %w[Jon Waterman], %w[Reid Neason], %w[Baldwin Bakkal], %w[Rebecca McFadden],
+         %w[Nikitha Vempati], %w[Grace Li], %w[Cora English], %w[Anu Khatri], %w[Keegan Choudhury], %w[Hallie Scasta],
          %w[Derik Wang], %w[Tony Yang], %w[Osric Nagle], %w[Jason Bernal], %w[Jacob Smith], %w[Nicolas Benavides],
          %w[Manuel Trevino], %w[Cole Newby], %w[Kavi Thiagarajan], %w[Xavier Polisetty], %w[Steve George],
          %w[Will Norman], %w[Wei-Jie Gao], %w[Carolyn Nguyen], %w[Mari Lopez], %w[Jennifer Yuan], %w[Emma Ziesmer],
          %w[Ryan Parker], %w[Jireh Ferrer], %w[Sabrina Smith], %w[Hanson Yu]]
 (0..names.length - 1).each do |i|
   email = case i
-          when 4
+          when 0
             'kareemh17@tamu.edu'
-          when 5
+          when 1
             'jonrwaterman@tamu.edu'
-          when 6
+          when 2
             'reidneason@tamu.edu'
-          when 7
+          when 3
             'bbakkal97@tamu.edu'
           else
             "#{names[i][0]}#{names[i][1]}@tamu.edu"

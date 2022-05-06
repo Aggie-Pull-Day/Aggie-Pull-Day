@@ -1,6 +1,6 @@
 <h1>Ticket Pull QR Code Sent</h1>
 
-<%= @user.email%> to pull your ticket, show the QR code below at a ticket pull desk.
+<%= @user.get_first_name%> <%= @user.get_last_name%> to pull your ticket, show the QR code below at a ticket pull desk.
 
 <%# <%=@qr.html_safe%>
 
