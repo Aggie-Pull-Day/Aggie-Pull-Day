@@ -20,8 +20,9 @@
   <% res = current_user.getTeam %>
 
   <% if res.empty? %>
-    <div class="none">No Group</div>
-    <%= link_to "Change Groups", join_group_path(current_user), :class => "btn btn-secondary" %>
+    <div class="none">You are not in a group. Create or join one below to get started!</div>
+    <br>
+    <%= link_to "Join Group", join_group_path(current_user), :class => "btn btn-secondary" %>
     <%= link_to "Create a Group", new_group_path, :class => "btn btn-primary" %>
   <% else %>
     <% pull_date = current_user.pullTime %>
@@ -126,9 +127,7 @@
       <% end %>
     </ul>
     <br>
-    <% unless current_user.group_owner? %>
       <%= link_to "Change Groups", join_group_path(current_user), :class => "btn btn-secondary" %> <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger" %>
-    <% end %>
     <br>
   <% end %>
   <br>
