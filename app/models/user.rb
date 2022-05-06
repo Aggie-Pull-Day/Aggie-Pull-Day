@@ -62,6 +62,13 @@ class User < ApplicationRecord
     # return members
   end
 
+
+  def Invite
+
+    #method to use invitemailer
+
+    InviteMailer.send_email(#params)
+
   def Pull
     # res = Group.where(email: self.email)
     # team = res.first["groupname"]
