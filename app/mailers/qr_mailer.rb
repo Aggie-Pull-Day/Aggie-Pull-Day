@@ -12,7 +12,7 @@ class QrMailer < ApplicationMailer
     attachments['QR Code'] = @qr.html_safe
     mail(
     from: "aggiepullday@gmail.com",
-    to: @user.email,
+    to: @user.get_email,
     subject: "Your QR Code"
     )
   end
