@@ -75,7 +75,7 @@ class User < ApplicationRecord
     multi_qrcode = RQRCodeCore::QRCode.new([#to be emailed
                                              { data: 'foo', mode: :byte_8bit }])
 
-    qr = RQRCode::QRCode.new("https://frozen-inlet-69932.herokuapp.com/users/display?group=#{group_id}")
+    qr = RQRCode::QRCode.new("https://list-eaters.herokuapp.com/users/display?group=#{group_id}")
 
     @svg_qr = qr.as_svg(
       offset: 0,
