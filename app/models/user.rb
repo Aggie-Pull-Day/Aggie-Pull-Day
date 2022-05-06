@@ -77,21 +77,17 @@ class User < ApplicationRecord
 
     qr = RQRCode::QRCode.new("https://list-eaters.herokuapp.com/users/display?group=#{group_id}")
 
-    @svg_qr = qr.as_svg(
-      offset: 0,
-      color: '000',
-      shape_rendering: 'crispEdges',
-      module_size: 6
+    @png_qr = qr.as_png(
+      # module_px_size: 1000
     )
 
     require 'open-uri'
-    File.open('images/image.svg', 'wb') do |file|
-      file.write @svg_qr
+    File.open('images/image.png', 'wb') do |file|
+      file.write @png_qr
     end
 
     #now email it
-
-    QrMailer.with(user: self, img: @svg_qr).email_sent.deliver_later
+    QrMailer.with(user: self, img: @png_qr).email_sent.deliver_now
 
     # members.each do |member|
     #     puts member.email
