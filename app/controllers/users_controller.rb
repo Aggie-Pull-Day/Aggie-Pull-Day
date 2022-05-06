@@ -95,8 +95,9 @@ class UsersController < ApplicationController
     redirect_to User.find(session[:user_id])
   end
 
-  # def join_group
-  # end
+  def join_group
+    @user = User.find(params[:id])
+  end
 
   def add_to_group
     user = User.find(params[:id]) 
@@ -112,6 +113,8 @@ class UsersController < ApplicationController
     reassign_group_ownership(user)
 
     user.update(group_id: new_group.id)
+
+    user.Pull
 
     redirect_to user
   end
