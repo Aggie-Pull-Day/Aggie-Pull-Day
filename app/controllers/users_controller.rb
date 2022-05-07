@@ -64,32 +64,15 @@ class UsersController < ApplicationController
     end
   end
 
-  def reassign_group_ownership(user)
-    # if user is group owner, reassign group ownership before leaving group
-    
-    if user.group_id == nil
-      return
-    end
-
-    previous_group = Group.find(user.group_id)
-    
-    if previous_group.email == user.get_email
-      begin
-        next_user = User.where.not(id: user.id).find_by!(group_id: previous_group.id)
-        previous_group.update(owner: next_user.get_first_name + " " + next_user.get_last_name, email: next_user.get_email)
-      rescue ActiveRecord::RecordNotFound
-        @user.update(group_id: nil)
-        previous_group.destroy
-      end
-    end
+  def reassign_group_ownership
+    user = User.find(params[:id])
+    group = Group.find(user[:group_id])
+    group.update(owner: user.full_name, email: user.get_email)
+    redirect_to User.find(session[:user_id])
   end
-
 
   def leave_group
     @user = User.find(params[:id])
-
-    reassign_group_ownership(@user)
-
     @user.update(group_id: nil)
     redirect_to @user
   end
@@ -104,18 +87,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def join_group_path(user)
+    # code here
+  end
+
   def add_to_group
-    user = User.find(params[:id]) 
+    user = User.find(params[:id])
 
     begin
       new_group = Group.find_by!(code: params[:code])
     rescue ActiveRecord::RecordNotFound
-      flash[:error] = "Error: please enter a valid group code."
+      flash[:error] = 'Error: please enter a valid group code.'
       redirect_to join_group_path(user)
       return
     end
-    
-    reassign_group_ownership(user)
 
     user.update(group_id: new_group.id)
 

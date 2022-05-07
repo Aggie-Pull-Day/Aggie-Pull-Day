@@ -104,7 +104,8 @@
             <div class="row">
               <div class="col-md-9 my-auto">
                 <h6 class="mx-auto mb-0">
-                  <strong><%= "#{item.get_first_name} #{item.get_last_name}: " %> SEAT NUMBER <%= item.seat %></strong></h6>
+                  <strong><%= "#{item.get_first_name} #{item.get_last_name}: " %> SEAT NUMBER <%= item.seat %></strong>
+                </h6>
               </div>
               <% if current_user.group_owner? %>
                 <%= button_to 'Remove From Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger pull-right" %>
@@ -114,12 +115,13 @@
         <% else %>
           <li class="list-group-item">
             <div class="row">
-              <div class="col-md-9 my-auto">
-                <h6 class="mx-auto mb-0"><strong><%= "#{item.get_first_name} #{item.get_last_name}: " %> NOT PULLED</strong>
+              <div class="col-md-8 my-auto">
+                <h6 class="mx-auto mb-0">
+                  <strong><%= "#{item.get_first_name} #{item.get_last_name}: " %> NOT PULLED</strong>
                 </h6>
               </div>
               <% if current_user.group_owner? && item.id != current_user.id %>
-                <%= button_to 'Remove From Group', remove_from_group_user_path(item.id), :class => "btn btn-danger pull-right" %>
+                <%= button_to 'Make Group Owner', reassign_group_ownership_user_path(item.id), :class => "btn btn-primary pull-right" %><%= button_to 'Remove From Group', remove_from_group_user_path(item.id), :class => "btn btn-danger ml-2 pull-right" %>
               <% end %>
             </div>
           </li>
@@ -127,10 +129,12 @@
       <% end %>
     </ul>
     <br>
-      <%= link_to "Display Group Pull Code", displayqr_path(current_user), :class => "btn btn-primary" %>
+    <%= link_to "Display Group Pull Code", displayqr_path(current_user), :class => "btn btn-primary" %>
     <br>
+    <% unless current_user.group_owner? %>
       <%= link_to "Change Groups", join_group_path(current_user), :class => "btn btn-secondary" %> <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger" %>
-    <br>
+      <br>
+    <% end %>
   <% end %>
   <br>
 <% end %>

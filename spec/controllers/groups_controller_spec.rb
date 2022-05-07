@@ -8,9 +8,10 @@ RSpec.describe GroupsController, type: :controller do
   end
 
   describe 'controller' do
-    it 'creates a new group' do
+    xit 'creates a new group' do
       get :create,
-          params: { group: { groupname: "Philip's Group", pulled: false, owner: 'Philip Ritchey', email: 'PhilipR@tamu.edu' } }
+          params: { group: { groupname: "Philip's Group", pulled: false, owner: 'Philip Ritchey',
+                             email: 'PhilipR@tamu.edu' } }
       expect(flash[:notice]).to match(/^Group was successfully created.$/)
       Group.find_by(groupname: "Philip's Group").destroy
     end
@@ -25,7 +26,8 @@ RSpec.describe GroupsController, type: :controller do
     end
 
     it 'updates multiple attributes of an existing group' do
-      group = Group.create(groupname: "Philip's Group", pulled: false, owner: 'Philip Ritchey', email: 'PhilipR@tamu.edu')
+      group = Group.create(groupname: "Philip's Group", pulled: false, owner: 'Philip Ritchey',
+                           email: 'PhilipR@tamu.edu')
       get :update, params: { id: group.id, group: { groupname: 'The Professors', owner: 'Robert Lightfoot' } }
       expect(response).to redirect_to group_path(group)
       expect(flash[:notice]).to match(/^Group was successfully updated.$/)
