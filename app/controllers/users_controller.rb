@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create display]
+  skip_before_action :require_login, only: %i[new create display displayqr]
 
   def show
     @user = User.find(params[:id])
@@ -10,6 +10,11 @@ class UsersController < ApplicationController
   end
 
   def display
+    @users = User.where(nil)
+    @users = @users.filter_by_group(params[:group]) if params[:group]
+  end
+
+  def displayqr
     @users = User.where(nil)
     @users = @users.filter_by_group(params[:group]) if params[:group]
   end
