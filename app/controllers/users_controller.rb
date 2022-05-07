@@ -66,7 +66,6 @@ class UsersController < ApplicationController
     redirect_to User.find(session[:user_id])
   end
 
-
   def leave_group
     @user = User.find(params[:id])
     @user.update(group_id: nil)
@@ -83,18 +82,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def join_group_path(user)
+    # code here
+  end
+
   def add_to_group
     user = User.find(params[:id])
 
     begin
       new_group = Group.find_by!(code: params[:code])
     rescue ActiveRecord::RecordNotFound
-      flash[:error] = "Error: please enter a valid group code."
+      flash[:error] = 'Error: please enter a valid group code.'
       redirect_to join_group_path(user)
       return
     end
-
-    reassign_group_ownership(user)
 
     user.update(group_id: new_group.id)
 
