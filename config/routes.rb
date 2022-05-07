@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   get '/users/display' => 'users#display'
 
-  get '/users/displayqr' => 'users#displayqr'
+  get '/users/:id/displayqr' => 'users#displayqr', as: :displayqr
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   match "/404", to: "errors#not_found", via: :all
   # Defines the root path route ("/")

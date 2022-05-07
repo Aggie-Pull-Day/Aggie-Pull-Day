@@ -127,6 +127,8 @@
       <% end %>
     </ul>
     <br>
+      <%= link_to "Display Group Pull Code", displayqr_path(current_user), :class => "btn btn-primary" %>
+    <br>
       <%= link_to "Change Groups", join_group_path(current_user), :class => "btn btn-secondary" %> <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger" %>
     <br>
   <% end %>

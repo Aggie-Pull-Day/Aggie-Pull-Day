@@ -15,10 +15,8 @@ class UsersController < ApplicationController
   end
 
   def displayqr
-    @users = User.where(nil)
-    @users = @users.filter_by_group(params[:group]) if params[:group]
-    @qr = RQRCode::QRCode.new("https://list-eaters.herokuapp.com/users/displayqr?group=#{@users.first.group_id}")
-
+    @user = User.find(params[:id])
+    @qr = RQRCode::QRCode.new("https://list-eaters.herokuapp.com/users/displayqr?group=#{@user.group_id}")
   end
 
   def new
