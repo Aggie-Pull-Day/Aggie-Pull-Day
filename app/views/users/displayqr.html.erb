@@ -1,2 +1,2 @@
-<%= image_tag @qr.as_png.to_data_url%>
+<%= image_tag @qr.as_png.resize(400, 400).to_data_url%>
 
