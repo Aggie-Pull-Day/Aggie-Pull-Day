@@ -1,10 +1,2 @@
-<%=@qr = RQRCode::QRCode.new("https://list-eaters.herokuapp.com/users/displayqr?group=#{@users.first.group_id}")%>
-
-<%=@png_qr = @qr.as_png.to_data_url%>
-
-<%# <%@png_qr.html_safe?%> %>
-<%# <%= image_tag "data:image/png;base64,#{Base64.strict_encode64(@png_qr)}" %> %>
-
-
-<%= image_tag @png_qr%>
+<%= image_tag @qr.as_png.to_data_url%>
 
