@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create display]
+  skip_before_action :require_login, only: %i[new create display displayqr]
 
   def show
     @user = User.find(params[:id])
@@ -12,6 +12,11 @@ class UsersController < ApplicationController
   def display
     @users = User.where(nil)
     @users = @users.filter_by_group(params[:group]) if params[:group]
+  end
+
+  def displayqr
+    @user = User.find(params[:id])
+    @qr = RQRCode::QRCode.new("https://list-eaters.herokuapp.com/users/displayqr?group=#{@user.group_id}")
   end
 
   def new
