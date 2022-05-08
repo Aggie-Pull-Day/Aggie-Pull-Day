@@ -95,6 +95,18 @@ names = [%w[Kareem Hirani], %w[Jon Waterman], %w[Reid Neason], %w[Baldwin Bakkal
                   first_name: names[i][0], last_name: names[i][1], classification: 'U4')
 end
 
+more_pull_times = [
+  { weekday: 4, start_time: '8:00 AM', end_time: '5:00 PM' },
+  { weekday: 3, start_time: '8:00 AM', end_time: '5:00 PM' },
+  { weekday: 2, start_time: '8:00 AM', end_time: '5:00 PM' },
+  { weekday: 1, start_time: '8:00 AM', end_time: '5:00 PM' },
+  { weekday: 5, start_time: '8:00 AM', end_time: '5:00 PM' }
+]
+
+more_pull_times.each do |pt|
+  PullTime.create!(pt)
+end
+
 # require 'faker'
 
 # 40.times do
