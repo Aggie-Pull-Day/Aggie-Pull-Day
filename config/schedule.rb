@@ -35,6 +35,11 @@ every :sunday, at: '12:00 am' do
     rake "db_scheduled_tasks:weekly_clear_groups"
 end
 
+# Time for testing
+every :sunday, :at => '5:30 pm' do
+    rake "db_scheduled_tasks:weekly_clear_groups"
+end
+
 # FOR THE SAKE OF TESTING
 # every 1.minute do
 #     rake "TEST_SCHEDULED_TASKS:write_console"
