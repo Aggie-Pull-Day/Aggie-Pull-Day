@@ -72,6 +72,33 @@ class GroupsController < ApplicationController
     end
   end
 
+  # Clear all groups
+  def clear_all_groups
+    if Group.count == 0
+      # Alert that groups were cleared and redirect to groups page on dashboard view
+      flash[:alert] = "No groups available to delete."
+      redirect_to '/groups'
+      # redirect_to '/groups', :error => "No groups available to delete."
+    else
+      # Remove users from groups
+      User.update_all(group_id: nil)
+      puts "Set all group IDs of Users table entries to nil"
+
+      # Delete all groups
+      Group.delete_all
+      puts "Deleted all entries from the Groups table in the database"
+
+      # Remove students from seat assignments
+      User.update_all(pulled: false)
+      puts "Removed students seat assignments upon clearing groups"
+
+      # Alert that groups were cleared and redirect to groups page on dashboard view
+      flash[:notice] = "All groups successfully deleted."
+      redirect_to '/groups'
+      # redirect_to '/groups', :notice => "All groups successfully deleted."
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
