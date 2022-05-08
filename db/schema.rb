@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_04_230507) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_08_190027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -31,6 +31,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_230507) do
     t.string "code"
   end
 
+  create_table "invites", force: :cascade do |t|
+    t.integer "group_id"
+    t.string "inviter"
+    t.string "invitee"
+    t.boolean "inviter_accepted"
+    t.boolean "invitee_accepted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "seats", force: :cascade do |t|
     t.string "seatnumber"
     t.boolean "assigned"
@@ -48,6 +58,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_230507) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string "uin"
+    t.string "seat_assignment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
