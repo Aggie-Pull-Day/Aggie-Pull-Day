@@ -1,0 +1,22 @@
+<% group_names = ['Freshmen', 'Sophomores', 'Juniors', 'Seniors & Graduate Students', 'All classes & walk-up (if available)'] %>
+
+<div id="<%= dom_id pull_time %>">
+  <p>
+    <strong><%= group_names[pull_time.id - 1] %></strong>
+  </p>
+
+  <p>
+    <strong>Weekday:</strong>
+    <%= Date::DAYNAMES[pull_time.weekday] %>
+  </p>
+
+  <p>
+    <strong>Start Time:</strong>
+    <%= pull_time.start_time.strftime('%l:%M %p') %>
+  </p>
+
+  <p>
+    <strong>End Time:</strong>
+    <%= pull_time.end_time.strftime('%l:%M %p') %>
+  </p>
+</div>

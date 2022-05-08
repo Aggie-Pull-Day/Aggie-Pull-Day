@@ -96,6 +96,22 @@ class GroupsController < ApplicationController
       flash[:notice] = "All groups successfully deleted."
       redirect_to '/groups'
       # redirect_to '/groups', :notice => "All groups successfully deleted."
+
+    end
+  end
+  
+  def pull_list
+    user = User.find(session[:user_id])
+    if not user.admin
+      redirect_to new_session_path
+    end
+
+    @group_id = params[:id]
+
+    group_members = User.where(group_id: @group_id)
+    @group_uins = []
+    for member in group_members
+      @group_uins.push(member.uin)
     end
   end
 

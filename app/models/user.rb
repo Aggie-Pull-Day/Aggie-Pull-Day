@@ -107,19 +107,12 @@ class User < ApplicationRecord
     this_game = Game.where(['gamedate > ?', DateTime.now]).order(gamedate: :asc).first
     gamedate = this_game['gamedate']
 
-    days_before = case group_class
-                  when 'U4'
-                    5
-                  when 'U3'
-                    4
-                  when 'U2'
-                    3
-                  else
-                    2
-                  end
+    pull_time = PullTime.find(group_class)
+    days_before = (gamedate.wday + 1) % 7 + (6 - pull_time[:weekday])
 
     pulldate = gamedate - (days_before * 60 * 60 * 24)
-    Time.new(pulldate.year, pulldate.month, pulldate.day, 8, 0, 0)
+    start_time = pull_time[:start_time]
+    Time.new(pulldate.year, pulldate.month, pulldate.day, start_time.hour, start_time.min, start_time.sec)
   end
 
   def seat
@@ -135,7 +128,7 @@ class User < ApplicationRecord
   end
 
   def group_owner?
-    group = Group.where(id: group_id).first
+    group = Group.find(group_id)
     group[:email] == get_email
   end
 
@@ -150,6 +143,25 @@ class User < ApplicationRecord
       last_name
     else
       "User #{get_uin}"
+    end
+  end
+
+  def group_name
+    group = Group.find(group_id)
+    group[:groupname]
+  end
+
+  def pull_group
+    group = Group.find(group_id)
+    case group.classification
+    when 'U4'
+      'seniors'
+    when 'U3'
+      'juniors'
+    when 'U2'
+      'sophomores'
+    else
+      'freshmen'
     end
   end
 end

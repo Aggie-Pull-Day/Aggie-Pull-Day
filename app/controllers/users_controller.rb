@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create display displayqr]
+  skip_before_action :require_login, only: %i[new create display displayqr update_pull_status]
+  skip_before_action :verify_authenticity_token, :only => [:update_pull_status]
 
   def show
     @user = User.find(params[:id])
@@ -9,14 +10,17 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def display
-    @users = User.where(nil)
-    @users = @users.filter_by_group(params[:group]) if params[:group]
+  def update_pull_status
+    success = params[:success]
+    already_pulled = params[:already_pulled]
+
+    puts "data updated"
+
   end
 
   def displayqr
     @user = User.find(params[:id])
-    @qr = RQRCode::QRCode.new("https://list-eaters.herokuapp.com/users/displayqr?group=#{@user.group_id}")
+    @qr = RQRCode::QRCode.new("https://list-eaters.herokuapp.com/groups/#{@user.group_id}/pull_list")
   end
 
   def new
@@ -87,13 +91,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def join_group_path(user)
-    # code here
-  end
-
   def add_to_group
     user = User.find(params[:id])
 
+    
     begin
       new_group = Group.find_by!(code: params[:code])
     rescue ActiveRecord::RecordNotFound
@@ -102,7 +103,15 @@ class UsersController < ApplicationController
       return
     end
 
-    user.update(group_id: new_group.id)
+    check_invite = Invite.find_by(group_id: new_group.id, invitee: user.get_email)
+
+    if not check_invite == nil
+      user.update(group_id: new_group.id)
+    else
+      flash[:error] = 'You are not invited to this group. Please contact the group administrator if you have any questions.'
+      redirect_to join_group_path(user)
+      return
+    end
 
     user.Pull
 
