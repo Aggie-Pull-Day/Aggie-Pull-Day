@@ -101,6 +101,10 @@ more_pull_times = [
   { day_of_week: 1, start_time: '8:00 AM', end_time: '5:00 PM' },
 ]
 
+more_pull_times.each do |pt|
+  PullTime.create!(pt)
+end
+
 # require 'faker'
 
 # 40.times do
