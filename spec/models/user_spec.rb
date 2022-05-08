@@ -43,17 +43,46 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'welcome' do
-    it 'returns the proper message' do
-      user = User.first
-      expect(user.welcome).to eq 'Hello, Kareem!'
+  describe 'get_uin' do
+    it 'returns the proper UIN' do
+      expect(User.first.get_uin).to eq 327000000
+    end
+  end
+
+  describe 'get_email' do
+    it 'returns the proper email address' do
+      expect(User.first.get_email).to eq 'kareemh17@tamu.edu'
+    end
+  end
+
+  describe 'get_first_name' do
+    it 'returns the proper first name' do
+      expect(User.first.get_first_name).to eq 'Kareem'
+    end
+  end
+
+  describe 'get_last_name' do
+    it 'returns the proper last name' do
+      expect(User.first.get_last_name).to eq 'Hirani'
+    end
+  end
+
+  describe 'get_classification' do
+    it 'returns the proper classification' do
+      expect(User.first.get_classification).to eq 'U4'
     end
   end
 
   describe 'hasPulled' do
     it 'returns the proper status' do
+      expect(User.first.hasPulled).to eq false
+    end
+  end
+
+  describe 'welcome' do
+    it 'returns the proper message' do
       user = User.first
-      expect(user.hasPulled).to eq false
+      expect(user.welcome).to eq 'Hello, Kareem!'
     end
   end
 
@@ -79,10 +108,10 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'pullTime' do
+  describe 'pull_time' do
     it 'returns the correct pull time' do
       user = User.first
-      pulltime = user.pullTime
+      pulltime = user.pull_time
       expect(pulltime).to eq Time.new(2022, 8, 29, 8, 0, 0)
     end
 
@@ -101,13 +130,13 @@ RSpec.describe User, type: :model do
       User.create(uin: 3, pulled: false, group_id: group.id, admin: false)
       User.create(uin: 4, pulled: false, group_id: group.id, admin: false)
       User.create(uin: 5, pulled: false, group_id: group.id, admin: false)
-      expect(User.last.pullTime).to eq Time.new(2022, 8, 30, 8, 0, 0)
+      expect(User.last.pull_time).to eq Time.new(2022, 8, 30, 8, 0, 0)
       Student.find_by(uin: 3).update(classification: 'U2')
       Student.find_by(uin: 4).update(classification: 'U2')
-      expect(User.last.pullTime).to eq Time.new(2022, 8, 31, 8, 0, 0)
+      expect(User.last.pull_time).to eq Time.new(2022, 8, 31, 8, 0, 0)
       Student.find_by(uin: 3).update(classification: 'U1')
       Student.find_by(uin: 4).update(classification: 'U1')
-      expect(User.last.pullTime).to eq Time.new(2022, 9, 1, 8, 0, 0)
+      expect(User.last.pull_time).to eq Time.new(2022, 9, 1, 8, 0, 0)
     end
   end
 
@@ -158,6 +187,16 @@ RSpec.describe User, type: :model do
                      classification: 'U4')
       user = User.create(uin: 2, pulled: false, group_id: nil, admin: false)
       expect(user.full_name).to eq 'User 2'
+    end
+  end
+
+  describe 'group_name' do
+    it 'returns the proper group name' do
+      expect(User.first.group_name).to eq 'List Eaters'
+    end
+
+    it 'returns for a user without a group' do
+      expect(User.find_by(uin: 1).group_name).to eq ''
     end
   end
 

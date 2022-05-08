@@ -5,14 +5,24 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
 
   describe 'model' do
+    it 'shows a group' do
+      get :show, params: { id: 1 }
+      expect(assigns(:user)).to eq User.first
+    end
+
+    it 'indexes groups' do
+      get :index
+      expect(assigns(:users)).to eq User.all
+    end
+
     it 'creates a new user' do
       post :create,
            params: { user: { uin: 2, pulled: false, group_id: nil, admin: false } }
       expect(response).to redirect_to User.last
     end
 
-    it 'catches an invalid user creation', pending: true do
-      post :create, params: { user: { uin: 2 } }
+    it 'catches an invalid user creation' do
+      post :create, params: { user: { uin: 1 } }
       expect(flash[:error]).to match(/^Error- please try to create an account again.$/)
       expect(response).to redirect_to '/users/new'
     end

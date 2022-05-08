@@ -65,6 +65,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner-active_record'
   gem 'faker'
+  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'simplecov'
   # Easy installation and use of web drivers to run system tests with browsers

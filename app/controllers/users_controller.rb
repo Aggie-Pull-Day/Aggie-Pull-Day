@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create display displayqr update_pull_status]
-  skip_before_action :verify_authenticity_token, :only => [:update_pull_status]
+  skip_before_action :verify_authenticity_token, only: [:update_pull_status]
 
   def show
     @user = User.find(params[:id])
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new(:pulled => false)
+    @user = User.new(pulled: false)
   end
 
   # GET /users/1/edit

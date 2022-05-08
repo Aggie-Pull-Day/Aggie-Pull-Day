@@ -100,7 +100,7 @@ class User < ApplicationRecord
     # end
   end
 
-  def pullTime
+  def pull_time
     this_group = Group.where(id: group_id).first
     group_class = this_group.classification
 
@@ -154,8 +154,12 @@ class User < ApplicationRecord
   end
 
   def group_name
-    group = Group.find(group_id)
-    group[:groupname]
+    begin
+      group = Group.find(group_id)
+      group[:groupname]
+    rescue ActiveRecord::RecordNotFound
+      ''
+    end
   end
 
   def pull_group

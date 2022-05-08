@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[ show edit update destroy ]
+  before_action :set_group, only: %i[show edit update destroy]
 
   # GET /groups or /groups.json
   def index
@@ -7,8 +7,7 @@ class GroupsController < ApplicationController
   end
 
   # GET /groups/1 or /groups/1.json
-  def show
-  end
+  def show; end
 
   # GET /groups/new
   def new
@@ -30,11 +29,8 @@ class GroupsController < ApplicationController
         if user.admin
           format.html { redirect_to group_url(@group), notice: 'Group was successfully created.' }
         else
-
-          code = SecureRandom.urlsafe_base64()
-          while Group.find_by(code: code) != nil
-            code = SecureRandom.urlsafe_base64()
-          end
+          code = SecureRandom.urlsafe_base64
+          code = SecureRandom.urlsafe_base64 until Group.find_by(code: code).nil?
 
           @group.update(owner: user.full_name, pulled: false, email: user.get_email, code: code)
           user.update(group_id: @group[:id])
