@@ -94,6 +94,13 @@ names = [%w[Kareem Hirani], %w[Jon Waterman], %w[Reid Neason], %w[Baldwin Bakkal
                   first_name: names[i][0], last_name: names[i][1], classification: 'U4')
 end
 
+more_pull_times = [
+  { day_of_week: 4, start_time: '8:00 AM', end_time: '5:00 PM' },
+  { day_of_week: 3, start_time: '8:00 AM', end_time: '5:00 PM' },
+  { day_of_week: 2, start_time: '8:00 AM', end_time: '5:00 PM' },
+  { day_of_week: 1, start_time: '8:00 AM', end_time: '5:00 PM' },
+]
+
 # require 'faker'
 
 # 40.times do
