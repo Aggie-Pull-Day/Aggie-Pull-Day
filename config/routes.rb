@@ -37,4 +37,9 @@ Rails.application.routes.draw do
   post 'users/:id/join_group', to: 'users#add_to_group', as: :add_to_group
 
   resources :sessions, only: [:new, :create, :destroy]
+
+  # resources :invites, only: [:new]
+
+  get 'invites/new', to: 'invites#new', as: :new_invite
+  post 'invites/new', to: 'invites#create', as: :create_invite
 end
