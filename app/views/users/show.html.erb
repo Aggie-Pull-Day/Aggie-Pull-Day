@@ -30,7 +30,9 @@
     <% groupname = current_user.group_name %>
     <% pull_group = current_user.pull_group %>
     <div id="pullTimer">
+      <h5 id='classification'></h5>
       <h5 id="timeToPull"></h5>
+      <h5 id='opponent'></h5>
     </div>
     <script type="text/javascript">
         function countdown() {
@@ -54,8 +56,9 @@
                 let timeLeftSeconds = ((pullTime.getTime() - now) / 1000).toFixed();
 
                 const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
-                let retStr = "The <%= groupname %> pull with the <%= pull_group %> on " + pullTime.toLocaleDateString('en-us', options) + ". ";
+                document.getElementById('classification').textContent = "The <%= groupname %> pull with the <%= pull_group %>.";
 
+                let retStr = '';
                 if (timeLeftSeconds >= SECONDS_IN_YEAR) {
                     const numYears = Math.floor(timeLeftSeconds / SECONDS_IN_YEAR);
                     retStr += numYears + ' year' + (numYears === 1 ? '' : 's');
@@ -71,9 +74,10 @@
                 } else if (timeLeftSeconds > 0) {
                     retStr += timeLeftSeconds + ' second' + (timeLeftSeconds === 1 ? '' : 's');
                 }
-                retStr += ' to go. BTHO <%= opponent %>!';
-
+                retStr += ' until you pull on ' + pullTime.toLocaleDateString('en-us', options) + '.';
                 document.getElementById("timeToPull").textContent = retStr;
+
+                document.getElementById('opponent').textContent = 'BTHO <%= opponent %>!';
 
                 const funcEnd = new Date().getTime();
                 setTimeout(countdown, 1000 - (funcEnd - funcStart));
