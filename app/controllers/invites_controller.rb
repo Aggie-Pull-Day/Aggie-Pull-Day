@@ -3,7 +3,7 @@ class InvitesController < ApplicationController
   def new
   end
 
-  def create_invite
+  def create
     invitee = params[:email]
     inviter = User.find(session[:user_id]).get_email
     group_id = User.find(session[:user_id]).group_id
@@ -12,7 +12,10 @@ class InvitesController < ApplicationController
 
     Invite.create(group_id: group_id, inviter: inviter, invitee: invitee, inviter_accepted: true, invitee_accepted: false)
 
-    # send_invite via email
+    # call method to send an invite here
+
+    redirect_to new_invite_path
+
   end
 
   def send_invite

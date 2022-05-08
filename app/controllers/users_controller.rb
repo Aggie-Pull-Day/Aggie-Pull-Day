@@ -91,13 +91,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def join_group_path(user)
-    # code here
-  end
-
   def add_to_group
     user = User.find(params[:id])
 
+    
     begin
       new_group = Group.find_by!(code: params[:code])
     rescue ActiveRecord::RecordNotFound
@@ -106,7 +103,15 @@ class UsersController < ApplicationController
       return
     end
 
-    user.update(group_id: new_group.id)
+    check_invite = Invite.find_by(group_id: new_group.id, invitee: user.get_email)
+
+    if not check_invite == nil
+      user.update(group_id: new_group.id)
+    else
+      flash[:error] = 'You are not invited to this group. Please contact the group administrator if you have any questions.'
+      redirect_to join_group_path(user)
+      return
+    end
 
     user.Pull
 
