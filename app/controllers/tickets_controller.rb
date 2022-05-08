@@ -39,9 +39,9 @@ class TicketsController < ApplicationController
     params = {'success' => success.join(','), 'already_pulled' => already_pulled.join(',')}
     
     # UNCOMMENT BELOW IF ON PRODUCTION
-    x = Net::HTTP.post_form(URI.parse('http://localhost:3000/users/update_pull_status'), params)
+    x = Net::HTTP.post_form(URI.parse('http://list-eaters.herokuapp.com/users/update_pull_status'), params)
     # UNCOMMENT BELOW IF ON DEV
-    # x = Net::HTTP.post_form(URI.parse('http://list-eaters.herokuapp.com/users/update_pull_status'), params)
+    # x = Net::HTTP.post_form(URI.parse('http://localhost:3000/users/update_pull_status'), params)
 
     redirect_to pull_list_path(id: group_id)
     
