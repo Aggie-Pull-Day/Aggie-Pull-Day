@@ -74,6 +74,9 @@ class GroupsController < ApplicationController
 
   def pull_list
     user = User.find(session[:user_id])
+    if not user.admin
+      redirect_to new_session_path
+    end
 
     @group_id = params[:id]
 
