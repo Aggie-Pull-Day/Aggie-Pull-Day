@@ -15,7 +15,6 @@ class UsersController < ApplicationController
     already_pulled = params[:already_pulled]
 
     puts "data updated"
-
   end
 
   def displayqr
@@ -89,10 +88,6 @@ class UsersController < ApplicationController
 
   def join_group
     @user = User.find(params[:id])
-  end
-
-  def join_group_path(user)
-    # code here
   end
 
   def add_to_group

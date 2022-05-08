@@ -15,12 +15,12 @@ RSpec.describe GroupsController, type: :controller do
 
     it 'makes a new group' do
       get :new
-      expect(assigns(:group_id)).to be_nil
-      expect(assigns(:groupname)).to be_nil
-      expect(assigns(:owner)).to be_nil
-      expect(assigns(:pulled)).to be_nil
-      expect(assigns(:email)).to be_nil
-      expect(assigns(:code)).to be_nil
+      group = assigns(:group)
+      expect(group.groupname).to be_nil
+      expect(group.owner).to be_nil
+      expect(group.pulled).to be_nil
+      expect(group.email).to be_nil
+      expect(group.code).to be_nil
     end
 
     it 'initiates the editing of a group' do
