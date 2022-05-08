@@ -95,10 +95,11 @@ names = [%w[Kareem Hirani], %w[Jon Waterman], %w[Reid Neason], %w[Baldwin Bakkal
 end
 
 more_pull_times = [
-  { day_of_week: 4, start_time: '8:00 AM', end_time: '5:00 PM' },
-  { day_of_week: 3, start_time: '8:00 AM', end_time: '5:00 PM' },
-  { day_of_week: 2, start_time: '8:00 AM', end_time: '5:00 PM' },
-  { day_of_week: 1, start_time: '8:00 AM', end_time: '5:00 PM' },
+  { weekday: 4, start_time: '8:00 AM', end_time: '5:00 PM' },
+  { weekday: 3, start_time: '8:00 AM', end_time: '5:00 PM' },
+  { weekday: 2, start_time: '8:00 AM', end_time: '5:00 PM' },
+  { weekday: 1, start_time: '8:00 AM', end_time: '5:00 PM' },
+  { weekday: 5, start_time: '8:00 AM', end_time: '5:00 PM' }
 ]
 
 more_pull_times.each do |pt|
