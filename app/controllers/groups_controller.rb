@@ -38,6 +38,7 @@ class GroupsController < ApplicationController
 
           @group.update(owner: user.full_name, pulled: false, email: user.get_email, code: code)
           user.update(group_id: @group[:id])
+          user.Pull
           format.html { redirect_to user }
         end
         format.json { render :show, status: :created, location: @group }
