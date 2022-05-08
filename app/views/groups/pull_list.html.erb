@@ -1,0 +1,17 @@
+<% if flash[:result] %>
+  <div class="alert alert-primary">
+    <span class="result"><%= flash[:result] %></span>
+  </div>
+<% end %>
+<%= form_with url: pull_tickets_path, local: true, method: :post do %>
+   
+  <%= hidden_field_tag :uins, @group_uins.join(",") %>
+  <%= hidden_field_tag :group_id, @group_id %>
+
+  <%= submit_tag "Pull Tickets" %>
+<% end %>
+
+<% @group_uins.each do |item| %>
+  <%= item %>
+  <br>
+<% end %>

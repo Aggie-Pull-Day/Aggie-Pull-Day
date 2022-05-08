@@ -128,7 +128,7 @@ class User < ApplicationRecord
   end
 
   def group_owner?
-    group = Group.where(id: group_id).first
+    group = Group.find(group_id)
     group[:email] == get_email
   end
 
@@ -143,6 +143,25 @@ class User < ApplicationRecord
       last_name
     else
       "User #{get_uin}"
+    end
+  end
+
+  def group_name
+    group = Group.find(group_id)
+    group[:groupname]
+  end
+
+  def pull_group
+    group = Group.find(group_id)
+    case group.classification
+    when 'U4'
+      'seniors'
+    when 'U3'
+      'juniors'
+    when 'U2'
+      'sophomores'
+    else
+      'freshmen'
     end
   end
 end
