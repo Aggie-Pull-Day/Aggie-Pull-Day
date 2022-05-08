@@ -1,0 +1,21 @@
+<% group_names = ['Freshmen', 'Sophomores', 'Juniors', 'Seniors & Graduate Students', 'All classes & walk-up (if available)'] %>
+
+<p style="color: green"><%= notice %></p>
+<div class="card container mt-2 mb-2 border-5" id="season2021" style="background-color: #744F28;">
+
+  <h1 class="mt-2 ml-2" style="color: #ffffff">Pull Times</h1>
+
+  <div id="pull_times" class="mx-auto">
+    <% @pull_times.order(:weekday).each do |pt| %>
+      <div class="card container mb-2" style="background-color: #500000;">
+        <div class="row">
+          <div class="col-md-9 my-auto" style="color: white">
+            <h4 class="mx-auto mb-0"><%= group_names[pt[:id] - 1] %></h4>
+          </div>
+          <div class="col-md-3 container"> <%= link_to "View Details", pt, :class => "btn btn-secondary mt-1 mb-1" %> </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<%= link_to 'Back to Dashboard', '/dashboard', :class => "btn btn-secondary" %>

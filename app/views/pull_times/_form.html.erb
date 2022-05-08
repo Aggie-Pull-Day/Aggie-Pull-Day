@@ -1,0 +1,37 @@
+<% dropdown_options = (0..6).collect do |i|
+  [Date::DAYNAMES[i], i]
+end %>
+
+<%= form_with(model: pull_time) do |form| %>
+  <% if pull_time.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(pull_time.errors.count, "error") %> prohibited this pull time from being saved:</h2>
+
+      <ul>
+        <% pull_time.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :weekday, style: "display: block" %>
+    <%= form.select :weekday, dropdown_options %>
+  </div>
+
+  <div>
+    <%= form.label :start_time, 'Start Time', style: "display: block" %>
+    <%= form.text_field :start_time %>
+  </div>
+
+  <div>
+    <%= form.label :end_time, 'End Time', style: "display: block" %>
+    <%= form.text_field :end_time %>
+  </div>
+
+  <br>
+  <div>
+    <%= form.submit 'Update Pull Time', :class => "btn btn-primary" %>
+  </div>
+<% end %>

@@ -42,7 +42,7 @@ Feature: have a landing page showing a group
 
     Given I am signed in as reidneason@tamu.edu
     When I press "Leave Group"
-    Then I should see "No Group"
+    Then I should see "You are not in a group. Create or join one below to get started!"
 
   Scenario: can't leave a group you aren't in
 
@@ -83,3 +83,10 @@ Feature: have a landing page showing a group
     And I enter the group groupname "Reid's Group"
     And I press "Create Group"
     Then I should see "Reid Neason: NOT PULLED"
+
+  Scenario: transfer group ownership
+
+    Given I am signed in
+    When I press "Make Group Owner"
+    Then I should not see "Remove From Group"
+    And I should see "Change Group"

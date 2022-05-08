@@ -27,70 +27,61 @@
   <% else %>
     <% pull_date = current_user.pullTime %>
     <% opponent = current_user.next_opponent %>
+    <% groupname = current_user.group_name %>
+    <% pull_group = current_user.pull_group %>
     <div id="pullTimer">
-      <h4 id="timeToPull"></h4>
+      <h5 id='classification'></h5>
+      <h5 id="timeToPull"></h5>
+      <h5 id='opponent'></h5>
     </div>
     <script type="text/javascript">
         function countdown() {
-            const funcStart = new Date().getTime();
-
-            const SECONDS_IN_YEAR = 60 * 60 * 24 * 365;
-            const SECONDS_IN_DAY = 60 * 60 * 24;
-            const SECONDS_IN_HOUR = 60 * 60;
-            const SECONDS_IN_MINUTE = 60;
-
-            const now = new Date().getTime();
-            const pullDate = "<%= pull_date %>";
-            const pullYear = parseInt(pullDate.substring(0, 4));
-            const pullMonth = parseInt(pullDate.substring(5, 7));
-            const pullDay = parseInt(pullDate.substring(8, 10));
-            const pullTime = new Date(pullYear, pullMonth - 1, pullDay, 8, 0, 0).getTime();
-
-            let timeLeftSeconds = ((pullTime - now) / 1000).toFixed();
-
-            let retStr = "";
-            let putComma;
-            if (timeLeftSeconds >= SECONDS_IN_YEAR) {
-                const numYears = Math.floor(timeLeftSeconds / SECONDS_IN_YEAR);
-                retStr += numYears + ' year' + (numYears === 1 ? '' : 's');
-                timeLeftSeconds -= numYears * SECONDS_IN_YEAR;
-                putComma = true;
+            if (<%= Group.find(current_user[:group_id]).pulled %>) {
+                document.getElementById("timeToPull").textContent = 'BTHO <%= opponent %>!';
             } else {
-                putComma = false;
-            }
-            if (timeLeftSeconds >= SECONDS_IN_DAY) {
-                const numDays = Math.floor(timeLeftSeconds / SECONDS_IN_DAY);
-                retStr += (putComma ? ', ' : '') + numDays + ' day' + (numDays === 1 ? '' : 's');
-                timeLeftSeconds -= numDays * SECONDS_IN_DAY;
-                putComma = true;
-            } else {
-                putComma = false;
-            }
-            if (timeLeftSeconds >= SECONDS_IN_HOUR) {
-                const numHours = Math.floor(timeLeftSeconds / SECONDS_IN_HOUR);
-                retStr += (putComma ? ', ' : '') + numHours + ' hour' + (numHours === 1 ? '' : 's');
-                timeLeftSeconds -= numHours * SECONDS_IN_HOUR;
-                putComma = true;
-            } else {
-                putComma = false;
-            }
-            if (timeLeftSeconds >= SECONDS_IN_MINUTE) {
-                const numMinutes = Math.floor(timeLeftSeconds / SECONDS_IN_MINUTE);
-                retStr += (putComma ? ', ' : '') + numMinutes + ' minute' + (numMinutes === 1 ? '' : 's');
-                timeLeftSeconds -= numMinutes * SECONDS_IN_MINUTE;
-                putComma = true;
-            } else {
-                putComma = false;
-            }
-            if (timeLeftSeconds > 0) {
-                retStr += (putComma ? ', ' : '') + timeLeftSeconds + ' second' + (timeLeftSeconds === 1 ? '' : 's');
-            }
-            retStr += ' left until pull time! BTHO <%= opponent %>!';
+                const funcStart = new Date().getTime();
 
-            document.getElementById("timeToPull").textContent = retStr;
+                const SECONDS_IN_YEAR = 60 * 60 * 24 * 365;
+                const SECONDS_IN_DAY = 60 * 60 * 24;
+                const SECONDS_IN_HOUR = 60 * 60;
+                const SECONDS_IN_MINUTE = 60;
 
-            const funcEnd = new Date().getTime();
-            setTimeout(countdown, 1000 - (funcEnd - funcStart));
+                const now = new Date().getTime();
+                const pullDate = "<%= pull_date %>";
+                const pullYear = parseInt(pullDate.substring(0, 4));
+                const pullMonth = parseInt(pullDate.substring(5, 7));
+                const pullDay = parseInt(pullDate.substring(8, 10));
+                const pullTime = new Date(pullYear, pullMonth - 1, pullDay, 8, 0, 0);
+
+                let timeLeftSeconds = ((pullTime.getTime() - now) / 1000).toFixed();
+
+                const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+                document.getElementById('classification').textContent = "The <%= groupname %> pull with the <%= pull_group %>.";
+
+                let retStr = '';
+                if (timeLeftSeconds >= SECONDS_IN_YEAR) {
+                    const numYears = Math.floor(timeLeftSeconds / SECONDS_IN_YEAR);
+                    retStr += numYears + ' year' + (numYears === 1 ? '' : 's');
+                } else if (timeLeftSeconds >= SECONDS_IN_DAY) {
+                    const numDays = Math.floor(timeLeftSeconds / SECONDS_IN_DAY);
+                    retStr += numDays + ' day' + (numDays === 1 ? '' : 's');
+                } else if (timeLeftSeconds >= SECONDS_IN_HOUR) {
+                    const numHours = Math.floor(timeLeftSeconds / SECONDS_IN_HOUR);
+                    retStr += numHours + ' hour' + (numHours === 1 ? '' : 's');
+                } else if (timeLeftSeconds >= SECONDS_IN_MINUTE) {
+                    const numMinutes = Math.floor(timeLeftSeconds / SECONDS_IN_MINUTE);
+                    retStr += numMinutes + ' minute' + (numMinutes === 1 ? '' : 's');
+                } else if (timeLeftSeconds > 0) {
+                    retStr += timeLeftSeconds + ' second' + (timeLeftSeconds === 1 ? '' : 's');
+                }
+                retStr += ' until you pull on ' + pullTime.toLocaleDateString('en-us', options) + '.';
+                document.getElementById("timeToPull").textContent = retStr;
+
+                document.getElementById('opponent').textContent = 'BTHO <%= opponent %>!';
+
+                const funcEnd = new Date().getTime();
+                setTimeout(countdown, 1000 - (funcEnd - funcStart));
+            }
         }
 
         countdown();
@@ -104,7 +95,8 @@
             <div class="row">
               <div class="col-md-9 my-auto">
                 <h6 class="mx-auto mb-0">
-                  <strong><%= "#{item.get_first_name} #{item.get_last_name}: " %> SEAT NUMBER <%= item.seat %></strong></h6>
+                  <strong><%= "#{item.get_first_name} #{item.get_last_name}: " %> PULLED </strong>
+                </h6>
               </div>
               <% if current_user.group_owner? %>
                 <%= button_to 'Remove From Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger pull-right" %>
@@ -114,12 +106,13 @@
         <% else %>
           <li class="list-group-item">
             <div class="row">
-              <div class="col-md-9 my-auto">
-                <h6 class="mx-auto mb-0"><strong><%= "#{item.get_first_name} #{item.get_last_name}: " %> NOT PULLED</strong>
+              <div class="col-md-8 my-auto">
+                <h6 class="mx-auto mb-0">
+                  <strong><%= "#{item.get_first_name} #{item.get_last_name}: " %> NOT PULLED</strong>
                 </h6>
               </div>
               <% if current_user.group_owner? && item.id != current_user.id %>
-                <%= button_to 'Remove From Group', remove_from_group_user_path(item.id), :class => "btn btn-danger pull-right" %>
+                <%= button_to 'Make Group Owner', reassign_group_ownership_user_path(item.id), :class => "btn btn-primary pull-right" %><%= button_to 'Remove From Group', remove_from_group_user_path(item.id), :class => "btn btn-danger ml-2 pull-right" %>
               <% end %>
             </div>
           </li>
@@ -127,8 +120,12 @@
       <% end %>
     </ul>
     <br>
-      <%= link_to "Change Groups", join_group_path(current_user), :class => "btn btn-secondary" %> <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger" %>
+    <%= link_to "Display Group Pull Code", displayqr_path(current_user), :class => "btn btn-primary" %>
     <br>
+    <% unless current_user.group_owner? %>
+      <%= link_to "Change Groups", join_group_path(current_user), :class => "btn btn-secondary" %> <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger" %>
+      <br>
+    <% end %>
   <% end %>
   <br>
 <% end %>
