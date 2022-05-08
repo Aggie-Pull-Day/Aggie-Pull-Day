@@ -16,9 +16,14 @@ Rails.application.routes.draw do
 
   get '/groups', to: 'groups#_group'
 
-  get '/users/display' => 'users#display'
+  get '/groups/:id/pull_list' => 'groups#pull_list', as: :pull_list
+
+  # get '/groups/pull_complete' => 'groups#pull_complete', as: :pull_complete
 
   get '/users/:id/displayqr' => 'users#displayqr', as: :displayqr
+
+  post 'tickets/pull_tickets' => 'tickets#pull_tickets', as: :pull_tickets
+  post 'users/update_pull_status' => 'users#update_pull_status', as: :update_pull_status
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   match '/404', to: 'errors#not_found', via: :all
   # Defines the root path route ("/")
