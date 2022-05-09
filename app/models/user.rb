@@ -57,9 +57,6 @@ class User < ApplicationRecord
     #     return []
     # end
 
-    # members = Group.where(groupname: team)
-
-    # return members
   end
 
   def Pull
