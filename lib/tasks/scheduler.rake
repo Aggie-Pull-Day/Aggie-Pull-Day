@@ -20,4 +20,8 @@ task weekly_clear_groups: :environment do
     # Remove students from seat assignments
     User.update_all(pulled: false)
     puts "Removed students seat assignments upon clearing groups"
+
+    # Remove all ticket assignments for the next week
+    Ticket.delete_all
+    puts "Deletes all entries from the Tickets table in the database"
 end
