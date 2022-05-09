@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create display displayqr update_pull_status]
-  skip_before_action :verify_authenticity_token, :only => [:update_pull_status]
+  skip_before_action :verify_authenticity_token, only: [:update_pull_status]
 
   def show
     @user = User.find(params[:id])
@@ -11,11 +11,16 @@ class UsersController < ApplicationController
   end
 
   def update_pull_status
-    success = params[:success]
-    already_pulled = params[:already_pulled]
+    pulled_uins = params[:success].split(',')
+    already_pulled = params[:already_pulled].split(',')
 
-    puts "data updated"
+    User.where(uin: pulled_uins).update_all(pulled: true)
 
+    if pulled_uins.length() > 0
+      TicketMailer.with(pulled_uins: pulled_uins, group_id: User.find_by(uin: pulled_uins[0]).group_id).email_sent.deliver_now
+    end
+
+    puts "Pull status data updated"
   end
 
   def displayqr
@@ -24,13 +29,13 @@ class UsersController < ApplicationController
     if ENV['RAILS_ENV'] == 'production'
       qr_link = "https://list-eaters.herokuapp.com/groups/#{@user.group_id}/pull_list"
     else
-      qr_link = "https://localhost:3000/groups/#{@user.group_id}/pull_list"
+      qr_link = "http://localhost:3000/groups/#{@user.group_id}/pull_list"
     end
     @qr = RQRCode::QRCode.new(qr_link)
   end
 
   def new
-    @user = User.new(:pulled => false)
+    @user = User.new(pulled: false)
   end
 
   # GET /users/1/edit
@@ -100,7 +105,6 @@ class UsersController < ApplicationController
   def add_to_group
     user = User.find(params[:id])
 
-    
     begin
       new_group = Group.find_by!(code: params[:code])
     rescue ActiveRecord::RecordNotFound
@@ -111,7 +115,7 @@ class UsersController < ApplicationController
 
     check_invite = Invite.find_by(group_id: new_group.id, invitee: user.get_email)
 
-    if not check_invite == nil
+    if !check_invite.nil?
       user.update(group_id: new_group.id)
     else
       flash[:error] = 'You are not invited to this group. Please contact the group administrator if you have any questions.'

@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'model' do
     it 'has the correct amount of data' do
-      expect(User.all.length).to eq 10
+      expect(User.all.length).to eq 9
     end
 
     it 'loads users based on a single attribute' do
@@ -20,26 +20,62 @@ RSpec.describe User, type: :model do
 
     it 'updates one attribute of a user' do
       User.first.update(pulled: true)
-      expect(User.where(pulled: false).length).to eq 9
+      expect(User.where(pulled: false).length).to eq 8
       expect(User.where(pulled: true).length).to eq 1
     end
 
     it 'updates multiple attributes of a user' do
       User.first.update(pulled: true, group_id: nil)
-      expect(User.where(pulled: false).length).to eq 9
+      expect(User.where(pulled: false).length).to eq 8
       expect(User.where(pulled: true).length).to eq 1
       expect(User.where(group_id: nil).length).to eq 2
-      expect(User.where.not(group_id: nil).length).to eq 8
+      expect(User.where.not(group_id: nil).length).to eq 7
     end
 
     it 'deletes users based on a single attribute' do
       User.where(group_id: 1).destroy_all
-      expect(User.all.length).to eq 6
+      expect(User.all.length).to eq 5
     end
 
     it 'deletes users based on multiple attributes' do
       User.where(group_id: 1, pulled: false).destroy_all
-      expect(User.all.length).to eq 6
+      expect(User.all.length).to eq 5
+    end
+  end
+
+  describe 'get_uin' do
+    it 'returns the proper UIN' do
+      expect(User.first.get_uin).to eq 327000000
+    end
+  end
+
+  describe 'get_email' do
+    it 'returns the proper email address' do
+      expect(User.first.get_email).to eq 'kareemh17@tamu.edu'
+    end
+  end
+
+  describe 'get_first_name' do
+    it 'returns the proper first name' do
+      expect(User.first.get_first_name).to eq 'Kareem'
+    end
+  end
+
+  describe 'get_last_name' do
+    it 'returns the proper last name' do
+      expect(User.first.get_last_name).to eq 'Hirani'
+    end
+  end
+
+  describe 'get_classification' do
+    it 'returns the proper classification' do
+      expect(User.first.get_classification).to eq 'U4'
+    end
+  end
+
+  describe 'hasPulled' do
+    it 'returns the proper status' do
+      expect(User.first.hasPulled).to eq false
     end
   end
 
@@ -47,13 +83,6 @@ RSpec.describe User, type: :model do
     it 'returns the proper message' do
       user = User.first
       expect(user.welcome).to eq 'Hello, Kareem!'
-    end
-  end
-
-  describe 'hasPulled' do
-    it 'returns the proper status' do
-      user = User.first
-      expect(user.hasPulled).to eq false
     end
   end
 
@@ -79,11 +108,35 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'pullTime' do
+  describe 'pull_time' do
     it 'returns the correct pull time' do
       user = User.first
-      pulltime = user.pullTime
+      pulltime = user.pull_time
       expect(pulltime).to eq Time.new(2022, 8, 29, 8, 0, 0)
+    end
+
+    it 'properly cascades through cases' do
+      group = Group.create(groupname: 'The Professors', pulled: false, owner: 'Philip Ritchey',
+                           email: 'PhilipR@tamu.edu')
+      Student.create(uin: 2, email: 'PhilipR@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Philip', last_name: 'Ritchey', classification: 'U4')
+      Student.create(uin: 3, email: 'RobertL@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Robert', last_name: 'Lightfoot', classification: 'U3')
+      Student.create(uin: 4, email: 'IoannisP@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Ioannis', last_name: 'Pazianas', classification: 'U3')
+      Student.create(uin: 5, email: 'YannisK@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Yannis', last_name: 'Kiourtsoglou', classification: 'U1')
+      User.create(uin: 2, pulled: false, group_id: group.id, admin: false)
+      User.create(uin: 3, pulled: false, group_id: group.id, admin: false)
+      User.create(uin: 4, pulled: false, group_id: group.id, admin: false)
+      User.create(uin: 5, pulled: false, group_id: group.id, admin: false)
+      expect(User.last.pull_time).to eq Time.new(2022, 8, 30, 8, 0, 0)
+      Student.find_by(uin: 3).update(classification: 'U2')
+      Student.find_by(uin: 4).update(classification: 'U2')
+      expect(User.last.pull_time).to eq Time.new(2022, 8, 31, 8, 0, 0)
+      Student.find_by(uin: 3).update(classification: 'U1')
+      Student.find_by(uin: 4).update(classification: 'U1')
+      expect(User.last.pull_time).to eq Time.new(2022, 9, 1, 8, 0, 0)
     end
   end
 
@@ -134,6 +187,48 @@ RSpec.describe User, type: :model do
                      classification: 'U4')
       user = User.create(uin: 2, pulled: false, group_id: nil, admin: false)
       expect(user.full_name).to eq 'User 2'
+    end
+  end
+
+  describe 'group_name' do
+    it 'returns the proper group name' do
+      expect(User.first.group_name).to eq 'List Eaters'
+    end
+
+    it 'returns for a user without a group' do
+      expect(User.find_by(uin: 1).group_name).to eq ''
+    end
+  end
+
+  describe 'pull_group' do
+    it 'returns the correct pull group' do
+      user = User.first
+      pullgroup = user.pull_group
+      expect(pullgroup).to eq 'seniors'
+    end
+
+    it 'properly cascades through cases' do
+      group = Group.create(groupname: 'The Professors', pulled: false, owner: 'Philip Ritchey',
+                           email: 'PhilipR@tamu.edu')
+      Student.create(uin: 2, email: 'PhilipR@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Philip', last_name: 'Ritchey', classification: 'U4')
+      Student.create(uin: 3, email: 'RobertL@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Robert', last_name: 'Lightfoot', classification: 'U3')
+      Student.create(uin: 4, email: 'IoannisP@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Ioannis', last_name: 'Pazianas', classification: 'U3')
+      Student.create(uin: 5, email: 'YannisK@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                     first_name: 'Yannis', last_name: 'Kiourtsoglou', classification: 'U1')
+      User.create(uin: 2, pulled: false, group_id: group.id, admin: false)
+      User.create(uin: 3, pulled: false, group_id: group.id, admin: false)
+      User.create(uin: 4, pulled: false, group_id: group.id, admin: false)
+      User.create(uin: 5, pulled: false, group_id: group.id, admin: false)
+      expect(User.last.pull_group).to eq 'juniors'
+      Student.find_by(uin: 3).update(classification: 'U2')
+      Student.find_by(uin: 4).update(classification: 'U2')
+      expect(User.last.pull_group).to eq 'sophomores'
+      Student.find_by(uin: 3).update(classification: 'U1')
+      Student.find_by(uin: 4).update(classification: 'U1')
+      expect(User.last.pull_group).to eq 'freshmen'
     end
   end
 end

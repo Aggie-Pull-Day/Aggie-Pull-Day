@@ -7,10 +7,21 @@ class TicketMailer < ApplicationMailer
   #
   def email_sent
     @greeting = "Hi"
-    @user = params[:user]
+    pulled_uins = params[:pulled_uins]
+
+    pulled_students = Student.where(uin: pulled_uins)
+    pulled_emails = []
+    pulled_students.each do |student|
+      pulled_emails << student.email
+    end
+    
+    puts "*****EMAIL"
+    puts pulled_emails
+
+    @group = Group.find(params[:group_id])
     mail(
     from: "aggiepullday@gmail.com",
-    to: @user.get_email,
+    to: pulled_emails,
     subject: "Your ticket has been pulled!"
     )
   end
