@@ -1,0 +1,19 @@
+<div class="card container" style="background-color: #500000; color: #ffffff">
+  <h1>New Invite</h1>
+
+  <%= form_with url: new_invite_path, local: true, method: :post do %>
+  <div>
+    <%= label_tag :email %>
+    <%= text_field_tag :email, nil %>
+  </div>
+
+  <%= submit_tag "Send Invite" %>
+
+  <% end %>
+
+  <br>
+
+  <div>
+    <%= link_to "Cancel", @group, :class => "btn btn-secondary mb-2" %>
+  </div>
+</div>
