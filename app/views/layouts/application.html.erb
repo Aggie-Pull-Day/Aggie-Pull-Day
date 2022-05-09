@@ -29,27 +29,46 @@
 <nav class="navbar navbar-expand navbar-dark" style="background-color: rgb(80, 0, 0);">
   <%# Navbar Brand %>
   <%= link_to articles_path, :class => 'navbar-brand' do %>
-    <%= image_tag(asset_path('list-eater-logo.png'), border: 0, height: 35, class: "mr-2") %><b style="font-size:22px">List Eaters</b>
+    <%= image_tag(asset_path('list-eater-logo.png'), border: 0, height: 35, class: "mr-2") %>
+    <b style="font-size:22px">List Eaters</b>
   <% end %>
   <%# <img src="./logo/logo-1024x768.png" height="50" alt="Aggie Ticket Pull logo showing a maroon ticket stub"> %>
   <%# Navbar Login %>
+  <table class="ml-auto">
+    <tr>
+      <% if current_user.present? %>
+        <td>
+          <% if current_user.admin %>
+            <% unless current_page?('/dashboard') %>
+              <div class="navbar-nav nav-item ml-auto">
+                <%= link_to 'Dashboard', '/dashboard', :class => 'btn btn-primary' %>
+              </div>
+            <% end %>
+          <% elsif !current_page?(current_user) %>
+            <div class="navbar-nav nav-item ml-auto">
+              <%= link_to 'My Group', current_user, :class => 'btn btn-primary' %>
+            </div>
+          <% end %>
+        </td>
+      <% end %>
+      <td>
+        <% if current_user.present? %>
+          <div class="navbar-nav nav-item ml-auto">
+            <%= button_to 'Sign Out', new_session_path, :class => 'btn btn-secondary', method: 'delete' %>
+          </div>
+        <% else %>
+          <div class="navbar-nav nav-item ml-auto">
+            <%= button_to 'Log In', new_session_path, :class => 'btn btn-secondary' %>
+          </div>
+        <% end %>
+      </td>
+    </tr>
+  </table>
   <% if current_user.present? %>
     <% if current_user.admin %>
-      <div class="navbar-nav nav-item ml-auto">
-        <%= link_to 'Dashboard', '/dashboard', :class => 'btn btn-secondary' %>
-      </div>
     <% else %>
-      <div class="navbar-nav nav-item ml-auto">
-        <%= link_to 'My Group', current_user, :class => 'btn btn-secondary' %>
-      </div>
     <% end %>
-    <div class="navbar-nav nav-item ml-auto">
-      <%= button_to 'Sign Out', new_session_path, :class => 'btn btn-secondary', method: 'delete' %>
-    </div>
   <% else %>
-    <div class="navbar-nav nav-item ml-auto">
-      <%= button_to 'Log In', new_session_path, :class => 'btn btn-secondary' %>
-    </div>
   <% end %>
 </nav>
 <div class="container">
