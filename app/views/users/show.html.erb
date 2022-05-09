@@ -39,7 +39,7 @@
             </div>
           </div>
         </td>
-        <td>
+        <td id="jsRow" style="display: none;">
           <div class="card mx-auto" style="width: 18rem; text-align: center">
             <div class="container">
               <% if DateTime.now.before?(pull_date) %>
@@ -111,6 +111,7 @@
             }
             document.getElementById("timeToPull").textContent = numStr;
             document.getElementById("pullUnit").textContent = unitStr + '.';
+            document.getElementById("jsRow").style.display = '';
 
             const funcEnd = new Date().getTime();
             setTimeout(countdown, 1000 - (funcEnd - funcStart));
