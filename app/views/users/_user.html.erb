@@ -5,6 +5,11 @@
   </p>
 
   <p>
+    <strong>Group:</strong>
+    <%= user[:group_id].nil? ? 'None' : Group.find(user[:group_id]).groupname %>
+  </p>
+
+  <p>
     <strong>UIN:</strong>
     <%= user.uin %>
   </p>

@@ -47,8 +47,12 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.valid?
-      session[:user_id] = @user.id
-      redirect_to @user
+      if User.find(session[:user_id]).admin
+        redirect_to users_path
+      else
+        session[:user_id] = @user.id
+        redirect_to @user
+      end
     else
       flash[:error] = 'Error- please try to create an account again.'
       redirect_to new_user_path
