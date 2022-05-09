@@ -40,6 +40,10 @@ Rails.application.routes.draw do
     # get :join_group, on: :member
   end
 
+  resources :groups do
+    post :clear_all_groups, on: :collection
+  end
+
   get 'users/:id/join_group', to: 'users#join_group', as: :join_group
   post 'users/:id/join_group', to: 'users#add_to_group', as: :add_to_group
 
