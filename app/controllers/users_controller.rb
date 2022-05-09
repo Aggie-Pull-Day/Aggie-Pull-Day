@@ -11,15 +11,27 @@ class UsersController < ApplicationController
   end
 
   def update_pull_status
-    success = params[:success]
-    already_pulled = params[:already_pulled]
+    pulled_uins = params[:success].split(',')
+    already_pulled = params[:already_pulled].split(',')
 
-    puts "data updated"
+    User.where(uin: pulled_uins).update_all(pulled: true)
+
+    if pulled_uins.length() > 0
+      TicketMailer.with(pulled_uins: pulled_uins, group_id: User.find_by(uin: pulled_uins[0]).group_id).email_sent.deliver_now
+    end
+
+    puts "Pull status data updated"
   end
 
   def displayqr
     @user = User.find(params[:id])
-    @qr = RQRCode::QRCode.new("https://list-eaters.herokuapp.com/groups/#{@user.group_id}/pull_list")
+    qr_link = ''
+    if ENV['RAILS_ENV'] == 'production'
+      qr_link = "https://list-eaters.herokuapp.com/groups/#{@user.group_id}/pull_list"
+    else
+      qr_link = "http://localhost:3000/groups/#{@user.group_id}/pull_list"
+    end
+    @qr = RQRCode::QRCode.new(qr_link)
   end
 
   def new

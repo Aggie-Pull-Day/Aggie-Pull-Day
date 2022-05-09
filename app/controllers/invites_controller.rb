@@ -13,7 +13,8 @@ class InvitesController < ApplicationController
     Invite.create(group_id: group_id, inviter: inviter, invitee: invitee, inviter_accepted: true, invitee_accepted: false)
 
     # call method to send an invite here
-
+    group = Group.find(group_id)
+    InviteMailer.with(invitee: Student.find_by(email: invitee), inviter: Student.find_by(email:inviter), group: group).email_sent.deliver_now
     redirect_to new_invite_path
 
   end

@@ -8,7 +8,7 @@
 
 desc "Clears/deletes all entries in the database's 'Groups' table"
 task weekly_clear_groups: :environment do
-    if Date.today.wday.one?
+    if Time.now.utc.wday == 1
         puts "Sunday: Running clear groups"
         # Remove users from groups
         User.update_all(group_id: nil)
