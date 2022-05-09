@@ -11,10 +11,13 @@
     </div>
   <% end %>
 
+  <% all_groups = Group.all.collect do |g|
+    [g.groupname, g.id]
+  end %>
   <div>
-     <%= form.label :group_id %><br>
-     <%= form.text_field :group_id %>
-   </div>
+    <%= form.label :group_id %><br>
+    <%= form.select :group_id, all_groups %>
+  </div>
 
   <div>
     <%= form.label :uin, 'UIN', style: "display: block" %>

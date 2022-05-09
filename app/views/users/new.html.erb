@@ -1,9 +1,13 @@
-<h1>Create an Account</h1>
+<div class="card container" style="background-color: #500000; color: #ffffff">
 
-<%= form_for @user do |f| %>
-  <%= f.label :first_name %>: <%= f.text_field :first_name %><br>
-  <%= f.label :last_name %>: <%= f.text_field :last_name %><br>
-  <%= f.label :email %>: <%= f.text_field :email %><br>
-  <%= f.label :password %>: <%= f.password_field :password %><br>
-  <%= f.submit "Create Account" %>
-<% end %>
+  <h1>New User</h1>
+
+  <%= render "form", user: @user %>
+
+  <br>
+
+  <div>
+    <%= link_to "Cancel", users_path, :class => "btn btn-secondary" %>
+  </div>
+
+</div>
