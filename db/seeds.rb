@@ -92,7 +92,12 @@ names = [%w[Kareem Hirani], %w[Jon Waterman], %w[Reid Neason], %w[Baldwin Bakkal
           end
   Student.create!(uin: 327000000 + i, email: email, password_digest: BCrypt::Password.create('Dummy'),
                   first_name: names[i][0], last_name: names[i][1], classification: 'U4')
+
+
 end
+
+Student.create!(uin: 827000000, email: 'matthewwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                  first_name: 'Matthew', last_name: 'Waterman', classification: 'U1')
 
 more_pull_times = [
   { weekday: 4, start_time: '8:00 AM', end_time: '5:00 PM' },
