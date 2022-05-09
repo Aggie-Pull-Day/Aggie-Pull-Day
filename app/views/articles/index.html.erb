@@ -14,6 +14,12 @@
           float: left;
           padding: 20px;
       }
+
+      body {
+          background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(<%= asset_path('kyle-field-westside-view.jpg') %>);
+          background-size: cover;
+          background-color: rgba(255, 255, 255, 0.8);
+      }
   </style>
 </head>
 <body>
@@ -24,70 +30,69 @@
   <h1 class='text-center'>List Eaters</h1>
   <h6 class='text-center'>We eat the lists so you don't have to.</h6>
   <%# Background Image %>
-  <div class="has-bg-img" style="background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(/kyle-field-westside-view.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh;">
-    <div class="float-container">
-      <%# Ticket Pull Times %>
-      <div class="float-child">
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover table-striped">
-            <thead class="thead-light">
-            <tr>
-              <th colspan="5" style="text-align: center;">Ticket Pull Times</th>
-            </tr>
-            <tr>
-              <th scope="col">Group</th>
-              <th scope="col">Time</th>
-              <th scope="col">Day</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% PullTime.order(:weekday).each do |pt| %>
-              <tr>
-                <td><%= group_names[pt[:id] - 1] %></td>
-                <td><%= pt[:start_time].strftime('%l %p') %> - <%= pt[:end_time].strftime('%l %p') %></td>
-                <td><%= Date::DAYNAMES[pt[:weekday]] %></td>
-              </tr>
-            <% end %>
-            </tbody>
-          </table>
-          <div>
-          </div>
-          <%# Football Games Table %>
-        </div>
-      </div>
-      <%# Ticket Pull Times %>
 
-      <%# Football Games Table %>
-      <div class="float-child">
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover table-striped">
-            <thead class="thead-light">
+  <div class="float-container">
+    <%# Ticket Pull Times %>
+    <div class="float-child">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped" style="background-color: #ffffff">
+          <thead class="thead-light">
+          <tr>
+            <th colspan="5" style="text-align: center;">Ticket Pull Times</th>
+          </tr>
+          <tr>
+            <th scope="col">Group</th>
+            <th scope="col">Time</th>
+            <th scope="col">Day</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% PullTime.order(:weekday).each do |pt| %>
             <tr>
-              <th colspan="5" style="text-align: center;"><%= now.year %> Season</th>
+              <td><%= group_names[pt[:id] - 1] %></td>
+              <td><%= pt[:start_time].strftime('%l %p') %> - <%= pt[:end_time].strftime('%l %p') %></td>
+              <td><%= Date::DAYNAMES[pt[:weekday]] %></td>
             </tr>
-            <tr>
-              <th scope="col">Opponent</th>
-              <th scope="col">Date</th>
-              <th scope="col">Time</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% Game.where(gamedate: now..end_of_year).order(:gamedate).each do |game| %>
-              <tr>
-                <td><%= game.opponent %></td>
-                <td><%= game.gamedate.strftime('%A, %B %e') %></td>
-                <td><%= game.gamedate.hour == 0 ? 'TBD' : game.gamedate.strftime('%l:%M %p') %></td>
-              </tr>
-            <% end %>
-            </tbody>
-          </table>
-          <div>
-          </div>
-          <%# Football Games Table %>
+          <% end %>
+          </tbody>
+        </table>
+        <div>
         </div>
+        <%# Football Games Table %>
       </div>
-      <%# Background Image %>
     </div>
+    <%# Ticket Pull Times %>
+
+    <%# Football Games Table %>
+    <div class="float-child">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped" style="background-color: #ffffff">
+          <thead class="thead-light">
+          <tr>
+            <th colspan="5" style="text-align: center;"><%= now.year %> Season</th>
+          </tr>
+          <tr>
+            <th scope="col">Opponent</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% Game.where(gamedate: now..end_of_year).order(:gamedate).each do |game| %>
+            <tr>
+              <td><%= game.opponent %></td>
+              <td><%= game.gamedate.strftime('%A, %B %e') %></td>
+              <td><%= game.gamedate.hour == 0 ? 'TBD' : game.gamedate.strftime('%l:%M %p') %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+        <div>
+        </div>
+        <%# Football Games Table %>
+      </div>
+    </div>
+    <%# Background Image %>
   </div>
 </main>
 <%# Main Layout %>

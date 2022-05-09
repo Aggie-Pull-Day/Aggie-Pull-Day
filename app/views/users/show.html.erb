@@ -1,3 +1,11 @@
+<style>
+    body {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(<%= asset_path('kyle-field-westside-view.jpg') %>);
+        background-size: cover;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+</style>
+
 <% if current_user.admin %>
   <p style="color: green"><%= notice %></p>
 
@@ -20,7 +28,7 @@
   <% res = current_user.getTeam %>
 
   <% if res.empty? %>
-    <div class="none">You are not in a group. Create or join one below to get started!</div>
+    <div class="none"><h5>You are not in a group. Create or join one below to get started!</h5></div>
     <br>
     <%= link_to "Join Group", join_group_path(current_user), :class => "btn btn-secondary" %>
     <%= link_to "Create a Group", new_group_path, :class => "btn btn-primary" %>
@@ -28,11 +36,38 @@
     <% pull_date = current_user.pull_time %>
     <% opponent = current_user.next_opponent %>
     <% groupname = current_user.group_name %>
-    <% pull_group = current_user.pull_group %>
+    <table class="table">
+      <tr>
+        <td>
+          <div class="card mx-auto" style="width: 18rem; text-align: center">
+            <div class="container">
+              <h4>The <%= groupname %> are a</h4>
+              <h1>U<%= Group.find(current_user[:group_id]).classification %></h1>
+              <h4>group.</h4>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="card mx-auto" style="width: 18rem; text-align: center">
+            <div class="container">
+              <h4>You pull in</h4>
+              <h1 id="timeToPull"></h1>
+              <h4 id="pullUnit"></h4>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="card mx-auto" style="width: 18rem; text-align: center">
+            <div class="container">
+              <h4>You pull at</h4>
+              <h1><%= pull_date.strftime('%l:%M %p') %></h1>
+              <h4>on <%= pull_date.strftime('%A, %B %-d') %>.</h4>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
     <div id="pullTimer">
-      <h5 id='classification'></h5>
-      <h5 id="timeToPull"></h5>
-      <h5 id='opponent'></h5>
     </div>
     <script type="text/javascript">
         function countdown() {
@@ -56,28 +91,31 @@
                 let timeLeftSeconds = ((pullTime.getTime() - now) / 1000).toFixed();
 
                 const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
-                document.getElementById('classification').textContent = "The <%= groupname %> pull with the <%= pull_group %>.";
 
-                let retStr = '';
+                let numStr = '';
+                let unitStr = '';
                 if (timeLeftSeconds >= SECONDS_IN_YEAR) {
                     const numYears = Math.floor(timeLeftSeconds / SECONDS_IN_YEAR);
-                    retStr += numYears + ' year' + (numYears === 1 ? '' : 's');
+                    numStr = numYears;
+                    unitStr = ' year' + (numYears === 1 ? '' : 's');
                 } else if (timeLeftSeconds >= SECONDS_IN_DAY) {
                     const numDays = Math.floor(timeLeftSeconds / SECONDS_IN_DAY);
-                    retStr += numDays + ' day' + (numDays === 1 ? '' : 's');
+                    numStr = numDays;
+                    unitStr = ' day' + (numDays === 1 ? '' : 's');
                 } else if (timeLeftSeconds >= SECONDS_IN_HOUR) {
                     const numHours = Math.floor(timeLeftSeconds / SECONDS_IN_HOUR);
-                    retStr += numHours + ' hour' + (numHours === 1 ? '' : 's');
+                    numStr = numHours;
+                    unitStr = ' hour' + (numHours === 1 ? '' : 's');
                 } else if (timeLeftSeconds >= SECONDS_IN_MINUTE) {
                     const numMinutes = Math.floor(timeLeftSeconds / SECONDS_IN_MINUTE);
-                    retStr += numMinutes + ' minute' + (numMinutes === 1 ? '' : 's');
+                    numStr = numMinutes;
+                    unitStr = ' minute' + (numMinutes === 1 ? '' : 's');
                 } else if (timeLeftSeconds > 0) {
-                    retStr += timeLeftSeconds + ' second' + (timeLeftSeconds === 1 ? '' : 's');
+                    numStr = timeLeftSeconds;
+                    unitStr = ' second' + (timeLeftSeconds === 1 ? '' : 's');
                 }
-                retStr += ' until you pull on ' + pullTime.toLocaleDateString('en-us', options) + '.';
-                document.getElementById("timeToPull").textContent = retStr;
-
-                document.getElementById('opponent').textContent = 'BTHO <%= opponent %>!';
+                document.getElementById("timeToPull").textContent = numStr;
+                document.getElementById("pullUnit").textContent = unitStr + '.';
 
                 const funcEnd = new Date().getTime();
                 setTimeout(countdown, 1000 - (funcEnd - funcStart));
@@ -98,9 +136,6 @@
                   <strong><%= "#{item.get_first_name} #{item.get_last_name}: " %> PULLED </strong>
                 </h6>
               </div>
-              <% if current_user.group_owner? %>
-                <%= button_to 'Remove From Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger pull-right" %>
-              <% end %>
             </div>
           </li>
         <% else %>
