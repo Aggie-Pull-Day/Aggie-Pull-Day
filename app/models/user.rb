@@ -32,7 +32,7 @@ class User < ApplicationRecord
   end
 
   def welcome
-    "Hello, #{get_first_name}!"
+    "Howdy, #{get_first_name}!"
   end
 
   def hasPulled

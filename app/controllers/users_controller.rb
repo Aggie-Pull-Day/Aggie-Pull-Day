@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     already_pulled = params[:already_pulled].split(',')
 
     User.where(uin: pulled_uins).update_all(pulled: true)
+    Group.find(User.find_by(uin: pulled_uins[0]).group_id).update(pulled: true)
 
     if pulled_uins.length() > 0
       TicketMailer.with(pulled_uins: pulled_uins, group_id: User.find_by(uin: pulled_uins[0]).group_id).email_sent.deliver_now

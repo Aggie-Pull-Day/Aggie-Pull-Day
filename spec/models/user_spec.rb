@@ -82,7 +82,7 @@ RSpec.describe User, type: :model do
   describe 'welcome' do
     it 'returns the proper message' do
       user = User.first
-      expect(user.welcome).to eq 'Hello, Kareem!'
+      expect(user.welcome).to eq 'Howdy, Kareem!'
     end
   end
 
