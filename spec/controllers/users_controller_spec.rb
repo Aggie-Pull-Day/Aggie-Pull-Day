@@ -110,10 +110,11 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe 'add_to_group' do
-    it 'successfully adds the user' do
-      get :add_to_group, params: { id: 1, code: '113' }
-      expect(User.first[:group_id]).to eq 3
-      expect(response).to redirect_to User.first
+    it 'successfully adds the user with an invite' do
+      Invite.create!(group_id: 3, inviter: 'matthewwaterman@tamu.edu', invitee: 'bbakkal97@tamu.edu')
+      get :add_to_group, params: { id: 4, code: '113' }
+      expect(User.find(4)[:group_id]).to eq 3
+      expect(response).to redirect_to User.find(4)
     end
 
     it 'catches an invalid code' do

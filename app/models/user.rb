@@ -158,11 +158,11 @@ class User < ApplicationRecord
   def pull_group
     group = Group.find(group_id)
     case group.classification
-    when 'U4'
+    when 4
       'seniors'
-    when 'U3'
+    when 3
       'juniors'
-    when 'U2'
+    when 2
       'sophomores'
     else
       'freshmen'
