@@ -136,9 +136,6 @@
                   <strong><%= "#{item.get_first_name} #{item.get_last_name}: " %> PULLED </strong>
                 </h6>
               </div>
-              <% if current_user.group_owner? %>
-                <%= button_to 'Remove From Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger pull-right" %>
-              <% end %>
             </div>
           </li>
         <% else %>
