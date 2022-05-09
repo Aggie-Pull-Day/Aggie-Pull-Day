@@ -16,9 +16,9 @@ class TicketsController < ApplicationController
     
     success = []
     already_pulled = []
-    @team = User.where(group_id: group_id)
+    @group = User.where(group_id: group_id)
 
-    @team.each do |member|
+    @group.each do |member|
       if Ticket.where(:uin => member.uin).blank?
         ticket = Ticket.create()
         ticket.update(:uin => member.uin, :seat_assignment => SecureRandom.urlsafe_base64(5))
@@ -27,7 +27,7 @@ class TicketsController < ApplicationController
 
         # make a new API call for this
         User.find_by(uin: member.uin).update(pulled: true)
-        QrMailer.with(user: member).email_sent.deliver_now
+        TicketMailer.with(user: member).email_sent.deliver_now
         
       else
         already_pulled << member.uin

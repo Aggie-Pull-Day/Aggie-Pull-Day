@@ -11,7 +11,7 @@ class TicketMailer < ApplicationMailer
     mail(
     from: "aggiepullday@gmail.com",
     to: @user.get_email,
-    subject: "Your QR Code"
+    subject: "Your ticket has been pulled!"
     )
   end
 end
