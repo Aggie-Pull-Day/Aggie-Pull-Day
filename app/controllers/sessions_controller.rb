@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user.admin ? '/dashboard' : @user
     else
-      flash[:notice] = 'Login is invalid!'
+      flash[:error] = 'Login is invalid!'
       redirect_to new_session_path
     end
   end

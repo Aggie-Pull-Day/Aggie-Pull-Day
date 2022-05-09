@@ -1,12 +1,13 @@
-<div class="card container" style="background-color: #500000; color: #ffffff">
+<div class="card container" style="width: 25rem;">
+  <div class="card-body">
+    <h2>Create New Group</h2>
 
-  <h1>New Group</h1>
+    <%= render "form", group: @group %>
 
-  <%= render "form", group: @group %>
+    <br>
 
-  <br>
-
-  <div>
-    <%= link_to "Cancel", current_user, :class => "btn btn-secondary" %>
+    <div>
+      <%= link_to "Cancel", current_user, :class => "btn btn-secondary" %>
+    </div>
   </div>
 </div>

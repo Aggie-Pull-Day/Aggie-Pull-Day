@@ -1,15 +1,21 @@
-<div class="card container" style="width: 18rem;">
+<div class="card container" style="width: 20rem;">
   <div class="card-body">
 
-  <% if flash[:notice] %>
-    <%= content_tag :h1, flash[:notice] %>
-  <% else %>
-    <%= content_tag :h2, "Log In:" %>
+  <% if flash[:error] %>
+   <div class="alert alert-danger">
+     <span class="error"><%= flash[:error] %></span>
+   </div>
   <% end %>
-  <%= form_with url: sessions_path do |f| %>
+  <%= content_tag :h2, "Log In" %>
+  <%= content_tag :h6, "with your CAS authentication" %>
 
-    <%= f.label :email %>: <%= f.text_field :email %><br>
-    <%= f.label :password %>: <%= f.password_field :password %><br>
+  <%= form_with url: sessions_path do |f| %>
+    <br>
+
+    <%= f.label :email %>:<br>
+    <%= f.text_field :email %><br>
+    <%= f.label :password %>:<br>
+    <%= f.password_field :password %><br>
     <br>
     <%= f.submit "Sign In!" %>
   <% end %>
