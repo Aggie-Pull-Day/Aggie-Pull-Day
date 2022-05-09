@@ -42,9 +42,15 @@
         <td>
           <div class="card mx-auto" style="width: 18rem; text-align: center">
             <div class="container">
-              <h4>You pull in</h4>
-              <h1 id="timeToPull"></h1>
-              <h4 id="pullUnit"></h4>
+              <% if DateTime.now.before?(pull_date) %>
+                <h4>You pull in</h4>
+                <h1 id="timeToPull"></h1>
+                <h4 id="pullUnit"></h4>
+              <% else %>
+                <h4>You pull</h4>
+                <h1>now!</h1>
+                <h5>BTHO <%= opponent %>!</h5>
+              <% end %>
             </div>
           </div>
         </td>
@@ -63,64 +69,59 @@
     </div>
     <script type="text/javascript">
         function countdown() {
-            if (<%= Group.find(current_user[:group_id]).pulled %>) {
-                document.getElementById("timeToPull").textContent = 'BTHO <%= opponent %>!';
-            } else {
-                const funcStart = new Date().getTime();
+            const funcStart = new Date().getTime();
 
-                const SECONDS_IN_YEAR = 60 * 60 * 24 * 365;
-                const SECONDS_IN_DAY = 60 * 60 * 24;
-                const SECONDS_IN_HOUR = 60 * 60;
-                const SECONDS_IN_MINUTE = 60;
+            const SECONDS_IN_YEAR = 60 * 60 * 24 * 365;
+            const SECONDS_IN_DAY = 60 * 60 * 24;
+            const SECONDS_IN_HOUR = 60 * 60;
+            const SECONDS_IN_MINUTE = 60;
 
-                const now = new Date().getTime();
-                const pullDate = "<%= pull_date %>";
-                const pullYear = parseInt(pullDate.substring(0, 4));
-                const pullMonth = parseInt(pullDate.substring(5, 7));
-                const pullDay = parseInt(pullDate.substring(8, 10));
-                const pullTime = new Date(pullYear, pullMonth - 1, pullDay, 8, 0, 0);
+            const now = new Date().getTime();
+            const pullDate = "<%= pull_date %>";
+            const pullYear = parseInt(pullDate.substring(0, 4));
+            const pullMonth = parseInt(pullDate.substring(5, 7));
+            const pullDay = parseInt(pullDate.substring(8, 10));
+            const pullTime = new Date(pullYear, pullMonth - 1, pullDay, 8, 0, 0);
 
-                let timeLeftSeconds = ((pullTime.getTime() - now) / 1000).toFixed();
+            let timeLeftSeconds = ((pullTime.getTime() - now) / 1000).toFixed();
 
-                const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+            const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
 
-                let numStr = '';
-                let unitStr = '';
-                if (timeLeftSeconds >= SECONDS_IN_YEAR) {
-                    const numYears = Math.floor(timeLeftSeconds / SECONDS_IN_YEAR);
-                    numStr = numYears;
-                    unitStr = ' year' + (numYears === 1 ? '' : 's');
-                } else if (timeLeftSeconds >= SECONDS_IN_DAY) {
-                    const numDays = Math.floor(timeLeftSeconds / SECONDS_IN_DAY);
-                    numStr = numDays;
-                    unitStr = ' day' + (numDays === 1 ? '' : 's');
-                } else if (timeLeftSeconds >= SECONDS_IN_HOUR) {
-                    const numHours = Math.floor(timeLeftSeconds / SECONDS_IN_HOUR);
-                    numStr = numHours;
-                    unitStr = ' hour' + (numHours === 1 ? '' : 's');
-                } else if (timeLeftSeconds >= SECONDS_IN_MINUTE) {
-                    const numMinutes = Math.floor(timeLeftSeconds / SECONDS_IN_MINUTE);
-                    numStr = numMinutes;
-                    unitStr = ' minute' + (numMinutes === 1 ? '' : 's');
-                } else if (timeLeftSeconds > 0) {
-                    numStr = timeLeftSeconds;
-                    unitStr = ' second' + (timeLeftSeconds === 1 ? '' : 's');
-                }
-                document.getElementById("timeToPull").textContent = numStr;
-                document.getElementById("pullUnit").textContent = unitStr + '.';
-
-                const funcEnd = new Date().getTime();
-                setTimeout(countdown, 1000 - (funcEnd - funcStart));
+            let numStr = '';
+            let unitStr = '';
+            if (timeLeftSeconds >= SECONDS_IN_YEAR) {
+                const numYears = Math.floor(timeLeftSeconds / SECONDS_IN_YEAR);
+                numStr = numYears;
+                unitStr = ' year' + (numYears === 1 ? '' : 's');
+            } else if (timeLeftSeconds >= SECONDS_IN_DAY) {
+                const numDays = Math.floor(timeLeftSeconds / SECONDS_IN_DAY);
+                numStr = numDays;
+                unitStr = ' day' + (numDays === 1 ? '' : 's');
+            } else if (timeLeftSeconds >= SECONDS_IN_HOUR) {
+                const numHours = Math.floor(timeLeftSeconds / SECONDS_IN_HOUR);
+                numStr = numHours;
+                unitStr = ' hour' + (numHours === 1 ? '' : 's');
+            } else if (timeLeftSeconds >= SECONDS_IN_MINUTE) {
+                const numMinutes = Math.floor(timeLeftSeconds / SECONDS_IN_MINUTE);
+                numStr = numMinutes;
+                unitStr = ' minute' + (numMinutes === 1 ? '' : 's');
+            } else if (timeLeftSeconds > 0) {
+                numStr = timeLeftSeconds;
+                unitStr = ' second' + (timeLeftSeconds === 1 ? '' : 's');
             }
+            document.getElementById("timeToPull").textContent = numStr;
+            document.getElementById("pullUnit").textContent = unitStr + '.';
+
+            const funcEnd = new Date().getTime();
+            setTimeout(countdown, 1000 - (funcEnd - funcStart));
         }
 
         countdown();
     </script>
 
-    <% pulled = current_user.hasPulled %>
     <ul class="list-group">
       <% res.each do |item| %>
-        <% if pulled %>
+        <% if item.pulled %>
           <li class="list-group-item">
             <div class="row">
               <div class="col-md-9 my-auto">
@@ -148,13 +149,17 @@
     </ul>
     <br>
     <div>
-          <%= link_to "Display Group Pull Code", displayqr_path(current_user), :class => "btn btn-primary float-left" %>
+      <% if Group.find(current_user[:group_id]).pulled %>
+        <h4>Groups will reset the day after the game.</h4>
+      <% else %>
+        <%= link_to "Display Group Pull Code", displayqr_path(current_user), :class => "btn btn-primary float-left" %>
         <% if current_user.group_owner? %>
-            <%= link_to "Invite Users", new_invite_path, :class => "btn btn-secondary float-right" %>
+          <%= link_to "Invite Users", new_invite_path, :class => "btn btn-secondary float-right" %>
         <% else %>
-            <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger float-right" %>
-            <%= link_to "Change Groups", join_group_path(current_user), :class => "btn btn-secondary float-right mr-2" %>
+          <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger float-right" %>
+          <%= link_to "Change Groups", join_group_path(current_user), :class => "btn btn-secondary float-right mr-2" %>
         <% end %>
+      <% end %>
     </div>
   <% end %>
   <br>
