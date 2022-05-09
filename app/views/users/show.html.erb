@@ -149,6 +149,9 @@
     <br>
     <%= link_to "Display Group Pull Code", displayqr_path(current_user), :class => "btn btn-primary" %>
     <br>
+    <% if current_user.group_owner? %>
+      <%= link_to "Invite Users", new_invite_path, :class => "btn btn-secondary" %>
+    <% end %>
     <% unless current_user.group_owner? %>
       <%= link_to "Change Groups", join_group_path(current_user), :class => "btn btn-secondary" %> <%= button_to 'Leave Group', leave_group_user_path(current_user[:id]), :class => "btn btn-danger" %>
       <br>
