@@ -53,9 +53,9 @@ RSpec.describe Group, type: :model do
   describe 'classification' do
     it 'returns the proper classification' do
       group = Group.where(groupname: 'List Eaters').first
-      expect(group.classification).to eq 'U4'
+      expect(group.classification).to eq 4
       group = Group.where(groupname: 'Team 1').first
-      expect(group.classification).to eq 'U4'
+      expect(group.classification).to eq 4
     end
 
     it 'properly cascades to the default case' do
@@ -73,7 +73,7 @@ RSpec.describe Group, type: :model do
                      first_name: 'Ioannis', last_name: 'Pazianas', classification: 'U2')
       Student.create(uin: 5, email: 'YannisK@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
                      first_name: 'Yannis', last_name: 'Kiourtsoglou', classification: 'U1')
-      expect(group.classification).to eq 'U1'
+      expect(group.classification).to eq 1
     end
 
     it 'properly cascades to a middle case' do
@@ -91,7 +91,7 @@ RSpec.describe Group, type: :model do
                      first_name: 'Ioannis', last_name: 'Pazianas', classification: 'U2')
       Student.create(uin: 5, email: 'YannisK@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
                      first_name: 'Yannis', last_name: 'Kiourtsoglou', classification: 'U1')
-      expect(group.classification).to eq 'U2'
+      expect(group.classification).to eq 2
     end
   end
 

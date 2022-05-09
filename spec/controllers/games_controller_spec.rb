@@ -20,6 +20,13 @@ RSpec.describe GamesController, type: :controller do
       Game.find_by(opponent: 'LSU').destroy
     end
 
+    it 'makes a new game' do
+      get :new
+      game = assigns(:game)
+      expect(game.opponent).to be_nil
+      expect(game.gamedate).to be_nil
+    end
+
     it 'updates one attribute of an existing game' do
       game = Game.create(opponent: 'LSU', gamedate: '26-Nov-2022')
       put :update, params: { id: game.id, game: { opponent: 'UMass' } }

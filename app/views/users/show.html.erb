@@ -25,7 +25,7 @@
     <%= link_to "Join Group", join_group_path(current_user), :class => "btn btn-secondary" %>
     <%= link_to "Create a Group", new_group_path, :class => "btn btn-primary" %>
   <% else %>
-    <% pull_date = current_user.pullTime %>
+    <% pull_date = current_user.pull_time %>
     <% opponent = current_user.next_opponent %>
     <% groupname = current_user.group_name %>
     <% pull_group = current_user.pull_group %>
