@@ -51,15 +51,6 @@ class User < ApplicationRecord
 
     @team
 
-    # team = res.first["groupname"]
-
-    # if team.blank?
-    #     return []
-    # end
-
-    # members = Group.where(groupname: team)
-
-    # return members
   end
 
   def Pull
@@ -70,6 +61,8 @@ class User < ApplicationRecord
     # ticketsToPull = members.length
 
     # availableSeats = Seat.where(assigned: false)
+    @team = User.where(group_id: group_id)
+
 
     iterate = 0
     multi_qrcode = RQRCodeCore::QRCode.new([#to be emailed
@@ -87,17 +80,11 @@ class User < ApplicationRecord
     end
 
     #now email it
-    QrMailer.with(user: self, img: @png_qr).email_sent.deliver_now
+    # QrMailer.with(user: self, img: @png_qr).email_sent.deliver_now
 
-    # members.each do |member|
-    #     puts member.email
-    # member.update_attribute(:seatnumber, availableSeats[iterate].seatnumber)
-    # member.update_attribute(:pulled, true)
-    # availableSeats[iterate].update_attribute(:assigned, true)
-    # availableSeats[iterate].update_attribute(:email, member.email)
-
-    # iterate = iterate + 1
-    # end
+    @team.each do |member|
+      QrMailer.with(user: member, img: @png_qr).email_sent.deliver_now
+    end
   end
 
   def pullTime
