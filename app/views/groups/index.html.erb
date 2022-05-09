@@ -26,8 +26,8 @@
   </div>
 </div>
 
-<div class="btn-group">
-  <%= link_to "New group", new_group_path, :class => "btn", :style => "background-color: #5B6236; color: #ffffff" %>
-  <%= button_to "Clear All Groups", clear_all_groups_groups_path(groups: @groups), :class => "btn", :style => "background-color: #5B6236; color: #ffffff" %>
-  <%= link_to 'Back to Dashboard', '/dashboard', :class => "btn btn-secondary" %>
+<div>
+  <%= link_to 'Back to Dashboard', '/dashboard', :class => "btn btn-secondary float-left" %> 
+  <%= link_to "New group", new_group_path, :class => "btn float-left", :style => "background-color: #5B6236; color: #ffffff" %>
+  <%= button_to "Clear All Groups", clear_all_groups_groups_path(groups: @groups), :class => "btn btn-danger float-right" %>
 </div>

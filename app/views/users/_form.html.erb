@@ -19,10 +19,11 @@
     <%= form.select :group_id, all_groups %>
   </div>
 
-  <div>
-    <%= form.label :uin, 'UIN', style: "display: block" %>
-    <%= form.number_field :uin %>
-  </div>
+  <%# cannot update UIN, part of CAS system identifier %>
+  <%# <div> %>
+    <%# <%= form.label :uin, 'UIN', style: "display: block" %> 
+    <%# <%= form.number_field :uin %> 
+  <%# </div> %>
 
   <div class="row mt-1">
     <%= form.label :admin, class: 'ml-3 mr-1', style: "display: block" %>

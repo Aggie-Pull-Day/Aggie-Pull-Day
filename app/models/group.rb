@@ -23,7 +23,7 @@ class Group < ApplicationRecord
   def dropdown_options
     members = User.where(group_id: id)
     members.collect do |member|
-      [member.full_name, member.get_email]
+      [member.get_email, member.get_email]
     end
   end
 end

@@ -60,6 +60,8 @@ class GroupsController < ApplicationController
 
   # DELETE /groups/1 or /groups/1.json
   def destroy
+    User.where(group_id: @group.id).update_all(group_id: nil)
+
     @group.destroy
 
     respond_to do |format|
@@ -120,6 +122,6 @@ class GroupsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def group_params
-    params.require(:group).permit(:groupname, :pulled)
+    params.require(:group).permit(:groupname, :pulled, :owner, :email)
   end
 end

@@ -19,13 +19,14 @@
   <% if @group.persisted? %>
     <div>
       <%= form.label :email, 'Group Owner', style: "display: block" %>
-      <%= form.select :owner, @group.dropdown_options %>
+      <%= form.select :email, @group.dropdown_options %>
     </div>
 
-    <div class="row mt-1">
-      <%= form.label :pulled, class: 'ml-3 mr-1', style: "display: block" %>
-      <%= form.check_box(:pulled, { class: 'ml-1 mt-1' }) %>
-    </div>
+    <%#  this information cannot be changed through our application because it is pulled from the "12th Man Foundation" Tickets model %>
+    <%# <div class="row mt-1"> %>
+      <%# <%= form.label :pulled, class: 'ml-3 mr-1', style: "display: block" %>
+      <%# <%= form.check_box(:pulled, { class: 'ml-1 mt-1' }) %>
+    <%# </div> %>
   <% end %>
   <br>
   <div>
