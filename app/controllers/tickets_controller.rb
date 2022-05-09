@@ -16,7 +16,7 @@ class TicketsController < ApplicationController
     
     success = []
     already_pulled = []
-    team = User.where(group_id: group_id)
+    @team = User.where(group_id: group_id)
 
     @team.each do |member|
       if Ticket.where(:uin => member.uin).blank?
