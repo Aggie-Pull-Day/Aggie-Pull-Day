@@ -7,11 +7,12 @@ class InviteMailer < ApplicationMailer
   #
   def email_sent
     @greeting = "Hi"
-    @user_email = params[:user_email]
-    @id = params[:id]
+    @inviter = params[:inviter]
+    @invitee = params[:invitee]
+    @group = params[:group]
     mail(
     from: "aggiepullday@gmail.com",
-    to: @user.get_email,
+    to: @invitee.email,
     subject: "You Have Been Invited to a Group!"
     )
   end

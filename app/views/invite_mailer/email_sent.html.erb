@@ -1,7 +1,7 @@
 <h1>You have been an invited to a Pullday Group</h1>
 
 <p>
-Hi, <%= @user.get_first_name%>! You have been invited to join a PullDay Group. <br>
+Hi, <%= @invitee.first_name%>! You have been invited by <%= @inviter.first_name%>  <%= @inviter.last_name%> to join the group: <%= @group.groupname%>. <br>
 
-To join your group, enter this code: <%=@id%>
+To join your group, click to change or join a group on your dashboard at http://list-eaters.herokuapp.com and enter this code: <%=@group.code%>
 </p>
