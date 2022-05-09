@@ -118,8 +118,14 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it 'catches an invalid code' do
-      get :add_to_group, params: {id: 1, code: '1784'}
+      get :add_to_group, params: { id: 1, code: '1784' }
       expect(flash[:error]).to match /^Error: please enter a valid group code.$/
+    end
+
+    it 'rejects a user without an invite' do
+      get :add_to_group, params: { id: 2, code: '113' }
+      expect(flash[:error]).to match /^You are not invited to this group. Please contact the group administrator if you have any questions.$/
+      expect(response).to redirect_to join_group_path(User.find(2))
     end
   end
 
