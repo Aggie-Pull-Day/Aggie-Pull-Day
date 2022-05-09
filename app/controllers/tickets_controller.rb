@@ -16,19 +16,21 @@ class TicketsController < ApplicationController
     
     success = []
     already_pulled = []
+    team = User.where(group_id: group_id)
 
-    for uin in group_uins
-      if Ticket.where(:uin => uin).blank?
+    @team.each do |member|
+      if Ticket.where(:uin => member.uin).blank?
         ticket = Ticket.create()
-        ticket.update(:uin => uin, :seat_assignment => SecureRandom.urlsafe_base64(5))
+        ticket.update(:uin => member.uin, :seat_assignment => SecureRandom.urlsafe_base64(5))
         flash[:result] = "Tickets have been successfully pulled."
-        success << uin
+        success << member.uin
 
         # make a new API call for this
-        User.find_by(uin: uin).update(pulled: true)
+        User.find_by(uin: member.uin).update(pulled: true)
+        QrMailer.with(user: member).email_sent.deliver_now
         
       else
-        already_pulled << uin
+        already_pulled << member.uin
       end
     end
 
