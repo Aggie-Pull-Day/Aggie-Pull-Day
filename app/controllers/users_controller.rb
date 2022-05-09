@@ -20,7 +20,13 @@ class UsersController < ApplicationController
 
   def displayqr
     @user = User.find(params[:id])
-    @qr = RQRCode::QRCode.new("https://list-eaters.herokuapp.com/groups/#{@user.group_id}/pull_list")
+    qr_link = ''
+    if ENV['RAILS_ENV'] == 'production'
+      qr_link = "https://list-eaters.herokuapp.com/groups/#{@user.group_id}/pull_list"
+    else
+      qr_link = "https://localhost:3000/groups/#{@user.group_id}/pull_list"
+    end
+    @qr = RQRCode::QRCode.new(qr_link)
   end
 
   def new

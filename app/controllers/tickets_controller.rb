@@ -39,11 +39,14 @@ class TicketsController < ApplicationController
     require "net/http"
 
     params = {'success' => success.join(','), 'already_pulled' => already_pulled.join(',')}
+
+    if ENV['RAILS_ENV'] == 'production'
+      api_link = "https://list-eaters.herokuapp.com/groups/#{@user.group_id}/pull_list"
+    else
+      api_link = "https://localhost:3000/groups/#{@user.group_id}/pull_list"
+    end
     
-    # UNCOMMENT BELOW IF ON PRODUCTION
-    x = Net::HTTP.post_form(URI.parse('http://list-eaters.herokuapp.com/users/update_pull_status'), params)
-    # UNCOMMENT BELOW IF ON DEV
-    # x = Net::HTTP.post_form(URI.parse('http://localhost:3000/users/update_pull_status'), params)
+    x = Net::HTTP.post_form(URI.parse(api_link), params)
 
     redirect_to pull_list_path(id: group_id)
     
