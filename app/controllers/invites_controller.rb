@@ -13,7 +13,8 @@ class InvitesController < ApplicationController
     Invite.create(group_id: group_id, inviter: inviter, invitee: invitee, inviter_accepted: true, invitee_accepted: false)
 
     # call method to send an invite here
-
+    group = Group.where(id: group_id)
+    InviteMailer.with(user_email: invitee, id: group.code).email_sent.deliver_now
     redirect_to new_invite_path
 
   end
