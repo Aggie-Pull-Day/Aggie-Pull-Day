@@ -36,8 +36,6 @@ end
 more_groups = [
   { groupname: 'List Eaters', owner: 'Kareem Hirani',
     pulled: false, email: 'kareemh17@tamu.edu', code: '111' },
-  { groupname: 'Team 1', owner: 'Cora English',
-    pulled: false, email: 'CoraEnglish@tamu.edu', code: '112' },
   { groupname: 'Freshmen Are Cool', owner: 'Matthew Waterman',
     pulled: false, email: 'matthewwaterman@tamu.edu', code: '113' }
 ]
@@ -58,11 +56,13 @@ more_users = [
   { uin: 327000001, pulled: false, group_id: 1, admin: false },
   { uin: 327000002, pulled: false, group_id: 1, admin: false },
   { uin: 327000003, pulled: false, group_id: 1, admin: false },
-  { uin: 327000004, pulled: false, group_id: 2, admin: false },
-  { uin: 327000005, pulled: false, group_id: 2, admin: false },
-  { uin: 327000006, pulled: false, group_id: 2, admin: false },
-  { uin: 327000007, pulled: false, group_id: 2, admin: false },
-  { uin: 1, pulled: false, group_id: nil, admin: true }
+  { uin: 327000004, pulled: false, group_id: 1, admin: false },
+  { uin: 327000005, pulled: false, group_id: 1, admin: false },
+  { uin: 327000006, pulled: false, group_id: 1, admin: false },
+  { uin: 327000007, pulled: false, group_id: 1, admin: false },
+  { uin: 1, pulled: false, group_id: nil, admin: true },
+  { uin: 827000000, pulled: false, group_id: 2, admin: false },
+  { uin: 327000001, pulled: false, group_id: 2, admin: false },
 ]
 
 more_users.each do |user|
@@ -92,6 +92,9 @@ end
 
 Student.create!(uin: 827000000, email: 'matthewwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
                 first_name: 'Matthew', last_name: 'Waterman', classification: 'U1')
+
+Student.create!(uin: 827000000, email: 'ryansmith@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+                first_name: 'Ryan', last_name: 'Smith', classification: 'U1')
 
 more_pull_times = [
   { weekday: 4, start_time: '8:00 AM', end_time: '5:00 PM' },
