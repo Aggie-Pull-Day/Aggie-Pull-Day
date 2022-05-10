@@ -53,7 +53,7 @@ end
 
 more_users = [
   { uin: 327000000, pulled: false, group_id: 1, admin: false },
-  { uin: 327000001, pulled: false, group_id: 1, admin: false },
+  { uin: 327000001, pulled: false, group_id: 2, admin: false },
   { uin: 327000002, pulled: false, group_id: 1, admin: false },
   { uin: 327000003, pulled: false, group_id: 1, admin: false },
   { uin: 327000004, pulled: false, group_id: 1, admin: false },
@@ -62,7 +62,7 @@ more_users = [
   { uin: 327000007, pulled: false, group_id: 1, admin: false },
   { uin: 1, pulled: false, group_id: nil, admin: true },
   { uin: 827000000, pulled: false, group_id: 2, admin: false },
-  { uin: 327000001, pulled: false, group_id: 2, admin: false },
+  { uin: 827000001, pulled: false, group_id: 2, admin: false },
 ]
 
 more_users.each do |user|
