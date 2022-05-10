@@ -93,7 +93,7 @@ end
 Student.create!(uin: 827000000, email: 'matthewwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
                 first_name: 'Matthew', last_name: 'Waterman', classification: 'U1')
 
-Student.create!(uin: 827000000, email: 'ryansmith@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
+Student.create!(uin: 827000001, email: 'ryansmith@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
                 first_name: 'Ryan', last_name: 'Smith', classification: 'U1')
 
 more_pull_times = [
