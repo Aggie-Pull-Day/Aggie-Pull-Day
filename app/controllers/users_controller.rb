@@ -76,10 +76,10 @@ class UsersController < ApplicationController
 
   # DELETE /people/1 or /people/1.json
   def destroy
-    @user.destroy
+    User.find(params[:id]).destroy
 
     respond_to do |format|
-      format.html { redirect_to people_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_path, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
