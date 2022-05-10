@@ -46,6 +46,7 @@
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.8.1, rbenv: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bootsnap (v1.11.1, rbenv: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.4, rbenv: 3.0.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.2.3, rbenv: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v11.1.3, rbenv: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v3.37.0, rbenv: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="childprocess (v4.1.0, rbenv: 3.0.0) [gem]" level="application" />
@@ -91,6 +92,7 @@
     <orderEntry type="library" scope="PROVIDED" name="net-protocol (v0.1.3, rbenv: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="net-smtp (v0.3.1, rbenv: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.5.8, rbenv: 3.0.0) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.13.6, rbenv: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parallel (v1.22.1, rbenv: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parser (v3.1.2.0, rbenv: 3.0.0) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pg (v1.3.5, rbenv: 3.0.0) [gem]" level="application" />
@@ -338,6 +340,11 @@
               <RakeTaskImpl description="" fullCommand="db:truncate_all" id="truncate_all" />
             </subtasks>
           </RakeTaskImpl>
+          <RakeTaskImpl id="db_scheduled_tasks">
+            <subtasks>
+              <RakeTaskImpl description="Clears/deletes all entries in the database's 'Groups' table" fullCommand="db_scheduled_tasks:weekly_clear_groups" id="weekly_clear_groups" />
+            </subtasks>
+          </RakeTaskImpl>
           <RakeTaskImpl id="importmap">
             <subtasks>
               <RakeTaskImpl description="Setup Importmap for the app" fullCommand="importmap:install" id="install" />
@@ -474,6 +481,7 @@
               <RakeTaskImpl description="" fullCommand="webpacker:clean" id="clean" />
             </subtasks>
           </RakeTaskImpl>
+          <RakeTaskImpl description="Clears/deletes all entries in the database's 'Groups' table" fullCommand="weekly_clear_groups" id="weekly_clear_groups" />
           <RakeTaskImpl id="yarn">
             <subtasks>
               <RakeTaskImpl description="Install all JavaScript dependencies as specified via Yarn" fullCommand="yarn:install" id="install" />

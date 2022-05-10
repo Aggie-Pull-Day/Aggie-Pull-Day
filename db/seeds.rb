@@ -77,27 +77,21 @@ names = [%w[Kareem Hirani], %w[Jon Waterman], %w[Reid Neason], %w[Baldwin Bakkal
          %w[Manuel Trevino], %w[Cole Newby], %w[Kavi Thiagarajan], %w[Xavier Polisetty], %w[Steve George],
          %w[Will Norman], %w[Wei-Jie Gao], %w[Carolyn Nguyen], %w[Mari Lopez], %w[Jennifer Yuan], %w[Emma Ziesmer],
          %w[Ryan Parker], %w[Jireh Ferrer], %w[Sabrina Smith], %w[Hanson Yu]]
+emails = %w[kareemh17@tamu.edu jonrwaterman@tamu.edu reidneason@tamu.edu bbakkal97@tamu.edu rmcfadden@tamu.edu
+            nikhitha06@tamu.edu gracenli@tamu.edu coraenglish@tamu.edu anukhatri@tamu.edu kchoudhury1@tamu.edu
+            mahaliecs@tamu.edu derik0194@tamu.edu tonyy007@tamu.edu amosric@tamu.edu ojasonbernal@tamu.edu
+            burgerman1020@tamu.edu nicbenavides@tamu.edu manuelraul5@tamu.edu cnewby5283@tamu.edu
+            kvthiagarajan18@tamu.edu xavierp117@tamu.edu steveg251@tamu.edu wnorman136031@tamu.edu gaow051001@tamu.edu
+            carolynnguyen@tamu.edu mrllpz@tamu.edu jyuan1999@tamu.edu emmaziesmer@tamu.edu ryanmparker@tamu.edu
+            jirehferrer@tamu.edu sabrina@tamu.edu hyu@tamu.edu]
 (0..names.length - 1).each do |i|
-  email = case i
-          when 0
-            'kareemh17@tamu.edu'
-          when 1
-            'jonrwaterman@tamu.edu'
-          when 2
-            'reidneason@tamu.edu'
-          when 3
-            'bbakkal97@tamu.edu'
-          else
-            "#{names[i][0]}#{names[i][1]}@tamu.edu"
-          end
-  Student.create!(uin: 327000000 + i, email: email, password_digest: BCrypt::Password.create('Dummy'),
+  Student.create!(uin: 327000000 + i, email: emails[i], password_digest: BCrypt::Password.create('Dummy'),
                   first_name: names[i][0], last_name: names[i][1], classification: 'U4')
-
 
 end
 
 Student.create!(uin: 827000000, email: 'matthewwaterman@tamu.edu', password_digest: BCrypt::Password.create('Dummy'),
-                  first_name: 'Matthew', last_name: 'Waterman', classification: 'U1')
+                first_name: 'Matthew', last_name: 'Waterman', classification: 'U1')
 
 more_pull_times = [
   { weekday: 4, start_time: '8:00 AM', end_time: '5:00 PM' },
